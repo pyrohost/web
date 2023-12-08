@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     url: 'https://pyro.host',
   },
 }
+
 export const viewport: Viewport = {
   themeColor: '#ff4b40',
 }
