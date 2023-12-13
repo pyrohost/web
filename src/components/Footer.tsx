@@ -85,6 +85,7 @@ const Footer = () => {
             </li>
             <li>
               <Link href='/coming-soon'>
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 Garry's Mod
               </Link>
             </li>
