@@ -1,18 +1,21 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
+import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Pyro.host',
-  description: 'The ultimate hosting solution for gamers',
+  metadataBase: new URL('https://pyro.host/'),
+  title: 'pyro.host',
+  description: 'pyro.host is a game focused hosting platform providing simple and reliable services for anyone to create their own experiences! We give you excellent infrastructure, control panel, and more at a competitive price.',
   openGraph: {
-    title: 'Pyro.host',
-    description: 'The ultimate hosting solution for gamers',
+    title: 'pyro',
+    description: 'pyro.host is a game focused hosting platform providing simple and reliable services for anyone to create their own experiences! We give you excellent infrastructure, control panel, and more at a competitive price.',
     images: [
       {
-        url: 'https://pyro.host/ogimage.png',
+        url: './ogimage.png',
       }
     ],
     url: 'https://pyro.host',
@@ -29,13 +32,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className="h-fit w-full relative bg-dark-950 text-white">
+      <body className={`${jakarta.className} h-fit w-full relative`}>
         <>
-          <img loading='lazy' decoding='async' style={{
-            WebkitMask: 'linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, .8) 25%, #d9d9d9 50%, rgba(217, 217, 217, .8) 75%, rgba(217, 217, 217, 0) 100%)'
-          }} className='fixed bottom-0 left-0 right-0 top-0 w-screen bg-cover opacity-25 bg-center bg-no-repeat' src="/img/fire.png" alt="" />
-          {children}
+          <div className='flex flex-col w-full h-full'>
+            <NavBar />
+            {children}
+            <Footer />
+          </div>
         </>
       </body>
     </html>
