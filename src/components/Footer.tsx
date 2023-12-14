@@ -9,9 +9,9 @@ const Footer = () => {
         // WebkitMaskImage: 'linear-gradient(black, transparent 99.9%)'
       }}>
         <div className='absolute w-full h-full inset-0' style={{
-          WebkitMaskImage: 'linear-gradient(transparent, black 99.9%)'
+          WebkitMaskImage: 'linear-gradient(transparent, black 99%)'
         }}>
-          <img src='/img/footerlogo.png' alt='' aria-hidden className='absolute w-full h-full inset-0 bg-repeat-x object-cover'></img>
+          <img src='/img/footerlogo.png' alt='' aria-hidden className='absolute w-full h-full inset-0 bg-repeat-x object-cover brightness-150'></img>
         </div>
       </div>
       {/* <svg className='absolute top-0 left-6 bottom-0 select-none pointer-events-none flex h-full shrink-0' aria-hidden xmlns="http://www.w3.org/2000/svg" width="960" height="382" viewBox="0 0 960 382" fill="none">
@@ -23,20 +23,20 @@ const Footer = () => {
         </g>
         <defs>
           <linearGradient id="paint0_linear_219_18" x1="480" y1="-362.423" x2="480" y2="382" gradientUnits="userSpaceOnUse">
-            <stop stop-color="white" stop-opacity="0" />
-            <stop offset="1" stop-color="white" />
+            <stop stopColor="white" stop-opacity="0" />
+            <stop offset="1" stopColor="white" />
           </linearGradient>
           <linearGradient id="paint1_linear_219_18" x1="480" y1="-362.423" x2="480" y2="382" gradientUnits="userSpaceOnUse">
-            <stop stop-color="white" stop-opacity="0" />
-            <stop offset="1" stop-color="white" />
+            <stop stopColor="white" stop-opacity="0" />
+            <stop offset="1" stopColor="white" />
           </linearGradient>
           <linearGradient id="paint2_linear_219_18" x1="480" y1="-362.423" x2="480" y2="382" gradientUnits="userSpaceOnUse">
-            <stop stop-color="white" stop-opacity="0" />
-            <stop offset="1" stop-color="white" />
+            <stop stopColor="white" stop-opacity="0" />
+            <stop offset="1" stopColor="white" />
           </linearGradient>
           <linearGradient id="paint3_linear_219_18" x1="480" y1="-362.423" x2="480" y2="382" gradientUnits="userSpaceOnUse">
-            <stop stop-color="white" stop-opacity="0" />
-            <stop offset="1" stop-color="white" />
+            <stop stopColor="white" stop-opacity="0" />
+            <stop offset="1" stopColor="white" />
           </linearGradient>
         </defs>
       </svg> */}
@@ -46,7 +46,7 @@ const Footer = () => {
           <div className='h-12'>
             <Logo />
           </div>
-          <div className='text-sm'>Pyro is a better way to host games.</div>
+          <div className='text-sm max-w-[30ch] leading-relaxed'>Pyro is a better way to host games. Instantly available, lag-free servers with unmatched value.</div>
         </div>
         <div className='flex flex-row gap-4'>
           <ul className='list-none flex flex-col gap-4 w-32'>

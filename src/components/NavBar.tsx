@@ -9,6 +9,9 @@ const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    const isScrolled = window.scrollY > 120;
+    setScrolled(isScrolled);
+
     const handleScroll = () => {
       const isScrolled = window.scrollY > 120;
       setScrolled(isScrolled);
@@ -23,7 +26,7 @@ const NavBar = () => {
 
   return (
     <header className={`fixed left-0 right-0 top-0 px-16 w-full z-[9999]`}>
-      <nav className={`main-nav nav-controller will-change-transform max-w-[1620px] w-full relative mx-auto backdrop-blur-xl rounded-full p-2 mt-4 flex flex-row items-center gap-4 overflow-hidden transition-all duration-[750ms] ${scrolled ? "!max-w-[670px] !p-1 !mt-2 bg-[#ffffff08] border-[1px] border-[#ffffff08] border-solid" : "bg-[#ffffff05] border-[1px] border-[#ffffff00] border-solid"
+      <nav className={`main-nav nav-controller will-change-transform max-w-[1620px] w-full relative mx-auto backdrop-blur-xl rounded-full p-2 mt-4 flex flex-row items-center gap-4 overflow-hidden transition-all duration-[550ms] ${scrolled ? "!max-w-[740px] !p-1 !px-8 !mt-0 !rounded-t-none bg-[#ffffff08] border-[1px] border-[#ffffff08] border-solid" : "bg-[#ffffff05] border-[1px] border-[#ffffff00] border-solid"
         }`}>
         <Link className='shrink-0 p-4 w-fit font-bold text-sm' href="/">
           <div className='h-8'>
@@ -40,7 +43,7 @@ const NavBar = () => {
           Support
         </Link>
 
-        <div className={`h-[16px] shrink-0 ml-auto w-[1px] bg-[#ffffff29] ${scrolled ? 'opacity-100' : 'opacity-0'} `}></div>
+        <div className={`h-[16px] shrink-0 ml-auto w-[1px] bg-[#ffffff29] ${scrolled ? 'opacity-100 mr-2' : 'opacity-0'} `}></div>
 
         <a className='shrink-0 p-4 w-fit font-bold text-sm' rel='noopener noreferrer' target='_blank' href="https://billing.pyro.host/index.php/client/login/">
           Billing
