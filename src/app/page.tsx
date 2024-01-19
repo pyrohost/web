@@ -45,37 +45,26 @@ export default function Home() {
             </div>
 
             <div className='absolute inset-0 user-select-none pointer-events-none img-opacity-animation'>
-              <div className='w-screen h-screen relative inset-0 user-select-none pointer-events-none'>
+              <div className='w-screen h-screen min-h-[950px] relative inset-0 user-select-none pointer-events-none'>
                 <Image alt='' aria-hidden src="/img/fire2.png" fill className='object-cover user-select-none pointer-events-none' />
                 <Image alt='' aria-hidden src="/img/fire.svg" fill className='object-cover user-select-none pointer-events-none' />
                 <Image alt='' aria-hidden src="/img/godrays.png" fill className='scale-150  user-select-none pointer-events-none' />
               </div>
             </div>
-
-            {/* <img loading='lazy' decoding='async' src="/img/fire2.png" alt='' aria-hidden style={{
-              backgroundSize: 'cover',
-              backgroundPosition: 'center center',
-              backgroundRepeat: 'no-repeat',
-              objectFit: 'cover',
-            }} className='img-fade-in inset-0 absolute w-full h-full bg-fill select-none pointer-events-none z-0 brightness-125' />
-
-            <img loading='lazy' decoding='async' src="/img/fire.svg" alt='' aria-hidden style={{
-              backgroundSize: 'cover',
-              backgroundPosition: 'center center',
-              backgroundRepeat: 'no-repeat',
-              objectFit: 'cover',
-            }} className='img-fade-in inset-0 absolute w-full h-full bg-fill select-none pointer-events-none z-0 brightness-[1.4]' /> */}
           </section>
 
           <section className="h-full w-full relative px-16 my-[12rem]">
-            <div aria-hidden style={{
-              backgroundImage: 'url(/img/chips.png)',
-              backgroundRepeat: 'no-repeat',
-            }} className='absolute left-0 w-72 h-[calc(100%+240px)] -top-24 saturate-150 brightness-150 pointer-events-none'></div>
-            <div aria-hidden  style={{
-              backgroundImage: 'url(/img/chips2.png)',
-              backgroundRepeat: 'no-repeat',
-            }} className='absolute right-0 w-72 h-[calc(100%+240px)] -top-24 saturate-150 brightness-150 pointer-events-none'></div>
+            <div className='absolute inset-0 user-select-none pointer-events-none img-opacity-animation'>
+              <div className='w-full h-full relative inset-0 user-select-none pointer-events-none flex justify-between'>
+                <div className='h-full w-[25%] relative'>
+                  <Image alt='' aria-hidden src="/img/chips2.png" fill className='object-cover user-select-none pointer-events-none' />
+                </div>
+                <div className='h-full w-[25%] relative'>
+                  <Image alt='' aria-hidden src="/img/chips.png" fill className='object-cover user-select-none pointer-events-none' />
+                </div>
+              </div>
+            </div>
+
             <div className='py-32 flex flex-col text-center items-center justify-center w-full max-w-[1620px] mx-auto h-full relative'>
               <div className='pointer-events-none transform-gpu ignite-circle absolute top-1/2 -translate-y-[82%] w-[48rem] h-[48rem] rounded-full' style={{
                 background: 'linear-gradient(180deg, rgba(248, 116, 116, 0.07) 0%, rgba(252, 142, 142, 0.00) 64.74%)'
@@ -108,14 +97,16 @@ export default function Home() {
           </section>
 
           <section className="h-full w-full relative px-16 my-[12rem]">
-            <div style={{
-              backgroundImage: 'url(/img/stars.png)',
-              backgroundRepeat: 'no-repeat',
-            }} className='absolute left-0 w-[480px] h-[calc(100%+240px)] top-24 saturate-150 brightness-150'></div>
-            <div style={{
-              backgroundImage: 'url(/img/stars2.png)',
-              backgroundRepeat: 'no-repeat',
-            }} className='absolute right-0 w-[520px] h-[calc(100%+240px)] -top-24 saturate-150 brightness-150'></div>
+          <div className='absolute inset-0 user-select-none pointer-events-none img-opacity-animation'>
+              <div className='w-full h-full relative inset-0 user-select-none pointer-events-none flex justify-between'>
+                <div className='h-full w-[25%] relative'>
+                  <Image alt='' aria-hidden src="/img/stars2.png" fill className='object-cover user-select-none pointer-events-none' />
+                </div>
+                <div className='h-full w-[25%] relative'>
+                  <Image alt='' aria-hidden src="/img/stars.png" fill className='object-cover user-select-none pointer-events-none' />
+                </div>
+              </div>
+            </div>
             <div className='py-32 flex flex-col text-center items-center justify-center w-full max-w-[1620px] mx-auto h-full relative z-10'>
               <h1 className='mt-4 text-[62px] max-w-[650px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
                 Servers that <span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>spark to life</span> in seconds
@@ -146,12 +137,13 @@ export default function Home() {
                   </h1>
                 </div>
               </div>
-              <img loading='lazy' decoding='async' src="/img/globe.png" alt='' aria-hidden style={{
-                backgroundSize: 'cover',
-                backgroundPosition: 'center center',
-                backgroundRepeat: 'no-repeat',
-                objectFit: 'cover',
-              }} className='max-w-[1620px] img-fade-in top-[300px] left-1/2 -translate-x-1/2 absolute w-full h-full select-none pointer-events-none  brightness-[1.4]' />
+              <div className='absolute inset-0 user-select-none pointer-events-none img-opacity-animation'>
+              <div className='w-full h-full relative inset-0 user-select-none pointer-events-none flex justify-between'>
+                <div className='h-full w-full relative'>
+                  <Image alt='' width={1682} height={800} aria-hidden src="/img/globe.png" className='max-w-[1620px] top-[200px] absolute object-cover user-select-none pointer-events-none left-1/2 -translate-x-1/2' />
+                </div>
+              </div>
+            </div>
             </div>
           </section>
 
