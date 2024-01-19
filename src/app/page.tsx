@@ -125,7 +125,7 @@ export default function Home() {
               <div className='flex flex-row gap-12 absolute left-1/2 -translate-x-1/2 z-10'>
                 <div className='bg-[#ffffff11] w-fit p-12 backdrop-blur-xl rounded-[64px]'>
                   <h1 className='mt-4 text-[42px] max-w-[240px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
-                    New York, United States
+                    Helsinki, Finland
                   </h1>
                   <a style={{ backgroundImage: 'radial-gradient(1182.86% 226.39% at 34.92% 22.73%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.00) 100%)' }} className='mt-8 text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4 border-2 border-[#ffffff08] border-solid' href='https://billing.pyro.host/'>
                     <p>Test your ping</p>
