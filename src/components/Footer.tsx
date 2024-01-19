@@ -1,19 +1,20 @@
 import Link from 'next/link'
 import Logo from './Logo'
+import Image from 'next/image'
 
 const Footer = () => {
 
   return (
-    <footer className='mt-auto relative h-full w-full px-16 py-8'>
-      <div className='absolute w-full h-full inset-0 brightness-[4]' style={{
+    <footer className='mt-auto relative h-full w-full px-8 py-8 lg:px-32 lg:py-24'>
+      {/* <div className='absolute w-full h-full inset-0 brightness-[4]' style={{
         // WebkitMaskImage: 'linear-gradient(black, transparent 99.9%)'
       }}>
-        <div className='absolute w-full h-full inset-0' style={{
+        <div className='absolute w-full h-full inset-0 brightness-[4]' style={{
           WebkitMaskImage: 'linear-gradient(transparent, black 99%)'
-        }}>
-          <img src='/img/footerlogo.png' alt='' aria-hidden className='absolute w-full h-full inset-0 bg-repeat-x object-cover'></img>
-        </div>
-      </div>
+        }}> */}
+          <Image fill src='/img/footerlogo.png' alt='' aria-hidden className='user-select-none pointer-events-none absolute w-full h-full inset-0 bg-repeat-x object-cover' />
+        {/* </div>
+      </div> */}
       {/* <svg className='absolute top-0 left-6 bottom-0 select-none pointer-events-none flex h-full shrink-0' aria-hidden xmlns="http://www.w3.org/2000/svg" width="960" height="382" viewBox="0 0 960 382" fill="none">
         <g opacity="0.03">
           <path d="M39.7653 39.4503C66.5606 13.1501 98.772 0 136.399 0C174.027 0 206.096 13.1501 232.606 39.4503C259.401 65.4706 272.799 96.9469 272.799 133.879C272.799 170.811 259.401 202.427 232.606 228.728C206.096 254.748 174.027 267.758 136.399 267.758C124.177 267.758 112.241 266.208 100.592 263.108C88.3522 259.851 82.2322 258.222 78.9573 260.679C75.6824 263.136 75.6824 268.776 75.6824 280.056V341.217C75.6824 346.224 75.6824 348.728 74.4009 350.726C73.1193 352.724 70.8187 353.807 66.2174 355.975L23.9118 375.901C13.1715 380.959 7.80142 383.488 3.90071 381.081C0 378.674 0 372.83 0 361.143V133.879C0 96.9469 13.2551 65.4706 39.7653 39.4503ZM179.158 92.3304C167.47 80.5792 153.218 74.7037 136.399 74.7037C119.581 74.7037 105.186 80.5792 93.2134 92.3304C81.5261 103.802 75.6824 117.651 75.6824 133.879C75.6824 150.387 81.5261 164.516 93.2134 176.267C105.186 187.738 119.581 193.474 136.399 193.474C153.218 193.474 167.47 187.738 179.158 176.267C191.13 164.516 197.116 150.387 197.116 133.879C197.116 117.651 191.13 103.802 179.158 92.3304Z" fill="url(#paint0_linear_219_18)" />
@@ -41,7 +42,7 @@ const Footer = () => {
         </defs>
       </svg> */}
 
-      <div className='max-w-[1620px] mx-auto flex flex-row justify-between w-full'>
+      <div className='max-w-[1620px] mx-auto flex flex-col gap-16 lg:flex-row justify-between w-full'>
         <div className='items-start flex flex-col gap-4'>
           <div className='h-12'>
             <Logo />

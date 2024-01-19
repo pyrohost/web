@@ -9,7 +9,7 @@ const Page = () => {
     <main className="h-full w-full relative">
       <section className="h-screen w-full relative px-16">
         <div className='flex flex-col w-full max-w-[1620px] mx-auto'>
-          <div className='flex flex-col max-w-[735px] w-full mx-auto pt-60'>
+          <div className='flex flex-col max-w-[735px] w-full mx-auto pt-60 z-10'>
             <h1 className='mt-4 text-[109px] font-extrabold leading-[98%] tracking-[-0.35rem]'>
               <span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>Coming Soon</span>
             </h1>

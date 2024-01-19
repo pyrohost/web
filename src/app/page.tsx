@@ -1,4 +1,5 @@
 import Holo from '@/components/Holo'
+import Image from 'next/image'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -9,12 +10,6 @@ export default function Home() {
 
   return (
     <>
-      <div aria-hidden style={{
-        backgroundImage: 'url(/img/godrays.png)',
-        backgroundSize: '150rem',
-        backgroundRepeat: 'no-repeat',
-      }} className='absolute w-[200vw] h-full bg-left-top -top-[5%] -left-[20%] blur-lg saturate-150 brightness-150 mix-blend-lighten z-10 isolate'></div>
-
       <main className="shrink-0 h-fit w-full relative">
         <div className='w-full h-full'>
           <section className="min-h-[950px] h-screen w-full relative px-16">
@@ -49,7 +44,15 @@ export default function Home() {
               </div>
             </div>
 
-            <img loading='lazy' decoding='async' src="/img/fire2.png" alt='' aria-hidden style={{
+            <div className='absolute inset-0 user-select-none pointer-events-none img-opacity-animation'>
+              <div className='w-screen h-screen relative inset-0 user-select-none pointer-events-none'>
+                <Image alt='' aria-hidden src="/img/fire2.png" fill className='object-cover user-select-none pointer-events-none' />
+                <Image alt='' aria-hidden src="/img/fire.svg" fill className='object-cover user-select-none pointer-events-none' />
+                <Image alt='' aria-hidden src="/img/godrays.png" fill className='scale-150  user-select-none pointer-events-none' />
+              </div>
+            </div>
+
+            {/* <img loading='lazy' decoding='async' src="/img/fire2.png" alt='' aria-hidden style={{
               backgroundSize: 'cover',
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
@@ -61,7 +64,7 @@ export default function Home() {
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
               objectFit: 'cover',
-            }} className='img-fade-in inset-0 absolute w-full h-full bg-fill select-none pointer-events-none z-0 brightness-[1.4]' />
+            }} className='img-fade-in inset-0 absolute w-full h-full bg-fill select-none pointer-events-none z-0 brightness-[1.4]' /> */}
           </section>
 
           <section className="h-full w-full relative px-16 my-[12rem]">

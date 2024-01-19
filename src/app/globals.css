@@ -207,28 +207,19 @@ html, body {
   background-color: #000000;
 }
 
-.word-transition-word {
-  opacity: 0;
-  animation: fadeInUp 0.7s forwards;
-  animation-timing-function: var(--ease-spring-3);
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
-.fadeThingUp {
-  opacity: 0;
-  animation: fadeInUp 1.6s forwards;
-  animation-timing-function: var(--ease-spring-3);
-}
-
-.fadeThingDown {
-  opacity: 0;
-  animation: fadeInDown 1.6s forwards;
-  animation-timing-function: var(--ease-spring-3);
-}
-
-.word-fade-up {
-  opacity: 0;
-  animation: fadeInUp 1.4s forwards;
-  animation-delay: 2s;
+.img-opacity-animation {
+  animation: fadeIn 2.6s both;
+  animation-delay: 0.2s;
   animation-timing-function: var(--ease-spring-3);
 }
 
