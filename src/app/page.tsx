@@ -1,6 +1,7 @@
 import Holo from '@/components/Holo'
 import Image from 'next/image'
 import { Metadata } from 'next'
+import MCPricingCards from '@/components/MCPricingCards'
 
 export const metadata: Metadata = {
   title: 'pyro.host - Home'
@@ -44,23 +45,23 @@ export default function Home() {
               </div>
             </div>
 
-            <div className='absolute inset-0 user-select-none pointer-events-none img-opacity-animation'>
-              <div className='w-screen h-screen min-h-[950px] relative inset-0 user-select-none pointer-events-none'>
-                <Image alt='' aria-hidden src="/img/fire2.png" fill className='object-cover user-select-none pointer-events-none' />
-                <Image alt='' aria-hidden src="/img/fire.svg" fill className='object-cover user-select-none pointer-events-none' />
-                <Image alt='' aria-hidden src="/img/godrays.png" fill className='scale-150  user-select-none pointer-events-none' />
+            <div className='absolute inset-0 select-none pointer-events-none img-opacity-animation'>
+              <div className='w-screen h-screen min-h-[950px] relative inset-0 select-none pointer-events-none'>
+                <Image alt='' aria-hidden src="/img/fire2.png" fill className='object-cover select-none pointer-events-none' />
+                <Image alt='' aria-hidden src="/img/fire.svg" fill className='object-cover select-none pointer-events-none' />
+                <Image alt='' aria-hidden src="/img/godrays.png" fill className='scale-150  select-none pointer-events-none' />
               </div>
             </div>
           </section>
 
           <section className="h-full w-full relative px-16 my-[12rem]">
-            <div className='absolute inset-0 user-select-none pointer-events-none img-opacity-animation'>
-              <div className='w-full h-full relative inset-0 user-select-none pointer-events-none flex justify-between'>
+            <div className='absolute inset-0 select-none pointer-events-none img-opacity-animation'>
+              <div className='w-full h-full relative inset-0 select-none pointer-events-none flex justify-between'>
                 <div className='h-full w-[25%] relative'>
-                  <Image alt='' aria-hidden src="/img/chips2.png" fill className='object-cover user-select-none pointer-events-none' />
+                  <Image alt='' aria-hidden src="/img/chips2.png" fill className='object-cover select-none pointer-events-none' />
                 </div>
                 <div className='h-full w-[25%] relative'>
-                  <Image alt='' aria-hidden src="/img/chips.png" fill className='object-cover user-select-none pointer-events-none' />
+                  <Image alt='' aria-hidden src="/img/chips.png" fill className='object-cover select-none pointer-events-none' />
                 </div>
               </div>
             </div>
@@ -82,28 +83,20 @@ export default function Home() {
                 </svg>
               </a>
 
-              <div className='w-full flex mt-16 gap-12'>
-                <div className='bg-[#d6b4ba0f] h-[600px] w-full flex rounded-3xl backdrop-blur-lg'>
-
-                </div>
-                <div className='bg-[#d6b4ba0f] h-[600px] w-full flex rounded-3xl backdrop-blur-lg'>
-
-                </div>
-                <div className='bg-[#d6b4ba0f] h-[600px] w-full flex rounded-3xl backdrop-blur-lg'>
-
-                </div>
+              <div className='w-full flex flex-col xl:flex-row mt-16 gap-4'>
+                <MCPricingCards />
               </div>
             </div>
           </section>
 
           <section className="h-full w-full relative px-16 my-[12rem]">
-          <div className='absolute inset-0 user-select-none pointer-events-none img-opacity-animation'>
-              <div className='w-full h-full relative inset-0 user-select-none pointer-events-none flex justify-between'>
+            <div className='absolute inset-0 select-none pointer-events-none img-opacity-animation'>
+              <div className='w-full h-full relative inset-0 select-none pointer-events-none flex justify-between'>
                 <div className='h-full w-[25%] relative'>
-                  <Image alt='' aria-hidden src="/img/stars2.png" fill className='object-cover user-select-none pointer-events-none' />
+                  <Image alt='' aria-hidden src="/img/stars2.png" fill className='object-cover select-none pointer-events-none' />
                 </div>
                 <div className='h-full w-[25%] relative'>
-                  <Image alt='' aria-hidden src="/img/stars.png" fill className='object-cover user-select-none pointer-events-none' />
+                  <Image alt='' aria-hidden src="/img/stars.png" fill className='object-cover select-none pointer-events-none' />
                 </div>
               </div>
             </div>
@@ -137,13 +130,13 @@ export default function Home() {
                   </h1>
                 </div>
               </div>
-              <div className='absolute inset-0 user-select-none pointer-events-none img-opacity-animation'>
-              <div className='w-full h-full relative inset-0 user-select-none pointer-events-none flex justify-between'>
-                <div className='h-full w-full relative'>
-                  <Image alt='' width={1682} height={800} aria-hidden src="/img/globe.png" className='max-w-[1620px] top-[200px] absolute object-cover user-select-none pointer-events-none left-1/2 -translate-x-1/2' />
+              <div className='absolute inset-0 select-none pointer-events-none img-opacity-animation'>
+                <div className='w-full h-full relative inset-0 select-none pointer-events-none flex justify-between'>
+                  <div className='h-full w-full relative'>
+                    <Image alt='' width={1682} height={800} aria-hidden src="/img/globe.png" className='max-w-[1620px] top-[200px] absolute object-cover select-none pointer-events-none left-1/2 -translate-x-1/2' />
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
           </section>
 

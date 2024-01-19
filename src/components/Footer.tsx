@@ -12,7 +12,7 @@ const Footer = () => {
         <div className='absolute w-full h-full inset-0 brightness-[4]' style={{
           WebkitMaskImage: 'linear-gradient(transparent, black 99%)'
         }}> */}
-          <Image fill src='/img/footerlogo.png' alt='' aria-hidden className='user-select-none pointer-events-none absolute w-full h-full inset-0 bg-repeat-x object-cover' />
+          <Image fill src='/img/footerlogo.png' alt='' aria-hidden className='select-none pointer-events-none absolute w-full h-full inset-0 bg-repeat-x object-cover' />
         {/* </div>
       </div> */}
       {/* <svg className='absolute top-0 left-6 bottom-0 select-none pointer-events-none flex h-full shrink-0' aria-hidden xmlns="http://www.w3.org/2000/svg" width="960" height="382" viewBox="0 0 960 382" fill="none">
