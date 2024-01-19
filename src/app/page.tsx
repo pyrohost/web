@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <>
       <div aria-hidden style={{
-        backgroundImage: 'url(/img/godrays.svg)',
+        backgroundImage: 'url(/img/godrays.png)',
         backgroundSize: '150rem',
         backgroundRepeat: 'no-repeat',
-      }} className='absolute w-[200vw] h-full bg-left-top -top-[5%] -left-[20%] blur-lg saturate-150 brightness-150'></div>
+      }} className='absolute w-[200vw] h-full bg-left-top -top-[5%] -left-[20%] blur-lg saturate-150 brightness-150 mix-blend-lighten'></div>
 
       <main className="shrink-0 h-fit w-full relative">
         <div className='w-full h-full'>
