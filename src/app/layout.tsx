@@ -32,10 +32,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="h-fit w-full relative bg-dark-950 text-white">
-      <body className={`${jakarta.className} h-fit w-full relative`}>
+    <html lang="en" className="antialiased h-fit w-full relative bg-dark-950 text-white [font-synthesis-weight:none]">
+      <body className={`${jakarta.className} flex flex-col min-h-full w-full relative overflow-x-hidden`}>
         <>
-          <div className='flex flex-col w-full h-full'>
+          <div className='relative w-full h-full overflow-hidden'>
             <NavBar />
             {children}
             <Footer />

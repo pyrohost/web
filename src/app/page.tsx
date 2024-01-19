@@ -9,11 +9,11 @@ export default function Home() {
 
   return (
     <>
-      <div style={{
+      <div aria-hidden style={{
         backgroundImage: 'url(/img/godrays.svg)',
         backgroundSize: '150rem',
         backgroundRepeat: 'no-repeat',
-      }} className='absolute w-full h-full bg-left-top -top-96 -left-96 blur-lg saturate-150 brightness-150'></div>
+      }} className='absolute w-[200vw] h-full bg-left-top -top-[5%] -left-[20%] blur-lg saturate-150 brightness-150'></div>
 
       <main className="shrink-0 h-fit w-full relative">
         <div className='w-full h-full'>
@@ -65,16 +65,16 @@ export default function Home() {
           </section>
 
           <section className="h-full w-full relative px-16 my-[12rem]">
-            <div style={{
+            <div aria-hidden style={{
               backgroundImage: 'url(/img/chips.png)',
               backgroundRepeat: 'no-repeat',
-            }} className='absolute left-0 w-72 h-[calc(100%+240px)] -top-24 saturate-150 brightness-150'></div>
-            <div style={{
+            }} className='absolute left-0 w-72 h-[calc(100%+240px)] -top-24 saturate-150 brightness-150 pointer-events-none'></div>
+            <div aria-hidden  style={{
               backgroundImage: 'url(/img/chips2.png)',
               backgroundRepeat: 'no-repeat',
-            }} className='absolute right-0 w-72 h-[calc(100%+240px)] -top-24 saturate-150 brightness-150'></div>
+            }} className='absolute right-0 w-72 h-[calc(100%+240px)] -top-24 saturate-150 brightness-150 pointer-events-none'></div>
             <div className='py-32 flex flex-col text-center items-center justify-center w-full max-w-[1620px] mx-auto h-full relative'>
-              <div className='ignite-circle absolute top-1/2 -translate-y-[82%] w-[48rem] h-[48rem] rounded-full' style={{
+              <div className='pointer-events-none transform-gpu ignite-circle absolute top-1/2 -translate-y-[82%] w-[48rem] h-[48rem] rounded-full' style={{
                 background: 'linear-gradient(180deg, rgba(248, 116, 116, 0.07) 0%, rgba(252, 142, 142, 0.00) 64.74%)'
               }}></div>
 
@@ -159,7 +159,7 @@ export default function Home() {
               </h1>
               <p className='mt-10 text-[20px] max-w-[490px] leading-[155%] font-normal text-[#ffffff99]'>
                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                With Pyro, you don't need to hassle with outdated, insecure VPN software or use vehemently overpriced hosts. Simply pay, play, and go.</p>
+                With Pyro, you don't need to hassle with outdated, insecure VPN software or juggle prices and billing. Simply pay, play, and go.</p>
               <a style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }} className='mt-10 text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4' href='https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15'>
                 <p>Try a server free for 24 hours</p>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
