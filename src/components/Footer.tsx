@@ -5,13 +5,13 @@ const Footer = () => {
 
   return (
     <footer className='mt-auto relative h-full w-full px-16 py-8'>
-      <div className='absolute w-full h-full inset-0' style={{
+      <div className='absolute w-full h-full inset-0 brightness-[4]' style={{
         // WebkitMaskImage: 'linear-gradient(black, transparent 99.9%)'
       }}>
         <div className='absolute w-full h-full inset-0' style={{
           WebkitMaskImage: 'linear-gradient(transparent, black 99%)'
         }}>
-          <img src='/img/footerlogo.png' alt='' aria-hidden className='absolute w-full h-full inset-0 bg-repeat-x object-cover brightness-150'></img>
+          <img src='/img/footerlogo.png' alt='' aria-hidden className='absolute w-full h-full inset-0 bg-repeat-x object-cover'></img>
         </div>
       </div>
       {/* <svg className='absolute top-0 left-6 bottom-0 select-none pointer-events-none flex h-full shrink-0' aria-hidden xmlns="http://www.w3.org/2000/svg" width="960" height="382" viewBox="0 0 960 382" fill="none">

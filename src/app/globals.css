@@ -203,6 +203,10 @@
   }
 }
 
+html, body {
+  background-color: #000000;
+}
+
 .word-transition-word {
   opacity: 0;
   animation: fadeInUp 0.7s forwards;

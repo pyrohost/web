@@ -32,7 +32,7 @@ const Page = () => {
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
           objectFit: 'cover',
-        }} className='inset-0 absolute w-full h-full bg-fill select-none pointer-events-none -z-10' />
+        }} className='inset-0 absolute w-full h-full bg-fill select-none pointer-events-none ' />
       </section>
     </main>
   )

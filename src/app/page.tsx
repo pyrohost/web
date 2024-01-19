@@ -13,13 +13,13 @@ export default function Home() {
         backgroundImage: 'url(/img/godrays.png)',
         backgroundSize: '150rem',
         backgroundRepeat: 'no-repeat',
-      }} className='absolute w-[200vw] h-full bg-left-top -top-[5%] -left-[20%] blur-lg saturate-150 brightness-150 mix-blend-lighten'></div>
+      }} className='absolute w-[200vw] h-full bg-left-top -top-[5%] -left-[20%] blur-lg saturate-150 brightness-150 mix-blend-lighten z-10 isolate'></div>
 
       <main className="shrink-0 h-fit w-full relative">
         <div className='w-full h-full'>
           <section className="min-h-[950px] h-screen w-full relative px-16">
             <div className='flex flex-col w-full max-w-[1620px] mx-auto h-full'>
-              <div className='flex flex-col max-w-[735px] w-full pt-60'>
+              <div className='flex flex-col max-w-[735px] w-full pt-60 z-10'>
                 <a href='https://forms.gle/dUXavHV5BGL3QAheA' rel='noopener noreferrer' target='_blank' className='flex gap-4 p-2 bg-[#ffffff12] border-2 border-[#ffffff08] border-solid rounded-full px-4 w-fit font-bold text-sm justify-center items-center'>
                   <p>Be one of the first to try Pyro. <span className='text-brand'>Join the waitlist!</span></p>
                   {/* <a className='text-brand'>Join the waitlist</a> */}
@@ -54,14 +54,14 @@ export default function Home() {
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
               objectFit: 'cover',
-            }} className='img-fade-in inset-0 absolute w-full h-full bg-fill select-none pointer-events-none -z-10 brightness-125' />
+            }} className='img-fade-in inset-0 absolute w-full h-full bg-fill select-none pointer-events-none z-0 brightness-125' />
 
             <img loading='lazy' decoding='async' src="/img/fire.svg" alt='' aria-hidden style={{
               backgroundSize: 'cover',
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
               objectFit: 'cover',
-            }} className='img-fade-in inset-0 absolute w-full h-full bg-fill select-none pointer-events-none -z-10 brightness-[1.4]' />
+            }} className='img-fade-in inset-0 absolute w-full h-full bg-fill select-none pointer-events-none z-0 brightness-[1.4]' />
           </section>
 
           <section className="h-full w-full relative px-16 my-[12rem]">
@@ -113,7 +113,7 @@ export default function Home() {
               backgroundImage: 'url(/img/stars2.png)',
               backgroundRepeat: 'no-repeat',
             }} className='absolute right-0 w-[520px] h-[calc(100%+240px)] -top-24 saturate-150 brightness-150'></div>
-            <div className='py-32 flex flex-col text-center items-center justify-center w-full max-w-[1620px] mx-auto h-full relative'>
+            <div className='py-32 flex flex-col text-center items-center justify-center w-full max-w-[1620px] mx-auto h-full relative z-10'>
               <h1 className='mt-4 text-[62px] max-w-[650px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
                 Servers that <span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>spark to life</span> in seconds
               </h1>
@@ -128,7 +128,7 @@ export default function Home() {
             </div>
 
             <div className='h-[800px]'>
-              <div className='flex flex-row gap-12 absolute left-1/2 -translate-x-1/2'>
+              <div className='flex flex-row gap-12 absolute left-1/2 -translate-x-1/2 z-10'>
                 <div className='bg-[#ffffff11] w-fit p-12 backdrop-blur-xl rounded-[64px]'>
                   <h1 className='mt-4 text-[42px] max-w-[240px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
                     New York, United States
@@ -148,7 +148,7 @@ export default function Home() {
                 backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',
                 objectFit: 'cover',
-              }} className='max-w-[1620px] img-fade-in top-[300px] left-1/2 -translate-x-1/2 absolute w-full h-full select-none pointer-events-none -z-10 brightness-[1.4]' />
+              }} className='max-w-[1620px] img-fade-in top-[300px] left-1/2 -translate-x-1/2 absolute w-full h-full select-none pointer-events-none  brightness-[1.4]' />
             </div>
           </section>
 
