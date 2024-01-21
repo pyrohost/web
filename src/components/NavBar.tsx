@@ -25,7 +25,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <header className={`isolate fixed left-0 right-0 top-0 px-16 w-full z-[9999]`}>
+    <header className={`isolate fixed left-0 right-0 top-0 px-4 md:px-16 w-full z-[9999]`}>
       <nav className={`main-nav nav-controller transform-gpu will-change-transform max-w-[1620px] w-full relative mx-auto backdrop-blur-xl rounded-full p-2 mt-4 flex flex-row items-center gap-4 overflow-hidden transition-all duration-[550ms] ${scrolled ? "!max-w-[750px] !p-1 !px-8 !mt-0 !rounded-t-none bg-[#ffffff08] border-[1px] border-[#ffffff08] border-solid" : "bg-[#ffffff05] border-[1px] border-[#ffffff00] border-solid"
         }`}>
         <Link className='shrink-0 p-4 w-fit font-bold text-sm' href="/">

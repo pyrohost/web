@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <main className="shrink-0 h-fit w-full relative">
         <div className='w-full h-full'>
-          <section className="min-h-[950px] h-screen w-full relative px-16">
+          <section className="min-h-[950px] h-screen w-full relative px-4 md:px-16">
             <div className='flex flex-col w-full max-w-[1620px] mx-auto h-full'>
               <div className='flex flex-col max-w-[735px] w-full pt-60 z-10'>
                 <a href='https://forms.gle/dUXavHV5BGL3QAheA' rel='noopener noreferrer' target='_blank' className='flex gap-4 p-2 bg-[#ffffff12] border-2 border-[#ffffff08] border-solid rounded-full px-4 w-fit font-bold text-sm justify-center items-center'>
@@ -23,12 +23,12 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                   </svg>
                 </a>
-                <h1 className='mt-4 text-[109px] font-extrabold leading-[98%] tracking-[-0.35rem]'>
+                <h1 className='mt-4 text-[60px] md:text-[109px] font-extrabold leading-[98%] tracking-[-0.25rem] md:tracking-[-0.35rem]'>
                   A <span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>better</span> way to host games.
                 </h1>
-                <p className='mt-10 text-[22px] leading-[155%] font-normal text-[#ffffff99]'>
+                <p className='mt-10 text-[17px] md:text-[22px] leading-[155%] font-normal text-[#ffffff99]'>
                   Pyro is a new kind of host that makes it faster, easier, and cheaper to play your favorite games with friends. Instantly available, lag-free servers with unmatched value.</p>
-                <div className='mt-10 flex flex-row items-center gap-4'>
+                <div className='mt-10 flex flex-col md:flex-row items-center gap-4'>
                   <a style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }} className='text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4' href='https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15'>
                     <p>Create your server for free</p>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
