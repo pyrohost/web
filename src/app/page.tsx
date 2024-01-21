@@ -67,7 +67,7 @@ export default function Home() {
             </div>
 
             <div className='py-32 flex flex-col text-center items-center justify-center w-full max-w-[1620px] mx-auto h-full relative'>
-              <div className='pointer-events-none transform-gpu ignite-circle absolute top-1/2 -translate-y-[82%] w-[48rem] h-[48rem] rounded-full' style={{
+              <div className='pointer-events-none absolute top-1/2 -translate-y-[82%] w-[48rem] h-[48rem] rounded-full' style={{
                 background: 'linear-gradient(180deg, rgba(248, 116, 116, 0.07) 0%, rgba(252, 142, 142, 0.00) 64.74%)'
               }}></div>
 
