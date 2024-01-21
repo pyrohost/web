@@ -4,6 +4,7 @@ import ServersSection from '@/components/main/ServersSection'
 import ExperienceSection from '@/components/main/ExperienceSection'
 import HeroSection from '@/components/main/HeroSection'
 import CTASection from '@/components/main/CTASection'
+import PanelSection from '@/components/main/PanelSection'
 
 export const metadata: Metadata = {
   title: 'pyro.host - Home'
@@ -17,6 +18,7 @@ export default function Home() {
           <PricingSection />
           <ServersSection />
           <ExperienceSection />
+          <PanelSection />
           <CTASection />
       </main>
     </>
