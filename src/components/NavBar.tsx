@@ -3,6 +3,14 @@
 import Link from 'next/link'
 import Logo from './Logo'
 import { useEffect, useRef, useState } from 'react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 const NavBar = () => {
 
@@ -57,9 +65,23 @@ const NavBar = () => {
         </div>
 
         <div className='mobile-links-controller contents lg:hidden'>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="ml-auto w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
-          </svg>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <div className='p-4 ml-auto'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+                </svg>
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent sideOffset={24}>
+              <DropdownMenuItem>Games</DropdownMenuItem>
+              <DropdownMenuItem>Pricing</DropdownMenuItem>
+              <DropdownMenuItem>Support</DropdownMenuItem>
+              <DropdownMenuItem>Billing</DropdownMenuItem>
+              <DropdownMenuItem>Game Panel</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
         </div>
 
         <div className={`glow-controller transition-all duration-[750ms] ${scrolled ? "opacity-0" : "opacity-100"
