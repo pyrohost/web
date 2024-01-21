@@ -1,189 +1,23 @@
-import Holo from '@/components/Holo'
-import Image from 'next/image'
 import { Metadata } from 'next'
-import MCPricingCards from '@/components/MCPricingCards'
+import PricingSection from '@/components/main/PricingSection'
+import ServersSection from '@/components/main/ServersSection'
+import ExperienceSection from '@/components/main/ExperienceSection'
+import HeroSection from '@/components/main/HeroSection'
+import CTASection from '@/components/main/CTASection'
 
 export const metadata: Metadata = {
   title: 'pyro.host - Home'
 }
 
 export default function Home() {
-
   return (
     <>
       <main className="shrink-0 h-fit w-full relative">
-        <div className='w-full h-full'>
-          <section className="min-h-[950px] h-screen w-full relative px-4 md:px-16">
-            <div className='flex flex-col w-full max-w-[1620px] mx-auto h-full'>
-              <div className='flex flex-col max-w-[735px] w-full pt-48 md:pt-60 z-10 items-center text-center md:items-start md:text-left'>
-                <a href='https://forms.gle/dUXavHV5BGL3QAheA' rel='noopener noreferrer' target='_blank' className='flex gap-4 p-2 bg-[#ffffff12] border-2 border-[#ffffff08] border-solid rounded-full px-4 w-fit font-bold text-sm justify-center items-center'>
-                  <p>Be one of the first to try Pyro. <span className='text-brand'>Join the waitlist!</span></p>
-                  {/* <a className='text-brand'>Join the waitlist</a> */}
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                  </svg>
-                </a>
-                <h1 className='mt-4 text-[60px] md:text-[109px] font-extrabold leading-[98%] tracking-[-0.25rem] md:tracking-[-0.35rem]'>
-                  A <span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>better</span> way to host games.
-                </h1>
-                <p className='mt-10 text-[17px] md:text-[22px] leading-[155%] font-normal text-[#ffffff99]'>
-                  Pyro is a new kind of host that makes it faster, easier, and cheaper to play your favorite games with friends. Instantly available, lag-free servers with unmatched value.</p>
-                <div className='mt-10 flex flex-col md:flex-row items-center gap-4'>
-                  <a style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }} className='text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4' href='https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15'>
-                    <p>Create your server for free</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                    </svg>
-                  </a>
-                  <a style={{ backgroundImage: 'radial-gradient(1182.86% 226.39% at 34.92% 22.73%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.00) 100%)' }} className='text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4 border-2 border-[#ffffff08] border-solid' href='https://billing.pyro.host/'>
-                    <p>See our pricing</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className='absolute inset-0 select-none pointer-events-none img-opacity-animation'>
-              <div className='w-screen h-screen min-h-[950px] relative inset-0 select-none pointer-events-none'>
-                <Image alt='' aria-hidden src="/img/fire2.png" fill className='object-cover select-none pointer-events-none' />
-                <Image alt='' aria-hidden src="/img/fire.svg" fill className='object-cover select-none pointer-events-none' />
-                <Image alt='' aria-hidden src="/img/godrays.png" fill className='scale-150  select-none pointer-events-none' />
-              </div>
-            </div>
-          </section>
-
-          <section className="h-full w-full relative px-16 my-[12rem]">
-            <div className='absolute inset-0 select-none pointer-events-none img-opacity-animation'>
-              <div className='w-full h-full relative inset-0 select-none pointer-events-none flex justify-between'>
-                <div className='h-full w-[25%] relative'>
-                  <Image alt='' aria-hidden src="/img/chips2.png" fill className='object-cover select-none pointer-events-none' />
-                </div>
-                <div className='h-full w-[25%] relative'>
-                  <Image alt='' aria-hidden src="/img/chips.png" fill className='object-cover select-none pointer-events-none' />
-                </div>
-              </div>
-            </div>
-
-            <div className='py-32 flex flex-col text-center items-center justify-center w-full max-w-[1620px] mx-auto h-full relative'>
-              <div className='pointer-events-none absolute top-1/2 -translate-y-[82%] w-[48rem] h-[48rem] rounded-full' style={{
-                background: 'linear-gradient(180deg, rgba(248, 116, 116, 0.07) 0%, rgba(252, 142, 142, 0.00) 64.74%)'
-              }}></div>
-
-              <h1 className='mt-4 text-[62px] max-w-[490px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
-                Pricing that <span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>ignites simplicity</span>
-              </h1>
-              <p className='mt-10 text-[20px] max-w-[490px] leading-[155%] font-normal text-[#ffffff99]'>
-                Only pay for the hardware you need. Pyro offers simple pricing for servers of all sizes. Minecraft starts at only $4 per month.</p>
-              <a style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }} className='mt-10 text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4' href='https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15'>
-                <p>See all available games</p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                </svg>
-              </a>
-
-              <div className='w-full flex flex-col xl:flex-row mt-16 gap-4'>
-                <MCPricingCards />
-              </div>
-            </div>
-          </section>
-
-          <section className="h-full w-full relative px-16 my-[12rem]">
-            <div className='absolute inset-0 select-none pointer-events-none img-opacity-animation'>
-              <div className='w-full h-full relative inset-0 select-none pointer-events-none flex justify-between'>
-                <div className='h-full w-[25%] relative'>
-                  <Image alt='' aria-hidden src="/img/stars2.png" fill className='object-cover select-none pointer-events-none' />
-                </div>
-                <div className='h-full w-[25%] relative'>
-                  <Image alt='' aria-hidden src="/img/stars.png" fill className='object-cover select-none pointer-events-none' />
-                </div>
-              </div>
-            </div>
-            <div className='py-32 flex flex-col text-center items-center justify-center w-full max-w-[1620px] mx-auto h-full relative z-10'>
-              <h1 className='mt-4 text-[62px] max-w-[650px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
-                Servers that <span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>spark to life</span> in seconds
-              </h1>
-              <p className='mt-10 text-[20px] max-w-[490px] leading-[155%] font-normal text-[#ffffff99]'>
-                Pyro’s network launches servers from scratch in within seconds. You’re always a minute away from playing, no matter where you are.</p>
-              <a style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }} className='mt-10 text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4' href='https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15'>
-                <p>It’s fast — really fast. Try it now</p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                </svg>
-              </a>
-            </div>
-
-            <div className='relative h-[650px]'>
-              <div className='flex flex-row gap-12 absolute left-1/2 -translate-x-1/2 z-10'>
-                <div className='bg-[#ffffff11] w-fit p-12 backdrop-blur-xl rounded-[64px]'>
-                  <h1 className='mt-4 text-[42px] max-w-[240px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
-                    Helsinki, Finland
-                  </h1>
-                  <a style={{ backgroundImage: 'radial-gradient(1182.86% 226.39% at 34.92% 22.73%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.00) 100%)' }} className='mt-8 text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4 border-2 border-[#ffffff08] border-solid' href='https://billing.pyro.host/'>
-                    <p>Test your ping</p>
-                  </a>
-                </div>
-                <div className='bg-[#ffffff11] w-fit p-12  backdrop-blur-xl rounded-[64px]'>
-                  <h1 className='mt-4 text-[38px] max-w-[240px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
-                    More locations coming soon!
-                  </h1>
-                </div>
-              </div>
-              <div className='absolute inset-0 select-none pointer-events-none img-opacity-animation'>
-                <div className='w-full h-full relative inset-0 select-none pointer-events-none flex justify-between'>
-                  <div className='h-full w-full relative'>
-                    <Image alt='' width={1478} height={906} aria-hidden src="/img/globe2.png" className='max-w-[1620px] -top-[360px] absolute object-cover select-none pointer-events-none left-1/2 -translate-x-1/2' />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="h-full w-full relative px-16 my-[12rem]">
-            <div className='py-32 flex flex-col text-center items-center justify-center w-full max-w-[1620px] mx-auto h-full relative'>
-            <h1 className='mt-4 text-[62px] max-w-[650px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
-                An experience that <span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>fuels your community</span>
-              </h1>
-              <p className='mt-10 text-[20px] max-w-[490px] leading-[155%] font-normal text-[#ffffff99]'>
-                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                With Pyro, you don't need to hassle with outdated, insecure VPN software or juggle prices and billing. Simply pay, play, and go.</p>
-              <a style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }} className='mt-10 text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4' href='https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15'>
-                <p>Try a server free for 24 hours</p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                </svg>
-              </a>
-            </div>
-          </section>
-
-          <section className="h-full w-full relative px-16 py-12 my-[12rem]" style={{
-            background: 'radial-gradient(ellipse 100% 60% at 50% 60%,rgb(246 99 145 / 7%),var(--transparent))'
-          }}>
-            <div className='py-32 flex flex-col justify-center w-full max-w-[1620px] mx-auto h-full relative'>
-              <h1 className='mt-4 text-[109px] max-w-[970px] font-extrabold leading-[98%] tracking-[-0.35rem]'>
-                You deserve a <span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>better way</span> to play.
-              </h1>
-              <div className='mt-16 flex flex-col p-8 gap-4 bg-[#130e0e] w-fit rounded-3xl'>
-                <h1 className='text-[42px] font-extrabold leading-[98%] tracking-[-0.1rem]'>
-                  Exclusive Offer
-                </h1>
-                <p className='text-[20px] max-w-[480px] leading-[155%] font-normal text-[#ffffff99]'>
-                  Try a Minecraft server free for 24 hours, on us. No credit card required.
-                </p>
-                <Holo radius={24}>
-                  <a style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }} className='w-fit text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4' href='https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15'>
-                    <p>Get a server now</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                    </svg>
-                  </a>
-                </Holo>
-              </div>
-            </div>
-          </section>
-        </div>
-        {/* <section className='h-[20000px]'></section> */}
+          <HeroSection />
+          <PricingSection />
+          <ServersSection />
+          <ExperienceSection />
+          <CTASection />
       </main>
     </>
   )
