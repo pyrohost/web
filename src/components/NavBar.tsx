@@ -84,7 +84,7 @@ const NavBar = () => {
 
         </div>
 
-        <div className={`glow-controller transition-all duration-[750ms] ${scrolled ? "opacity-0" : "opacity-100"
+        <div className={`glow-controller transition-all [transition-duration:750ms] ${scrolled ? "opacity-0" : "opacity-100"
           }`}>
           <div aria-hidden tabIndex={-1} className='select-none pointer-events-none w-[300px] h-[1px] absolute bottom-0 right-[4%]' style={{
             background: 'radial-gradient(62.87% 100% at 50% 100%, rgb(219 99 99 / 62%) 0%, rgba(255, 255, 255, 0) 100%)'
