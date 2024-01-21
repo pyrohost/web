@@ -114,7 +114,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className='relative h-[800px]'>
+            <div className='relative h-[650px]'>
               <div className='flex flex-row gap-12 absolute left-1/2 -translate-x-1/2 z-10'>
                 <div className='bg-[#ffffff11] w-fit p-12 backdrop-blur-xl rounded-[64px]'>
                   <h1 className='mt-4 text-[42px] max-w-[240px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
@@ -140,7 +140,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="h-full w-full relative px-16 -mt-[20rem]">
+          <section className="h-full w-full relative px-16 my-[12rem]">
             <div className='py-32 flex flex-col text-center items-center justify-center w-full max-w-[1620px] mx-auto h-full relative'>
             <h1 className='mt-4 text-[62px] max-w-[650px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
                 An experience that <span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>fuels your community</span>
@@ -165,11 +165,11 @@ export default function Home() {
                 You deserve a <span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>better way</span> to play.
               </h1>
               <div className='mt-16 flex flex-col p-8 gap-4 bg-[#130e0e] w-fit rounded-3xl'>
-                <h1 className='text-[42px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
+                <h1 className='text-[42px] font-extrabold leading-[98%] tracking-[-0.1rem]'>
                   Exclusive Offer
                 </h1>
                 <p className='text-[20px] max-w-[480px] leading-[155%] font-normal text-[#ffffff99]'>
-                  Launch a Minecraft server in seconds and play for free for 24 hours. No credit card required.
+                  Try a Minecraft server free for 24 hours, on us. No credit card required.
                 </p>
                 <Holo radius={24}>
                   <a style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }} className='w-fit text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4' href='https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15'>
