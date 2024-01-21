@@ -135,7 +135,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className='max-w-[1620px] w-full mx-auto mt-16 opacity-50 text-xs font-medium'>Copyright © 2023 Pyro Hosting. All rights reserved.</div>
+      <div className='max-w-[1620px] w-full mx-auto mt-16 opacity-50 text-xs font-medium'>Copyright © 2024 Pyro Hosting. All rights reserved.</div>
     </footer>
   )
 }
