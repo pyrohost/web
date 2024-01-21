@@ -33,25 +33,34 @@ const NavBar = () => {
             <Logo />
           </div>
         </Link>
-        <Link className='shrink-0 p-4 w-fit font-bold text-sm' href="/coming-soon">
-          Games
-        </Link>
-        <Link className='shrink-0 p-4 w-fit font-bold text-sm' href="/coming-soon">
-          Pricing
-        </Link>
-        <Link className='shrink-0 p-4 w-fit font-bold text-sm' href="/coming-soon">
-          Support
-        </Link>
 
-        <div className={`h-[16px] shrink-0 ml-auto w-[1px] bg-[#ffffff29] ${scrolled ? 'opacity-100 mr-2' : 'opacity-0'} `}></div>
+        <div className='desktop-links-controller hidden lg:contents'>
+          <Link className='shrink-0 p-4 w-fit font-bold text-sm' href="/coming-soon">
+            Games
+          </Link>
+          <Link className='shrink-0 p-4 w-fit font-bold text-sm' href="/coming-soon">
+            Pricing
+          </Link>
+          <Link className='shrink-0 p-4 w-fit font-bold text-sm' href="/coming-soon">
+            Support
+          </Link>
 
-        <a className='shrink-0 p-4 w-fit font-bold text-sm' rel='noopener noreferrer' target='_blank' href="https://billing.pyro.host/index.php/client/login/">
-          Billing
-        </a>
+          <div className={`h-[16px] shrink-0 ml-auto w-[1px] bg-[#ffffff29] ${scrolled ? 'opacity-100 mr-2' : 'opacity-0'} `}></div>
 
-        <a className='shrink-0 p-4 w-fit font-bold text-sm' rel='noopener noreferrer' target='_blank' href="https://panel.pyro.host/">
-          Go to Panel
-        </a>
+          <a className='shrink-0 p-4 w-fit font-bold text-sm' rel='noopener noreferrer' target='_blank' href="https://billing.pyro.host/index.php/client/login/">
+            Billing
+          </a>
+
+          <a className='shrink-0 p-4 w-fit font-bold text-sm' rel='noopener noreferrer' target='_blank' href="https://panel.pyro.host/">
+            Go to Panel
+          </a>
+        </div>
+
+        <div className='mobile-links-controller contents lg:hidden'>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="ml-auto w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+          </svg>
+        </div>
 
         <div className={`glow-controller transition-all duration-[750ms] ${scrolled ? "opacity-0" : "opacity-100"
           }`}>

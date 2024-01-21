@@ -15,7 +15,7 @@ export default function Home() {
         <div className='w-full h-full'>
           <section className="min-h-[950px] h-screen w-full relative px-4 md:px-16">
             <div className='flex flex-col w-full max-w-[1620px] mx-auto h-full'>
-              <div className='flex flex-col max-w-[735px] w-full pt-60 z-10'>
+              <div className='flex flex-col max-w-[735px] w-full pt-48 md:pt-60 z-10 items-center text-center md:items-start md:text-left'>
                 <a href='https://forms.gle/dUXavHV5BGL3QAheA' rel='noopener noreferrer' target='_blank' className='flex gap-4 p-2 bg-[#ffffff12] border-2 border-[#ffffff08] border-solid rounded-full px-4 w-fit font-bold text-sm justify-center items-center'>
                   <p>Be one of the first to try Pyro. <span className='text-brand'>Join the waitlist!</span></p>
                   {/* <a className='text-brand'>Join the waitlist</a> */}
