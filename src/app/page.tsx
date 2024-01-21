@@ -114,7 +114,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className='h-[800px]'>
+            <div className='relative h-[800px]'>
               <div className='flex flex-row gap-12 absolute left-1/2 -translate-x-1/2 z-10'>
                 <div className='bg-[#ffffff11] w-fit p-12 backdrop-blur-xl rounded-[64px]'>
                   <h1 className='mt-4 text-[42px] max-w-[240px] font-extrabold leading-[98%] tracking-[-0.2rem]'>
@@ -133,7 +133,7 @@ export default function Home() {
               <div className='absolute inset-0 select-none pointer-events-none img-opacity-animation'>
                 <div className='w-full h-full relative inset-0 select-none pointer-events-none flex justify-between'>
                   <div className='h-full w-full relative'>
-                    <Image alt='' width={1682} height={800} aria-hidden src="/img/globe.png" className='max-w-[1620px] top-[200px] absolute object-cover select-none pointer-events-none left-1/2 -translate-x-1/2' />
+                    <Image alt='' width={1478} height={906} aria-hidden src="/img/globe2.png" className='max-w-[1620px] -top-[360px] absolute object-cover select-none pointer-events-none left-1/2 -translate-x-1/2' />
                   </div>
                 </div>
               </div>
