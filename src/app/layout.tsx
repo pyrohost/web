@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 import NavBar from '@/components/layout/NavBar'
 import Footer from '@/components/layout/Footer'
@@ -42,6 +43,7 @@ export default function RootLayout({
           </div>
         </>
       </body>
+      <GoogleAnalytics gaId='G-NWVJ0FNXG1' />
     </html>
   )
 }
