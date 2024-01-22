@@ -17,7 +17,7 @@ const PanelSection = () => {
         </h1>
         <p className='mt-10 text-[20px] max-w-[490px] leading-[155%] font-normal text-[#ffffff99]'>
           {/* eslint-disable-next-line react/no-unescaped-entities */}
-          Pyro's panel has unparalleled usability, performance, and aesthetics. It's light-years ahead of any other hosting service. Something here asdf.</p>
+          Pyro's panel is unrivaled in accessibility, functionality, and aesthetics. Manage all your servers with confidence.</p>
         {/* <a style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }} className='mt-10 text-sm font-bold pl-8 pr-6 py-3 rounded-full flex items-center justify-center gap-4' href='https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15'>
           <p>Check it out</p>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
