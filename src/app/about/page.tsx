@@ -13,6 +13,7 @@ const Page = () => {
           <Image src='/img/glowgo.png' alt='' width={507} height={643} className='absolute scale-[0.8] top-12 contrast-[1.05] mix-blend-lighten [--padding:128] [--size:300] [--total:calc((2*var(--padding))+var(--size))] [mask:radial-gradient(calc(664/var(--total)*100%)_calc(389/var(--total)*100%)_at_50%_calc((var(--padding)-4)/var(--total)*100%),white,rgba(255,255,255,0.85)_58%,rgba(255,255,255,0))]' />
           <div className='mt-[24rem] flex flex-col h-full max-w-[810px] w-full mx-auto pt-20 z-10 items-center'>
             <h1 className='text-[52px] font-extrabold leading-[98%] tracking-[-0.14rem]'>
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               Pyro's mission is to build the <br></br><span className='bg-clip-text text-transparent' style={{ backgroundImage: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)' }}>best hosting platform in the world.</span>
             </h1>
             <p className='mt-10 text-[22px] leading-[155%] font-normal text-[#ffffff99]'>
