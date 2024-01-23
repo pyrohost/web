@@ -1,19 +1,24 @@
-import Link from 'next/link'
-import Logo from '../Logo'
-import Image from 'next/image'
+import Link from "next/link";
+import Logo from "../Logo";
+import Image from "next/image";
 
 const Footer = () => {
-
   return (
-    <footer className='mt-auto relative h-full w-full px-8 py-8 lg:px-32 lg:py-24'>
+    <footer className="relative mt-auto h-full w-full px-8 py-8 lg:px-32 lg:py-24">
       {/* <div className='absolute w-full h-full inset-0 brightness-[4]' style={{
         // WebkitMaskImage: 'linear-gradient(black, transparent 99.9%)'
       }}>
         <div className='absolute w-full h-full inset-0 brightness-[4]' style={{
           WebkitMaskImage: 'linear-gradient(transparent, black 99%)'
         }}> */}
-          <Image fill src='/img/footerlogo.png' alt='' aria-hidden className='select-none pointer-events-none absolute w-full h-full inset-0 bg-repeat-x object-cover' />
-        {/* </div>
+      <Image
+        fill
+        src="/img/footerlogo.png"
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute inset-0 h-full w-full select-none bg-repeat-x object-cover"
+      />
+      {/* </div>
       </div> */}
       {/* <svg className='absolute top-0 left-6 bottom-0 select-none pointer-events-none flex h-full shrink-0' aria-hidden xmlns="http://www.w3.org/2000/svg" width="960" height="382" viewBox="0 0 960 382" fill="none">
         <g opacity="0.03">
@@ -42,103 +47,81 @@ const Footer = () => {
         </defs>
       </svg> */}
 
-      <div className='max-w-[1620px] mx-auto flex flex-col gap-16 lg:flex-row justify-between w-full'>
-        <div className='items-start flex flex-col gap-4'>
-          <div className='h-12'>
+      <div className="mx-auto flex w-full max-w-[1620px] flex-col justify-between gap-16 lg:flex-row">
+        <div className="flex flex-col items-start gap-4">
+          <div className="h-12">
             <Logo />
           </div>
-          <div className='text-sm max-w-[30ch] leading-relaxed'>Pyro is a better way to host games. Instantly available, lag-free servers with unmatched value.</div>
+          <div className="max-w-[30ch] text-sm leading-relaxed">
+            Pyro is a better way to host games. Instantly available, lag-free
+            servers with unmatched value.
+          </div>
         </div>
-        <div className='flex flex-row gap-4'>
-          <ul className='list-none flex flex-col gap-4 w-32'>
-            <h2 className='text-brand font-bold text-sm'>
-              Pyro For
-            </h2>
+        <div className="flex flex-row gap-4">
+          <ul className="flex w-32 list-none flex-col gap-4">
+            <h2 className="text-sm font-bold text-brand">Pyro For</h2>
             <li>
-              <Link href='/coming-soon'>
-                Minecraft
-              </Link>
+              <Link href="/coming-soon">Minecraft</Link>
             </li>
             <li>
-              <Link href='/coming-soon'>
-                Terarria
-              </Link>
+              <Link href="/coming-soon">Terarria</Link>
             </li>
             <li>
-              <Link href='/coming-soon'>
-                Rust
-              </Link>
+              <Link href="/coming-soon">Rust</Link>
             </li>
             <li>
-              <Link href='/coming-soon'>
-                GTA V
-              </Link>
+              <Link href="/coming-soon">GTA V</Link>
             </li>
             <li>
-              <Link href='/coming-soon'>
-                Counter-Strike
-              </Link>
+              <Link href="/coming-soon">Counter-Strike</Link>
             </li>
             <li>
-              <Link href='/coming-soon'>
-                Valheim
-              </Link>
+              <Link href="/coming-soon">Valheim</Link>
             </li>
             <li>
-              <Link href='/coming-soon'>
+              <Link href="/coming-soon">
                 {/* eslint-disable-next-line react/no-unescaped-entities */}
                 Garry's Mod
               </Link>
             </li>
             <li>
-              <Link href='/coming-soon'>
-                Team Fortress 2
-              </Link>
+              <Link href="/coming-soon">Team Fortress 2</Link>
             </li>
             <li>
-              <Link href='/coming-soon'>
-                Voice Servers
-              </Link>
+              <Link href="/coming-soon">Voice Servers</Link>
             </li>
           </ul>
 
-          <ul className='list-none flex flex-col gap-4 w-32'>
-            <h2 className='text-brand font-bold text-sm'>
-              Hosting
-            </h2>
+          <ul className="flex w-32 list-none flex-col gap-4">
+            <h2 className="text-sm font-bold text-brand">Hosting</h2>
             <li>
-              <Link href='/coming-soon'>
-                Pricing
-              </Link>
+              <Link href="/coming-soon">Pricing</Link>
             </li>
           </ul>
 
-          <ul className='list-none flex flex-col gap-4 w-32'>
-            <h2 className='text-brand font-bold text-sm'>
-              Company
-            </h2>
+          <ul className="flex w-32 list-none flex-col gap-4">
+            <h2 className="text-sm font-bold text-brand">Company</h2>
             <li>
-              <Link href='/about'>
-                About
-              </Link>
+              <Link href="/about">About</Link>
             </li>
             <li>
-              <Link href='/coming-soon'>
-                Contact
-              </Link>
+              <Link href="/coming-soon">Contact</Link>
             </li>
             <li>
-              <Link href='/coming-soon'>
-                Support
-              </Link>
+              <Link href="/coming-soon">Support</Link>
             </li>
           </ul>
         </div>
       </div>
-      <div aria-hidden className='w-full border-t-2 border-t-[#ffffff11] border-solid mt-16' />
-      <div className='max-w-[1620px] w-full mx-auto mt-16 opacity-50 text-xs font-medium'>© 2024 Pyro Hosting.</div>
+      <div
+        aria-hidden
+        className="mt-16 w-full border-t-2 border-solid border-t-[#ffffff11]"
+      />
+      <div className="mx-auto mt-16 w-full max-w-[1620px] text-xs font-medium opacity-50">
+        © 2024 Pyro Hosting.
+      </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

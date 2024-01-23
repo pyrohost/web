@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface IntersectionObserverOptions {
   root?: Element | null;
@@ -8,21 +8,18 @@ interface IntersectionObserverOptions {
 
 const useIntersectionObserver = (
   targetRef: React.RefObject<Element>,
-  options: IntersectionObserverOptions = {}
+  options: IntersectionObserverOptions = {},
 ): boolean => {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const observer = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     // Ensure the Intersection Observer API is supported
-    if ('IntersectionObserver' in window) {
-      observer.current = new IntersectionObserver(
-        (entries) => {
-          // Update state based on whether the target element is intersecting
-          setIsIntersecting(entries[0].isIntersecting);
-        },
-        options
-      );
+    if ("IntersectionObserver" in window) {
+      observer.current = new IntersectionObserver((entries) => {
+        // Update state based on whether the target element is intersecting
+        setIsIntersecting(entries[0].isIntersecting);
+      }, options);
 
       // Start observing the target element
       if (targetRef.current) {
@@ -37,7 +34,7 @@ const useIntersectionObserver = (
       };
     } else {
       // Fallback for browsers that do not support Intersection Observer
-      console.warn('Intersection Observer is not supported in this browser.');
+      console.warn("Intersection Observer is not supported in this browser.");
     }
   }, [targetRef, options]);
 

@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import * as React from 'react';
+import * as React from "react";
 
 interface HoloProps {
   children: React.ReactNode;
@@ -27,54 +27,50 @@ const Holo = ({ children, radius }: HoloProps) => {
       const bgX = 40 + 20 * mX;
       const bgY = 40 + 20 * mY;
 
-      node.style.setProperty('--m-x', 100 * mX + '%');
-      node.style.setProperty('--m-y', 100 * mY + '%');
-      node.style.setProperty('--bg-x', bgX + '%');
-      node.style.setProperty('--bg-y', bgY + '%');
-      node.style.setProperty('--r-x', rX + 'deg');
-      node.style.setProperty('--r-y', rY + 'deg');
+      node.style.setProperty("--m-x", 100 * mX + "%");
+      node.style.setProperty("--m-y", 100 * mY + "%");
+      node.style.setProperty("--bg-x", bgX + "%");
+      node.style.setProperty("--bg-y", bgY + "%");
+      node.style.setProperty("--r-x", rX + "deg");
+      node.style.setProperty("--r-y", rY + "deg");
     };
 
     const handleMouseEnter = () => {
-      node.style.setProperty('--opacity', '0.6');
-      const id = setTimeout(() => { node.style.setProperty('--duration', '0ms') }, 300)
-      return () => clearTimeout(id)
+      node.style.setProperty("--opacity", "0.6");
+      const id = setTimeout(() => {
+        node.style.setProperty("--duration", "0ms");
+      }, 300);
+      return () => clearTimeout(id);
     };
 
     const handleMouseLeave = () => {
-      node.style.setProperty('--duration', '300ms');
-      node.style.setProperty('--opacity', '0');
-      node.style.setProperty('--m-x', '50%');
-      node.style.setProperty('--m-y', '50%');
-      node.style.setProperty('--bg-x', '50%');
-      node.style.setProperty('--bg-y', '50%');
-      node.style.setProperty('--r-x', '0deg');
-      node.style.setProperty('--r-y', '0deg');
+      node.style.setProperty("--duration", "300ms");
+      node.style.setProperty("--opacity", "0");
+      node.style.setProperty("--m-x", "50%");
+      node.style.setProperty("--m-y", "50%");
+      node.style.setProperty("--bg-x", "50%");
+      node.style.setProperty("--bg-y", "50%");
+      node.style.setProperty("--r-x", "0deg");
+      node.style.setProperty("--r-y", "0deg");
     };
 
-    node.addEventListener('mousemove', handleMouseMove);
-    node.addEventListener('mouseenter', handleMouseEnter);
-    node.addEventListener('mouseleave', handleMouseLeave);
+    node.addEventListener("mousemove", handleMouseMove);
+    node.addEventListener("mouseenter", handleMouseEnter);
+    node.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      node.removeEventListener('mousemove', handleMouseMove);
-      node.removeEventListener('mouseenter', handleMouseEnter);
-      node.removeEventListener('mouseleave', handleMouseLeave);
+      node.removeEventListener("mousemove", handleMouseMove);
+      node.removeEventListener("mouseenter", handleMouseEnter);
+      node.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [node]);
 
   return (
-    <div
-      ref={setNode}
-      className='attributeWrapper'
-    >
-      <div
-        className='contentWrapper'
-        style={{ borderRadius: radius }}
-      >
-        <div className='imageWrapper'>{children}</div>
-        <div className='spotlight' />
-        <div className='holo' />
+    <div ref={setNode} className="attributeWrapper">
+      <div className="contentWrapper" style={{ borderRadius: radius }}>
+        <div className="imageWrapper">{children}</div>
+        <div className="spotlight" />
+        <div className="holo" />
       </div>
     </div>
   );
