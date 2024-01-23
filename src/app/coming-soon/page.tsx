@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'pyro.host - Coming Soon'
+  title: 'pyro - Coming Soon'
 }
 
 const Page = () => {

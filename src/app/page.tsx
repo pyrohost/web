@@ -7,7 +7,7 @@ import CTASection from '@/components/main/CTASection'
 import PanelSection from '@/components/main/PanelSection'
 
 export const metadata: Metadata = {
-  title: 'pyro.host - Home'
+  title: 'pyro - A better way to host games'
 }
 
 export default function Home() {

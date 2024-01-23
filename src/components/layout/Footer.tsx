@@ -118,7 +118,7 @@ const Footer = () => {
               Company
             </h2>
             <li>
-              <Link href='/coming-soon'>
+              <Link href='/about'>
                 About
               </Link>
             </li>
