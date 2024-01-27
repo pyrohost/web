@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/__internal/",
+      disallow: "/internal/",
     },
     sitemap: "https://pyro.host/sitemap.xml",
   };
