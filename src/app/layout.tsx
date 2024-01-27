@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       "pyro is a better way to host games. Instantly available, lag-free servers with unmatched value.",
     images: [
       {
-        url: "./newogimage.png",
+        url: "./ogimage.png",
       },
     ],
     url: "https://pyro.host",
