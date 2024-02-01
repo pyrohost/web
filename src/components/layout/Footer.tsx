@@ -111,6 +111,19 @@ const Footer = () => {
               <Link href="/coming-soon">Support</Link>
             </li>
           </ul>
+
+          <ul className="flex w-32 list-none flex-col gap-4">
+            <h2 className="text-sm font-bold text-brand">Policies</h2>
+            <li>
+              <Link href="/legal/cookies">Cookie Policy</Link>
+            </li>
+            <li>
+              <Link href="/legal/tos">Terms of Service</Link>
+            </li>
+            <li>
+              <Link href="/legal/privacy">Privacy Policy</Link>
+            </li>
+          </ul>
         </div>
       </div>
       <div
