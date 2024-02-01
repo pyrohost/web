@@ -2,7 +2,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "pyro - Cookie Policy",
+  title: "pyro - Terms of Service",
+  description: "Read about Pyro's Terms of Service.",
 };
 
 const Page = () => {
