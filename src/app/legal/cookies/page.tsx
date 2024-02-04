@@ -14,17 +14,24 @@ const Page = () => {
         <div className="mx-auto flex w-full max-w-[1620px] flex-col">
           <div className="z-10 mx-auto flex w-full max-w-[1620px] flex-col pt-60">
             <h1 className="mt-4 text-[60px] font-extrabold leading-[98%] tracking-[-0.25rem] md:text-[84px] md:tracking-[-0.35rem]">
-              Pyro - Cookie Policy
+              Pyro's Cookie Policy
             </h1>
+            <h2 className="mt-8">
+              INTERNAL: This is a draft. Does not fully apply to existing users
+              until reviewed. We will email users once this is live.
+            </h2>
             <article className="mt-8 flex flex-col gap-4 leading-[155%]">
               <div className="">
-                By using or accessing Pyro's website, you agree to Pyro's use of
-                Cookies as outlined below. "Pyro", "we" or "us" refers to Pyro
-                Hosting, LLC DBA pyro.host. This Cookie Policy is part of our
-                Privacy Policy and explains how we use cookies and similar
-                technologies to recognize you when you visit our website. It
-                explains what these technologies are and why we use them, as
-                well as your rights to control our use of them.
+                "Pyro", "we" or "us" refers to Pyro Hosting, LLC DBA pyro.host.
+                "You", "your", or "user" refers to you, the individual accessing
+                our website. "Services" refers to services, apps, websites, and
+                other products operated by Pyro. By using or accessing Pyro's
+                website, you agree to Pyro's use of Cookies as outlined below.
+                This Cookie Policy is part of our Privacy Policy and explains
+                how we use cookies and similar technologies to recognize you
+                when you visit our website. It explains what these technologies
+                are and why we use them, as well as your rights to control our
+                use of them.
               </div>
               <div>
                 Cookies are small, text-only pieces of data that are stored on
