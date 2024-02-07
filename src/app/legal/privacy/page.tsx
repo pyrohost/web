@@ -75,10 +75,10 @@ const Page = () => {
                   <strong>Purchases.</strong> We may collect information and
                   details associated with your purchases, including payment
                   information collected by our third-party payment processors
-                  (e.g., Stripe) on our behalf. We do not directly collect or
-                  store any payment card information, but may receive billing
-                  address or other non-sensitive information associated with
-                  your payment card from our third-party processors.
+                  (e.g., Stripe, PayPal) on our behalf. We do not directly
+                  collect or store any payment card information, but may receive
+                  billing address or other non-sensitive information associated
+                  with your payment card from our third-party processors.
                 </li>
                 <li>
                   <strong>Your Communications with Us.</strong> We may collect
@@ -219,10 +219,12 @@ const Page = () => {
                   provide, and improve our Services. For payment processing, we
                   use Stripe, a third-party payment processor, to process
                   payments. Stripe may collect and use your payment information
-                  in accordance with their privacy policy. We do not directly
-                  collect or store any payment card information, but may receive
-                  billing address or other non-sensitive information associated
-                  with your payment card from our third-party processors.
+                  in accordance with their privacy policy. You may also use
+                  PayPal, a third-party payment processor, to process payments.
+                  We do not directly collect or store any payment card
+                  information, but may receive billing address or other
+                  non-sensitive information associated with your payment card
+                  from our third-party processors.
                 </li>
                 <br></br>
                 <strong>Disclosures to Protect Us or Others</strong>
