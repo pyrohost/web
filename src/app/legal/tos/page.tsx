@@ -468,7 +468,10 @@ const Page = () => {
               </ul>
               <div>You may not use Pyro's Site or Services if you are:</div>
               <ul className="list-disc">
-                <li>a child under the age of 13.</li>
+                <li>
+                  a child under the age of 18. Please see our Privacy Policy for
+                  more information regarding children's privacy.
+                </li>
               </ul>
               <br></br>
               <strong>Unlimited Storage Policy</strong>
