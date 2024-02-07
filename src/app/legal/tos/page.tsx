@@ -425,9 +425,8 @@ const Page = () => {
               </div>
               <div>
                 <strong>10.6. Contact.</strong> The Site and the Services are
-                operated by Pyro Hosting, LLC DBA pyro.host. If you have any
-                questions about this Agreement, please email us at
-                support@pyro.host.
+                operated by Pyro. If you have any questions about this
+                Agreement, please email us at support@pyro.host.
               </div>
             </article>
             <h1 className="mt-16 text-[60px] font-extrabold leading-[98%] tracking-[-0.22rem] md:text-[84px] md:tracking-[-0.3rem]">

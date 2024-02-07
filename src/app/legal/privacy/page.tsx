@@ -334,9 +334,9 @@ const Page = () => {
                 after the new Privacy Policy takes effect.
               </div>
               <div>
-                The Site and the Services are operated by Pyro Hosting, LLC DBA
-                pyro.host. If you have any questions about this Privacy Policy,
-                please email us at support@pyro.host.
+                The Site and the Services are operated by Pyro. If you have any
+                questions about this Privacy Policy, please email us at
+                support@pyro.host.
               </div>
             </article>
           </div>
