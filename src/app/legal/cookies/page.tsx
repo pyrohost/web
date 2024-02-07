@@ -32,9 +32,9 @@ const Page = () => {
             </h2>
             <article className="mt-8 flex flex-col gap-4 leading-[155%]">
               <div className="">
-                "Pyro", "we" or "us" refers to Pyro Hosting, LLC DBA pyro.host.
-                "You", "your", or "user" refers to you, the individual accessing
-                our website. "Services" refers to services, apps, websites, and
+                "Pyro", "we" or "us" refers to Johnathan Bell, DBA Pyro. "You",
+                "your", or "user" refers to you, the individual accessing our
+                website. "Services" refers to services, apps, websites, and
                 other products operated by Pyro. By using or accessing Pyro's
                 website, you agree to Pyro's use of Cookies as outlined below.
                 This Cookie Policy is part of our Privacy Policy and explains

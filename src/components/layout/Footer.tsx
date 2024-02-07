@@ -131,7 +131,7 @@ const Footer = () => {
         className="mt-16 w-full border-t-2 border-solid border-t-[#ffffff11]"
       />
       <div className="mx-auto mt-16 w-full max-w-[1620px] text-xs font-medium opacity-50">
-        © 2024 Pyro Hosting, LLC DBA pyro.host
+        © 2024 Pyro
       </div>
     </footer>
   );

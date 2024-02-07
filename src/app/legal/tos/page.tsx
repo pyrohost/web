@@ -35,16 +35,16 @@ const Page = () => {
             <article className="mt-8 flex flex-col gap-4 leading-[155%]">
               <div>
                 These Terms of Service (this "Agreement") are entered into by
-                and between Pyro Hosting, LLC DBA pyro.host ("Pyro", "we", or
-                "us") and you, who is either (a) an individual user of the
-                Services, or (b) an individual acting on behalf of a legal
-                entity that is a user of the Services (as defined below). This
-                Agreement governs your use of the Services and constitutes a
-                legally binding agreement between you and Pyro. If you are using
-                the Services on behalf of a legal entity, you represent that you
-                are authorized to enter into this Agreement on behalf of that
-                legal entity. If you are using the Services on behalf of a legal
-                entity, "you" refers to that entity.
+                and between Johnathan Bell, DBA Pyro ("Pyro", "we", or "us") and
+                you, who is either (a) an individual user of the Services, or
+                (b) an individual acting on behalf of a legal entity that is a
+                user of the Services (as defined below). This Agreement governs
+                your use of the Services and constitutes a legally binding
+                agreement between you and Pyro. If you are using the Services on
+                behalf of a legal entity, you represent that you are authorized
+                to enter into this Agreement on behalf of that legal entity. If
+                you are using the Services on behalf of a legal entity, "you"
+                refers to that entity.
               </div>
               <div>
                 PLEASE READ THIS AGREEMENT CAREFULLY. THIS IS A LEGALLY BINDING
