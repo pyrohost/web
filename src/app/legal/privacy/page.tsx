@@ -6,6 +6,16 @@ export const metadata: Metadata = {
   title: "pyro - Privacy Policy",
   description:
     "Pyro takes your privacy seriously. Read and learn about our privacy policy.",
+  openGraph: {
+    title: "pyro - Privacy Policy",
+    description:
+      "Pyro takes your privacy seriously. Read and learn about our privacy policy.",
+    images: [
+      {
+        url: "./ogimage.png",
+      },
+    ],
+  },
 };
 
 const Page = () => {

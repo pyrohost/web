@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "pyro - Terms of Service",
     description: "Read about Pyro's Terms of Service.",
+    images: [
+      {
+        url: "./ogimage.png",
+      },
+    ],
   },
 };
 
