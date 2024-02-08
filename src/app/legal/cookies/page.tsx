@@ -22,14 +22,14 @@ const Page = () => {
     <main className="relative h-full w-full">
       <section className="relative h-full w-full px-16">
         <div className="mx-auto flex w-full max-w-[1620px] flex-col">
-          <div className="z-10 mx-auto flex w-full max-w-[1620px] flex-col pt-60">
-            <h1 className="mt-4 text-[60px] font-extrabold leading-[98%] tracking-[-0.25rem] md:text-[84px] md:tracking-[-0.35rem]">
+          <div className="z-10 mx-auto flex w-full max-w-[73ch] flex-col pt-60">
+            <h1 className="mt-4 text-[60px] font-extrabold leading-[98%] tracking-[-0.22rem] md:text-[84px] md:tracking-[-0.3rem]">
               Pyro's Cookie Policy
             </h1>
-            <h2 className="mt-8">
-              INTERNAL: This is a draft. Does not fully apply to existing users
-              until reviewed. We will email users once this is live.
-            </h2>
+            <div className="mt-8 flex flex-col text-xl">
+              <strong>Last Updated: February 8, 2024</strong>
+              <strong>Effective: February 15, 2024</strong>
+            </div>
             <article className="mt-8 flex flex-col gap-4 leading-[155%]">
               <div className="">
                 "Pyro", "we" or "us" refers to Johnathan Bell, DBA Pyro. "You",

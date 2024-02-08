@@ -28,11 +28,8 @@ const Page = () => {
               Pyro's Privacy Policy
             </h1>
             <div className="mt-8 flex flex-col text-xl">
-              <strong>Last Updated: February 6, 2024</strong>
-              <strong>
-                Effective: [TO BE ADDED. THE PRIVACY POLICY DOES NOT APPLY UNTIL
-                USERS ARE NOTIFIED. USERS ARE NOT BOUND TO THIS POLICY]
-              </strong>
+              <strong>Last Updated: February 8, 2024</strong>
+              <strong>Effective: February 15, 2024</strong>
             </div>
             <article className="mt-8 flex flex-col gap-4 leading-[155%]">
               <div>
