@@ -45,8 +45,8 @@ const HeroSection = () => {
             way to host games.
           </h1>
           <p className="mt-10 text-[17px] font-normal leading-[155%] text-[#ffffff99] md:text-[22px]">
-            Pyro is a new kind of host that makes it faster, easier, and cheaper
-            to play your favorite games with friends. Instantly available,
+            Pyro is a new game host that makes it faster, easier, and cheaper to
+            play your favorite games with your friends. Instantly available,
             lag-free servers with unmatched value.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 md:flex-row">
@@ -74,7 +74,7 @@ const HeroSection = () => {
                 />
               </svg>
             </a>
-            <a
+            {/* <a
               style={{
                 backgroundImage:
                   "radial-gradient(1182.86% 226.39% at 34.92% 22.73%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.00) 100%)",
@@ -97,7 +97,7 @@ const HeroSection = () => {
                   d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
                 />
               </svg>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

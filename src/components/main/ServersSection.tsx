@@ -51,7 +51,7 @@ const ServersSection = () => {
           className="mt-10 flex items-center justify-center gap-4 rounded-full py-3 pl-8 pr-6 text-sm font-bold"
           href="https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15"
         >
-          <p>It’s fast — really fast. Try it now</p>
+          <p>Launch your server in a minute</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -75,16 +75,17 @@ const ServersSection = () => {
             <h1 className="mt-4 max-w-[240px] text-[42px] font-extrabold leading-[98%] tracking-[-0.2rem]">
               Helsinki, Finland
             </h1>
-            <a
+            <div
               style={{
                 backgroundImage:
                   "radial-gradient(1182.86% 226.39% at 34.92% 22.73%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.00) 100%)",
               }}
-              className="mt-8 flex items-center justify-center gap-4 rounded-full border-2 border-solid border-[#ffffff08] py-3 pl-8 pr-6 text-sm font-bold"
-              href="https://billing.pyro.host/"
+              className="mt-8 flex flex-col items-center justify-center gap-1 rounded-full border-2 border-solid border-[#ffffff08] py-3 pl-8 pr-6 text-sm font-bold opacity-50"
+              // href="https://billing.pyro.host/"
             >
               <p>Test your ping</p>
-            </a>
+              <p className="text-xs">Coming Soon</p>
+            </div>
           </div>
           <div className="w-fit rounded-[64px] bg-[#ffffff11]  p-12 backdrop-blur-xl">
             <h1 className="mt-4 max-w-[240px] text-[38px] font-extrabold leading-[98%] tracking-[-0.2rem]">

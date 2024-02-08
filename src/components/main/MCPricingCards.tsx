@@ -19,8 +19,8 @@ const MCPricingCards = () => {
 
         <h2 className="text-left text-[#ffffff99]">
           {/* eslint-disable-next-line react/no-unescaped-entities */}
-          Try out Pyro's services for you and your community. Perfect for
-          vanilla Minecraft versions below 1.12.2. Does not support modpacks.
+          Try out Pyro's hosting for you and your community. Perfect for vanilla
+          Minecraft versions below 1.12.2. Does not support modpacks.
         </h2>
         <p className="flex">
           <span className="text-[12px] font-medium text-white">US</span>

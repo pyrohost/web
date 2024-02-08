@@ -10,7 +10,7 @@ const CTASection = () => {
       }}
     >
       <div className="relative mx-auto flex h-full w-full max-w-[1620px] flex-col justify-center py-32">
-        <h1 className="mt-4 max-w-[970px] text-[109px] font-extrabold leading-[98%] tracking-[-0.35rem]">
+        <h1 className="mt-4 max-w-[960px] text-[60px] font-extrabold leading-[98%] tracking-[-0.25rem] md:text-[109px] md:tracking-[-0.35rem]">
           You deserve a{" "}
           <span
             className="bg-clip-text text-transparent"

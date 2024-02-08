@@ -33,13 +33,13 @@ const NavBar = () => {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 isolate z-[9999] w-full px-4 md:px-16`}
+      className={`fixed left-0 right-0 top-0 isolate z-[9999] w-full md:px-16`}
     >
       <nav
-        className={`main-nav nav-controller relative mx-auto mt-4 flex w-full max-w-[1620px] transform-gpu flex-row items-center gap-4 overflow-hidden rounded-full p-2 backdrop-blur-xl transition-all will-change-transform [transition-duration:550ms] ${
+        className={`main-nav nav-controller relative mx-auto flex w-full max-w-[1620px] transform-gpu flex-row items-center gap-4 overflow-hidden p-2 backdrop-blur-xl transition-all will-change-transform [transition-duration:550ms] md:mt-4 md:rounded-full ${
           scrolled
-            ? "!mt-0 !max-w-[750px] !rounded-t-none border-[1px] border-solid border-[#ffffff08] bg-[#ffffff08] !p-1 !px-8"
-            : "border-[1px] border-solid border-[#ffffff00] bg-[#ffffff05]"
+            ? "!mt-0 !max-w-[750px] !rounded-t-none bg-[#ffffff08] !p-1 md:border-[1px] md:border-solid md:border-[#ffffff08] md:!px-8"
+            : "bg-[#ffffff05] md:border-[1px] md:border-solid md:border-[#ffffff00]"
         }`}
       >
         <Link className="w-fit shrink-0 p-4 text-sm font-bold" href="/">
