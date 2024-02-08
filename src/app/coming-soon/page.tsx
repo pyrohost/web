@@ -5,6 +5,12 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
+  const content = `
+  We're rapidly expanding our infrastructure and crafting the best
+  hosting experience possible. If you're wondering if Pyro is right
+  for you or your community, join our waitlist and we'll be in
+  touch. 🔥
+  `;
   return (
     <main className="relative h-full w-full">
       <section className="relative h-screen w-full px-16">
@@ -22,13 +28,7 @@ const Page = () => {
               </span>
             </h1>
             <p className="mt-10 text-[22px] font-normal leading-[155%] text-[#ffffff99]">
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              We're rapidly expanding our infrastructure and crafting the best
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              hosting experience possible. If you're wondering if Pyro is right
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              for you or your community, join our waitlist and we'll be in
-              touch. 🔥
+              {content}
             </p>
             <div className="mt-10 flex flex-row items-center gap-4">
               <a
