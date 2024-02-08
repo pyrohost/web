@@ -57,7 +57,7 @@ const Footer = () => {
             servers with unmatched value.
           </div>
         </div>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-col gap-16 md:flex-row md:gap-4">
           <ul className="flex w-32 list-none flex-col gap-4">
             <h2 className="text-sm font-bold text-brand">Pyro For</h2>
             <li>
