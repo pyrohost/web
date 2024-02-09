@@ -5,6 +5,9 @@ import HugeIconsPeople from "@icons/hugeicons/People";
 import HugeIconsStorage from "@icons/hugeicons/Storage";
 import HugeIconsTools from "@icons/hugeicons/Tools";
 import HugeIconsLink from "@icons/hugeicons/Link";
+import HugeIconsX from "@icons/hugeicons/X";
+import HugeIconsCPU from "@icons/hugeicons/CPU";
+import HugeIconsSupport from "@icons/hugeicons/Support";
 
 interface MCPricingCardProps {
   planName: string;
@@ -13,6 +16,7 @@ interface MCPricingCardProps {
   children?: React.ReactNode;
   outOfStock: boolean;
   purchaseLink?: string;
+  fancy?: boolean;
 }
 
 interface Perk {
@@ -31,6 +35,9 @@ const iconComponents = {
   ram: HugeIconsRAM,
   tools: HugeIconsTools,
   link: HugeIconsLink,
+  x: HugeIconsX,
+  cpu: HugeIconsCPU,
+  support: HugeIconsSupport,
 };
 
 const MCPricingCardPerks: FC<MCPricingCardPerksProps> = ({ perks }) => {
@@ -93,10 +100,21 @@ const MCPricingCard: FC<MCPricingCardProps> = ({
   children,
   outOfStock,
   purchaseLink,
+  fancy = false,
 }) => {
   return (
     <>
-      <div className="flex h-[700px] w-full flex-col gap-8 rounded-3xl bg-[#d6b4ba0f] p-8 backdrop-blur-lg">
+      <div
+        className={`
+        relative flex h-[700px] w-full flex-col gap-8 rounded-3xl p-8 backdrop-blur-lg
+        ${fancy ? "bottom-4 border-[2px] border-solid border-brand bg-[#da84841a]" : "bg-[#d6b4ba0f]"}
+      `}
+      >
+        {fancy && (
+          <div className="absolute -top-4 left-4 rounded-full bg-brand px-4 py-2 text-xs font-bold">
+            Most Popular
+          </div>
+        )}
         <div className="flex gap-[14PX]">
           <MCPricingLogo />
           <h1 className="text-[31px] font-bold leading-[98%] tracking-[-0.1rem]">
@@ -140,6 +158,11 @@ const MCPricingCards = () => {
         <MCPricingCardPerks
           perks={[
             {
+              icon: "cpu",
+              fill: "regular",
+              description: "Standard hardware",
+            },
+            {
               icon: "ram",
               fill: "regular",
               description: "2GB RAM",
@@ -147,18 +170,34 @@ const MCPricingCards = () => {
             {
               icon: "people",
               fill: "regular",
-              description: "Great for 1-3 players",
+              description: "Up to 3 players",
             },
             {
               icon: "storage",
               fill: "regular",
               description: "Up to 10GB of Storage",
             },
+            {
+              icon: "x",
+              fill: "regular",
+              description: "No modding support",
+            },
+            {
+              icon: "x",
+              fill: "regular",
+              description: "Standard support",
+            },
+            {
+              icon: "x",
+              fill: "regular",
+              description: "No custom domains",
+            },
           ]}
         />
       </MCPricingCard>
 
       <MCPricingCard
+        fancy
         outOfStock
         planName="Minecraft Essential"
         description="Everything you need to get started, quickly. Perfect for playing solo or with a small group of friends. Supports your favorite modpacks."
@@ -166,6 +205,11 @@ const MCPricingCards = () => {
       >
         <MCPricingCardPerks
           perks={[
+            {
+              icon: "cpu",
+              fill: "brand",
+              description: "Resource-priority hardware",
+            },
             {
               icon: "ram",
               fill: "brand",
@@ -187,9 +231,14 @@ const MCPricingCards = () => {
               description: "Great modding support",
             },
             {
+              icon: "support",
+              fill: "brand",
+              description: "Priority support",
+            },
+            {
               icon: "link",
               fill: "brand",
-              description: "pyro.host subdomain",
+              description: "Custom domain and pyro.host subdomain",
             },
           ]}
         />
@@ -203,6 +252,11 @@ const MCPricingCards = () => {
       >
         <MCPricingCardPerks
           perks={[
+            {
+              icon: "cpu",
+              fill: "brand",
+              description: "Resource-priority hardware",
+            },
             {
               icon: "ram",
               fill: "brand",
@@ -224,9 +278,14 @@ const MCPricingCards = () => {
               description: "Awesome modding support",
             },
             {
+              icon: "support",
+              fill: "brand",
+              description: "Priority support",
+            },
+            {
               icon: "link",
               fill: "brand",
-              description: "pyro.host subdomain",
+              description: "Custom domain and pyro.host subdomain",
             },
           ]}
         />

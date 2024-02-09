@@ -5,7 +5,7 @@ import ExternalLinkButton from "@/components/sections/_components/ExternalLinkBu
 const ExperienceSection = () => {
   return (
     <Section>
-      <Section.Title>
+      <Section.Title maxWidth={650}>
         An experience that <BrandText>ignites your community</BrandText>
       </Section.Title>
       <Section.Description>

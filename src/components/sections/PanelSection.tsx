@@ -13,7 +13,7 @@ import ExternalLinkButton from "@/components/sections/_components/ExternalLinkBu
 const PanelSection = () => {
   return (
     <Section>
-      <Section.Title>
+      <Section.Title maxWidth={650}>
         A management panel that&apos;s <BrandText>simply fire</BrandText>
       </Section.Title>
       <Section.Description>

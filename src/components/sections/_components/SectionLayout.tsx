@@ -23,15 +23,18 @@ const Section = ({
 const SectionTitle = ({
   children,
   hero = false,
+  maxWidth = 960,
   ...other
 }: {
   children: React.ReactNode;
   hero?: boolean;
+  maxWidth?: number;
 }) => {
   return (
     <h1
       data-standard-pyro-component="SectionTitle"
-      className={`z-10 ${hero ? "mt-4 max-w-[960px] text-[60px] font-extrabold leading-[98%] tracking-[-0.25rem] md:text-[109px] md:tracking-[-0.35rem]" : "mt-4 max-w-[650px] text-[62px] font-extrabold leading-[98%] tracking-[-0.2rem]"} `}
+      className={`z-10 ${hero ? "mt-4 text-[60px] font-extrabold leading-[98%] tracking-[-0.25rem] md:text-[109px] md:tracking-[-0.35rem]" : "mt-4 text-[62px] font-extrabold leading-[98%] tracking-[-0.2rem]"} `}
+      style={{ maxWidth: `${maxWidth}px` }}
       {...other}
     >
       {children}

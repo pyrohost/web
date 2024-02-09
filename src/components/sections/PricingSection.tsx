@@ -52,18 +52,18 @@ const PricingSection = () => {
         <Section.Title>
           Pricing that <BrandText>ignites simplicity</BrandText>
         </Section.Title>
-        <Section.Description>
-          Only pay for the hardware you need. Pyro offers simple pricing for
-          servers of all sizes. Minecraft starts at only $4 per month.
+        <Section.Description maxWidth={600}>
+          Only pay for what you need. Pyro offers simple pricing for servers of
+          all sizes. Minecraft starts at only $4 per month.
         </Section.Description>
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <ExternalLinkButton
             href="https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15"
             text="Get started"
           />
-        </div>
+        </div> */}
 
-        <div className="mt-16 flex w-full flex-col gap-4 xl:flex-row">
+        <div className="mt-24 flex w-full flex-col gap-4 xl:flex-row">
           <MCPricingCards />
         </div>
       </Section>
