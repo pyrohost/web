@@ -49,8 +49,8 @@ const ServersSection = () => {
       </div>
 
       <div className="relative h-[650px] w-full">
-        <div className="absolute left-1/2 z-10 mt-12 flex -translate-x-1/2 flex-row gap-12">
-          <div className="w-fit rounded-[64px] bg-[#ffffff11] p-12 backdrop-blur-xl">
+        <div className="absolute left-1/2 z-10 mt-12 flex w-full -translate-x-1/2 flex-col items-center justify-center gap-12 md:flex-row">
+          <div className="w-full rounded-[64px] bg-[#ffffff11] p-12 backdrop-blur-xl md:w-fit">
             <h1 className="mt-4 max-w-[240px] text-[42px] font-extrabold leading-[98%] tracking-[-0.2rem]">
               Helsinki, Finland
             </h1>
@@ -66,7 +66,7 @@ const ServersSection = () => {
               <p className="text-xs">Coming Soon</p>
             </div>
           </div>
-          <div className="w-fit rounded-[64px] bg-[#ffffff11]  p-12 backdrop-blur-xl">
+          <div className="w-full rounded-[64px] bg-[#ffffff11] p-12  backdrop-blur-xl md:w-fit">
             <h1 className="mt-4 max-w-[240px] text-[38px] font-extrabold leading-[98%] tracking-[-0.2rem]">
               More locations coming soon!
             </h1>
