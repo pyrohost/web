@@ -56,12 +56,6 @@ const PricingSection = () => {
           Only pay for what you need. Pyro offers simple pricing for servers of
           all sizes. Minecraft starts at only $4 per month.
         </Section.Description>
-        {/* <div className="mt-8">
-          <ExternalLinkButton
-            href="https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15"
-            text="Get started"
-          />
-        </div> */}
 
         <div className="mt-24 flex w-full flex-col gap-4 xl:flex-row">
           <MCPricingCards />

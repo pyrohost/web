@@ -16,7 +16,7 @@ const PanelSection = () => {
       <Section.Title maxWidth={650}>
         A management panel that&apos;s <BrandText>simply fire</BrandText>
       </Section.Title>
-      <Section.Description>
+      <Section.Description maxWidth={600}>
         Pyro&apos;s panel is unrivaled in accessibility, functionality, and
         aesthetics. Manage all your servers with confidence.
       </Section.Description>
