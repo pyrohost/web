@@ -107,7 +107,7 @@ const MCPricingCard: FC<MCPricingCardProps> = ({
       <div
         className={`
         relative flex h-[700px] w-full flex-col gap-8 rounded-3xl p-8 backdrop-blur-lg
-        ${fancy ? "bottom-4 border-[2px] border-solid border-brand bg-[#da84841a]" : "bg-[#d6b4ba0f]"}
+        ${fancy ? "border-[2px] border-solid border-brand bg-[#da84841a] md:bottom-4" : "bg-[#d6b4ba0f]"}
       `}
       >
         {fancy && (
