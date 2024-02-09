@@ -59,7 +59,7 @@ const HeroSection = () => {
         <Section.Title hero>
           A <BrandText>better way</BrandText> to host games
         </Section.Title>
-        <Section.Description>
+        <Section.Description maxWidth={700}>
           Pyro is a new game host that makes it faster, easier, and cheaper to
           play your favorite games with your friends. Instantly available,
           lag-free servers with unmatched value.
