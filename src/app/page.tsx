@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import PricingSection from "@/components/main/PricingSection";
-import ServersSection from "@/components/main/ServersSection";
-import ExperienceSection from "@/components/main/ExperienceSection";
-import HeroSection from "@/components/main/HeroSection";
-import CTASection from "@/components/main/CTASection";
-import PanelSection from "@/components/main/PanelSection";
+import PricingSection from "@/components/sections/PricingSection";
+import ServersSection from "@/components/sections/ServersSection";
+import ExperienceSection from "@/components/sections/ExperienceSection";
+import HeroSection from "@/components/sections/HeroSection";
+import CTASection from "@/components/sections/CTASection";
+import PanelSection from "@/components/sections/PanelSection";
 
 export const metadata: Metadata = {
   title: "pyro - A better way to host games",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <main className="relative h-fit w-full shrink-0">
+      <main data-pyro-index="" className="relative h-fit w-full shrink-0">
         <HeroSection />
         <PricingSection />
         <ServersSection />

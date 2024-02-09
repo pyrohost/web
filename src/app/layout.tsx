@@ -36,14 +36,19 @@ export default function RootLayout({
 }) {
   return (
     <html
+      data-pyro-html=""
       lang="en"
       className="dark relative h-fit w-full bg-dark-950 text-white antialiased [font-synthesis-weight:none]"
     >
       <body
+        data-pyro-body=""
         className={`${jakarta.className} relative flex min-h-full w-full flex-col overflow-x-hidden`}
       >
         <>
-          <div className="relative h-full w-full overflow-hidden">
+          <div
+            data-pyro-layout=""
+            className="relative h-full w-full overflow-hidden"
+          >
             <NavBar />
             {children}
             <Footer />

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import PanelSection from "@/components/main/PanelSection";
+import PanelSection from "@/components/sections/PanelSection";
 import { Metadata } from "next";
 import Image from "next/image";
 

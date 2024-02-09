@@ -33,7 +33,7 @@ const iconComponents = {
   link: HugeIconsLink,
 };
 
-const MCPricingCardPerks: React.FC<MCPricingCardPerksProps> = ({ perks }) => {
+const MCPricingCardPerks: FC<MCPricingCardPerksProps> = ({ perks }) => {
   return (
     <>
       {perks.map((perk, index) => {
