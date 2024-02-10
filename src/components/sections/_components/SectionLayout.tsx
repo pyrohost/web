@@ -23,18 +23,23 @@ const Section = ({
 const SectionTitle = ({
   children,
   hero = false,
+  fullWidth = false,
   maxWidth = 960,
   ...other
 }: {
   children: React.ReactNode;
   hero?: boolean;
+  fullWidth?: boolean;
   maxWidth?: number;
 }) => {
   return (
     <h1
       data-standard-pyro-component="SectionTitle"
       className={`z-10 ${hero ? "mt-4 text-[60px] font-extrabold leading-[98%] tracking-[-0.25rem] md:text-[109px] md:tracking-[-0.35rem]" : "mt-4 text-[62px] font-extrabold leading-[98%] tracking-[-0.2rem]"} `}
-      style={{ maxWidth: `${maxWidth}px` }}
+      style={{
+        maxWidth: `${fullWidth ? "100%" : `${maxWidth}px`}`,
+        width: `${fullWidth ? "100%" : ""}`,
+      }}
       {...other}
     >
       {children}
@@ -48,18 +53,23 @@ Section.Title = SectionTitle;
 const SectionDescription = ({
   children,
   hero = false,
+  fullWidth = false,
   maxWidth = 480,
   ...other
 }: {
   children: React.ReactNode;
   hero?: boolean;
+  fullWidth?: boolean;
   maxWidth?: number;
 }) => {
   return (
     <p
       data-standard-pyro-component="SectionDescription"
       className={`z-10 mt-10 text-[17px] font-normal leading-[155%] text-[#ffffff99] md:text-[22px]`}
-      style={{ maxWidth: `${maxWidth}px` }}
+      style={{
+        maxWidth: `${fullWidth ? "100%" : `${maxWidth}px`}`,
+        width: `${fullWidth ? "100%" : ""}`,
+      }}
       {...other}
     >
       {children}
