@@ -116,7 +116,13 @@ const MCPricingCard: FC<MCPricingCardProps> = ({
           </div>
         )}
         <div className="flex gap-[14PX]">
-          <MCPricingLogo />
+          {fancy ? (
+            <div className="brightness-200">
+              <MCPricingLogo />
+            </div>
+          ) : (
+            <MCPricingLogo />
+          )}
           <h1 className="text-[31px] font-bold leading-[98%] tracking-[-0.1rem]">
             {planName}
           </h1>
@@ -200,7 +206,7 @@ const MCPricingCards = () => {
         fancy
         outOfStock
         planName="Minecraft Essential"
-        description="Everything you need to get started, quickly. Perfect for playing solo or with a small group of friends. Supports your favorite modpacks."
+        description="Everything you need to get started. Perfect for playing solo or with a small group of friends. Supports your favorite modpacks."
         price={8}
       >
         <MCPricingCardPerks
@@ -254,37 +260,37 @@ const MCPricingCards = () => {
           perks={[
             {
               icon: "cpu",
-              fill: "brand",
+              fill: "regular",
               description: "Resource-priority hardware",
             },
             {
               icon: "ram",
-              fill: "brand",
+              fill: "regular",
               description: "8GB RAM",
             },
             {
               icon: "people",
-              fill: "brand",
+              fill: "regular",
               description: "Unlimited players",
             },
             {
               icon: "storage",
-              fill: "brand",
+              fill: "regular",
               description: "Unlimited storage",
             },
             {
               icon: "tools",
-              fill: "brand",
+              fill: "regular",
               description: "Awesome modding support",
             },
             {
               icon: "support",
-              fill: "brand",
+              fill: "regular",
               description: "Priority support",
             },
             {
               icon: "link",
-              fill: "brand",
+              fill: "regular",
               description: "Custom domain and pyro.host subdomain",
             },
           ]}
