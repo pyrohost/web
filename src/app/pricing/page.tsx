@@ -92,8 +92,7 @@ const Page = () => {
       </Section>
       <Section>
         <Section.Title maxWidth={850}>
-          Don't just take our word for it.{" "}
-          <BrandText>Start a free trial.</BrandText>
+          Dont take our word for it. <BrandText>Start a free trial.</BrandText>
         </Section.Title>
         <Section.Description maxWidth={600}>
           Only pay for what you need. Pyro offers simple pricing for servers of
