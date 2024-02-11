@@ -5,6 +5,7 @@ import Section from "@/components/sections/_components/SectionLayout";
 import MCPricingCards from "@/components/sections/_components/SpecialMCPricingCards";
 import Image from "next/image";
 import Link from "next/link";
+import PanelSection from "@/components/sections/PanelSection";
 
 export const metadata: Metadata = {
   title: "pyro.host - Pricing and Minecraft Plans",
@@ -49,7 +50,7 @@ const Page = () => {
         <div className="relative mt-24 flex flex-col items-center text-center md:mt-48">
           <Section.Title hero>
             {/* <BrandText> */}
-            Remarkably reliable Minecraft hosting
+            Plans for every community
             {/* </BrandText> */}
           </Section.Title>
           <Section.Description hero maxWidth={900}>
@@ -67,7 +68,7 @@ const Page = () => {
             <MCPricingCards />
           </div>
         </div>
-        <div className="absolute left-2 top-2 text-[9px] opacity-40">
+        <div className="absolute left-2 top-2 z-[9998] text-[9px] opacity-40 ">
           Background art ©{" "}
           <a
             href="https://pixeljoint.com/pixelart/130189.htm"
@@ -82,21 +83,34 @@ const Page = () => {
       <Section>
         <div className="relative flex w-full flex-col gap-8 rounded-3xl bg-[#d6b4ba0f] p-8 text-left backdrop-blur-lg">
           <Section.Title fullWidth>
-            Need a plan for <BrandText>extraordinarily</BrandText> large
-            servers?
+            The easy choice for the <BrandText>largest</BrandText> servers
           </Section.Title>
-          <Section.Description fullWidth>
-            asdfhjasdkjhsadkhjasdflkhjasdfklhj
-          </Section.Description>
+          <p className="z-10 text-[17px] font-normal leading-[155%] text-[#ffffff99] md:text-[22px]">
+            Pyro's Pro plans are designed for the largest communities. Support a
+            large playerbase, run multiple servers, and manage it all with
+            Pyro's world-class management panel. Need an illustration or a globe
+            or something
+          </p>
+        </div>
+      </Section>
+      <PanelSection />
+      <Section>
+        <Section.Title maxWidth={800}>
+          It's <BrandText>everything you want</BrandText> from a Minecraft host
+        </Section.Title>
+        {/* <Section.Description maxWidth={600}></Section.Description> */}
+
+        <div className="">
+          <Image src="/img/waiter.png" alt="" width={800} height={400} />
         </div>
       </Section>
       <Section>
-        <Section.Title maxWidth={850}>
-          Dont take our word for it. <BrandText>Start a free trial.</BrandText>
+        <Section.Title maxWidth={800}>
+          Dont take our word for it. <BrandText>Start a free trial</BrandText>
         </Section.Title>
         <Section.Description maxWidth={600}>
-          Only pay for what you need. Pyro offers simple pricing for servers of
-          all sizes. Minecraft starts at only $4 per month.
+          Get started in seconds. No credit card required. Easily upgrade to a
+          paid plan at any time.
         </Section.Description>
 
         <div className="mt-24 flex w-full flex-col gap-4 xl:flex-row"></div>
