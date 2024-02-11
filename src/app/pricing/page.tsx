@@ -86,17 +86,18 @@ const Page = () => {
             The easy choice for the <BrandText>largest</BrandText> servers
           </Section.Title>
           <p className="z-10 text-[17px] font-normal leading-[155%] text-[#ffffff99] md:text-[22px]">
-            Pyro's Pro plans are designed for the largest communities. Support a
-            large playerbase, run multiple servers, and manage it all with
-            Pyro's world-class management panel. Need an illustration or a globe
-            or something
+            Pyro&apos;s Pro plans are designed for the largest communities.
+            Support a large playerbase, run multiple servers, and manage it all
+            with Pyro&apos;s world-class management panel. Need an illustration
+            or a globe or something
           </p>
         </div>
       </Section>
       <PanelSection />
       <Section>
         <Section.Title maxWidth={800}>
-          It's <BrandText>everything you want</BrandText> from a Minecraft host
+          It&apos;s <BrandText>everything you want</BrandText> from a Minecraft
+          host
         </Section.Title>
         {/* <Section.Description maxWidth={600}></Section.Description> */}
 
