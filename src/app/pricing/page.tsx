@@ -17,12 +17,13 @@ import HugeIconsCPU from "@/components/icons/hugeicons/CPU";
 import Cobe from "@/components/Cobe";
 
 export const metadata: Metadata = {
-  title: "pyro.host - Pricing and Minecraft Plans",
+  title: "pyro.host - Pricing and Plans",
   description:
-    "Pyro's instantly available, lag-free servers are unmatched in value. Host your Minecraft server and play with friends for just $4.",
+    "Pyro's instantly available, lag-free servers are unmatched in value. Host your Minecraft server and play with friends for just $4, or host almost any other game with Pyro.",
   openGraph: {
-    title: "pyro.host - Pricing and Minecraft Plans",
-    description: "",
+    title: "pyro.host - Pricing and Plans",
+    description:
+      "Pyro's instantly available, lag-free servers are unmatched in value. Host your Minecraft server and play with friends for just $4, or host almost any other game with Pyro.",
     images: [
       {
         url: "./ogimage.png",
