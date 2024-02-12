@@ -186,7 +186,7 @@ const NavBar = () => {
         </NavigationMenu>
 
         <div
-          className={`ml-auto h-[16px] w-[1px] shrink-0 bg-[#ffffff29] ${
+          className={`ml-auto hidden h-[16px] w-[1px] shrink-0 bg-[#ffffff29] md:block ${
             scrolled ? "mr-2 opacity-100" : "opacity-0"
           } `}
         ></div>
@@ -206,7 +206,7 @@ const NavBar = () => {
           Discord
         </a>
 
-        <div className="ml-auto block text-sm font-bold md:hidden">
+        <div className="ml-auto block p-4 text-sm font-bold md:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <HamburgerMenuIcon />

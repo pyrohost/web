@@ -133,7 +133,14 @@ const MCPricingCard: FC<MCPricingCardProps> = ({
         <h2 className="text-left text-[#ffffff99]">{description}</h2>
         {!outOfStock && purchaseLink && (
           <>
-            <div>:3</div>
+            <a
+              href={purchaseLink}
+              rel="noreferrer noopener"
+              target="_blank"
+              className={`${fancy ? "bg-brand" : "bg-[#323232]"} flex items-center justify-center gap-4 rounded-full py-3 pl-8 pr-6 text-sm font-bold`}
+            >
+              <p>Order now</p>
+            </a>
           </>
         )}
 
@@ -155,7 +162,8 @@ const MCPricingCards = () => {
   return (
     <>
       <MCPricingCard
-        outOfStock
+        outOfStock={false}
+        purchaseLink="https://pay.pyro.host/checkout/config/3"
         planName="Basic"
         description="Try out Pyro's hosting for you and your community. Perfect for vanilla Minecraft versions below 1.12.2. Does not support modpacks."
         price={4}
@@ -203,7 +211,8 @@ const MCPricingCards = () => {
 
       <MCPricingCard
         fancy
-        outOfStock
+        outOfStock={false}
+        purchaseLink="https://pay.pyro.host/checkout/config/4"
         planName="Essential"
         description="Everything you need to get started. Perfect for playing solo or with a small group of friends. Supports your favorite modpacks."
         price={8}
@@ -250,7 +259,8 @@ const MCPricingCards = () => {
       </MCPricingCard>
 
       <MCPricingCard
-        outOfStock
+        outOfStock={false}
+        purchaseLink="https://pay.pyro.host/checkout/config/6"
         planName="Premium"
         description="Powerful features for the most demanding modpacks, large communities, and players desiring a premium, lag-free experience."
         price={16}

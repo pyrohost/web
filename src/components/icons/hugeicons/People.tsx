@@ -5,8 +5,8 @@ const HugeIconsPeople = (props: HugeIconProps) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      fill={props.fill === "brand" ? "#fa4e49" : "#3f3e3e"}
-      className="h-6 w-6"
+      fill={props.fill === "brand" ? "#fa4e49" : "#646464"}
+      className={"h-6 w-6" + (props.className ? ` ${props.className}` : "")}
     >
       <path
         fillRule="evenodd"
