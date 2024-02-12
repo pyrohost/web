@@ -186,6 +186,11 @@
   }
 }
 
+.overflow-memory-in {
+  animation: fadeInUp 0.9s both;
+  animation-timing-function: var(--ease-spring-3);
+}
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -213,8 +218,7 @@
   }
 }
 
-html,
-body {
+html {
   background-color: #000000;
 }
 
