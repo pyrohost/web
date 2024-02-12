@@ -240,13 +240,12 @@ const Page = () => {
           <Section.Description maxWidth={800}>
             We&apos;re starting in Europe, and are rapidly expanding to more
             locations soon. But no matter where you are, we strive for the best
-            experience for you and your players. Pyro has the most consistent
-            speeds and the lowest latency across continents.
+            experience for you and your players.
           </Section.Description>
           <div className="mx-auto mt-8 w-fit">
             <ExternalLinkButton
               href="https://pay.pyro.host/checkout/config/3"
-              text="Play globally, with Pyro."
+              text="Go global with Pyro"
             />
           </div>
         </div>
