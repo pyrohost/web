@@ -239,8 +239,9 @@ const Page = () => {
           <Section.Title maxWidth={800}>Available worldwide</Section.Title>
           <Section.Description maxWidth={800}>
             We&apos;re starting in Europe, and are rapidly expanding to more
-            locations soon. But no matter where you are, you can play with
-            guaranteed low latency and lag-free gameplay, with Pyro.
+            locations soon. But no matter where you are, we strive for the best
+            experience for you and your players. Pyro has the most consistent
+            speeds and the lowest latency across continents.
           </Section.Description>
           <div className="mx-auto mt-8 w-fit">
             <ExternalLinkButton
