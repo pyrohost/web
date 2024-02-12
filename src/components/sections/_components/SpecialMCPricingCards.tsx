@@ -8,6 +8,13 @@ import HugeIconsLink from "@icons/hugeicons/Link";
 import HugeIconsX from "@icons/hugeicons/X";
 import HugeIconsCPU from "@icons/hugeicons/CPU";
 import HugeIconsSupport from "@icons/hugeicons/Support";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface MCPricingCardProps {
   planName: string;
@@ -23,6 +30,7 @@ interface Perk {
   icon: string;
   fill: "brand" | "regular";
   description: string;
+  tooltip?: string;
 }
 
 interface MCPricingCardPerksProps {
@@ -50,6 +58,18 @@ const MCPricingCardPerks: FC<MCPricingCardPerksProps> = ({ perks }) => {
           <FlexRow key={index}>
             <IconComponent fill={perk.fill} />
             <p>{perk.description}</p>
+            {perk.tooltip && (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger className="-ml-2">
+                    <InfoCircledIcon />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{perk.tooltip}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
           </FlexRow>
         );
       })}
@@ -58,7 +78,9 @@ const MCPricingCardPerks: FC<MCPricingCardPerksProps> = ({ perks }) => {
 };
 
 const FlexRow = ({ children }: { children: React.ReactNode[] }) => {
-  return <div className="flex flex-row gap-4">{children}</div>;
+  return (
+    <div className="flex flex-row items-center gap-4 text-left">{children}</div>
+  );
 };
 
 const MCPricingLogo = () => {
@@ -178,7 +200,9 @@ const MCPricingCards = () => {
             {
               icon: "ram",
               fill: "regular",
-              description: "2GB RAM",
+              description: "3GB RAM",
+              tooltip:
+                "2GB of high-speed RAM, and 1GB of Pyro Overflow Memory for peak performance",
             },
             {
               icon: "people",
@@ -227,7 +251,9 @@ const MCPricingCards = () => {
             {
               icon: "ram",
               fill: "brand",
-              description: "4GB RAM",
+              description: "5GB RAM",
+              tooltip:
+                "4GB of high-speed RAM, and 1GB of Pyro Overflow Memory for peak performance",
             },
             {
               icon: "people",
@@ -275,7 +301,9 @@ const MCPricingCards = () => {
             {
               icon: "ram",
               fill: "regular",
-              description: "8GB RAM",
+              description: "9GB RAM",
+              tooltip:
+                "8GB of high-speed RAM, and 1GB of Pyro Overflow Memory for peak performance",
             },
             {
               icon: "people",

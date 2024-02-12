@@ -272,7 +272,6 @@ html {
 
 .ignite-circle {
   animation: ignite-anim 2s infinite;
-  animatine-timing-function: var(--ease-spring-3);
 }
 
 .imageWrapper {
