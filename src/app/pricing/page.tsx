@@ -294,11 +294,13 @@ const Page = () => {
 
       <Section>
         <div className="z-20">
-          <Section.Title maxWidth={800}>Available worldwide</Section.Title>
+          <Section.Title maxWidth={800}>
+            It&apos;s where your world plays
+          </Section.Title>
           <Section.Description maxWidth={800}>
-            We&apos;re starting in Europe, and are rapidly expanding to more
-            locations soon. But no matter where you are, we strive for the best
-            experience for you and your players.
+            Our servers are currently in Europe and we&apos;re rapidly expanding
+            to more locations. But no matter where you are, we strive for the
+            best playing experience for you and your players.
           </Section.Description>
           <div className="mx-auto mt-8 w-fit">
             <ExternalLinkButton
@@ -311,8 +313,16 @@ const Page = () => {
         <div className="absolute">
           <Cobe />
         </div>
+      </Section>
 
-        <div className="mt-24 flex w-full flex-col gap-4 xl:flex-row"></div>
+      <Section>
+        <Section.Title fullWidth>
+          All your <BrandText>favorite games</BrandText> are on Pyro
+        </Section.Title>
+        <Section.Description maxWidth={800}>
+          From Terarria, to Rust, to Factorio, to Palworld and more. Pyro is the
+          best way to play with your friends, on your favorite games.
+        </Section.Description>
       </Section>
     </main>
   );
