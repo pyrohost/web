@@ -3,6 +3,7 @@ import BrandText from "@/components/sections/_components/BrandText";
 import ExternalLinkButton from "@/components/sections/_components/ExternalLinkButton";
 import Section from "@/components/sections/_components/SectionLayout";
 import MCPricingCards from "@/components/sections/_components/SpecialMCPricingCards";
+import ProMCPricingCards from "@/components/sections/_components/ProMCPricingCards";
 import Image from "next/image";
 import Link from "next/link";
 import PanelSection from "@/components/sections/PanelSection";
@@ -102,14 +103,16 @@ const Page = () => {
         </div>
         <div className="relative z-20 flex w-full flex-col gap-8 rounded-3xl bg-[#d6b4ba0f] p-8 text-left backdrop-blur-lg">
           <Section.Title fullWidth>
-            The easy choice for the <BrandText>largest</BrandText> servers
+            Easy choices for the <BrandText>largest</BrandText> servers
           </Section.Title>
           <p className="z-10 text-[17px] font-normal leading-[155%] text-[#ffffff99] md:text-[22px]">
-            Pyro&apos;s Pro plans are designed for the largest communities.
-            Support a large playerbase, run multiple servers, and manage it all
-            with Pyro&apos;s world-class management panel. Need an illustration
-            or a globe or something
+            Pyro offers plans designed for the largest communities. Support a
+            large playerbase, run multiple servers, and manage it all with
+            Pyro&apos;s world-class management panel.
           </p>
+        </div>
+        <div className="mt-4 flex w-full flex-col gap-4 xl:flex-row">
+          <ProMCPricingCards />
         </div>
       </Section>
       <Section>
@@ -291,7 +294,12 @@ const Page = () => {
       </Section>
 
       <PanelSection />
-
+      <div
+        aria-hidden
+        style={{
+          minHeight: "12rem",
+        }}
+      ></div>
       <Section>
         <div className="z-20">
           <Section.Title maxWidth={800}>
@@ -314,8 +322,27 @@ const Page = () => {
           <Cobe />
         </div>
       </Section>
-
+      <div
+        aria-hidden
+        style={{
+          minHeight: "12rem",
+        }}
+      ></div>
       <Section>
+        <div className="img-opacity-animation pointer-events-none absolute inset-0 select-none">
+          <Image
+            alt=""
+            aria-hidden
+            src="/img/scuffedallgameshero.png"
+            width={1600}
+            height={650}
+            className="pointer-events-none mt-32 w-full scale-150 select-none border-t-[1px] border-solid border-white object-cover opacity-35 grayscale backdrop-blur"
+            style={{
+              maskImage:
+                "radial-gradient(85% 100% at 50% 100%, transparent 55.5%, white)",
+            }}
+          />
+        </div>
         <Section.Title fullWidth>
           All your <BrandText>favorite games</BrandText> are on Pyro
         </Section.Title>

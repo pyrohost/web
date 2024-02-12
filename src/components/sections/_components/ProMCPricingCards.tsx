@@ -34,7 +34,7 @@ interface Perk {
 }
 
 interface MCPricingCardPerksProps {
-  perks: Perk[];
+  perks?: Perk[];
 }
 
 const iconComponents = {
@@ -49,6 +49,8 @@ const iconComponents = {
 };
 
 const MCPricingCardPerks: FC<MCPricingCardPerksProps> = ({ perks }) => {
+  if (!perks) return null;
+
   return (
     <>
       {perks.map((perk, index) => {
@@ -153,13 +155,16 @@ const MCPricingCard: FC<MCPricingCardProps> = ({
         <MCPricingPrice price={price} regionCode="us" />
 
         <h2 className="text-left text-[#ffffff99]">{description}</h2>
+
+        <div className="text-md flex flex-col gap-4 font-bold">{children}</div>
+
         {!outOfStock && purchaseLink && (
           <>
             <a
               href={purchaseLink}
               rel="noreferrer noopener"
               target="_blank"
-              className={`${fancy ? "bg-brand" : "bg-[#323232]"} flex items-center justify-center gap-4 rounded-full py-3 pl-8 pr-6 text-sm font-bold`}
+              className={`${fancy ? "bg-brand" : "bg-[#323232]"} mt-auto flex items-center justify-center gap-4 rounded-full py-3 pl-8 pr-6 text-sm font-bold`}
             >
               <p>Order now</p>
             </a>
@@ -169,77 +174,25 @@ const MCPricingCard: FC<MCPricingCardProps> = ({
         {outOfStock && (
           <div
             aria-hidden
-            className="pointer-events-none flex items-center justify-center gap-4 rounded-full bg-[#3f3e3e] py-3 pl-8 pr-6 text-sm font-bold opacity-50"
+            className="pointer-events-none mt-auto flex items-center justify-center gap-4 rounded-full bg-[#3f3e3e] py-3 pl-8 pr-6 text-sm font-bold opacity-50"
           >
             <p>Out of stock</p>
           </div>
         )}
-        <div className="text-md flex flex-col gap-4 font-bold">{children}</div>
       </div>
     </>
   );
 };
 
-const MCPricingCards = () => {
+const ProMCPricingCards = () => {
   return (
     <>
       <MCPricingCard
         outOfStock={false}
-        purchaseLink="https://pay.pyro.host/checkout/config/3"
-        planName="Basic"
-        description="Try out Pyro's hosting for you and your community. Perfect for vanilla Minecraft versions below 1.12.2. Does not support modpacks."
-        price={4}
-      >
-        <MCPricingCardPerks
-          perks={[
-            {
-              icon: "cpu",
-              fill: "regular",
-              description: "Standard hardware",
-            },
-            {
-              icon: "ram",
-              fill: "regular",
-              description: "3GB RAM",
-              tooltip:
-                "2GB of high-speed RAM, and 1GB of Pyro Overflow Memory for peak performance",
-            },
-            {
-              icon: "people",
-              fill: "regular",
-              description: "Up to 3 players",
-            },
-            {
-              icon: "storage",
-              fill: "regular",
-              description: "Up to 10GB of Storage",
-            },
-            {
-              icon: "x",
-              fill: "regular",
-              description: "No modding support",
-            },
-            {
-              icon: "x",
-              fill: "regular",
-              description: "Standard support",
-            },
-            {
-              icon: "x",
-              fill: "regular",
-              description: "No custom domains",
-            },
-          ]}
-        />
-      </MCPricingCard>
-
-      <MCPricingCard
-        fancy
-        outOfStock={false}
-        purchaseLink="https://pay.pyro.host/checkout/config/4"
-        planName="Essential"
-        description="Everything you need to get started. Perfect for playing solo or with a small group of friends. Supports your favorite modpacks."
-        price={8}
+        purchaseLink="https://pay.pyro.host/checkout/config/7"
+        planName="Max"
+        description="The Max plan is for the largest communities and modpacks. It's the bleeding edge of performance and capacity that Pyro offers."
+        price={20}
       >
         <MCPricingCardPerks
           perks={[
@@ -251,9 +204,9 @@ const MCPricingCards = () => {
             {
               icon: "ram",
               fill: "brand",
-              description: "5GB RAM",
+              description: "12GB RAM",
               tooltip:
-                "4GB of high-speed RAM, and 1GB of Pyro Overflow Memory for peak performance",
+                "10GB of high-speed RAM, and 2GB of Pyro Overflow Memory for peak performance",
             },
             {
               icon: "people",
@@ -268,7 +221,7 @@ const MCPricingCards = () => {
             {
               icon: "tools",
               fill: "brand",
-              description: "Great modding support",
+              description: "Supports every modpack and plugin",
             },
             {
               icon: "support",
@@ -283,58 +236,42 @@ const MCPricingCards = () => {
           ]}
         />
       </MCPricingCard>
-
-      <MCPricingCard
-        outOfStock={false}
-        purchaseLink="https://pay.pyro.host/checkout/config/6"
-        planName="Premium"
-        description="Powerful features for the most demanding modpacks, large communities, and players desiring a premium, lag-free experience."
-        price={16}
-      >
-        <MCPricingCardPerks
-          perks={[
-            {
-              icon: "cpu",
-              fill: "regular",
-              description: "Resource-priority hardware",
-            },
-            {
-              icon: "ram",
-              fill: "regular",
-              description: "9GB RAM",
-              tooltip:
-                "8GB of high-speed RAM, and 1GB of Pyro Overflow Memory for peak performance",
-            },
-            {
-              icon: "people",
-              fill: "regular",
-              description: "Unlimited players",
-            },
-            {
-              icon: "storage",
-              fill: "regular",
-              description: "Unlimited storage",
-            },
-            {
-              icon: "tools",
-              fill: "regular",
-              description: "Awesome modding support",
-            },
-            {
-              icon: "support",
-              fill: "regular",
-              description: "Priority support",
-            },
-            {
-              icon: "link",
-              fill: "regular",
-              description: "Custom domain and pyro.host subdomain",
-            },
-          ]}
-        />
-      </MCPricingCard>
+      <>
+        <div
+          className={`
+        relative flex min-h-[650px] w-full flex-col gap-8 rounded-3xl bg-[#d6b4ba0f] p-8 backdrop-blur-lg
+      `}
+        >
+          <div className="flex gap-[14PX]">
+            <MCPricingLogo />
+            <h1 className="text-[31px] font-bold leading-[98%] tracking-[-0.1rem]">
+              Custom Plans
+            </h1>
+          </div>
+          <p className="flex">
+            <span className="ml-1.5 text-5xl font-black text-white">
+              Contact Us
+            </span>
+          </p>
+          <h2 className="text-left text-[#ffffff99]">
+            If you need something more specific, we can work with you to create
+            a custom plan that fits your needs.
+          </h2>
+          {/* <h2 className="text-left text-[#ffffff99]">{description}</h2> */}
+          <>
+            <a
+              href="https://discord.gg/fxeRFRbhQh?utm_source=marketing_site&utm_medium=contact_sales_card_pricing&utm_campaign=PRELAUNCH&utm_id=PRELAUNCH"
+              rel="noreferrer noopener"
+              target="_blank"
+              className={`mt-auto flex items-center justify-center gap-4 rounded-full bg-brand py-3 pl-8 pr-6 text-sm font-bold`}
+            >
+              <p>Contact Us</p>
+            </a>
+          </>
+        </div>
+      </>
     </>
   );
 };
 
-export default MCPricingCards;
+export default ProMCPricingCards;
