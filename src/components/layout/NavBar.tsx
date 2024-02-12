@@ -223,7 +223,7 @@ const NavBar = () => {
 
         {isHome && (
           <div
-            className={`glow-controller contents transition-all [transition-duration:750ms] ${
+            className={`glow-controller transition-all [transition-duration:750ms] ${
               scrolled ? "opacity-0" : "opacity-100"
             }`}
           >
