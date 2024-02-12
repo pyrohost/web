@@ -223,14 +223,16 @@ const NavBar = () => {
 
         {isHome && (
           <div
-            className={`glow-controller transition-all [transition-duration:750ms] ${
+            className={`glow-controller contents transition-all [transition-duration:750ms] ${
               scrolled ? "opacity-0" : "opacity-100"
             }`}
           >
             <div
               aria-hidden
               tabIndex={-1}
-              className="pointer-events-none absolute bottom-0 right-[4%] h-[1px] w-[300px] select-none"
+              className={`pointer-events-none absolute bottom-0 right-[4%] h-[1px] w-[300px] select-none ${
+                scrolled ? "opacity-0" : "opacity-100"
+              }`}
               style={{
                 background:
                   "radial-gradient(62.87% 100% at 50% 100%, rgb(219 99 99 / 62%) 0%, rgba(255, 255, 255, 0) 100%)",
@@ -239,7 +241,9 @@ const NavBar = () => {
             <div
               aria-hidden
               tabIndex={-1}
-              className="pointer-events-none absolute left-[3%] top-0 h-[1px] w-[200px] select-none"
+              className={`pointer-events-none absolute left-[3%] top-0 h-[1px] w-[200px] select-none ${
+                scrolled ? "opacity-0" : "opacity-100"
+              }`}
               style={{
                 background:
                   "radial-gradient(62.87% 100% at 50% 100%, rgb(219 99 99 / 62%) 0%, rgba(255, 255, 255, 0) 100%)",
