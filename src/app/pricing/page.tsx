@@ -1,11 +1,11 @@
 import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import BrandText from "@/components/sections/_components/BrandText";
 import ExternalLinkButton from "@/components/sections/_components/ExternalLinkButton";
 import Section from "@/components/sections/_components/SectionLayout";
 import MCPricingCards from "@/components/sections/_components/SpecialMCPricingCards";
 import ProMCPricingCards from "@/components/sections/_components/ProMCPricingCards";
-import Image from "next/image";
-import Link from "next/link";
 import PanelSection from "@/components/sections/PanelSection";
 import HugeIconsPeople from "@/components/icons/hugeicons/People";
 import HugeIconsRAM from "@/components/icons/hugeicons/RAM";

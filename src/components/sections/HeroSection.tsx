@@ -7,14 +7,14 @@ import ExternalLinkButton from "@/components/sections/_components/ExternalLinkBu
 const HeroEyebrow = () => {
   return (
     <a
-      href="https://forms.gle/dUXavHV5BGL3QAheA"
+      href="https://pay.pyro.host/?utm_source=pyro&utm_medium=website&utm_campaign=launch"
       rel="noopener noreferrer"
       target="_blank"
-      className="flex w-fit items-center justify-center gap-4 rounded-full border-2 border-solid border-[#ffffff08] bg-[#ffffff12] p-2 px-4 text-sm font-bold"
+      className="flex w-fit items-center justify-center gap-2 rounded-full border-2 border-solid border-[#ffffff08] bg-[#ffffff12] p-2 px-4 text-sm font-bold"
     >
       <p>
-        Be one of the first to try Pyro.{" "}
-        <span className="text-brand">Join the waitlist!</span>
+        We&apos;ve launched!{" "}
+        <span className="text-brand">Check out our plans</span>
       </p>
       <ArrowRightIcon />
     </a>
@@ -65,10 +65,7 @@ const HeroSection = () => {
           lag-free servers with unmatched value.
         </Section.Description>
         <div className="mt-10">
-          <ExternalLinkButton
-            href="https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15"
-            text="Try a server free for 24 hours"
-          />
+          <ExternalLinkButton href="https://pay.pyro.host" text="Order Now" />
         </div>
       </div>
 
