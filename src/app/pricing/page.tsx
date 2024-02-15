@@ -143,7 +143,7 @@ const Page = () => {
         </Section.Description>
 
         <div className="relative mt-24 flex w-full max-w-[1200px] flex-col text-left">
-          <div className="grid grid-cols-3 grid-rows-2 place-items-start justify-items-center gap-9">
+          <div className="grid grid-rows-2 place-items-start justify-items-center gap-9 sm:grid-cols-3">
             <div className="inline max-w-[256px] font-medium text-[#888]">
               <HugeIconsSupport
                 className="-mt-1.5 mr-1 inline !h-5 !w-5 fill-white"
@@ -212,7 +212,7 @@ const Page = () => {
 
           <div className="mt-24 flex flex-col gap-16 xl:flex-row">
             <div
-              className="flex min-h-[400px] w-full flex-col overflow-hidden rounded-3xl border-2 border-[#ffffff11] p-8 backdrop-blur-3xl"
+              className="flex w-full flex-col overflow-hidden rounded-3xl border-2 border-[#ffffff11] p-8 backdrop-blur-3xl md:min-h-[400px]"
               // style={{
               //   background:
               //     "linear-gradient(to right top, rgb(49, 58, 96), rgb(78, 92, 110))",
@@ -230,7 +230,7 @@ const Page = () => {
                 both high-speed RAM and NVME-based memory, available when you
                 need it, at no extra cost.
               </p>
-              <div className="absolute left-3/4 z-[1] -translate-x-1/2 transform">
+              <div className="absolute left-3/4 z-[1] hidden -translate-x-1/2 transform md:block">
                 <div className="absolute -left-14 top-28 z-10 flex h-24 w-24 -rotate-[6deg] items-center justify-center rounded-2xl border border-transparent shadow-2xl [background:linear-gradient(theme(colors.zinc.900),_theme(colors.zinc.900))_padding-box,_conic-gradient(theme(colors.zinc.400),_theme(colors.zinc.700)_25%,_theme(colors.zinc.700)_75%,_theme(colors.zinc.400)_100%)_border-box] before:absolute before:inset-0 before:rounded-2xl before:bg-zinc-900/30">
                   <svg
                     width="24"
