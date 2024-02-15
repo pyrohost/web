@@ -16,6 +16,7 @@ import HugeIconsLink from "@/components/icons/hugeicons/Link";
 import HugeIconsCPU from "@/components/icons/hugeicons/CPU";
 import Cobe from "@/components/Cobe";
 import RenderIfVisible from "@/components/ui/RenderIfVisible";
+import CTASection from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
   title: "pyro - Pricing and Plans",
@@ -298,7 +299,32 @@ const Page = () => {
           </div>
         </div>
       </Section>
-
+      <Section>
+        <div className="img-opacity-animation pointer-events-none absolute inset-0 select-none">
+          <Image
+            alt=""
+            aria-hidden
+            src="/img/scuffedallgameshero.png"
+            width={1920}
+            height={1080}
+            className="pointer-events-none mt-32 w-full scale-150 select-none border-t-[1px] border-solid border-white object-cover opacity-35 grayscale backdrop-blur"
+            style={{
+              maskImage:
+                "radial-gradient(85% 100% at 50% 100%, transparent 55.5%, white)",
+            }}
+          />
+        </div>
+        <Section.Title fullWidth>
+          All your <BrandText>favorite games</BrandText> are on Pyro
+        </Section.Title>
+        <Section.Description maxWidth={800}>
+          From Terarria, to Rust, to Factorio, to Palworld and more. Pyro is the
+          best way to play with your friends, on your favorite games.
+        </Section.Description>
+        <div className="mt-24 flex w-full flex-col gap-4 xl:flex-row">
+          <MCPricingCards />
+        </div>
+      </Section>
       <PanelSection />
       <div
         aria-hidden
@@ -336,29 +362,7 @@ const Page = () => {
           minHeight: "12rem",
         }}
       ></div>
-      <Section>
-        <div className="img-opacity-animation pointer-events-none absolute inset-0 select-none">
-          <Image
-            alt=""
-            aria-hidden
-            src="/img/scuffedallgameshero.png"
-            width={1920}
-            height={1080}
-            className="pointer-events-none mt-32 w-full scale-150 select-none border-t-[1px] border-solid border-white object-cover opacity-35 grayscale backdrop-blur"
-            style={{
-              maskImage:
-                "radial-gradient(85% 100% at 50% 100%, transparent 55.5%, white)",
-            }}
-          />
-        </div>
-        <Section.Title fullWidth>
-          All your <BrandText>favorite games</BrandText> are on Pyro
-        </Section.Title>
-        <Section.Description maxWidth={800}>
-          From Terarria, to Rust, to Factorio, to Palworld and more. Pyro is the
-          best way to play with your friends, on your favorite games.
-        </Section.Description>
-      </Section>
+      <CTASection />
     </main>
   );
 };
