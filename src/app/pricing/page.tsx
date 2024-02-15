@@ -124,7 +124,7 @@ const Page = () => {
             src="/img/minecrafthero.jpg"
             width={1920}
             height={1080}
-            className="pointer-events-none mt-32 w-full scale-150 select-none border-t-[1px] border-solid border-white object-cover opacity-35 grayscale"
+            className="pointer-events-none mt-32 w-screen scale-150 select-none border-t-[1px] border-solid border-white object-cover opacity-35 grayscale"
             style={{
               maskImage:
                 "radial-gradient(85% 100% at 50% 100%, transparent 55.5%, white)",
