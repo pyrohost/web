@@ -58,7 +58,10 @@ const Page = () => {
             }}
           />
         </div>
-        <div className="relative mt-24 flex flex-col items-center text-center md:mt-48">
+        <div className="relative mt-24 flex flex-col items-center text-center md:mt-36">
+          <h4 className="mb-2 inline-flex max-w-max bg-gradient-to-br from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
+            Pricing
+          </h4>
           <Section.Title hero>
             {/* <BrandText> */}
             Plans for every community
