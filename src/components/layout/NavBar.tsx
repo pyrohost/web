@@ -89,13 +89,13 @@ const NavBar = () => {
         <div aria-hidden className="blurborder"></div>
       </div>
       <header
-        className={`fixed left-0 right-0 top-0 isolate z-[9999] w-full md:px-16`}
+        className={`fixed left-0 right-0 top-0 isolate z-[9999] w-full md:px-8`}
       >
         <nav
-          className={`main-nav nav-controller relative mx-auto flex w-full max-w-[1620px] transform-gpu flex-row items-center gap-4 p-2 backdrop-blur-xl transition-all will-change-transform [transition-duration:550ms] md:mt-4 md:rounded-full ${
+          className={`main-nav nav-controller relative mx-auto flex w-full max-w-[1620px] transform-gpu flex-row items-center p-2 backdrop-blur-xl transition-all will-change-transform [transition-duration:550ms] md:mt-4 md:rounded-full ${
             scrolled
-              ? "!mt-0 !max-w-[770px] !rounded-t-none bg-[#ffffff08] !p-1 md:border-[1px] md:border-t-0 md:border-solid md:border-[#ffffff12] md:!px-8"
-              : "bg-[#ffffff05] md:border-[1px] md:border-solid md:border-[#ffffff00]"
+              ? "!mt-0 !max-w-[770px] gap-0 !rounded-t-none bg-[#ffffff08] !p-1 md:border-[1px] md:border-t-0 md:border-solid md:border-[#ffffff12] md:!px-8"
+              : "gap-4 bg-[#ffffff05] md:border-[1px] md:border-solid md:border-[#ffffff00]"
           }`}
         >
           <LogoLink />
