@@ -133,7 +133,7 @@ const NavBar = () => {
                   Resources
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="">
-                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                  <ul className="grid gap-3 p-4 md:w-[450px] lg:w-[550px] lg:grid-cols-[.75fr_1fr]">
                     <li className="row-span-3">
                       <NavigationMenuLink asChild>
                         <a
@@ -170,10 +170,10 @@ const NavBar = () => {
                     <ListItem
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="https://discord.gg/fxeRFRbhQh?utm_source=marketing_site&utm_medium=navbar&utm_campaign=PRELAUNCH&utm_id=PRELAUNCH"
+                      href="https://pay.pyro.host/?utm_source=marketing_site&utm_medium=navbar&utm_campaign=PRELAUNCH&utm_id=PRELAUNCH"
                       title="Billing"
                     >
-                      Manage your billing and invoices.
+                      Manage your payments and invoices.
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
