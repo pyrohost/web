@@ -35,7 +35,7 @@ const SectionTitle = ({
   return (
     <h1
       data-standard-pyro-component="SectionTitle"
-      className={`z-10 ${hero ? "mt-4 text-[60px] font-extrabold leading-[98%] tracking-[-0.25rem] md:text-[109px] md:tracking-[-0.35rem]" : "mt-4 text-[34px] font-extrabold leading-[98%] tracking-[-0.2rem] md:text-[62px]"} `}
+      className={`z-10 ${hero ? "mt-4 text-[60px] font-extrabold leading-[98%] tracking-[-0.25rem] md:text-[109px] md:tracking-[-0.35rem]" : "mt-4 text-[34px] font-extrabold leading-[98%] tracking-[-0.1rem] md:text-[62px] md:tracking-[-0.2rem]"} `}
       style={{
         maxWidth: `${fullWidth ? "100%" : `${maxWidth}px`}`,
         width: `${fullWidth ? "100%" : ""}`,
