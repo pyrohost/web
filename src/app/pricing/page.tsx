@@ -15,6 +15,7 @@ import HugeIconsSupport from "@/components/icons/hugeicons/Support";
 import HugeIconsLink from "@/components/icons/hugeicons/Link";
 import HugeIconsCPU from "@/components/icons/hugeicons/CPU";
 import Cobe from "@/components/Cobe";
+import RenderIfVisible from "@/components/ui/RenderIfVisible";
 
 export const metadata: Metadata = {
   title: "pyro - Pricing and Plans",
@@ -321,7 +322,9 @@ const Page = () => {
         </div>
         <div className="absolute z-10 h-[400px] w-[800px] bg-black blur-[100px]"></div>
         <div className="absolute">
-          <Cobe />
+          <RenderIfVisible>
+            <Cobe />
+          </RenderIfVisible>
         </div>
       </Section>
       <div
