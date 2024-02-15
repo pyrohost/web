@@ -90,6 +90,7 @@ const Page = () => {
           </a>
         </div>
       </Section>
+      <div className="-mt-[19rem]"></div>
       <Section>
         <div className="img-opacity-animation pointer-events-none absolute inset-0 select-none">
           <div className="pointer-events-none relative inset-0 h-full w-screen select-none">
