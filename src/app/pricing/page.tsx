@@ -17,6 +17,7 @@ import HugeIconsCPU from "@/components/icons/hugeicons/CPU";
 import Cobe from "@/components/Cobe";
 import RenderIfVisible from "@/components/ui/RenderIfVisible";
 import CTASection from "@/components/sections/CTASection";
+import OtherGamesPricingCards from "@/components/sections/_components/OtherGamesPricingCards";
 
 export const metadata: Metadata = {
   title: "pyro - Pricing and Plans",
@@ -322,7 +323,7 @@ const Page = () => {
           best way to play with your friends, on your favorite games.
         </Section.Description>
         <div className="mt-24 flex w-full flex-col gap-4 xl:flex-row">
-          <MCPricingCards />
+          <OtherGamesPricingCards />
         </div>
       </Section>
       <PanelSection />

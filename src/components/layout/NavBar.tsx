@@ -34,7 +34,7 @@ const solutions: { title: string; href: string; description: string }[] = [
       "Remarkable performance and reliability for your Minecraft server.",
   },
   {
-    title: "Terarria Hosting",
+    title: "Terraria Hosting",
     href: "/",
     description:
       "Calamity, Thorium, and more. Peak performance for your Terraria server.",

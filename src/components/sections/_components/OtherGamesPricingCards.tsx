@@ -139,11 +139,13 @@ const MCPricingCard: FC<MCPricingCardProps> = ({
         )}
         <div className="flex gap-[14PX]">
           {fancy ? (
-            <div className="brightness-200">
-              <MCPricingLogo />
-            </div>
+            // <div className="brightness-200">
+            //   <MCPricingLogo />
+            // </div>
+            <></>
           ) : (
-            <MCPricingLogo />
+            // <MCPricingLogo />
+            <></>
           )}
           <h1 className="text-[31px] font-bold leading-[98%] tracking-[-0.1rem]">
             {planName}
@@ -180,161 +182,32 @@ const MCPricingCard: FC<MCPricingCardProps> = ({
   );
 };
 
-const MCPricingCards = () => {
+const OtherGamesPricingCards = () => {
   return (
     <>
       <MCPricingCard
-        outOfStock={false}
-        purchaseLink="https://pay.pyro.host/checkout/config/3"
-        planName="Basic"
-        description="Try out Pyro's hosting for you and your community. Perfect for vanilla Minecraft versions below 1.12.2. Does not support modpacks."
+        outOfStock
+        // purchaseLink="https://pay.pyro.host/checkout/config/3"
+        planName="Terraria"
+        description="A sandbox game with a 2D world, where you can build, explore, and fight. Play it with your friends on Pyro."
         price={4}
-      >
-        <MCPricingCardPerks
-          perks={[
-            {
-              icon: "cpu",
-              fill: "regular",
-              description: "Standard hardware",
-            },
-            {
-              icon: "ram",
-              fill: "regular",
-              description: "3GB RAM",
-              tooltip:
-                "2GB of high-speed RAM, and 1GB of Pyro Overflow Memory for peak performance",
-            },
-            {
-              icon: "people",
-              fill: "regular",
-              description: "Up to 3 players",
-            },
-            {
-              icon: "storage",
-              fill: "regular",
-              description: "Up to 10GB of Storage",
-            },
-            {
-              icon: "x",
-              fill: "regular",
-              description: "No modding support",
-            },
-            {
-              icon: "x",
-              fill: "regular",
-              description: "Standard support",
-            },
-            {
-              icon: "x",
-              fill: "regular",
-              description: "No custom domains",
-            },
-          ]}
-        />
-      </MCPricingCard>
-
+      ></MCPricingCard>
       <MCPricingCard
-        fancy
-        outOfStock={false}
-        purchaseLink="https://pay.pyro.host/checkout/config/4"
-        planName="Essential"
-        description="Everything you need to get started. Perfect for playing solo or with a small group of friends. Supports your favorite modpacks."
-        price={8}
-      >
-        <MCPricingCardPerks
-          perks={[
-            {
-              icon: "cpu",
-              fill: "brand",
-              description: "Resource-priority hardware",
-            },
-            {
-              icon: "ram",
-              fill: "brand",
-              description: "5GB RAM",
-              tooltip:
-                "4GB of high-speed RAM, and 1GB of Pyro Overflow Memory for peak performance",
-            },
-            {
-              icon: "people",
-              fill: "brand",
-              description: "Unlimited players",
-            },
-            {
-              icon: "storage",
-              fill: "brand",
-              description: "Unlimited storage",
-            },
-            {
-              icon: "tools",
-              fill: "brand",
-              description: "Great modding support",
-            },
-            {
-              icon: "support",
-              fill: "brand",
-              description: "Priority support",
-            },
-            {
-              icon: "link",
-              fill: "brand",
-              description: "Custom domain and pyro.host subdomain",
-            },
-          ]}
-        />
-      </MCPricingCard>
-
+        outOfStock
+        // purchaseLink="https://pay.pyro.host/checkout/config/3"
+        planName="Factorio"
+        description="A game about building and creating automated factories in an infinite 2D world. Play it with your friends on Pyro."
+        price={4}
+      ></MCPricingCard>
       <MCPricingCard
-        outOfStock={false}
-        purchaseLink="https://pay.pyro.host/checkout/config/6"
-        planName="Premium"
-        description="Powerful features for the most demanding modpacks, large communities, and players desiring a premium, lag-free experience."
-        price={16}
-      >
-        <MCPricingCardPerks
-          perks={[
-            {
-              icon: "cpu",
-              fill: "regular",
-              description: "Resource-priority hardware",
-            },
-            {
-              icon: "ram",
-              fill: "regular",
-              description: "9GB RAM",
-              tooltip:
-                "8GB of high-speed RAM, and 1GB of Pyro Overflow Memory for peak performance",
-            },
-            {
-              icon: "people",
-              fill: "regular",
-              description: "Unlimited players",
-            },
-            {
-              icon: "storage",
-              fill: "regular",
-              description: "Unlimited storage",
-            },
-            {
-              icon: "tools",
-              fill: "regular",
-              description: "Awesome modding support",
-            },
-            {
-              icon: "support",
-              fill: "regular",
-              description: "Priority support",
-            },
-            {
-              icon: "link",
-              fill: "regular",
-              description: "Custom domain and pyro.host subdomain",
-            },
-          ]}
-        />
-      </MCPricingCard>
+        outOfStock
+        // purchaseLink="https://pay.pyro.host/checkout/config/3"
+        planName="Palworld"
+        description="The hit game, now available on Pyro. Play on your own world, on your own terms."
+        price={4}
+      ></MCPricingCard>
     </>
   );
 };
 
-export default MCPricingCards;
+export default OtherGamesPricingCards;
