@@ -11,7 +11,7 @@ const CTASection = () => {
       </Section.Title>
       <Section.Description maxWidth={700}>
         It&apos;s about time you experienced the future of game hosting. Order your
-        Pyro server today and experience the difference.
+        Pyro server and experience the difference.
       </Section.Description>
       <div className="mt-10 flex w-fit">
         <ExternalLinkButton href="https://pay.pyro.host" text="Order Now" />
