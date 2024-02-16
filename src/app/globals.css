@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 :root {
+  --mask-visible: #000;
+  --mask-ease: rgba(0, 0, 0, 0.2);
+  --mask-invisible: transparent;
+  --header-height: 72px;
+
   --transparent: transparent;
   --ease-1: cubic-bezier(0.25, 0, 0.5, 1);
   --ease-2: cubic-bezier(0.25, 0, 0.4, 1);
@@ -186,6 +191,11 @@
   }
 }
 
+.overflow-memory-in {
+  animation: fadeInUp 0.9s both;
+  animation-timing-function: var(--ease-spring-3);
+}
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -213,8 +223,7 @@
   }
 }
 
-html,
-body {
+html {
   background-color: #000000;
 }
 
@@ -268,7 +277,6 @@ body {
 
 .ignite-circle {
   animation: ignite-anim 2s infinite;
-  animatine-timing-function: var(--ease-spring-3);
 }
 
 .imageWrapper {
@@ -464,4 +472,65 @@ body {
   * {
     @apply border-border;
   }
+}
+
+.blurborder {
+  --extended-by: 60px;
+  --offset: 18px;
+  --thickness: 1px;
+  --bg: 19px;
+  border-radius: 9999px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  max-width: 570px;
+  margin: 0 auto;
+  height: calc(var(--extended-by) + var(--offset));
+  top: calc(var(--header-height) - var(--offset) + var(--thickness));
+  z-index: 9999;
+  backdrop-filter: blur(120px) saturate(120%) brightness(200%);
+  background: linear-gradient(
+    transparent var(--bg),
+    rgba(var(--color-overlay-dim-rgb), 0.1) var(--bg),
+    transparent calc(var(--bg) + 1px)
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    var(--mask-visible) 0,
+    var(--mask-visible) var(--offset),
+    var(--mask-invisible) var(--offset)
+  );
+  pointer-events: none;
+  user-select: none;
+}
+
+.cpulights {
+  position: absolute;
+  inset: 24px;
+  filter: blur(240px);
+  opacity: 0.5;
+  animation: light-rotate 8s linear infinite;
+}
+
+.cpulights div {
+  width: 400px;
+  height: 76px;
+  background-color: #e66262;
+  mix-blend-mode: lighten;
+}
+
+@keyframes light-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.8);
+  }
+  100% {
+    transform: rotate(1turn) scale(1);
+  }
+}
+
+.cpulights div:last-child {
+  margin-left: auto;
 }

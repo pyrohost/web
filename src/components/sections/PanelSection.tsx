@@ -22,7 +22,7 @@ const PanelSection = () => {
       </Section.Description>
 
       <Carousel
-        className="mt-12 w-full px-16"
+        className="mt-12 w-full md:px-16"
         opts={{
           align: "start",
           loop: true,

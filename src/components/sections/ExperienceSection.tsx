@@ -5,8 +5,8 @@ import ExternalLinkButton from "@/components/sections/_components/ExternalLinkBu
 const ExperienceSection = () => {
   return (
     <Section>
-      <Section.Title maxWidth={650}>
-        An experience that <BrandText>ignites your community</BrandText>
+      <Section.Title maxWidth={700}>
+        An experience that <BrandText>kindles your community</BrandText>
       </Section.Title>
       <Section.Description>
         Pyro’s network launches servers from scratch in within seconds. You’re
@@ -14,7 +14,7 @@ const ExperienceSection = () => {
       </Section.Description>
       <div className="z-10 mt-8">
         <ExternalLinkButton
-          href="https://billing.pyro.host/index.php/order/config/index/freebies/?group_id=7&pricing_id=15"
+          href="https://pay.pyro.host/checkout/config/3"
           text="Launch your server in a minute"
         />
       </div>

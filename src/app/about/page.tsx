@@ -34,9 +34,16 @@ const Page = () => {
             <p className="mt-10 text-[22px] font-normal leading-[155%] text-[#ffffff99]">
               {/* eslint-disable-next-line react/no-unescaped-entities */}
               We're a passionate, tight-knit team obsessed with every step of
-              the hosting process. Pyro empowers anyone to play their favorite
-              games with friends.
+              the hosting process. We want to empower anyone to play their
+              favorite games with friends.
             </p>
+            {/* <Image
+              className="mt-10"
+              src="/img/twosfanart.jpg"
+              alt=""
+              height="500"
+              width="500"
+            ></Image> */}
           </div>
         </div>
       </section>
