@@ -503,3 +503,34 @@ html {
   pointer-events: none;
   user-select: none;
 }
+
+.cpulights {
+  position: absolute;
+  inset: 24px;
+  filter: blur(240px);
+  opacity: 0.5;
+  animation: light-rotate 8s linear infinite;
+}
+
+.cpulights div {
+  width: 400px;
+  height: 76px;
+  background-color: #e66262;
+  mix-blend-mode: lighten;
+}
+
+@keyframes light-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.8);
+  }
+  100% {
+    transform: rotate(1turn) scale(1);
+  }
+}
+
+.cpulights div:last-child {
+  margin-left: auto;
+}

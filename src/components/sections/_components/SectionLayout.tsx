@@ -8,7 +8,7 @@ const Section = ({
   return (
     <section
       data-standard-pyro-component={hero ? "Section-VariantHero" : "Section"}
-      className={`${hero ? "relative min-h-screen w-full px-4 md:px-16" : "relative my-[12rem] h-full w-full px-4 md:px-16"}`}
+      className={`${hero ? "relative h-full min-h-screen w-full px-4 md:px-16" : "relative my-[12rem] h-full w-full px-4 md:px-16"}`}
     >
       <div
         data-standard-pyro-component={hero ? "Section-VariantHero" : "Section"}
