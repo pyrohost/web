@@ -30,7 +30,7 @@ const Footer = () => {
               <Link href="/coming-soon">Minecraft</Link>
             </li>
             <li>
-              <Link href="/coming-soon">Terarria</Link>
+              <Link href="/coming-soon">Terraria</Link>
             </li>
             <li>
               <Link href="/coming-soon">Rust</Link>
