@@ -455,7 +455,6 @@ const HeroSection = () => {
                   </defs>
                 </svg>
               </div>
-            {/* <div className="w-[400px] h-[400px]"></div> */}
               It&apos;s where your world plays
             </span>
             {/* </BrandText> */}
