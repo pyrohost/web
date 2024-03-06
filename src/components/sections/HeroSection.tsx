@@ -287,10 +287,6 @@ const HeroSection = () => {
               }}
             >
               <div className="flex justify-center items-center h-[406px]">
-                <div className="absolute cpulights -z-10">
-                  <div></div>
-                  <div></div>
-                </div>
                 <Image
                   alt=""
                   className="absolute z-[200]"
