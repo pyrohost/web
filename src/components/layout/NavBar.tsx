@@ -212,7 +212,7 @@ const NavBar = () => {
           </a>
 
           <div className="ml-auto block p-4 text-sm font-bold md:hidden">
-            <DropdownMenu>
+            <DropdownMenu modal={false}>
               <DropdownMenuTrigger asChild>
                 <HamburgerMenuIcon />
               </DropdownMenuTrigger>
