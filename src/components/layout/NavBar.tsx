@@ -24,7 +24,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const solutions: { title: string; href: string; description: string }[] = [
   {
@@ -63,6 +63,7 @@ const LogoLink = () => {
 };
 
 const NavBar = () => {
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -216,11 +217,34 @@ const NavBar = () => {
                 <HamburgerMenuIcon />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="z-[99999]" sideOffset={24}>
-                <DropdownMenuItem>Games</DropdownMenuItem>
-                <DropdownMenuItem>Pricing</DropdownMenuItem>
-                <DropdownMenuItem>Support</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Game Panel</DropdownMenuItem>
+                <DropdownMenuItem
+                  onSelect={() => {
+                    router.push("/pricing");
+                  }}
+                >
+                  Pricing
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onSelect={() => {
+                    router.push("/support");
+                  }}
+                >
+                  Support
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onSelect={() => {
+                    router.push("https://pay.pyro.host");
+                  }}
+                >
+                  Billing
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onSelect={() => {
+                    router.push("https://panel.pyro.host");
+                  }}
+                >
+                  Game Panel
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
