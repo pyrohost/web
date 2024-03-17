@@ -247,6 +247,25 @@ html {
   transition-timing-function: var(--ease-spring-1);
 }
 
+.main-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--rounding);
+  transition: 550ms var(--ease-spring-1) border-radius;
+  padding: 1px; /* control the border thickness */
+  background: var(--gradient);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
 /* .img-fade-in  {
   opacity: 0;
   animation: fadeIn 1.6s forwards;
