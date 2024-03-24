@@ -286,7 +286,7 @@ const HeroSection = () => {
                 textShadow: "0 2px 16px rgba(174,207,242,.24)",
               }}
             >
-              <div className="flex justify-center items-center h-[406px]">
+              <div className="flex h-[406px] items-center justify-center">
                 <Image
                   alt=""
                   className="absolute z-[200]"
@@ -297,7 +297,7 @@ const HeroSection = () => {
                   quality={100}
                 />
                 <svg
-                  className=""
+                  className="absolute w-screen"
                   width="100%"
                   height="100%"
                   viewBox="0 0 1920 700"
