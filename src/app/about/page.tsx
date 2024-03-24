@@ -47,38 +47,6 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <div className="img-opacity-animation pointer-events-none absolute inset-0 select-none">
-        <div className="pointer-events-none relative inset-0 -top-64 h-full w-full select-none">
-          <Image
-            alt=""
-            aria-hidden
-            src="/img/godrays.png"
-            fill
-            className="pointer-events-none scale-150 select-none blur-[1rem]"
-          />
-          <Image
-            alt=""
-            aria-hidden
-            src="/img/godrays.png"
-            fill
-            className="pointer-events-none scale-150 select-none opacity-15 blur-[4rem]"
-          />
-          <Image
-            alt=""
-            aria-hidden
-            src="/img/godrays.png"
-            fill
-            className="pointer-events-none scale-150 select-none blur-[15rem]"
-          />
-          <Image
-            alt=""
-            aria-hidden
-            src="/img/godrays.png"
-            fill
-            className="pointer-events-none scale-150 select-none blur-[15rem]"
-          />
-        </div>
-      </div>
     </main>
   );
 };
