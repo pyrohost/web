@@ -25,40 +25,6 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-16 md:flex-row md:gap-4">
           <ul className="flex w-32 list-none flex-col gap-4">
-            <h2 className="text-sm font-bold text-brand">Pyro For</h2>
-            <li>
-              <Link href="/coming-soon">Minecraft</Link>
-            </li>
-            <li>
-              <Link href="/coming-soon">Terraria</Link>
-            </li>
-            <li>
-              <Link href="/coming-soon">Rust</Link>
-            </li>
-            <li>
-              <Link href="/coming-soon">GTA V</Link>
-            </li>
-            <li>
-              <Link href="/coming-soon">Counter-Strike</Link>
-            </li>
-            <li>
-              <Link href="/coming-soon">Valheim</Link>
-            </li>
-            <li>
-              <Link href="/coming-soon">
-                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                Garry's Mod
-              </Link>
-            </li>
-            <li>
-              <Link href="/coming-soon">Team Fortress 2</Link>
-            </li>
-            <li>
-              <Link href="/coming-soon">Voice Servers</Link>
-            </li>
-          </ul>
-
-          <ul className="flex w-32 list-none flex-col gap-4">
             <h2 className="text-sm font-bold text-brand">Hosting</h2>
             <li>
               <Link href="/coming-soon">Pricing</Link>
