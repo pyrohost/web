@@ -50,7 +50,7 @@ const PricingSection = () => {
         <PricingSectionImages />
         <PricingSectionCircleThing />
         <Section.Title>
-          Pricing that <BrandText>ignites simplicity</BrandText>
+          Pricing that <BrandText>scales with you</BrandText>
         </Section.Title>
         <Section.Description maxWidth={600}>
           Only pay for what you need. Pyro offers simple pricing for servers of
