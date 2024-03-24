@@ -50,7 +50,7 @@ const Page = () => {
           <Image
             alt=""
             aria-hidden
-            src="/img/blazehero.png"
+            src="/img/herobgtest.png"
             width={1600}
             height={650}
             className="pointer-events-none min-h-[500px] w-full select-none object-cover opacity-35 grayscale"
@@ -83,17 +83,6 @@ const Page = () => {
           <div className="mt-24 flex w-full flex-col gap-4 xl:flex-row">
             <MCPricingCards />
           </div>
-        </div>
-        <div className="absolute left-2 top-2 z-[9998] text-[9px] opacity-40 ">
-          Background art ©{" "}
-          <a
-            href="https://pixeljoint.com/pixelart/130189.htm"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="underline"
-          >
-            Catghost
-          </a>
         </div>
       </Section>
       <div className="-mt-[19rem]"></div>
