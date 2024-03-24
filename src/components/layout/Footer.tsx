@@ -27,7 +27,7 @@ const Footer = () => {
           <ul className="flex w-32 list-none flex-col gap-4">
             <h2 className="text-sm font-bold text-brand">Hosting</h2>
             <li>
-              <Link href="/coming-soon">Pricing</Link>
+              <Link href="/pricing">Pricing</Link>
             </li>
           </ul>
 
@@ -37,10 +37,10 @@ const Footer = () => {
               <Link href="/about">About</Link>
             </li>
             <li>
-              <Link href="/coming-soon">Contact</Link>
+              <Link href="/about">Contact</Link>
             </li>
             <li>
-              <Link href="/coming-soon">Support</Link>
+              <Link href="/support">Support</Link>
             </li>
           </ul>
 
