@@ -451,7 +451,7 @@ const HeroSection = () => {
                   </defs>
                 </svg>
               </div>
-              It&apos;s where your world plays
+              Where your world plays
             </span>
             {/* </BrandText> */}
           </Section.Title>
