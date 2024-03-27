@@ -289,7 +289,7 @@ const HeroSection = () => {
               <div className="flex h-[406px] items-center justify-center">
                 <Image
                   alt=""
-                  className="absolute z-[200]"
+                  className="pointer-events-none absolute z-[200]"
                   aria-hidden
                   src="/img/pyrocpu.png"
                   width={400}
@@ -297,7 +297,7 @@ const HeroSection = () => {
                   quality={100}
                 />
                 <svg
-                  className="absolute w-screen"
+                  className="pointer-events-none absolute w-screen"
                   width="100%"
                   height="100%"
                   viewBox="0 0 1920 700"
