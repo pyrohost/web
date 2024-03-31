@@ -553,3 +553,14 @@ html {
 .cpulights div:last-child {
   margin-left: auto;
 }
+
+.psal-li {
+  list-style-type: disc;
+}
+
+.psal-h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}

@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Metadata } from "next";
-import "./psal.module.css";
 
 export const metadata: Metadata = {
   title: "Pyro Source Available License",
