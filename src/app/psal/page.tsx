@@ -31,58 +31,64 @@ const Page = () => {
                 <strong>License</strong>&quot;) is a legal contract between You
                 and Pyro Inc. (&quot;<strong>Pyro</strong>&quot;).
               </p>
-              <h2 id="1-definitions">1. Definitions</h2>
+              <h2 className="psal-h2" id="1-definitions">
+                1. Definitions
+              </h2>
               <ol>
-                <li>
+                <li className="psal-li">
                   <strong>Software</strong> means all copies of the original or
                   modified software, and all derivative software licensed under
                   this License.
                 </li>
-                <li>
+                <li className="psal-li">
                   <strong>You</strong> or <strong>Your</strong> means the
                   individual or entity that exercises the rights granted under
                   this License.
                 </li>
-                <li>
+                <li className="psal-li">
                   <strong>Personal Use</strong> means use of the Software for
                   internal purposes only, such as for learning, hobbies, or
                   personal projects excluding any use that could directly or
                   indirectly support a commercial enterprise.
                 </li>
-                <li>
+                <li className="psal-li">
                   <strong>Commercial Use</strong> means using the Software to
                   create products or services intended for sale, distribution
                   for profit, or to gain a competitive advantage.
                 </li>
               </ol>
-              <h2 id="2-grant-of-rights">2. Grant of Rights</h2>
+              <h2 className="psal-h2" id="2-grant-of-rights">
+                2. Grant of Rights
+              </h2>
               <ol>
-                <li>
+                <li className="psal-li">
                   Pyro grants You the right to use the Software for Personal Use
                   only.
                 </li>
-                <li>
+                <li className="psal-li">
                   Pyro grants You the right to use, modify, and distribute the
                   Software for Personal Use only.
                 </li>
               </ol>
-              <h2 id="3-restrictions">3. Restrictions</h2>
+              <h2 className="psal-h2" id="3-restrictions">
+                3. Restrictions
+              </h2>
               <ol>
-                <li>
+                <li className="psal-li">
                   Pyro reserves all rights not expressly granted to You in this
                   License.
                 </li>
-                <li>
+                <li className="psal-li">
                   You may not use the Software for Commercial Use without
                   obtaining a separate commercial license from Pyro.
                 </li>
-                <li>
+                <li className="psal-li">
                   You may not sublicense, rent, lease, sell, distribute, or
                   otherwise commercialize the Software or any derivative works
                   thereof without obtaining a separate commercial license from
                   Pyro.
                 </li>
-                <li>
+                <li className="psal-li">
                   You must conspicuously display this License on each original
                   or modified copy of the Software. If You receive the Software
                   in original or modified form from a third party, the terms and
@@ -90,9 +96,11 @@ const Page = () => {
                   work.
                 </li>
               </ol>
-              <h2 id="4-disclaimers">4. Disclaimers</h2>
+              <h2 className="psal-h2" id="4-disclaimers">
+                4. Disclaimers
+              </h2>
               <ol>
-                <li>
+                <li className="psal-li">
                   <p>
                     THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY
                     OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
@@ -105,7 +113,7 @@ const Page = () => {
                     THE SOFTWARE.
                   </p>
                 </li>
-                <li>
+                <li className="psal-li">
                   <p>
                     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
                     FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
@@ -115,7 +123,9 @@ const Page = () => {
                   </p>
                 </li>
               </ol>
-              <h2 id="5-termination">5. Termination</h2>
+              <h2 className="psal-h2" id="5-termination">
+                5. Termination
+              </h2>
               <p>
                 This License is effective until terminated. Your rights under
                 this License will terminate automatically without notice from
@@ -124,7 +134,9 @@ const Page = () => {
                 Software and destroy all copies, full or partial, of the
                 Software.
               </p>
-              <h2 id="6-governing-law">6. Governing Law</h2>
+              <h2 className="psal-h2" id="6-governing-law">
+                6. Governing Law
+              </h2>
               <p>
                 This License is governed by the laws of the State of Delaware,
                 United States. Any dispute arising under this License shall be
@@ -132,7 +144,9 @@ const Page = () => {
                 Delaware, and the parties hereby waive any objection to the
                 jurisdiction of these courts over the parties.
               </p>
-              <h2 id="7-entire-agreement">7. Entire Agreement</h2>
+              <h2 className="psal-h2" id="7-entire-agreement">
+                7. Entire Agreement
+              </h2>
               <p>
                 This License constitutes the entire agreement between the
                 parties concerning the Software and supersedes all prior or
@@ -140,7 +154,9 @@ const Page = () => {
                 whether oral or written, between the parties relating to the
                 Software.
               </p>
-              <h2 id="8-modifications">8. Modifications</h2>
+              <h2 className="psal-h2" id="8-modifications">
+                8. Modifications
+              </h2>
               <p>
                 Pyro reserves the right to modify this License at any time.
                 Modifications to this License will be effective immediately upon
@@ -148,7 +164,9 @@ const Page = () => {
                 modifications to this License will constitute Your acceptance of
                 such modifications.
               </p>
-              <h2 id="9-acceptance">9. Acceptance</h2>
+              <h2 className="psal-h2" id="9-acceptance">
+                9. Acceptance
+              </h2>
               <p>
                 By using the Software, You acknowledge that You have read,
                 understood, and agree to be bound by the terms of this License.

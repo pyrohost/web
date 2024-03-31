@@ -1,8 +1,8 @@
-li {
+.psal-li {
   list-style-type: disc;
 }
 
-h2 {
+.psal-h2 {
   font-size: 1.5rem;
   font-weight: 800;
   margin-top: 2rem;
