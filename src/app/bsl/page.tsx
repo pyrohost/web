@@ -1,4 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Business Source License 1.1",
+  description: "pyro - Business Source License 1.1",
+  openGraph: {
+    title: "Business Source License 1.1",
+    description: "pyro - Business Source License 1.1",
+    images: [
+      {
+        url: "./ogimage.png",
+      },
+    ],
+  },
+};
 
 const Page = () => {
   return (
