@@ -14,7 +14,7 @@ const ExperienceSection = () => {
       </Section.Description>
       <div className="z-10 mt-8">
         <ExternalLinkButton
-          href="https://pay.pyro.host/checkout/config/3"
+          href="https://discord.gg/fxeRFRbhQh"
           text="Launch your server in a minute"
         />
       </div>

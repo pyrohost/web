@@ -10,11 +10,14 @@ const CTASection = () => {
         You deserve a <BrandText>better way to play</BrandText>
       </Section.Title>
       <Section.Description maxWidth={700}>
-        It&apos;s about time you experienced the future of game hosting. Order your
-        Pyro server and experience the difference.
+        It&apos;s about time you experienced the future of game hosting. Order
+        your Pyro server and experience the difference.
       </Section.Description>
       <div className="mt-10 flex w-fit">
-        <ExternalLinkButton href="https://pay.pyro.host" text="Order Now" />
+        <ExternalLinkButton
+          href="https://discord.gg/fxeRFRbhQh"
+          text="Order Now"
+        />
       </div>
     </Section>
   );

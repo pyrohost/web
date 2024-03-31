@@ -1,55 +1,6 @@
 import Image from "next/image";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Section from "@/components/sections/_components/SectionLayout";
-import BrandText from "@/components/sections/_components/BrandText";
 import ExternalLinkButton from "@/components/sections/_components/ExternalLinkButton";
-
-const HeroEyebrow = () => {
-  return (
-    <a
-      href="https://pay.pyro.host/?utm_source=pyro&utm_medium=website&utm_campaign=launch"
-      rel="noopener noreferrer"
-      target="_blank"
-      className="flex w-fit items-center justify-center gap-2 rounded-full border-2 border-solid border-[#ffffff08] bg-[#ffffff12] p-2 px-4 text-sm font-bold"
-    >
-      <p>
-        We&apos;ve launched!{" "}
-        <span className="text-brand">Check out our plans</span>
-      </p>
-      <ArrowRightIcon />
-    </a>
-  );
-};
-
-const HeroImages = () => {
-  return (
-    <div className="img-opacity-animation pointer-events-none absolute inset-0 select-none">
-      <div className="pointer-events-none relative inset-0 h-screen min-h-[950px] w-screen select-none">
-        {/* <Image
-          alt=""
-          aria-hidden
-          src="/img/fire2.png"
-          fill
-          className="pointer-events-none select-none object-cover"
-        /> */}
-        {/* <Image
-          alt=""
-          aria-hidden
-          src="/img/fire.svg"
-          fill
-          className="pointer-events-none select-none object-cover opacity-45"
-        /> */}
-        {/* <Image
-          alt=""
-          aria-hidden
-          src="/img/godrays.png"
-          fill
-          className="pointer-events-none select-none object-cover"
-        /> */}
-      </div>
-    </div>
-  );
-};
 
 const HeroSection = () => {
   return (
@@ -462,7 +413,7 @@ const HeroSection = () => {
           </Section.Description>
           <div className="mt-10 flex w-fit">
             <ExternalLinkButton
-              href="https://pay.pyro.host"
+              href="https://discord.gg/fxeRFRbhQh"
               text="Order your server now"
             />
           </div>

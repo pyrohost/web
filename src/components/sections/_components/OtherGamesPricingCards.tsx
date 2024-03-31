@@ -187,21 +187,21 @@ const OtherGamesPricingCards = () => {
     <>
       <MCPricingCard
         outOfStock
-        // purchaseLink="https://pay.pyro.host/checkout/config/3"
+        // purchaseLink="https://discord.gg/fxeRFRbhQh"
         planName="Terraria"
         description="A sandbox game with a 2D world, where you can build, explore, and fight. Play it with your friends on Pyro."
         price={4}
       ></MCPricingCard>
       <MCPricingCard
         outOfStock
-        // purchaseLink="https://pay.pyro.host/checkout/config/3"
+        // purchaseLink="https://discord.gg/fxeRFRbhQh"
         planName="Factorio"
         description="A game about building and creating automated factories in an infinite 2D world. Play it with your friends on Pyro."
         price={4}
       ></MCPricingCard>
       <MCPricingCard
         outOfStock
-        // purchaseLink="https://pay.pyro.host/checkout/config/3"
+        // purchaseLink="https://discord.gg/fxeRFRbhQh"
         planName="Palworld"
         description="The hit game, now available on Pyro. Play on your own world, on your own terms."
         price={4}

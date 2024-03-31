@@ -189,7 +189,7 @@ const ProMCPricingCards = () => {
     <>
       <MCPricingCard
         outOfStock={false}
-        purchaseLink="https://pay.pyro.host/checkout/config/7"
+        purchaseLink="https://discord.gg/fxeRFRbhQh"
         planName="Max"
         description="The Max plan is for the largest communities and modpacks. It's the bleeding edge of performance and capacity that Pyro offers."
         price={20}

@@ -192,7 +192,7 @@ const NavBar = () => {
                     <ListItem
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="https://pay.pyro.host/?utm_source=marketing_site&utm_medium=navbar&utm_campaign=PRELAUNCH&utm_id=PRELAUNCH"
+                      href="https://discord.gg/fxeRFRbhQh"
                       title="Billing"
                     >
                       Manage your payments and invoices.
@@ -254,7 +254,7 @@ const NavBar = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onSelect={() => {
-                    router.push("https://pay.pyro.host");
+                    router.push("https://discord.gg/fxeRFRbhQh");
                   }}
                 >
                   Billing

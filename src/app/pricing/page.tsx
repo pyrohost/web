@@ -334,7 +334,7 @@ const Page = () => {
           </Section.Description>
           <div className="mx-auto mt-8 w-fit">
             <ExternalLinkButton
-              href="https://pay.pyro.host/checkout/config/3"
+              href="https://discord.gg/fxeRFRbhQh"
               text="Go global with Pyro"
             />
           </div>
