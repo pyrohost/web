@@ -47,7 +47,7 @@ const Page = () => {
                 He has since rebranded to "Cloud Hosting" as of{" "}
                 <strong>
                   April 9, 2024 <span className="relative -top-0.5">@</span>{" "}
-                  5:29 PM CST
+                  5:29 AM CST
                 </strong>
                 .
               </div>
