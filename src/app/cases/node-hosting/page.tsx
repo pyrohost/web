@@ -32,9 +32,18 @@ const Page = () => {
               <strong>Updated: April 9, 2024</strong>
             </div>
             <article className="mt-16 flex flex-col leading-[155%]">
+              <div className="mb-8 rounded-lg border-[1px] border-blue-600 bg-blue-600/25 p-4">
+                <strong>Ogishaaaa</strong> is known to rebrand his "services."
+                He has since rebranded to "Cloud Hosting" as of{" "}
+                <strong>
+                  April 9, 2024 <span className="relative -top-0.5">@</span>{" "}
+                  5:29 PM CST
+                </strong>
+                .
+              </div>
               <div className="mb-8 rounded-lg border-[1px] border-red-600 bg-red-600/25 p-4">
                 Do not purchase services from or partner with "Node Hosting" or
-                services claiming to be "Pyro Host", "Pyro Hosting", or any
+                services claiming to be "Pyro Host," "Pyro Hosting," or any
                 other derivative. You will most certainly be scammed. The
                 official domain of Pyro Host Inc. is{" "}
                 <a href="https://pyro.host/" className="underline">
@@ -55,7 +64,7 @@ const Page = () => {
                 awareness of it being for personal use only. In response, we
                 informed him that pricing has yet to be determined and that the
                 product is not yet available for use commercially. This image
-                below does not represent his "first contact", but it was his
+                below does not represent his "first contact," but it was his
                 last.
               </p>
               <img
@@ -177,7 +186,7 @@ const Page = () => {
               />
               <p>
                 In this video, it is shown on the sidebar of Discord that he is
-                present in our official, "pyro.host", Discord server, while also
+                present in our official, "pyro.host," Discord server, while also
                 showcasing his fake one, indicatiing he's still very aware of
                 what he is doing.
               </p>
