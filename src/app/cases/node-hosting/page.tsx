@@ -32,15 +32,6 @@ const Page = () => {
               <strong>Updated: April 9, 2024</strong>
             </div>
             <article className="mt-16 flex flex-col leading-[155%]">
-              <div className="mb-8 rounded-lg border-[1px] border-blue-600 bg-blue-600/25 p-4">
-                <strong>Ogishaaaa</strong> is known to rebrand his "services."
-                He has since rebranded to "Cloud Hosting" as of{" "}
-                <strong>
-                  April 9, 2024 <span className="relative -top-0.5">@</span>{" "}
-                  5:29 PM CST
-                </strong>
-                .
-              </div>
               <div className="mb-8 rounded-lg border-[1px] border-red-600 bg-red-600/25 p-4">
                 Do not purchase services from or partner with "Node Hosting" or
                 services claiming to be "Pyro Host," "Pyro Hosting," or any
@@ -49,6 +40,15 @@ const Page = () => {
                 <a href="https://pyro.host/" className="underline">
                   https://pyro.host
                 </a>
+                .
+              </div>
+              <div className="mb-8 rounded-lg border-[1px] border-blue-600 bg-blue-600/25 p-4">
+                <strong>Ogishaaaa</strong> is known to rebrand his "services."
+                He has since rebranded to "Cloud Hosting" as of{" "}
+                <strong>
+                  April 9, 2024 <span className="relative -top-0.5">@</span>{" "}
+                  5:29 PM CST
+                </strong>
                 .
               </div>
               <div className="mb-2 text-2xl font-bold">First Contact</div>
