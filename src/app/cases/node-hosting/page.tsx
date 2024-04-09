@@ -223,8 +223,8 @@ const Page = () => {
               <p>
                 It came to our attention that a similar video, on the exact same
                 channel, was uploaded again! We did not file a DMCA takedown
-                request on this video, because at the time as we were still
-                talking to YouTube regarding the previous complaint.
+                request on this video, because we were still talking to YouTube
+                regarding the previous complaint.
               </p>
               <div className="mb-2 mt-8 text-2xl font-bold">Escalation</div>
               <div className="relative mb-2 text-xs text-neutral-400">
