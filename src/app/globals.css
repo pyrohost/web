@@ -247,13 +247,13 @@ html {
   transition-timing-function: var(--ease-spring-1);
 }
 
-.main-nav::before {
+/* .main-nav::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: var(--rounding);
   transition: 550ms var(--ease-spring-1) border-radius;
-  padding: 1px; /* control the border thickness */
+  padding: 1px;
   background: var(--gradient);
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -264,7 +264,7 @@ html {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
-}
+} */
 
 /* .img-fade-in  {
   opacity: 0;
