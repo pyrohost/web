@@ -221,10 +221,10 @@ const Page = () => {
               </div>
               <div className="mb-4 min-h-[1px] w-20 bg-[#ffffff33]"></div>
               <p>
-                It came to our attention that the exact same video, on the exact
-                same channel, was uploaded again! We did not file a DMCA
-                takedown request on this video, because at the time as we were
-                still talking to YouTube regarding the previous complaint.
+                It came to our attention that a similar video, on the exact same
+                channel, was uploaded again! We did not file a DMCA takedown
+                request on this video, because at the time as we were still
+                talking to YouTube regarding the previous complaint.
               </p>
               <div className="mb-2 mt-8 text-2xl font-bold">Escalation</div>
               <div className="relative mb-2 text-xs text-neutral-400">
@@ -273,9 +273,8 @@ const Page = () => {
                 alt="Escalation Pt. 2"
               />
               <p>
-                We decided to take their legal advice and ignore this video as
-                preferably report it for it's blatant impersonation of our
-                brand.
+                We decided to take their legal advice and ignore this video and
+                report it for it's blatant impersonation of our brand.
               </p>
               <div className="mb-2 mt-8 text-2xl font-bold">We Snooped...</div>
               <div className="relative mb-2 text-xs text-neutral-400">
