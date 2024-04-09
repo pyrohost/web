@@ -17,4 +17,4 @@ We won't be accepting contributions typically for the first few months of our re
 ## License
 Copyright © 2024 pyro.host 
 
-Licensed under Pyro Source Available License
+Licensed under Pyro Source Available License.
