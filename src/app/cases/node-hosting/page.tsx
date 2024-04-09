@@ -35,7 +35,7 @@ const Page = () => {
               <div className="mb-8 rounded-lg border-[1px] border-red-600 bg-red-600/25 p-4">
                 Do not purchase services from or partner with "Node Hosting" or
                 services claiming to be "Pyro Host", "Pyro Hosting", or any
-                other derivative. You will almost certainly be scammed. The
+                other derivative. You will most certainly be scammed. The
                 official domain of Pyro Host Inc. is{" "}
                 <a href="https://pyro.host/" className="underline">
                   https://pyro.host
