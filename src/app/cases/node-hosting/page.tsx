@@ -117,7 +117,7 @@ const Page = () => {
               </div>
               <div className="mb-4 min-h-[1px] w-20 bg-[#ffffff33]"></div>
               <p>
-                <strong>Ogishaaaa</strong>, the fouunder of Node Hosting, copied
+                <strong>Ogishaaaa</strong>, the founder of Node Hosting, copied
                 a large majority of our assets, they also botted their member
                 count! We contacted Discord's Legal Team to file a DMCA takedown
                 request for these stolen assets.
