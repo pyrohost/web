@@ -65,8 +65,6 @@ const LogoLink = () => {
 const NavBar = () => {
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
-  const [gradient, setGradient] = useState("");
-  const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
@@ -79,22 +77,10 @@ const NavBar = () => {
       setScrolled(isScrolled);
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!navRef.current) return;
-      const rect = navRef.current.getBoundingClientRect();
-      // 200px size radial gradient, red -> transparent
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const gradient = `radial-gradient(400px 400px at ${x}px ${y}px, rgb(219 99 99 / 62%) 0%, rgba(255, 255, 255, 0) 100%)`;
-      setGradient(gradient);
-    };
-
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -107,17 +93,10 @@ const NavBar = () => {
         className={`fixed left-0 right-0 top-0 isolate z-[9999] w-full md:px-8`}
       >
         <nav
-          ref={navRef}
-          style={
-            {
-              "--rounding": scrolled ? "0 0 9999px 9999px" : "9999px",
-              "--gradient": gradient,
-            } as any
-          }
           className={`main-nav nav-controller relative mx-auto flex w-full max-w-[1620px] transform-gpu flex-row items-center p-2 backdrop-blur-xl transition-all will-change-transform [transition-duration:550ms] md:mt-4 md:rounded-full ${
             scrolled
-              ? "!mt-0 !max-w-[770px] gap-0 !rounded-t-none bg-[#ffffff08] !p-1 md:border-[1px] md:border-t-0 md:border-solid md:!px-8"
-              : "gap-4 bg-[#ffffff05] md:border-[1px] md:border-solid"
+              ? "!mt-0 !max-w-[770px] gap-0 !rounded-t-none bg-[#ffffff08] !p-1 md:border-[1px] md:border-t-0 md:border-solid md:border-[#ffffff12] md:!px-8"
+              : "gap-4 bg-[#ffffff05] md:border-[1px] md:border-solid md:border-[#ffffff00]"
           }`}
         >
           <LogoLink />
@@ -192,7 +171,7 @@ const NavBar = () => {
                     <ListItem
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="https://discord.gg/fxeRFRbhQh"
+                      href="https://pay.pyro.host/?utm_source=marketing_site&utm_medium=navbar&utm_campaign=PRELAUNCH&utm_id=PRELAUNCH"
                       title="Billing"
                     >
                       Manage your payments and invoices.
@@ -254,7 +233,7 @@ const NavBar = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onSelect={() => {
-                    router.push("https://discord.gg/fxeRFRbhQh");
+                    router.push("https://pay.pyro.host");
                   }}
                 >
                   Billing
@@ -275,7 +254,30 @@ const NavBar = () => {
               className={`glow-controller contents transition-all [transition-duration:750ms] ${
                 scrolled ? "opacity-0" : "opacity-100"
               }`}
-            ></div>
+            >
+              <div
+                aria-hidden
+                tabIndex={-1}
+                className={`pointer-events-none absolute bottom-0 right-[4%] h-[1px] w-[300px] select-none ${
+                  scrolled ? "opacity-0" : "opacity-100"
+                }`}
+                style={{
+                  background:
+                    "radial-gradient(62.87% 100% at 50% 100%, rgb(219 99 99 / 62%) 0%, rgba(255, 255, 255, 0) 100%)",
+                }}
+              ></div>
+              <div
+                aria-hidden
+                tabIndex={-1}
+                className={`pointer-events-none absolute left-[3%] top-0 h-[1px] w-[200px] select-none ${
+                  scrolled ? "opacity-0" : "opacity-100"
+                }`}
+                style={{
+                  background:
+                    "radial-gradient(62.87% 100% at 50% 100%, rgb(219 99 99 / 62%) 0%, rgba(255, 255, 255, 0) 100%)",
+                }}
+              ></div>
+            </div>
           )}
         </nav>
       </header>
