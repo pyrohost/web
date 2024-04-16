@@ -52,7 +52,7 @@ const solutions: { title: string; href: string; description: string }[] = [
 const LogoLink = () => {
     return (
         <Link className='w-fit shrink-0 p-4 text-sm font-bold' href='/'>
-            <div className='h-8'>
+            <div className='h-8 w-[72px]'>
                 <Logo />
             </div>
         </Link>
