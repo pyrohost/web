@@ -54,7 +54,7 @@ const LogoLink = () => {
 
     return (
         <Link
-            className={`w-fit shrink-0 p-4 text-sm font-bold ${pathname === '/pyrodactyl' || pathname === '/alerion' ? 'brightness-[3] grayscale' : null}`}
+            className={`w-fit shrink-0 p-4 text-sm font-bold ${pathname === '/pyrodactyl' || pathname === '/alerion' || pathname === '/pay' ? 'brightness-[3] grayscale' : null}`}
             href='/'
         >
             <div className='h-8 w-[72px]'>
