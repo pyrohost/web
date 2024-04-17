@@ -17,7 +17,7 @@ const Page = () => {
                         <div className='flex w-1/4 flex-col gap-4'>
                             <p className=' text-[20px] leading-[155%] text-[#ffffffbb]'>
                                 It&apos;s the world&apos;s best Pterodacyl panel. You&apos;ve never seen anything like
-                                it.
+                                it before.
                             </p>
                             <a className='flex items-center justify-center gap-4 rounded-full bg-white py-3 pl-8 pr-6 text-sm font-bold text-black'>
                                 <p>Star on GitHub</p>
