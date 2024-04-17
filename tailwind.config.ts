@@ -48,7 +48,7 @@ const config = {
                     foreground: 'hsl(var(--card-foreground))',
                 },
                 brandGrad: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF343C 0%, #F06F53 100%)',
-                brand: '#fa4e49',
+                brand: '#FF4438',
                 dark: {
                     100: '#cfcece',
                     200: '#9f9c9c',
