@@ -50,8 +50,13 @@ const solutions: { title: string; href: string; description: string }[] = [
 ];
 
 const LogoLink = () => {
+    const pathname = usePathname();
+
     return (
-        <Link className='w-fit shrink-0 p-4 text-sm font-bold' href='/'>
+        <Link
+            className={`w-fit shrink-0 p-4 text-sm font-bold ${pathname === '/pyrodactyl' ? 'brightness-[3] grayscale' : null}`}
+            href='/'
+        >
             <div className='h-8 w-[72px]'>
                 <Logo />
             </div>
@@ -83,9 +88,9 @@ const NavBar = () => {
 
     return (
         <>
-            <div aria-hidden className='contents'>
+            {/* <div aria-hidden className='contents'>
                 <div aria-hidden className='blurborder'></div>
-            </div>
+            </div> */}
             <header className={`fixed left-0 right-0 top-0 isolate z-[9999] w-full md:px-8`}>
                 <nav
                     className={`main-nav nav-controller relative mx-auto flex w-full max-w-[1620px] transform-gpu flex-row items-center p-2 backdrop-blur-xl transition-all will-change-transform [transition-duration:550ms] md:mt-4 md:rounded-full ${
