@@ -10,8 +10,9 @@ export const metadata: Metadata = {
     },
 };
 
-const Page = () => {
-    redirect('https://letmegooglethat.com/');
+const Page = ({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) => {
+    const url = `https://letmegooglethat.com/?${searchParams.q ? `q=${searchParams.q}` : ''}`;
+    redirect(url);
 };
 
 export default Page;
