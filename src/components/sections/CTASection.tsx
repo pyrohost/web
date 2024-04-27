@@ -1,4 +1,3 @@
-import Holo from '@/components/ui/Holo';
 import Section from '@/components/sections/_components/SectionLayout';
 import BrandText from '@/components/sections/_components/BrandText';
 import ExternalLinkButton from '@/components/sections/_components/ExternalLinkButton';
