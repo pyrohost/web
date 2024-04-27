@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@next/third-parties':
-        specifier: ^14.2.0
-        version: 14.2.0(next@14.2.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)
+        specifier: ^14.2.3
+        version: 14.2.3(next@14.2.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-context-menu':
         specifier: ^2.1.5
         version: 2.1.5(@types/react-dom@18.2.25)(@types/react@18.2.76)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -234,8 +234,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@next/third-parties@14.2.0':
-    resolution: {integrity: sha512-ybnOSK2y0ICrT2OppkCY/LDoe4DD6rYyZa0E4BuD83KpXnXhO5VotMd9RbN2+AmpsV9ap2KdF/lEHvBM1aYjZA==}
+  '@next/third-parties@14.2.3':
+    resolution: {integrity: sha512-j4E2xBSsEZq4VX2pVm3LpGltSwCxETic6glJWfHyYQvpoMdplCAYrQKpF+E9Gg3jfsrfmRAIdTE11m+biBCx1Q==}
     peerDependencies:
       next: ^13.0.0 || ^14.0.0
       react: ^18.2.0
@@ -2401,7 +2401,7 @@ snapshots:
   '@next/swc-win32-x64-msvc@14.2.3':
     optional: true
 
-  '@next/third-parties@14.2.0(next@14.2.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)':
+  '@next/third-parties@14.2.3(next@14.2.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)':
     dependencies:
       next: 14.2.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
