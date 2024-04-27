@@ -2,7 +2,19 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-    title: 'pyro - Pyrodactyl',
+    title: 'Pyro - Pyrodactyl',
+    description:
+        "Pyrodactyl is Pyro's open, secure, and scalable server management platform. It's the world's best Pterodactyl panel with incredible performance and unmatched features.",
+    openGraph: {
+        title: 'Pyro - Pyrodactyl',
+        description:
+            "Pyrodactyl is Pyro's open, secure, and scalable server management platform. It's the world's best Pterodactyl panel with incredible performance and unmatched features.",
+        images: [
+            {
+                url: './og_pyrodactyl.png',
+            },
+        ],
+    },
 };
 
 const Page = () => {
