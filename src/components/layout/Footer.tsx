@@ -59,7 +59,7 @@ const Footer = () => {
             </div>
             <div aria-hidden className='-16 mt-16 w-full border-t-2 border-solid border-t-[#ffffff11]' />
             <div className='mx-auto mb-4 mt-12 flex w-full max-w-[1620px] flex-row items-center justify-between text-xs font-medium opacity-50'>
-                <p>© 2024 Pyro</p>
+                <p>© 2024 Pyro Host Inc. All Rights Reserved.</p>
                 <div className='flex flex-row items-center justify-center gap-8'>
                     <a rel='noopener noreferrer' target='_blank' href='https://twitter.com/withPyro'>
                         <svg height='16' strokeLinejoin='round' viewBox='0 0 16 16' width='16'>
