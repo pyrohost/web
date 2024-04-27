@@ -28,24 +28,24 @@ import { usePathname, useRouter } from 'next/navigation';
 
 const solutions: { title: string; href: string; description: string }[] = [
     {
-        title: 'Minecraft Hosting',
-        href: '/',
-        description: 'Remarkable performance and reliability for your Minecraft server.',
+        title: 'Pyrodactyl Panel',
+        href: '/pyrodactyl',
+        description: "Pyro's open, secure, and scalable server management platform.",
     },
     {
-        title: 'Terraria Hosting',
-        href: '/',
-        description: 'Calamity, Thorium, and more. Peak performance for your Terraria server.',
+        title: 'Pyro Alerion',
+        href: '/alerion',
+        description: 'Blazingly fast Rust-powered successor to Wings.',
     },
     {
-        title: "Garry's Mod Hosting",
-        href: '/',
-        description: 'With more than enough hardware for all your workshop items and trolling.',
+        title: 'Pyro Pay',
+        href: '/pay',
+        description: 'Dead-simple billing and payment management for your services.',
     },
     {
-        title: 'Factorio Hosting',
-        href: '/',
-        description: 'Because your factory must grow. Always-on Factorio servers.',
+        title: 'PSAL',
+        href: '/psal',
+        description: "Pyro's source-available license",
     },
 ];
 
@@ -88,9 +88,6 @@ const NavBar = () => {
 
     return (
         <>
-            {/* <div aria-hidden className='contents'>
-                <div aria-hidden className='blurborder'></div>
-            </div> */}
             <header className={`fixed left-0 right-0 top-0 isolate z-[9999] w-full md:px-8`}>
                 <nav
                     className={`main-nav nav-controller relative mx-auto flex w-full max-w-[1620px] transform-gpu flex-row items-center p-2 backdrop-blur-xl transition-all will-change-transform [transition-duration:550ms] md:mt-4 md:rounded-full ${
