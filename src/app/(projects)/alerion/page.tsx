@@ -4,11 +4,11 @@ import Image from 'next/image';
 export const metadata: Metadata = {
     title: 'Pyro - Alerion',
     description:
-        "Alerion is Pyro's Rust-powered, cross-platform Wings successor. Reliable manage and run Dockerized game servers with Alerion.",
+        "Alerion is Pyro's Rust-powered, cross-platform Wings successor. Reliably manage and run Dockerized game servers with Alerion.",
     openGraph: {
         title: 'Pyro - Alerion',
         description:
-            "Alerion is Pyro's Rust-powered, cross-platform Wings successor. Reliable manage and run Dockerized game servers with Alerion.",
+            "Alerion is Pyro's Rust-powered, cross-platform Wings successor. Reliably manage and run Dockerized game servers with Alerion.",
         images: [
             {
                 url: './og_alerion.png',
