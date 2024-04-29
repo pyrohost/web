@@ -31,10 +31,10 @@ const Page = () => {
                         </div>
                         <article className='mt-8 flex flex-col gap-4 leading-[155%]'>
                             <div>
-                                Johnathan Bell, DBA Pyro operates the website pyro.host and certain services under the
-                                name "pyro.host" and is referred to as "Pyro" in this Privacy Policy. This Privacy
-                                Policy is designed to help you understand how we collect, use, and share your
-                                information, and to help you understand and exercise your privacy rights.
+                                Pyro Host Inc operates the website pyro.host and certain services under the name
+                                "pyro.host" and is referred to as "Pyro" in this Privacy Policy. This Privacy Policy is
+                                designed to help you understand how we collect, use, and share your information, and to
+                                help you understand and exercise your privacy rights.
                             </div>
                             <div>
                                 <strong>Description of our Services.</strong> Pyro provides game hosting services,
