@@ -11,7 +11,7 @@ import Section from '@/components/sections/_components/SectionLayout';
 import ExternalLinkButton from '@/components/sections/_components/ExternalLinkButton';
 
 export const metadata: Metadata = {
-    title: 'pyro - A better way to host games',
+    title: 'pyro - Where your world plays',
 };
 
 export default function Home() {
