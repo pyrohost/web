@@ -293,7 +293,7 @@ const Page = () => {
                         matter where you are, we strive for the best playing experience for you and your players.
                     </Section.Description>
                     <div className='mx-auto mt-8 w-fit'>
-                        <ExternalLinkButton href='https://discord.gg/fxeRFRbhQh' text='Go global with Pyro' />
+                        <ExternalLinkButton href='https://pay.pyro.host' text='Go global with Pyro' />
                     </div>
                 </div>
                 <div className='absolute z-10 h-[400px] w-[800px] bg-black blur-[100px]'></div>

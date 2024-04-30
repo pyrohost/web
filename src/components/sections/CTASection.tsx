@@ -13,7 +13,7 @@ const CTASection = () => {
                 the difference.
             </Section.Description>
             <div className='mt-10 flex w-fit'>
-                <ExternalLinkButton href='https://discord.gg/fxeRFRbhQh' text='Order Now' />
+                <ExternalLinkButton href='https://pay.pyro.host' text='Order Now' />
             </div>
         </Section>
     );

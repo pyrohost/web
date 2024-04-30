@@ -223,7 +223,7 @@ const HeroSection = () => {
                         $6.
                     </Section.Description>
                     <div className='mt-10 flex w-fit'>
-                        <ExternalLinkButton href='https://discord.gg/fxeRFRbhQh' text='Order your server now' />
+                        <ExternalLinkButton href='https://pay.pyro.host' text='Order your server now' />
                     </div>
                 </div>
             </div>
