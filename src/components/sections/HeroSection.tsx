@@ -36,13 +36,6 @@ const HeroSection = () => {
             >
                 <div className='img-opacity-animation pointer-events-none absolute inset-0 select-none'>
                     <div className='pointer-events-none relative inset-0 h-screen min-h-screen w-screen select-none'>
-                        {/* <Image
-              alt=""
-              aria-hidden
-              src="/img/fire2.png"
-              fill
-              className="pointer-events-none select-none object-cover"
-            /> */}
                         <Image
                             alt=''
                             aria-hidden
