@@ -102,7 +102,7 @@ const NavBar = () => {
                         <NavigationMenuList>
                             <NavigationMenuItem asChild>
                                 <Link
-                                    className='block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:text-accent-foreground focus-visible:bg-accent'
+                                    className='block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#ffffff22] hover:text-accent-foreground focus:text-accent-foreground focus-visible:bg-[#ffffff22]'
                                     href='/pricing'
                                 >
                                     Pricing
@@ -176,7 +176,7 @@ const NavBar = () => {
                             </NavigationMenuItem>
                             <NavigationMenuItem asChild>
                                 <Link
-                                    className='block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:text-accent-foreground focus-visible:bg-accent'
+                                    className='block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#ffffff22] hover:text-accent-foreground focus:text-accent-foreground focus-visible:bg-[#ffffff22]'
                                     href='/about'
                                 >
                                     Company
@@ -290,7 +290,7 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWit
                     <Link
                         ref={ref}
                         className={cn(
-                            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:text-accent-foreground focus-visible:bg-accent',
+                            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#ffffff22] hover:text-accent-foreground focus:text-accent-foreground focus-visible:bg-[#ffffff22]',
                             className,
                         )}
                         href=''
