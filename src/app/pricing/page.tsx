@@ -61,9 +61,7 @@ const Page = () => {
                     <h4 className='mb-2 inline-flex max-w-max bg-gradient-to-br from-zinc-50 to-zinc-400 bg-clip-text text-transparent'>
                         Pricing
                     </h4>
-                    <Section.Title hero>
-                        Plans for every community
-                    </Section.Title>
+                    <Section.Title hero>Plans for every community</Section.Title>
                     <Section.Description hero maxWidth={900}>
                         Play with your friends on Pyro&apos;s instantly available, lag-free servers. With 24/7 support
                         over chat, an incredibly beautiful management panel, and more. Starting at just $4.
@@ -76,8 +74,7 @@ const Page = () => {
             <div className='-mt-[19rem]'></div>
             <Section>
                 <div className='img-opacity-animation pointer-events-none absolute inset-0 select-none'>
-                    <div className='pointer-events-none relative inset-0 h-full w-screen select-none'>
-                    </div>
+                    <div className='pointer-events-none relative inset-0 h-full w-screen select-none'></div>
                 </div>
                 <div className='relative z-20 flex w-full flex-col gap-8 rounded-3xl bg-[#d6b4ba0f] p-8 text-left backdrop-blur-lg'>
                     <Section.Title fullWidth>
@@ -106,7 +103,7 @@ const Page = () => {
                 <Section.Title maxWidth={700}>Everything you need from a Minecraft host</Section.Title>
                 <Section.Description maxWidth={600}>
                     Only Pyro offers the complete suite for your Minecraft server. We keep your server online, your
-                    players happy, and your community growing, for the lowest price.
+                    players happy, and your community growing.
                 </Section.Description>
 
                 <div className='relative mt-24 flex w-full max-w-[1200px] flex-col text-left'>
@@ -156,9 +153,7 @@ const Page = () => {
                     </div>
 
                     <div className='mt-24 flex flex-col gap-16 xl:flex-row'>
-                        <div
-                            className='flex w-full flex-col overflow-hidden rounded-3xl border-2 border-[#ffffff11] p-8 backdrop-blur-3xl md:min-h-[400px]'
-                        >
+                        <div className='flex w-full flex-col overflow-hidden rounded-3xl border-2 border-[#ffffff11] p-8 backdrop-blur-3xl md:min-h-[400px]'>
                             <h2 className='z-10 flex items-center text-2xl font-bold text-[#f8efef]'>
                                 Overflow Memory{' '}
                                 <span className='z-10 ml-2 rounded-full bg-brand px-2 py-1 text-xs text-white'>
