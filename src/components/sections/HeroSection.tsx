@@ -46,9 +46,7 @@ const HeroSection = () => {
                     </div>
                 </div>
                 <div className='relative flex h-full min-h-screen flex-col items-center justify-end pb-36 text-center'>
-                    {/* <HeroEyebrow /> */}
                     <Section.Title maxWidth={1250}>
-                        {/* <BrandText> */}
                         <span
                             className=''
                             style={{
@@ -218,7 +216,6 @@ const HeroSection = () => {
                             </div>
                             Where your world plays
                         </span>
-                        {/* </BrandText> */}
                     </Section.Title>
                     <Section.Description hero maxWidth={700}>
                         Pyro is a new game hosting platform that makes it easy to play your favorite games with friends.
