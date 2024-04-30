@@ -53,11 +53,6 @@ const HeroSection = () => {
                             className=''
                             style={{
                                 padding: '0 0.5rem',
-                                background:
-                                    'linear-gradient(0deg, rgb(248, 216, 216), rgb(243, 210, 210)) padding-box text',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                textShadow: '0 2px 16px rgba(174,207,242,.24)',
                             }}
                         >
                             <div className='flex h-[406px] items-center justify-center'>
