@@ -19,7 +19,8 @@ const Footer = () => {
                         <Logo />
                     </div>
                     <div className='max-w-[30ch] text-sm leading-relaxed'>
-                        Pyro is a better way to host games. Instantly available, lag-free servers with unmatched value.
+                        Pyro is a new game hosting platform that makes it easier to play your favorite games with
+                        friends.
                     </div>
                 </div>
                 <div className='flex flex-col gap-16 md:flex-row md:gap-4'>
