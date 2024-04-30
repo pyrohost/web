@@ -47,7 +47,6 @@ const config = {
                     DEFAULT: 'hsl(var(--card))',
                     foreground: 'hsl(var(--card-foreground))',
                 },
-                brandGrad: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF4438 0%, #FB543D 100%)',
                 brand: '#FF4438',
                 dark: {
                     100: '#cfcece',
@@ -62,6 +61,9 @@ const config = {
                     950: '#020101',
                     1000: '#000000',
                 },
+            },
+            backgroundImage: {
+                brandGrad: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF4438 0%, #FB543D 100%)'
             },
             borderRadius: {
                 lg: 'var(--radius)',
