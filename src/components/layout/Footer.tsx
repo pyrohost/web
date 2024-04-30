@@ -32,6 +32,19 @@ const Footer = () => {
                     </ul>
 
                     <ul className='flex w-32 list-none flex-col gap-4'>
+                        <h2 className='text-sm font-bold text-brand'>Solutions</h2>
+                        <li>
+                            <Link href='/pyrodactyl'>Pyrodactyl</Link>
+                        </li>
+                        <li>
+                            <Link href='/alerion'>Alerion</Link>
+                        </li>
+                        <li>
+                            <Link href='/pay'>Pyro Pay</Link>
+                        </li>
+                    </ul>
+
+                    <ul className='flex w-32 list-none flex-col gap-4'>
                         <h2 className='text-sm font-bold text-brand'>Company</h2>
                         <li>
                             <Link href='/about'>About</Link>
