@@ -17,7 +17,6 @@ import HugeIconsCPU from '@/components/icons/hugeicons/CPU';
 import Cobe from '@/components/Cobe';
 import RenderIfVisible from '@/components/ui/RenderIfVisible';
 import CTASection from '@/components/sections/CTASection';
-import OtherGamesPricingCards from '@/components/sections/_components/OtherGamesPricingCards';
 
 export const metadata: Metadata = {
     title: 'pyro - Pricing and Plans',
@@ -64,20 +63,12 @@ const Page = () => {
                         Pricing
                     </h4>
                     <Section.Title hero>
-                        {/* <BrandText> */}
                         Plans for every community
-                        {/* </BrandText> */}
                     </Section.Title>
                     <Section.Description hero maxWidth={900}>
                         Play with your friends on Pyro&apos;s instantly available, lag-free servers. With 24/7 support
                         over chat, an incredibly beautiful management panel, and more. Starting at just $4.
                     </Section.Description>
-                    {/* <Section.Description hero maxWidth={900}>
-            More than just premium hardware. Pyro is the complete suite for your
-            Minecraft server, with always-online, lag-free servers, 24/7 support
-            over chat and email, and the world's most beautiful management
-            panel.
-          </Section.Description> */}
                     <div className='mt-24 flex w-full flex-col gap-4 xl:flex-row'>
                         <MCPricingCards />
                     </div>
@@ -87,13 +78,6 @@ const Page = () => {
             <Section>
                 <div className='img-opacity-animation pointer-events-none absolute inset-0 select-none'>
                     <div className='pointer-events-none relative inset-0 h-full w-screen select-none'>
-                        {/* <Image
-              alt=""
-              aria-hidden
-              src="/img/godrays.png"
-              fill
-              className="pointer-events-none mt-[12rem] scale-[2] scale-y-[3] select-none"
-            /> */}
                     </div>
                 </div>
                 <div className='relative z-20 flex w-full flex-col gap-8 rounded-3xl bg-[#d6b4ba0f] p-8 text-left backdrop-blur-lg'>
@@ -178,10 +162,6 @@ const Page = () => {
                     <div className='mt-24 flex flex-col gap-16 xl:flex-row'>
                         <div
                             className='flex w-full flex-col overflow-hidden rounded-3xl border-2 border-[#ffffff11] p-8 backdrop-blur-3xl md:min-h-[400px]'
-                            // style={{
-                            //   background:
-                            //     "linear-gradient(to right top, rgb(49, 58, 96), rgb(78, 92, 110))",
-                            // }}
                         >
                             <h2 className='z-10 flex items-center text-2xl font-bold text-[#f8efef]'>
                                 Overflow Memory{' '}
@@ -251,31 +231,6 @@ const Page = () => {
                             </p>
                         </div>
                     </div>
-                </div>
-            </Section>
-            <Section>
-                <div className='img-opacity-animation pointer-events-none absolute inset-0 select-none'>
-                    <Image
-                        alt=''
-                        aria-hidden
-                        src='/img/scuffedallgameshero.png'
-                        width={1920}
-                        height={1080}
-                        className='pointer-events-none mt-32 w-full scale-150 select-none border-t-[1px] border-solid border-white object-cover opacity-35 grayscale backdrop-blur'
-                        style={{
-                            maskImage: 'radial-gradient(85% 100% at 50% 100%, transparent 55.5%, white)',
-                        }}
-                    />
-                </div>
-                <Section.Title fullWidth>
-                    All your <BrandText>favorite games</BrandText> are on Pyro
-                </Section.Title>
-                <Section.Description maxWidth={800}>
-                    From Terarria, to Rust, to Factorio, to Palworld and more. Pyro is the best way to play with your
-                    friends, on your favorite games.
-                </Section.Description>
-                <div className='mt-24 flex w-full flex-col gap-4 xl:flex-row'>
-                    <OtherGamesPricingCards />
                 </div>
             </Section>
             <PanelSection />
