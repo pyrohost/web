@@ -219,7 +219,8 @@ const HeroSection = () => {
                     </Section.Title>
                     <Section.Description hero maxWidth={700}>
                         Pyro is a new game hosting platform that makes it easy to play your favorite games with friends.
-                        Incredible performance, a beautiful game panel, and more, starting at just $4.
+                        Incredible reliability, unlimited storage, a beautiful game panel, and more, starting at just
+                        $6.
                     </Section.Description>
                     <div className='mt-10 flex w-fit'>
                         <ExternalLinkButton href='https://discord.gg/fxeRFRbhQh' text='Order your server now' />
