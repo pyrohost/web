@@ -116,8 +116,8 @@ const Page = () => {
                         <div className='inline max-w-[256px] font-medium text-[#888]'>
                             <HugeIconsTools className='-mt-1.5 mr-1 inline !h-5 !w-5 fill-white' fill='regular' />
                             <h4 className='inline leading-[170%]'>
-                                <span className='inline text-white'>Mods, plugins, and Jars.</span> All your favorite
-                                tools, all in one place.
+                                <span className='inline text-white'>Mods, plugins, and Jars.</span> Pyro supports
+                                everything you play, and more.
                             </h4>
                         </div>
                         <div className='inline max-w-[256px] font-medium text-[#888]'>
@@ -131,7 +131,7 @@ const Page = () => {
                             <HugeIconsPeople className='-mt-1.5 mr-1 inline !h-5 !w-5 fill-white' fill='regular' />
                             <h4 className='inline leading-[170%]'>
                                 <span className='inline text-white'>Bring your friends.</span> Unlimited players,
-                                unlimited fun. No player limits.
+                                unlimited fun. No player limits on Pyro.
                             </h4>
                         </div>
                         <div className='inline max-w-[256px] font-medium text-[#888]'>
@@ -144,8 +144,8 @@ const Page = () => {
                         <div className='inline max-w-[256px] font-medium text-[#888]'>
                             <HugeIconsCPU className='-mt-1.5 mr-1 inline !h-5 !w-5 fill-white' fill='regular' />
                             <h4 className='inline leading-[170%]'>
-                                <span className='inline text-white'>Unmatched performance.</span> The lowest latency and
-                                the most consistent speeds, with Pyro.
+                                <span className='inline text-white'>Unmatched reliability.</span> Our hardware is tuned
+                                for every game and every player.
                             </h4>
                         </div>
                     </div>
