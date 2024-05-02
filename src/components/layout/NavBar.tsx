@@ -4,7 +4,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import Logo from '../Logo';
 import { cn } from '@/lib/utils';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -13,14 +13,11 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    NavigationMenuViewport,
 } from '@/components/ui/navigation-menu';
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
