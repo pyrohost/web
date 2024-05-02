@@ -3,11 +3,11 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'pyro - Case - Node Hosting',
+    title: 'Pyro - Case - Node Hosting',
     description:
         "Today, we're releasing the results of a week-long internal investigation, detailing a timeline of our legal efforts against `Node Hosting`, who have knowingly used Pyro's proprietary, copyrighted works — including names, logomarks, and trademarks — to defame our company and mislead consumers.",
     openGraph: {
-        title: 'pyro - Case - Node Hosting',
+        title: 'Pyro - Case - Node Hosting',
         description:
             "Today, we're releasing the results of a week-long internal investigation, detailing a timeline of our legal efforts against `Node Hosting`, who have knowingly used Pyro's proprietary, copyrighted works — including names, logomarks, and trademarks — to defame our company and mislead consumers.",
         images: [

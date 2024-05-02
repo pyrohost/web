@@ -4,7 +4,7 @@ import Section from '@/components/sections/_components/SectionLayout';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'pyro - Coming Soon',
+    title: 'Pyro - Coming Soon',
 };
 
 const Page = () => {

@@ -3,10 +3,10 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'pyro - Terms of Service',
+    title: 'Pyro - Terms of Service',
     description: "Read about Pyro's Terms of Service.",
     openGraph: {
-        title: 'pyro - Terms of Service',
+        title: 'Pyro - Terms of Service',
         description: "Read about Pyro's Terms of Service.",
         images: [
             {

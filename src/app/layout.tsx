@@ -10,10 +10,10 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] });
 export const metadata: Metadata = {
     metadataBase: new URL('https://pyro.host/'),
     title: 'pyro.host',
-    description: 'pyro is a better way to host games. Instantly available, lag-free servers with unmatched value.',
+    description: 'Pyro is where your world plays. Instantly available, lag-free servers with unmatched value.',
     openGraph: {
-        title: 'pyro',
-        description: 'pyro is a better way to host games. Instantly available, lag-free servers with unmatched value.',
+        title: 'Pyro',
+        description: 'Pyro where your world plays. Instantly available, lag-free servers with unmatched value.',
         images: [
             {
                 url: './ogimage.png',

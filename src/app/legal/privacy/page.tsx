@@ -3,10 +3,10 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'pyro - Privacy Policy',
+    title: 'Pyro - Privacy Policy',
     description: 'Pyro takes your privacy seriously. Read and learn about our privacy policy.',
     openGraph: {
-        title: 'pyro - Privacy Policy',
+        title: 'Pyro - Privacy Policy',
         description: 'Pyro takes your privacy seriously. Read and learn about our privacy policy.',
         images: [
             {

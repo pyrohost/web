@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-    title: 'pyro - About Us',
+    title: 'pyPyroro - About Us',
 };
 
 const Page = () => {

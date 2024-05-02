@@ -2,10 +2,10 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'pyro - Cookie Policy',
+    title: 'Pyro - Cookie Policy',
     description: 'Pyro takes your privacy seriously. Read and learn about our cookie policy.',
     openGraph: {
-        title: 'pyro - Cookie Policy',
+        title: 'Pyro - Cookie Policy',
         description: 'Pyro takes your privacy seriously. Read and learn about our cookie policy.',
         images: [
             {

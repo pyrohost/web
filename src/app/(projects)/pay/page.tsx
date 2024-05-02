@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-    title: 'pyro - Alerion',
+    title: 'Pyro - Alerion',
 };
 
 const Page = () => {

@@ -18,11 +18,11 @@ import RenderIfVisible from '@/components/ui/RenderIfVisible';
 import CTASection from '@/components/sections/CTASection';
 
 export const metadata: Metadata = {
-    title: 'pyro - Pricing and Plans',
+    title: 'Pyro - Pricing and Plans',
     description:
         "Pyro's instantly available, lag-free servers are unmatched in value. Host your Minecraft server and play with friends for just $4, or host almost any other game with Pyro.",
     openGraph: {
-        title: 'pyro - Pricing and Plans',
+        title: 'Pyro - Pricing and Plans',
         description:
             "Pyro's instantly available, lag-free servers are unmatched in value. Host your Minecraft server and play with friends for just $4, or host almost any other game with Pyro.",
         images: [
