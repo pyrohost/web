@@ -164,10 +164,10 @@ const ProMCPricingCards = () => {
         <>
             <MCPricingCard
                 outOfStock={false}
-                purchaseLink='https://discord.gg/fxeRFRbhQh'
+                purchaseLink='https://pay.pyro.host/category/Game%20Panel'
                 planName='Max'
                 description="The Max plan is for the largest communities and modpacks. It's the bleeding edge of performance and capacity that Pyro offers."
-                price={20}
+                price={24}
             >
                 <MCPricingCardPerks
                     perks={[
@@ -180,7 +180,7 @@ const ProMCPricingCards = () => {
                             icon: 'ram',
                             fill: 'brand',
                             description: '12GB RAM',
-                            tooltip: '10GB of high-speed RAM, and 2GB of Pyro Overflow Memory for peak performance',
+                            tooltip: '12GB of high-speed RAM, and 2GB of Pyro Overflow Memory for peak performance',
                         },
                         {
                             icon: 'people',

@@ -53,7 +53,7 @@ const PricingSection = () => {
                 </Section.Title>
                 <Section.Description maxWidth={600}>
                     Only pay for what you need. Pyro offers simple pricing for servers of all sizes. Minecraft starts at
-                    only $4 per month.
+                    only $6 per month.
                 </Section.Description>
 
                 <div className='mt-24 flex w-full flex-col gap-4 xl:flex-row'>

@@ -159,8 +159,8 @@ const MCPricingCards = () => {
     return (
         <>
             <MCPricingCard
-                outOfStock={false}
-                purchaseLink='https://discord.gg/fxeRFRbhQh'
+                outOfStock
+                purchaseLink='https://pay.pyro.host/category/Game%20Panel'
                 planName='Basic'
                 description="Try out Pyro's hosting for you and your community. Perfect for vanilla Minecraft versions below 1.12.2. Does not support modpacks."
                 price={4}
@@ -210,7 +210,7 @@ const MCPricingCards = () => {
             <MCPricingCard
                 fancy
                 outOfStock={false}
-                purchaseLink='https://discord.gg/fxeRFRbhQh'
+                purchaseLink='https://pay.pyro.host/category/Game%20Panel'
                 planName='Essential'
                 description='Everything you need to get started. Perfect for playing solo or with a small group of friends. Supports your favorite modpacks.'
                 price={8}
@@ -225,7 +225,7 @@ const MCPricingCards = () => {
                         {
                             icon: 'ram',
                             fill: 'brand',
-                            description: '5GB RAM',
+                            description: '4GB RAM',
                             tooltip: '4GB of high-speed RAM, and 1GB of Pyro Overflow Memory for peak performance',
                         },
                         {
@@ -259,7 +259,7 @@ const MCPricingCards = () => {
 
             <MCPricingCard
                 outOfStock={false}
-                purchaseLink='https://discord.gg/fxeRFRbhQh'
+                purchaseLink='https://pay.pyro.host/category/Game%20Panel'
                 planName='Premium'
                 description='Powerful features for the most demanding modpacks, large communities, and players desiring a premium, lag-free experience.'
                 price={16}
@@ -274,7 +274,7 @@ const MCPricingCards = () => {
                         {
                             icon: 'ram',
                             fill: 'regular',
-                            description: '9GB RAM',
+                            description: '8GB RAM',
                             tooltip: '8GB of high-speed RAM, and 1GB of Pyro Overflow Memory for peak performance',
                         },
                         {

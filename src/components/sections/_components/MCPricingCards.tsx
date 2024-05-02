@@ -134,7 +134,7 @@ const MCPricingCard: FC<MCPricingCardProps> = ({
                         aria-hidden
                         className='pointer-events-none mt-auto flex items-center justify-center gap-4 rounded-full bg-[#3f3e3e] py-3 pl-8 pr-6 text-sm font-bold opacity-50'
                     >
-                        <p>Out of stock</p>
+                        <p>Coming soon</p>
                     </div>
                 )}
             </div>
@@ -146,8 +146,8 @@ const MCPricingCards = () => {
     return (
         <>
             <MCPricingCard
-                outOfStock={false}
-                purchaseLink='https://discord.gg/fxeRFRbhQh'
+                outOfStock
+                purchaseLink='https://pay.pyro.host/category/Game%20Panel'
                 planName='Minecraft Basic'
                 description="Try out Pyro's hosting for you and your community. Perfect for vanilla Minecraft versions below 1.12.2. Does not support modpacks."
                 price={4}
@@ -196,7 +196,7 @@ const MCPricingCards = () => {
             <MCPricingCard
                 fancy
                 outOfStock={false}
-                purchaseLink='https://discord.gg/fxeRFRbhQh'
+                purchaseLink='https://pay.pyro.host/category/Game%20Panel'
                 planName='Minecraft Essential'
                 description='Everything you need to get started. Perfect for playing solo or with a small group of friends. Supports your favorite modpacks.'
                 price={8}
@@ -244,7 +244,7 @@ const MCPricingCards = () => {
 
             <MCPricingCard
                 outOfStock={false}
-                purchaseLink='https://discord.gg/fxeRFRbhQh'
+                purchaseLink='https://pay.pyro.host/category/Game%20Panel'
                 planName='Minecraft Premium'
                 description='Powerful features for the most demanding modpacks, large communities, and players desiring a premium, lag-free experience.'
                 price={16}

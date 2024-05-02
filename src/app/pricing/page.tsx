@@ -22,11 +22,11 @@ import OtherGamesPricingCards from '@/components/sections/_components/OtherGames
 export const metadata: Metadata = {
     title: 'pyro - Pricing and Plans',
     description:
-        "Pyro's instantly available, lag-free servers are unmatched in value. Host your Minecraft server and play with friends for just $4, or host almost any other game with Pyro.",
+        "Pyro's instantly available, lag-free servers are unmatched in value. Host your Minecraft server and play with friends for just $6, or host almost any other game with Pyro.",
     openGraph: {
         title: 'pyro - Pricing and Plans',
         description:
-            "Pyro's instantly available, lag-free servers are unmatched in value. Host your Minecraft server and play with friends for just $4, or host almost any other game with Pyro.",
+            "Pyro's instantly available, lag-free servers are unmatched in value. Host your Minecraft server and play with friends for just $6, or host almost any other game with Pyro.",
         images: [
             {
                 url: './ogimage.png',
@@ -70,7 +70,7 @@ const Page = () => {
                     </Section.Title>
                     <Section.Description hero maxWidth={900}>
                         Play with your friends on Pyro&apos;s instantly available, lag-free servers. With 24/7 support
-                        over chat, an incredibly beautiful management panel, and more. Starting at just $4.
+                        over chat, an incredibly beautiful management panel, and more. Starting at just $6.
                     </Section.Description>
                     {/* <Section.Description hero maxWidth={900}>
             More than just premium hardware. Pyro is the complete suite for your
@@ -293,7 +293,7 @@ const Page = () => {
                         matter where you are, we strive for the best playing experience for you and your players.
                     </Section.Description>
                     <div className='mx-auto mt-8 w-fit'>
-                        <ExternalLinkButton href='https://discord.gg/fxeRFRbhQh' text='Go global with Pyro' />
+                        <ExternalLinkButton href='https://pay.pyro.host' text='Go global with Pyro' />
                     </div>
                 </div>
                 <div className='absolute z-10 h-[400px] w-[800px] bg-black blur-[100px]'></div>

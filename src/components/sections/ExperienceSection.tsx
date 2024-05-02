@@ -13,7 +13,7 @@ const ExperienceSection = () => {
                 playing, no matter where you are.
             </Section.Description>
             <div className='z-10 mt-8'>
-                <ExternalLinkButton href='https://discord.gg/fxeRFRbhQh' text='Launch your server in a minute' />
+                <ExternalLinkButton href='https://pay.pyro.host' text='Launch your server in a minute' />
             </div>
         </Section>
     );
