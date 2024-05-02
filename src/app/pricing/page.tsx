@@ -69,21 +69,6 @@ const Page = () => {
                     <div className='mt-24 flex w-full flex-col gap-4 xl:flex-row'></div>
                 </div>
             </Section>
-            <div className='-mt-[19rem]'></div>
-            <Section>
-                <div className='img-opacity-animation pointer-events-none absolute inset-0 select-none'>
-                    <div className='pointer-events-none relative inset-0 h-full w-screen select-none'></div>
-                </div>
-                <div className='relative z-20 flex w-full flex-col gap-8 rounded-3xl bg-[#d6b4ba0f] p-8 text-left backdrop-blur-lg'>
-                    <Section.Title fullWidth>
-                        Easy choices for the <BrandText>largest</BrandText> servers
-                    </Section.Title>
-                    <p className='z-10 text-[17px] font-normal leading-[155%] text-[#ffffff99] md:text-[22px]'>
-                        Pyro offers plans designed for the largest communities. Support a large playerbase, run multiple
-                        servers, and manage it all with Pyro&apos;s world-class management panel.
-                    </p>
-                </div>
-            </Section>
             <Section>
                 <div className='img-opacity-animation pointer-events-none absolute inset-0 select-none'>
                     <Image
