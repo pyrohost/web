@@ -38,9 +38,9 @@ const Page = () => {
                     </div>
                     <div className='relative mt-8 min-h-[750px] w-full scale-[1.08]'>
                         <Image
-                            src='/img/panelheronew.png'
-                            width={1172}
-                            height={696}
+                            src='/img/panelhero_2x.png'
+                            width={4144}
+                            height={2464}
                             className='w-full'
                             alt=''
                             quality={100}
