@@ -51,7 +51,7 @@ const Page = () => {
                         src='/img/herobgtest.png'
                         width={1600}
                         height={650}
-                        className='pointer-events-none min-h-[500px] w-full select-none object-cover opacity-35 grayscale'
+                        className='pointer-events-none min-h-[500px] w-full select-none object-cover opacity-15 grayscale'
                         style={{
                             maskImage: 'radial-gradient(85% 100% at 50% 100%, transparent 55.5%, white)',
                         }}
