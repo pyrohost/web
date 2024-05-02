@@ -61,12 +61,12 @@ const Page = () => {
                         Pricing
                     </h4>
                     <Section.Title hero>Plans for every community</Section.Title>
-                    <Section.Description hero maxWidth={900}>
-                        Play with your friends on Pyro&apos;s instantly available, lag-free servers. With 24/7 support
-                        over chat, an incredibly beautiful management panel, and more. Starting at just $4.
+                    <Section.Description hero maxWidth={850}>
+                        Play with all of your friends on Pyro&apos;s instantly available, incredibly reliable servers.
+                        With 24/7 support over chat, an incredibly beautiful management panel, and more. Starting at
+                        just $6.
                     </Section.Description>
-                    <div className='mt-24 flex w-full flex-col gap-4 xl:flex-row'>
-                    </div>
+                    <div className='mt-24 flex w-full flex-col gap-4 xl:flex-row'></div>
                 </div>
             </Section>
             <div className='-mt-[19rem]'></div>
