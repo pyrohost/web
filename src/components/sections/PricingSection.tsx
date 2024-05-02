@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import MCPricingCards from '@/components/sections/_components/MCPricingCards';
 import Section from '@/components/sections/_components/SectionLayout';
 import BrandText from '@/components/sections/_components/BrandText';
 import ExternalLinkButton from '@/components/sections/_components/ExternalLinkButton';
@@ -57,7 +56,6 @@ const PricingSection = () => {
                 </Section.Description>
 
                 <div className='mt-24 flex w-full flex-col gap-4 xl:flex-row'>
-                    <MCPricingCards />
                 </div>
             </Section>
         </>
