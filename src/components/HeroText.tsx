@@ -4,6 +4,7 @@ import { config } from '@react-spring/web';
 import TextTransition from './ui/TextTransition';
 import { useEffect, useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
+import Image from 'next/image';
 
 const text = ['Minecraft', 'Terraria', 'Factorio', "Garry's Mod", 'Rust'];
 
@@ -33,14 +34,13 @@ const HeroText = () => {
                 <div className='grid max-h-[84px] min-h-[84px] min-w-[84px] max-w-[84px] place-content-center overflow-hidden rounded-full bg-[#dddddd]'>
                     <TextTransition inline springConfig={config.stiff} style={{ position: 'relative' }}>
                         <div className=''>
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
+                            <Image
                                 className='h-12 w-12'
                                 src={`/img/hero/${text[index % text.length].toLowerCase().replace(/[\s"']/g, '')}.png`}
                                 width={64}
                                 height={64}
                                 alt=''
-                            ></img>
+                            ></Image>
                         </div>
                     </TextTransition>
                 </div>
