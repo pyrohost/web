@@ -34,7 +34,7 @@ export default function Home() {
                                     href='https://pay.pyro.host'
                                     className='flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad py-5 text-sm font-bold text-white shadow-lg'
                                 >
-                                    <p>Start playing in minutes</p>
+                                    <p>Start a game server in minutes</p>
                                     <ArrowRightIcon />
                                 </Link>
                             </div>
