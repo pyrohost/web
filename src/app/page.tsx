@@ -18,8 +18,11 @@ export default function Home() {
                 <div aria-hidden className='pointer-events-none absolute inset-0 z-0 select-none hue-rotate-90'>
                     <BackgroundBeams />
                 </div>
-                <div className='relative mx-auto flex flex-col items-center gap-16 p-32 text-center'>
-                    <div className=''>
+                <div className='relative mx-auto flex flex-col items-center gap-16 p-4 text-center xl:p-32'>
+                    <div className='flex xl:hidden'>
+                        <h1 className='text-4xl font-black leading-[1] tracking-tighter'>Where your world plays</h1>
+                    </div>
+                    <div className='hidden xl:flex'>
                         <HeroText />
                     </div>
                     <div className='relative w-full max-w-[55ch]'>
