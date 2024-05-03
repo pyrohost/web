@@ -13,9 +13,9 @@ export default function Home() {
     return (
         <div className='flex flex-1 flex-col overflow-x-clip xl:px-1 xl:pb-1'>
             <div className='relative z-10 min-h-[calc(100vh-76px)] w-full overflow-clip rounded-3xl bg-white'>
-                <div aria-hidden className='pointer-events-none absolute inset-0 z-0 select-none hue-rotate-90'>
+                {/* <div aria-hidden className='pointer-events-none absolute inset-0 z-0 select-none hue-rotate-90'>
                     <BackgroundBeams />
-                </div>
+                </div> */}
                 <div className='relative mx-auto flex flex-col items-center gap-16 px-4 py-32 text-center xl:px-24'>
                     <div className='flex xl:hidden'>
                         <h1 className='text-4xl font-black leading-[1] tracking-tighter'>Where your world plays</h1>
