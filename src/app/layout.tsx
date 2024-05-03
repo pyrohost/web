@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 import PageNavigation from '@/components/PageNavigation';
+import Footer from '@/components/Footer';
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <main data-pyro-index='' className='relative h-fit w-full shrink-0'>
                     <PageNavigation />
                     <>{children}</>
+                    <Footer />
                 </main>
             </body>
             <GoogleAnalytics gaId='G-NWVJ0FNXG1' />
