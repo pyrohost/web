@@ -30,10 +30,13 @@ export default function Home() {
                                 software to manage it all.
                             </p>
                             <div className='inline-flex items-center gap-5 rounded-full border border-dashed border-brand/50 p-2'>
-                                <div className='flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad py-5 text-sm font-bold text-white shadow-lg'>
+                                <Link
+                                    href='https://pay.pyro.host'
+                                    className='flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad py-5 text-sm font-bold text-white shadow-lg'
+                                >
                                     <p>Start playing in minutes</p>
                                     <ArrowRightIcon />
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     </div>
