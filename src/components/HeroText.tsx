@@ -28,7 +28,12 @@ const HeroText = () => {
     }, []);
 
     return (
-        <div className='relative flex flex-row flex-wrap items-center text-[max(84px,min(5vw,90px))] font-black leading-[1] tracking-tighter'>
+        <div
+            role='heading'
+            aria-level={1}
+            aria-label='Where your world plays'
+            className='relative flex flex-row flex-wrap items-center text-[max(84px,min(5vw,90px))] font-black leading-[1] tracking-tighter'
+        >
             <span>Where your</span>
             <animated.div style={{ ...props, overflow }} className='flex flex-row items-center gap-4 overflow-hidden'>
                 <div className='grid max-h-[84px] min-h-[84px] min-w-[84px] max-w-[84px] place-content-center overflow-hidden rounded-full bg-[#dddddd]'>
