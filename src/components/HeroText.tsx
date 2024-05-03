@@ -12,21 +12,22 @@ const HeroText = () => {
     const [overflow, setOverflow] = useState('hidden');
 
     const props = useSpring({
-        height: '128px',
-        from: { height: '0px' },
+        maxWidth: '800px',
+        margin: '0 12px',
+        from: { maxWidth: '0px', margin: '0px 6px' },
         onRest: () => setOverflow('visible'),
     });
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             setIndex((prevIndex) => prevIndex + 1);
-        }, 2200);
+        }, 4400);
 
         return () => clearTimeout(intervalId);
     }, []);
 
     return (
-        <div className='relative flex flex-col text-[max(84px,min(5vw,120px))] font-black leading-[1] tracking-tighter'>
+        <div className='relative flex flex-row flex-wrap items-center text-[max(84px,min(5vw,90px))] font-black leading-[1] tracking-tighter'>
             <span>Where your</span>
             <animated.div style={{ ...props, overflow }} className='flex flex-row items-center gap-4 overflow-hidden'>
                 <div className='grid max-h-[84px] min-h-[84px] min-w-[84px] max-w-[84px] place-content-center overflow-hidden rounded-full bg-[#dddddd]'>

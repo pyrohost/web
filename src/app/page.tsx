@@ -3,9 +3,7 @@ import Link from 'next/link';
 import HeroText from '@/components/HeroText';
 
 import { BackgroundBeams } from '@/components/ui/BackgroundBeams';
-import LogoWhite from '@/components/LogoWhite';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
-import PageNavigation from '@/components/PageNavigation';
 
 export const metadata: Metadata = {
     title: 'Pyro - Where your world plays',
