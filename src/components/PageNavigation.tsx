@@ -3,6 +3,7 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import Link from 'next/link';
 import LogoWhite from './LogoWhite';
+import LogoColored from './LogoColored';
 
 const PageNavigation = () => {
     return (
@@ -10,7 +11,7 @@ const PageNavigation = () => {
             <header className='relative flex min-h-[72px] w-full items-center justify-between px-8 text-white'>
                 <nav className='flex items-center gap-8'>
                     <Link href='/'>
-                        <LogoWhite />
+                        <LogoColored />
                     </Link>
                     {/* <Link className='flex h-fit w-fit items-center gap-2 text-sm font-extrabold' href={'/'}>
               <span>Hosting</span>
@@ -128,7 +129,7 @@ const PageNavigation = () => {
                     Sign in
                 </Link>
             </header>
-            <NavigationMenu.Viewport className='data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn navTransition h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden' />
+            <NavigationMenu.Viewport className='navTransition h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn' />
         </NavigationMenu.Root>
     );
 };
