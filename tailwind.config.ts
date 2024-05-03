@@ -63,7 +63,7 @@ const config = {
                 },
             },
             backgroundImage: {
-                brandGrad: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF4438 0%, #FB543D 100%)'
+                brandGrad: 'radial-gradient(109.26% 109.26% at 49.83% 13.37%, #FF4438 0%, #FB543D 100%)',
             },
             borderRadius: {
                 lg: 'var(--radius)',
@@ -79,10 +79,22 @@ const config = {
                     from: { height: 'var(--radix-accordion-content-height)' },
                     to: { height: '0' },
                 },
+                heightIn: {
+                    from: { height: '0' },
+                    to: { height: 'var(--radix-navigation-menu-viewport-height)' },
+                },
+                heightOut: {
+                    from: { height: 'var(--radix-navigation-menu-viewport-height)' },
+                    to: { height: '0' },
+                },
             },
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
+                heightIn:
+                    'heightIn 0.6s linear(0,0.006,0.025 2.8%,0.101 6.1%,0.539 18.9%,0.721 25.3%,0.849 31.5%,0.937 38.1%,0.968 41.8%,0.991 45.7%,1.006 50.1%,1.015 55%,1.017 63.9%,1.001)',
+                heightOut:
+                    'heightOut 0.5s linear(0,0.006,0.025 2.8%,0.101 6.1%,0.539 18.9%,0.721 25.3%,0.849 31.5%,0.937 38.1%,0.968 41.8%,0.991 45.7%,1.006 50.1%,1.015 55%,1.017 63.9%,1.001)',
             },
         },
     },

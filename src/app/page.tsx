@@ -1,14 +1,11 @@
 import { Metadata } from 'next';
-import PricingSection from '@/components/sections/PricingSection';
-import ServersSection from '@/components/sections/ServersSection';
-import ExperienceSection from '@/components/sections/ExperienceSection';
-import HeroSection from '@/components/sections/HeroSection';
-import CTASection from '@/components/sections/CTASection';
-import PanelSection from '@/components/sections/PanelSection';
-import RenderIfVisible from '@/components/ui/RenderIfVisible';
-import Cobe from '@/components/Cobe';
-import Section from '@/components/sections/_components/SectionLayout';
-import ExternalLinkButton from '@/components/sections/_components/ExternalLinkButton';
+import Link from 'next/link';
+import HeroText from '@/components/HeroText';
+
+import { BackgroundBeams } from '@/components/ui/BackgroundBeams';
+import LogoWhite from '@/components/LogoWhite';
+import { ArrowRightIcon } from '@radix-ui/react-icons';
+import PageNavigation from '@/components/PageNavigation';
 
 export const metadata: Metadata = {
     title: 'Pyro - Where your world plays',
@@ -18,29 +15,35 @@ export default function Home() {
     return (
         <>
             <main data-pyro-index='' className='relative h-fit w-full shrink-0'>
-                <HeroSection />
-                <PricingSection />
-                <ServersSection />
-                <Section>
-                    <div className='z-20'>
-                        <Section.Title maxWidth={800}>Go global with Pyro</Section.Title>
-                        <Section.Description maxWidth={800}>
-                            Our servers are currently in Europe and we&apos;re rapidly expanding to more locations. But
-                            no matter where you are, we strive for the best playing experience for you and your players.
-                        </Section.Description>
-                        <div className='mx-auto mt-8 w-fit'>
-                            <ExternalLinkButton href='https://pay.pyro.host' text='Order a server now' />
+                <PageNavigation />
+                <div className='flex flex-1 flex-col overflow-x-clip xl:px-1 xl:pb-1'>
+                    <div className='relative z-10 min-h-[calc(100vh-72px)] w-full overflow-clip rounded-3xl bg-white'>
+                        <div
+                            aria-hidden
+                            className='pointer-events-none absolute inset-0 z-0 select-none opacity-50 hue-rotate-90'
+                        >
+                            <BackgroundBeams />
+                        </div>
+                        <div className='relative mx-auto flex flex-col items-center gap-16 p-32 text-center'>
+                            <div className=''>
+                                <HeroText />
+                            </div>
+                            <div className='relative w-full max-w-[60ch]'>
+                                <div className='flex w-full flex-col gap-8'>
+                                    <p className='text-xl leading-[190%]'>
+                                        Pyro is a new game hosting platform. Incredible reliability, unlimited storage
+                                        for all of your files, and beautiful software to manage it all. You’ve never
+                                        played on a game server like Pyro’s.
+                                    </p>
+                                    <div className='flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad py-5 text-sm font-bold text-white'>
+                                        <p>Start playing in minutes</p>
+                                        <ArrowRightIcon />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className='absolute z-10 h-[400px] w-[800px] bg-black blur-[100px]'></div>
-                    <div className='absolute'>
-                        <RenderIfVisible>
-                            <Cobe />
-                        </RenderIfVisible>
-                    </div>
-                </Section>
-                <PanelSection />
-                <CTASection />
+                </div>
             </main>
         </>
     );
