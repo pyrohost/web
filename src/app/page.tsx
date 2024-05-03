@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import HeroText from '@/components/HeroText';
 
-import { BackgroundBeams } from '@/components/ui/BackgroundBeams';
+// import { BackgroundBeams } from '@/components/ui/BackgroundBeams';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 
 export const metadata: Metadata = {
