@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
+import PageNavigation from '@/components/PageNavigation';
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
@@ -36,7 +37,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 data-pyro-body=''
                 className={`${jakarta.className} relative flex min-h-screen w-full flex-col overflow-x-hidden`}
             >
-                <>{children}</>
+                <main data-pyro-index='' className='relative h-fit w-full shrink-0'>
+                    <PageNavigation />
+                    <>{children}</>
+                </main>
             </body>
             <GoogleAnalytics gaId='G-NWVJ0FNXG1' />
         </html>
