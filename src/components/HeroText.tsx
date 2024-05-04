@@ -51,7 +51,11 @@ const HeroText = () => {
                         </div>
                     </TextTransition>
                 </div>
-                <TextTransition inline springConfig={config.gentle} style={{ position: 'relative' }}>
+                <TextTransition
+                    inline
+                    springConfig={config.gentle}
+                    style={{ position: 'relative', marginBottom: '0.75rem' }}
+                >
                     {text[index % text.length]}
                 </TextTransition>
             </animated.div>
