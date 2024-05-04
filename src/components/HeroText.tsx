@@ -14,7 +14,7 @@ const HeroText = () => {
 
     const props = useSpring({
         maxWidth: '800px',
-        margin: '0 12px',
+        margin: '0 12px 0 24px',
         from: { maxWidth: '0px', margin: '0px 6px' },
         onRest: () => setOverflow('visible'),
     });
