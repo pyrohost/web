@@ -13,16 +13,15 @@ const HeroText = () => {
     const [overflow, setOverflow] = useState('hidden');
 
     const props = useSpring({
-        maxWidth: '800px',
-        margin: '0 12px 0 24px',
-        from: { maxWidth: '0px', margin: '0px 6px' },
+        maxHeight: '128px',
+        from: { maxHeight: '0px' },
         onRest: () => setOverflow('visible'),
     });
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             setIndex((prevIndex) => prevIndex + 1);
-        }, 4400);
+        }, 1500);
 
         return () => clearTimeout(intervalId);
     }, []);
@@ -32,10 +31,13 @@ const HeroText = () => {
             role='heading'
             aria-level={1}
             aria-label='Where your world plays'
-            className='relative flex flex-row flex-wrap items-center text-[max(84px,min(5vw,90px))] font-black leading-[1] tracking-tighter'
+            className='relative flex flex-col flex-wrap items-center text-[max(84px,min(5vw,90px))] font-black leading-[1] tracking-tighter'
         >
             <span>Where your</span>
-            <animated.div style={{ ...props, overflow }} className='flex flex-row items-center gap-4 overflow-hidden'>
+            <animated.div
+                style={{ ...props, overflow }}
+                className='flex flex-row items-center gap-4 overflow-hidden px-8'
+            >
                 <div className='grid max-h-[84px] min-h-[84px] min-w-[84px] max-w-[84px] place-content-center overflow-hidden rounded-full bg-[#dddddd]'>
                     <TextTransition inline springConfig={config.stiff} style={{ position: 'relative' }}>
                         <div className=''>
