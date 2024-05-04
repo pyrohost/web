@@ -53,7 +53,10 @@ const PageNavigation = () => {
                                 </Link>
                             </NavigationMenu.Content>
                         </NavigationMenu.Item>
-                        <Link className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold' href='/'>
+                        <Link
+                            className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
+                            href='/about'
+                        >
                             Company
                         </Link>
                         <Link
