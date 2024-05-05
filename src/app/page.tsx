@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Home() {
     return (
         <div className='flex flex-1 flex-col overflow-x-clip xl:px-1 xl:pb-1'>
-            <div className='relative z-10 min-h-[calc(100vh-76px)] w-full overflow-clip rounded-3xl bg-white'>
+            <div className='relative z-10 min-h-[calc(100vh-76px)] w-full overflow-clip rounded-3xl rounded-b-none bg-white'>
                 <div className='relative'>
                     <div
                         className='pointer-events-none absolute left-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
@@ -83,8 +83,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <section className='relative z-10 flex flex-col items-center gap-16 px-4 py-32 text-center text-white xl:px-24'></section>
-            <section className='relative z-10 w-full overflow-clip rounded-3xl bg-white'>
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-white'>
                 <Image
                     src='/img/softwarehero2.png'
                     width={1161}
