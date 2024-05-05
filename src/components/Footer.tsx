@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import LogoWhite from './LogoWhite';
 
 const Footer = () => {
@@ -5,7 +6,18 @@ const Footer = () => {
         <footer className='sticky bottom-0 flex flex-col justify-between gap-12 px-4 py-7 text-white md:flex-col md:gap-x-12 md:px-10 lg:flex-row'>
             <div className='flex flex-col items-start gap-4 md:w-full lg:w-fit'>
                 <LogoWhite />
-                <p className='text-xs text-[#999]'>© 2024 Pyro Host Inc. All rights reserved.</p>
+                <div className='flex flex-col gap-4 md:flex-row md:items-center'>
+                    <p className='text-xs text-[#999]'>© 2024 Pyro Host Inc. All rights reserved.</p>
+                    <div className='hidden h-1 w-1 rounded-full bg-[#ffffff55] md:block'></div>
+                    <div className='flex flex-row gap-4'>
+                        <Link href='/legal/tos' className='text-xs text-[#999]'>
+                            Terms of Service
+                        </Link>
+                        <Link href='/legal/privacy' className='text-xs text-[#999]'>
+                            Privacy Policy
+                        </Link>
+                    </div>
+                </div>
             </div>
             <div className='flex flex-row items-center justify-center gap-8'>
                 <a rel='noopener noreferrer' target='_blank' href='https://twitter.com/withPyro'>
