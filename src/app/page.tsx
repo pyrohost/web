@@ -162,6 +162,8 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
+            </section>
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-white'>
                 <div
                     className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'
                     style={
