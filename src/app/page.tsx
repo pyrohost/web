@@ -167,8 +167,19 @@ export default function Home() {
                 <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
                     <div className='flex flex-row items-center gap-4'>Transparent and open-source</div>
                 </h1>
+                <div className='max-w-[600px] leading-[190%]'>
+                    Pyro is the only hosting company that publicly shares its core source code. We&apos;re transparent
+                    about how we operate, we iterate in coordination with our community, and we&apos;re always open to
+                    feedback.
+                </div>
+                <Link
+                    href='https://github.com/pyrohost'
+                    className='flex w-fit items-center justify-center gap-4 rounded-full border-2 border-white/20 px-6 py-3 text-sm font-bold'
+                >
+                    <p>Star our work on GitHub</p>
+                </Link>
             </section>
-            <section className='relative z-10 w-full overflow-clip rounded-3xl bg-white'>
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-white'>
                 <div
                     className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'
                     style={
