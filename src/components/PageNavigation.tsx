@@ -61,7 +61,9 @@ const PageNavigation = () => {
                         </Link>
                         <Link
                             className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
-                            href={'/'}
+                            rel='noopener noreferrer'
+                            target='_blank'
+                            href='https://discord.gg/fxeRFRbhQh'
                         >
                             <span>Discord</span>
                             <svg
