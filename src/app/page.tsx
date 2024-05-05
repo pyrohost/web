@@ -93,25 +93,30 @@ export default function Home() {
                     <div className='relative z-[14] flex max-w-[600px] flex-col items-start justify-start'>
                         <div className='mb-4'>
                             <div className='flex h-8 cursor-default select-none items-center gap-[6px] rounded-full border border-brand/30 bg-brand/10 px-[11px] py-[4px] text-brand'>
-                                <div className='text-15 font-medium'>About Us</div>
+                                <Image
+                                    src='/img/pyrodactylorange.png'
+                                    width={24}
+                                    height={24}
+                                    alt=''
+                                    className='h-6 w-6'
+                                />
+                                <div className='text-15 font-medium'>Pyro Software</div>
                             </div>
                         </div>
                         <h1 className='mb-4 max-w-4xl text-[max(84px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter lg:pb-5'>
                             <div className='flex flex-row items-center gap-4'>One app to manage it all</div>
                         </h1>
-                        <p className='text-xl leading-[190%] text-[#3C3C3C] opacity-65'>
+                        <p className='mb-4 text-xl font-medium leading-[190%] text-[#3C3C3C] opacity-65'>
                             With Pyro, you don’t hop through loops to get from paying to playing, it just works better.
                             It’s like a super-app for your server.
                         </p>
-                        <div className='inline-flex items-center gap-5 rounded-full border border-dashed border-brand/50 p-2'>
-                            <Link
-                                href='https://pay.pyro.host'
-                                className='flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad px-12 py-5 text-sm font-bold text-white shadow-lg'
-                            >
-                                <p>Start a game server in minutes</p>
-                                <ArrowRightIcon />
-                            </Link>
-                        </div>
+
+                        <Link
+                            href='https://pay.pyro.host'
+                            className='flex w-fit items-center justify-center gap-4 rounded-full border-2 border-neutral-800/10 px-12 py-5 text-sm font-bold'
+                        >
+                            <p>Try it out</p>
+                        </Link>
                     </div>
                 </div>
             </section>
