@@ -267,7 +267,7 @@ export default function Home() {
                                         width={576}
                                         height={400}
                                         alt=''
-                                        className='relative mb-8 scale-105'
+                                        className='relative mb-8'
                                     />
                                     <div className='mb-2 mt-auto text-2xl font-bold tracking-tight text-[#3A42FF]'>
                                         Secure and private. We don&apos;t sell advertisements or your data
