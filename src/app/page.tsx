@@ -208,7 +208,7 @@ export default function Home() {
                             <p>Host your game server with Pyro</p>
                         </Link>
                     </div>
-                    <div className='relative flex w-full flex-col gap-5 xl:flex-row'>
+                    <div className='relative flex w-full flex-col gap-5 md:flex-row'>
                         <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5'>
                             <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-[32px] border-2 border-neutral-800/10 p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
                                 <div className='flex h-full flex-col items-center text-center'>
