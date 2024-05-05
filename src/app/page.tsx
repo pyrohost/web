@@ -251,7 +251,7 @@ export default function Home() {
                                         width={576}
                                         height={400}
                                         alt=''
-                                        className='relative mb-8 w-full '
+                                        className='relative mb-8 w-full'
                                     />
                                     <div className='mb-2 mt-auto text-2xl font-bold tracking-tight'>
                                         Unlimited storage for all of your files, mods, and worlds
