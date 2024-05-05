@@ -163,6 +163,11 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <section className='relative z-10 flex flex-col items-center gap-8 px-4 py-32 text-center text-white xl:px-24'>
+                <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
+                    <div className='flex flex-row items-center gap-4'>Transparent and open-source</div>
+                </h1>
+            </section>
             <section className='relative z-10 w-full overflow-clip rounded-3xl bg-white'>
                 <div
                     className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'
