@@ -239,7 +239,7 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div>
-                        </div>{' '}
+                        </div>
                         <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5'>
                             <div className='xl:px-auto relative grid w-full place-items-center overflow-hidden rounded-[32px] bg-[#3A42FF]/20 p-4 text-center sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
                                 <div className='flex flex-col items-center'>
