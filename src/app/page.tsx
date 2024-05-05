@@ -121,7 +121,7 @@ export default function Home() {
                             <p>Learn more</p>
                         </Link>
                     </div>
-                    <div className='relative flex w-full flex-col  gap-5 xl:flex-row'>
+                    <div className='relative flex w-full flex-col gap-5 xl:flex-row'>
                         <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5'>
                             <div className='xl:px-auto relative grid w-full place-items-center overflow-hidden rounded-[32px] bg-brand/20 p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
                                 <Image
