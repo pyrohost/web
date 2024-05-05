@@ -20,7 +20,7 @@ const Page = () => {
         <div className='flex flex-1 flex-col overflow-x-clip xl:px-1 xl:pb-1'>
             <div className='relative z-10 min-h-[calc(100vh-76px)] w-full overflow-clip rounded-3xl bg-white'>
                 <div className='mx-auto flex w-full max-w-[1620px] flex-col'>
-                    <div className='z-10 mx-auto flex w-full max-w-[73ch] flex-col py-60'>
+                <div className='z-10 mx-auto flex w-full max-w-[73ch] flex-col px-6 py-16 lg:px-12 lg:py-60'>
                         <h1 className='mt-4 text-[60px] font-extrabold leading-[98%] tracking-[-0.22rem] md:text-[84px] md:tracking-[-0.3rem]'>
                             Pyro's Cookie Policy
                         </h1>
