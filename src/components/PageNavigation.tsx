@@ -23,13 +23,22 @@ const PageNavigation = () => {
                                 Products
                             </NavigationMenu.Trigger>
                             <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[234px] text-white'>
-                                <Link className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold' href='/'>
+                                <Link
+                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    href='/pyrodactyl'
+                                >
                                     Pyrodactyl Panel
                                 </Link>
-                                <Link className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold' href='/'>
+                                <Link
+                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    href='/pay'
+                                >
                                     Pyro Pay
                                 </Link>
-                                <Link className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold' href='/'>
+                                <Link
+                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    href='/alerion'
+                                >
                                     Alerion
                                 </Link>
                             </NavigationMenu.Content>
