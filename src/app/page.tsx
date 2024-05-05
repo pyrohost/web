@@ -276,6 +276,57 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
+                    <div className='grid grid-cols-1 gap-12 md:grid-cols-3'>
+                        <div className='col-span-1'>
+                            <div className='flex flex-col gap-1'>
+                                <span className='text-lg font-bold text-[#3A42FF]'>Overflow Memory</span>
+                                <span className=''>
+                                    NVMe-based memory that kicks in when you need it most. No more lag.
+                                </span>
+                            </div>
+                        </div>
+                        <div className='col-span-1'>
+                            <div className='flex flex-col gap-1'>
+                                <span className='text-lg font-bold text-[#3A42FF]'>Incredibly low latency</span>
+                                <span className=''>
+                                    Pyro provides the lowest latency possible for your game server, no matter where you
+                                    are.
+                                </span>
+                            </div>
+                        </div>
+                        <div className='col-span-1'>
+                            <div className='flex flex-col gap-1'>
+                                <span className='text-lg font-bold text-[#3A42FF]'>Zero player limits</span>
+                                <span className=''>
+                                    Bring as many friends as you want to your server. Pyro has no player limits.
+                                </span>
+                            </div>
+                        </div>
+                        <div className='col-span-1'>
+                            <div className='flex flex-col gap-1'>
+                                <span className='text-lg font-bold text-[#3A42FF]'>Free subdomain</span>
+                                <span className=''>
+                                    Get a free pyro.host subdomain with every server you host with Pyro.
+                                </span>
+                            </div>
+                        </div>
+                        <div className='col-span-1'>
+                            <div className='flex flex-col gap-1'>
+                                <span className='text-lg font-bold text-[#3A42FF]'>Mods, plugins, and more</span>
+                                <span className=''>
+                                    Pyro supports all mods and plugins, no matter how complex they are.
+                                </span>
+                            </div>
+                        </div>
+                        <div className='col-span-1'>
+                            <div className='flex flex-col gap-1'>
+                                <span className='text-lg font-bold text-[#3A42FF]'>Phenomenal support</span>
+                                <span className=''>
+                                    Direct access to our engineers and designers over Discord. We&apos;re here to help.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section className='relative z-10 flex flex-col items-center gap-8 px-4 py-32 text-center text-white xl:px-24'>
