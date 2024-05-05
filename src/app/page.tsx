@@ -270,7 +270,7 @@ export default function Home() {
                                         className='relative mb-8 scale-105'
                                     />
                                     <div className='mb-2 mt-auto text-2xl font-bold tracking-tight text-[#3A42FF]'>
-                                        Secure and private. We don&apos;t sell advertisements or your data.
+                                        Secure and private. We don&apos;t sell advertisements or your data
                                     </div>
                                 </div>
                             </div>
