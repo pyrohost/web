@@ -102,7 +102,7 @@ export default function Home() {
                                     alt=''
                                     className='h-6 w-6'
                                 />
-                                <div className='text-15 font-medium'>Pyro Software</div>
+                                <div className='text-15 font-medium'>Better Software</div>
                             </div>
                         </div>
                         <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
