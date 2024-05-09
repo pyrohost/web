@@ -145,7 +145,7 @@ export default function Home() {
                                     <li className='leading-[190%]'>
                                         <span className='font-bold'>Fast. </span>
                                         <span>
-                                            Uncompromising speed. Optimial performance. Pyro software is entirely
+                                            Uncompromising speed. Optimal performance. Pyro software is entirely
                                             bullet-proof.
                                         </span>
                                     </li>
