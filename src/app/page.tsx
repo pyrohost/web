@@ -138,8 +138,8 @@ export default function Home() {
                                     <li className='leading-[190%]'>
                                         <span className='font-bold'>Easy. </span>
                                         <span>
-                                            Whether you’re a complete beginner or a pro, Pyro makes it easy to manage
-                                            your server.
+                                            Whether you’re a complete beginner or a seasoned pro, Pyro makes it easy to
+                                            manage your server.
                                         </span>
                                     </li>
                                     <li className='leading-[190%]'>
