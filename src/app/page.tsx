@@ -170,7 +170,7 @@ export default function Home() {
                 <div className='max-w-[600px] leading-[190%]'>
                     Pyro is the only hosting company that publicly shares its core source code. We&apos;re transparent
                     about how we operate, we iterate in coordination with our community, and we&apos;re always open to
-                    feedback.
+                    contributions.
                 </div>
                 <Link
                     href='https://github.com/pyrohost'
