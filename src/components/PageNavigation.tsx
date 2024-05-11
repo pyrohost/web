@@ -47,16 +47,36 @@ const PageNavigation = () => {
                                 Resources
                             </NavigationMenu.Trigger>
                             <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[330px] text-white'>
-                                <Link className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold' href='/'>
+                                <Link
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    href='https://panel.pyro.host'
+                                >
                                     Game Panel
                                 </Link>
-                                <Link className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold' href='/'>
+                                <Link
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    href='https://vps.pyro.host'
+                                >
                                     VPS Panel
                                 </Link>
-                                <Link className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold' href='/'>
+                                <Link
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    href='https://pay.pyro.host'
+                                >
                                     Billing
                                 </Link>
-                                <Link className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold' href='/'>
+                                <Link
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    href='https://pyro.host/discord'
+                                >
                                     Support
                                 </Link>
                             </NavigationMenu.Content>
