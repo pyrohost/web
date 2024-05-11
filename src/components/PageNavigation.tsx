@@ -102,7 +102,9 @@ const PageNavigation = () => {
 
                 <Link
                     className='flex items-center gap-2 rounded-full bg-[#ffffff35] px-5 py-2 text-sm font-bold transition hover:bg-[#ffffff22] hover:duration-0'
-                    href='/'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    href='https://pay.pyro.host'
                 >
                     Sign in
                 </Link>
