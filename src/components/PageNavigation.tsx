@@ -2,7 +2,6 @@
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import Link from 'next/link';
-import LogoWhite from './LogoWhite';
 import LogoColored from './LogoColored';
 
 const PageNavigation = () => {
