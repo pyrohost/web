@@ -79,6 +79,14 @@ const PageNavigation = () => {
                                 >
                                     Support
                                 </Link>
+                                <Link
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    href='https://status.pyro.host'
+                                >
+                                    Status & Uptime
+                                </Link>
                             </NavigationMenu.Content>
                         </NavigationMenu.Item>
                         <Link
