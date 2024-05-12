@@ -14,14 +14,11 @@ const PageNavigation = () => {
                     </Link>
 
                     <NavigationMenu.List className='flex items-center'>
-                        <Link
-                            className='flex h-fit w-full items-center gap-2 px-4 py-4 text-sm font-extrabold'
-                            href='/'
-                        >
+                        <Link className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold' href='/'>
                             Hosting
                         </Link>
                         <NavigationMenu.Item>
-                            <NavigationMenu.Trigger className='flex h-fit w-full items-center gap-2 px-4 py-4 text-sm font-extrabold'>
+                            <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
                                 Products
                             </NavigationMenu.Trigger>
                             <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[234px] text-white'>
@@ -46,7 +43,7 @@ const PageNavigation = () => {
                             </NavigationMenu.Content>
                         </NavigationMenu.Item>
                         <NavigationMenu.Item>
-                            <NavigationMenu.Trigger className='flex h-fit w-full items-center gap-2 px-4 py-4 text-sm font-extrabold'>
+                            <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
                                 Resources
                             </NavigationMenu.Trigger>
                             <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[330px] text-white'>
@@ -93,13 +90,13 @@ const PageNavigation = () => {
                             </NavigationMenu.Content>
                         </NavigationMenu.Item>
                         <Link
-                            className='flex h-fit w-full items-center gap-2 px-4 py-4 text-sm font-extrabold'
+                            className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
                             href='/about'
                         >
                             Company
                         </Link>
                         <Link
-                            className='flex h-fit w-full items-center gap-2 px-4 py-4 text-sm font-extrabold'
+                            className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
                             rel='noopener noreferrer'
                             target='_blank'
                             href='https://discord.gg/fxeRFRbhQh'
@@ -131,7 +128,7 @@ const PageNavigation = () => {
                 </nav>
 
                 <Link
-                    className='flex items-center gap-2 rounded-full bg-[#ffffff35] px-5 py-2 text-sm font-bold transition hover:bg-[#ffffff22] hover:duration-0'
+                    className='flex items-center gap-2 truncate rounded-full border-[1px] border-solid border-[#ffffff22] bg-[#ffffff11] px-5 py-2 text-sm font-bold transition hover:bg-[#ffffff22] hover:duration-0'
                     target='_blank'
                     rel='noopener noreferrer'
                     href='https://pay.pyro.host'
