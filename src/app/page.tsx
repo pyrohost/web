@@ -54,7 +54,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className='relative flex h-full flex-col items-center justify-end pb-36 text-center'>
-                            <h1 className='mb-8 text-[max(48px,min(5vw,64px))] font-black leading-[1] tracking-tighter'>
+                            <h1 className='mb-8 text-[max(48px,min(5vw,72px))] font-black leading-[1] tracking-tighter'>
                                 <span
                                     className=''
                                     style={{
@@ -229,7 +229,7 @@ export default function Home() {
                                     Where your world plays
                                 </span>
                             </h1>
-                            <p className='mb-8 max-w-[750px] text-xl leading-[155%] text-[#ffffff99]'>
+                            <p className='mb-8 max-w-[750px] text-xl leading-[195%] text-[#ffffff99]'>
                                 Pyro is a new game hosting platform that makes it easier to play your favorite games
                                 with friends. Incredible reliability, a beautiful game panel, and more.
                             </p>
