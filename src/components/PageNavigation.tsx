@@ -14,28 +14,31 @@ const PageNavigation = () => {
                     </Link>
 
                     <NavigationMenu.List className='flex items-center'>
-                        <Link className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold' href='/'>
+                        <Link
+                            className='flex h-fit w-full items-center gap-2 px-4 py-4 text-sm font-extrabold'
+                            href='/'
+                        >
                             Hosting
                         </Link>
                         <NavigationMenu.Item>
-                            <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
+                            <NavigationMenu.Trigger className='flex h-fit w-full items-center gap-2 px-4 py-4 text-sm font-extrabold'>
                                 Products
                             </NavigationMenu.Trigger>
                             <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[234px] text-white'>
                                 <Link
-                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    className='flex h-fit w-full items-center gap-2 text-3xl font-extrabold'
                                     href='/pyrodactyl'
                                 >
                                     Pyrodactyl Panel
                                 </Link>
                                 <Link
-                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    className='flex h-fit w-full items-center gap-2 text-3xl font-extrabold'
                                     href='/pay'
                                 >
                                     Pyro Pay
                                 </Link>
                                 <Link
-                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    className='flex h-fit w-full items-center gap-2 text-3xl font-extrabold'
                                     href='/alerion'
                                 >
                                     Alerion
@@ -43,14 +46,14 @@ const PageNavigation = () => {
                             </NavigationMenu.Content>
                         </NavigationMenu.Item>
                         <NavigationMenu.Item>
-                            <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
+                            <NavigationMenu.Trigger className='flex h-fit w-full items-center gap-2 px-4 py-4 text-sm font-extrabold'>
                                 Resources
                             </NavigationMenu.Trigger>
                             <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[330px] text-white'>
                                 <Link
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    className='flex h-fit w-full items-center gap-2 text-3xl font-extrabold'
                                     href='https://panel.pyro.host'
                                 >
                                     Game Panel
@@ -58,7 +61,7 @@ const PageNavigation = () => {
                                 <Link
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    className='flex h-fit w-full items-center gap-2 text-3xl font-extrabold'
                                     href='https://vps.pyro.host'
                                 >
                                     VPS Panel
@@ -66,7 +69,7 @@ const PageNavigation = () => {
                                 <Link
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    className='flex h-fit w-full items-center gap-2 text-3xl font-extrabold'
                                     href='https://pay.pyro.host'
                                 >
                                     Billing
@@ -74,7 +77,7 @@ const PageNavigation = () => {
                                 <Link
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    className='flex h-fit w-full items-center gap-2 text-3xl font-extrabold'
                                     href='https://pyro.host/discord'
                                 >
                                     Support
@@ -82,7 +85,7 @@ const PageNavigation = () => {
                                 <Link
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    className='flex h-fit w-fit items-center gap-2 text-3xl font-extrabold'
+                                    className='flex h-fit w-full items-center gap-2 text-3xl font-extrabold'
                                     href='https://status.pyro.host'
                                 >
                                     Status & Uptime
@@ -90,13 +93,13 @@ const PageNavigation = () => {
                             </NavigationMenu.Content>
                         </NavigationMenu.Item>
                         <Link
-                            className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
+                            className='flex h-fit w-full items-center gap-2 px-4 py-4 text-sm font-extrabold'
                             href='/about'
                         >
                             Company
                         </Link>
                         <Link
-                            className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
+                            className='flex h-fit w-full items-center gap-2 px-4 py-4 text-sm font-extrabold'
                             rel='noopener noreferrer'
                             target='_blank'
                             href='https://discord.gg/fxeRFRbhQh'
