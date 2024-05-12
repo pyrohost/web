@@ -329,7 +329,7 @@ export default function Home() {
                     <p>Star our work on GitHub</p>
                 </Link>
             </section>
-            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#121212] to-black'>
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#121212] to-black text-white'>
                 <div
                     className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'
                     style={
@@ -363,7 +363,7 @@ export default function Home() {
                         <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
                             <div className='flex flex-row items-center gap-4'>Game hosting with unmatched value</div>
                         </h1>
-                        <p className='mb-6 text-xl font-medium leading-[190%] text-[#3C3C3C] opacity-65'>
+                        <p className='mb-6 text-xl font-medium leading-[190%] text-[#ffffff99]'>
                             Never pay more to play a specific game. With Pyro, you get unlimited storage, a powerful
                             software suite, and efficient hardware. No hidden fees, zero add-ons, it&apos;s just
                             included.
@@ -371,7 +371,7 @@ export default function Home() {
 
                         <Link
                             href='https://pay.pyro.host'
-                            className='flex w-fit items-center justify-center gap-4 rounded-full border-2 border-neutral-800/10 px-6 py-3 text-sm font-bold'
+                            className='flex w-fit items-center justify-center gap-4 rounded-full border-2 border-white/10 px-6 py-3 text-sm font-bold'
                         >
                             <p>Host your game server with Pyro</p>
                         </Link>
