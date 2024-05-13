@@ -336,6 +336,7 @@ export default function Home() {
                                 </div>
                             </CarouselItem>
                         </CarouselContent>
+                        <p className='mt-4 text-center text-xs font-bold opacity-50'>Drag or swipe to see more</p>
                     </Carousel>
                 </div>
             </section>
