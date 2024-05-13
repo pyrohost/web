@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
-import { BackgroundBeams } from '@/components/ui/BackgroundBeams';
 
 export const metadata: Metadata = {
     title: 'Pyro - Where your world plays',
