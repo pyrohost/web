@@ -239,7 +239,7 @@ export default function Home() {
                                 rel='noopener noreferrer'
                                 target='_blank'
                             >
-                                <p>Start a game server</p>
+                                <p>Start your game server</p>
                                 <ArrowRightIcon className='h-6 w-6' />
                             </Link>
                         </div>
