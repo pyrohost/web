@@ -622,7 +622,7 @@ export default function Home() {
                 <div className='inline-flex items-center gap-5 rounded-full border border-dashed border-brand/50 p-2'>
                     <Link
                         href='https://pay.pyro.host'
-                        className='flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad px-6 py-5 text-sm font-bold text-white shadow-lg'
+                        className='flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad px-12 py-5 text-sm font-bold text-white shadow-lg'
                     >
                         <p>Start a game server in minutes</p>
                         <ArrowRightIcon />
