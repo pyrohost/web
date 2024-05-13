@@ -393,7 +393,8 @@ export default function Home() {
                             href='https://pay.pyro.host'
                             className='flex w-fit items-center justify-center gap-4 rounded-full border-2 border-white/10 px-6 py-3 text-sm font-bold'
                         >
-                            <p>Host your game server with Pyro</p>
+                            <p>Host your game server, risk-free</p>
+                            <ArrowRightIcon className='h-4 w-4' />
                         </Link>
                     </div>
                     <div className='relative flex w-full flex-col gap-5 md:flex-row'>
