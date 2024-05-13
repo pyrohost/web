@@ -448,7 +448,7 @@ export default function Home() {
                                         width={576}
                                         height={400}
                                         alt=''
-                                        className='relative mb-8 w-full'
+                                        className='relative mb-8 w-full grayscale'
                                     />
                                     <div className='mb-2 mt-auto text-2xl font-bold tracking-tight'>
                                         Free backups included. Never lose your worlds or data again
