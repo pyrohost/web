@@ -231,8 +231,8 @@ export default function Home() {
                                 </span>
                             </h1>
                             <p className='mb-8 max-w-[750px] text-xl leading-[195%] text-[#ffffff99]'>
-                                Pyro is a new game hosting platform that makes it easier to play your favorite games
-                                with friends. Incredible reliability, a beautiful game panel, and more.
+                                Pyro is a game hosting platform that makes it easier to play your favorite games with
+                                friends. Incredible reliability, a beautiful game panel, and more.
                             </p>
                             <Link
                                 href={'https://pay.pyro.host'}
