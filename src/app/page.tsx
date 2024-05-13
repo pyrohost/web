@@ -279,13 +279,13 @@ export default function Home() {
                     </div>
                     <div className='relative flex w-full flex-col gap-5 xl:flex-row'>
                         <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5'>
-                            <div className='xl:px-auto relative grid aspect-video w-full place-items-center overflow-hidden rounded-[32px]'>
-                                <Image src='/img/dashboarddark.png' fill alt='' className='object-cover' />
+                            <div className='relative grid aspect-video w-full place-items-center overflow-hidden'>
+                                <Image src='/img/panel/home.png' fill alt='' className='object-cover' />
                             </div>
                         </div>
-                        <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:w-[40%] xl:gap-5'>
+                        <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:w-[45%] xl:gap-5'>
                             <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-2xl border-2 border-white/10 bg-[#ffffff08] p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
-                                <ul className='relative flex flex-col gap-4 lg:gap-16'>
+                                <ul className='relative flex flex-col gap-4 lg:gap-8'>
                                     <li className='leading-[190%]'>
                                         <span className='font-bold'>Easy. </span>
                                         <span>
