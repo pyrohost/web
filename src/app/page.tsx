@@ -373,7 +373,17 @@ export default function Home() {
                     className='absolute right-0 top-0'
                 />
             </section>
-            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#121212] to-black text-white'>
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#000] to-black text-white'>
+                <Image
+                    src='/img/minecrafthero.jpg'
+                    alt=''
+                    width={1920}
+                    height={1080}
+                    className='absolute inset-0 opacity-15 grayscale'
+                    style={{
+                        maskImage: 'radial-gradient(85% 100% at 50% 100%, transparent 55.5%, white)',
+                    }}
+                />
                 <div
                     className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'
                     style={
@@ -383,10 +393,10 @@ export default function Home() {
                     }
                 >
                     <div className='pointer-events-none absolute bottom-0 left-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%] xl:left-auto xl:right-[50px]'></div>
-                    <div className='pointer-events-none absolute left-0 right-auto top-[0] z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%] xl:left-auto xl:right-[50px]'></div>
+                    {/* <div className='pointer-events-none absolute left-0 right-auto top-[0] z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%] xl:left-auto xl:right-[50px]'></div> */}
                     <div className='relative z-[14] flex max-w-[750px] flex-col items-start justify-start'>
                         <div className='mb-4'>
-                            <div className='flex h-8 cursor-default select-none items-center gap-[6px] rounded-full border border-brand/30 bg-brand/10 px-[11px] py-[4px] text-brand'>
+                            <div className='flex h-8 cursor-default select-none items-center gap-[6px] rounded-full border border-brand/30 bg-brand/10 px-[11px] py-[4px] text-brand backdrop-blur-xl'>
                                 <svg
                                     xmlns='http://www.w3.org/2000/svg'
                                     width='24'
@@ -405,7 +415,12 @@ export default function Home() {
                             </div>
                         </div>
                         <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
-                            <div className=''>
+                            <div
+                                className=''
+                                style={{
+                                    textShadow: '0 4px 12px rgba(0,0,0,.9)',
+                                }}
+                            >
                                 All your games, {''}
                                 <span className='text-brand'>powered by Pyro</span>
                             </div>
@@ -547,7 +562,7 @@ export default function Home() {
                     className='pointer-events-none absolute top-[35%] mx-auto select-none'
                 />
             </section>
-            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-black text-white'>
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-black to-[#121212] text-white'>
                 <div
                     className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'
                     style={
