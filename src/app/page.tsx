@@ -566,47 +566,49 @@ export default function Home() {
                     </div>
                     <div className='relative flex w-full flex-col gap-5 md:flex-row'>
                         <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5'>
-                            <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-[32px] border-2 border-neutral-800/10 p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
+                            <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-[32px] border-2 border-white/10 p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
                                 <div className='flex h-full flex-col items-center text-center'>
                                     <Image
-                                        src='/img/backups_2x_final.png'
+                                        src='/img/bandwidth_hero.png'
                                         width={576}
                                         height={400}
                                         alt=''
                                         className='relative mb-8 w-full'
                                     />
-                                    <div className='mb-2 mt-auto text-2xl font-bold tracking-tight'></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5'>
-                            <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-[32px] border-2 border-neutral-800/10 p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
-                                <div className='flex h-full flex-col items-center text-center'>
-                                    <Image
-                                        src='/img/storage_final.png'
-                                        width={576}
-                                        height={400}
-                                        alt=''
-                                        className='relative mb-8 w-full '
-                                    />
                                     <div className='mb-2 mt-auto text-2xl font-bold tracking-tight'>
-                                        Unlimited storage for all of your files, mods, and worlds
+                                        Unlimited bandwidth. No overage, no throttling. Just speed.
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5'>
-                            <div className='xl:px-auto relative grid w-full place-items-center overflow-hidden rounded-[32px] bg-[#3A42FF]/20 p-4 text-center sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
-                                <div className='flex flex-col items-center'>
+                            <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-[32px] border-2 border-white/10 p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
+                                <div className='flex h-full flex-col items-center text-center'>
                                     <Image
-                                        src='/img/lock_final_final.png'
+                                        src='/img/shell_hero.png'
                                         width={576}
                                         height={400}
                                         alt=''
-                                        className='relative mb-8 scale-105'
+                                        className='relative mb-8 w-full'
                                     />
-                                    <div className='mb-2 mt-auto text-2xl font-bold tracking-tight text-[#3A42FF]'>
-                                        Secured with Cloudflare Magic Transit for DDoS protection
+                                    <div className='mb-2 mt-auto text-2xl font-bold tracking-tight'>
+                                        Full access to your hardware. Use all of your favorite tools
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5'>
+                            <div className='xl:px-auto relative grid w-full place-items-center overflow-hidden rounded-[32px] bg-brand/20 p-4 text-center sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
+                                <div className='flex flex-col items-center'>
+                                    <Image
+                                        src='/img/power_hero.png'
+                                        width={576}
+                                        height={400}
+                                        alt=''
+                                        className='relative mb-8'
+                                    />
+                                    <div className='mb-2 mt-auto text-2xl font-bold tracking-tight text-brand'>
+                                        Incredible uptime and performance for your projects
                                     </div>
                                 </div>
                             </div>
