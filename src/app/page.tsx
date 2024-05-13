@@ -546,7 +546,7 @@ export default function Home() {
                                         strokeLinejoin='round'
                                     />
                                 </svg>
-                                <div className='text-15 font-medium'>Better VPS</div>
+                                <div className='text-15 font-medium'>Pyro&apos;s VPS</div>
                             </div>
                         </div>
                         <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
