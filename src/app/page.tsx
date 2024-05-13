@@ -576,7 +576,7 @@ export default function Home() {
                                         className='relative mb-8 w-full'
                                     />
                                     <div className='mb-2 mt-auto text-2xl font-bold tracking-tight'>
-                                        Unlimited bandwidth. No overage, no throttling. Just speed.
+                                        Unlimited bandwidth. No overages, zero throttling.
                                     </div>
                                 </div>
                             </div>
