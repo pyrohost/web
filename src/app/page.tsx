@@ -511,7 +511,14 @@ export default function Home() {
                     as you subscribe. Choose your game, and we&apos;ll take care of the rest.
                 </div>
                 <div className='min-h-[200px]' />
-                <Image src='/img/globe.png' width={1478} height={906} alt={''} className='absolute top-[35%] mx-auto' />
+                <Image
+                    src='/img/globe.png'
+                    width={1478}
+                    height={906}
+                    alt={''}
+                    aria-hidden
+                    className='pointer-events-none absolute top-[35%] mx-auto select-none'
+                />
             </section>
             <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-black text-white'>
                 <div
