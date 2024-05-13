@@ -664,7 +664,7 @@ export default function Home() {
                                         className='relative mb-8'
                                     />
                                     <div className='mb-2 mt-auto text-2xl font-bold tracking-tight text-brand'>
-                                        Incredible uptime and performance for your projects
+                                        Incredible uptime and performance, powered by Pyro
                                     </div>
                                 </div>
                             </div>
