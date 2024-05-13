@@ -4,7 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'Pyro - Alerion',
+    title: 'Pyro - Pay',
+    description:
+        "Pay is Pyro's dead-simple billing platform that integrates with Stripe. It's the hosting industry's easiest billing management system.",
+    openGraph: {
+        title: 'Pyro - Pay',
+        description:
+            "Pay is Pyro's dead-simple billing platform that integrates with Stripe. It's the hosting industry's easiest billing management system.",
+    },
 };
 
 const Page = () => {
