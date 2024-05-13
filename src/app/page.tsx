@@ -687,6 +687,10 @@ export default function Home() {
                 <h1 className='max-w-3xl py-4 pb-3 pt-5 text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter lg:pb-5'>
                     Make Pyro where your world plays
                 </h1>
+                <p className='mb-8 max-w-[750px] text-xl leading-[195%] text-[#ffffff99]'>
+                    You&apos;ve never played on a server like this before. Try a Pyro server risk-free with a 24-hour
+                    money-back guarantee. No questions asked.
+                </p>
                 <div className='inline-flex items-center gap-5 rounded-full border border-dashed border-brand/50 p-2'>
                     <Link
                         href='https://pay.pyro.host'
