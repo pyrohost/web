@@ -552,6 +552,16 @@ export default function Home() {
                     Zero waiting. Zero hassle. Pyro&apos;s servers are globally available and ready to play on as soon
                     as you subscribe. Choose your game, and we&apos;ll take care of the rest.
                 </div>
+                <Link
+                    href={'https://pay.pyro.host'}
+                    className='flex items-center justify-center gap-4 rounded-full bg-brand py-3 pl-8 pr-6 text-sm font-bold'
+                    rel='noopener noreferrer'
+                    target='_blank'
+                >
+                    <p>Start your game server</p>
+                    <ArrowRightIcon className='h-6 w-6' />
+                </Link>
+
                 <div className='min-h-[200px]' />
                 <Image
                     src='/img/globe.png'
