@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Link from 'next/link';
 
 import { ArrowRightIcon } from '@radix-ui/react-icons';
@@ -311,6 +312,33 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
+                    <Carousel
+                        className='dark w-full'
+                        opts={{
+                            align: 'start',
+                            loop: true,
+                        }}
+                    >
+                        <CarouselContent>
+                            <CarouselItem>
+                                <div className='relative aspect-video h-full w-full overflow-hidden rounded-2xl bg-[#d6b4ba0f]'>
+                                    <Image className='select-none' fill alt='' src='/img/panel/files.png' />
+                                </div>
+                            </CarouselItem>
+                            <CarouselItem>
+                                <div className='relative aspect-video h-full w-full overflow-hidden rounded-2xl'>
+                                    <Image className='select-none' fill alt='' src='/img/panel/editor.png' />
+                                </div>
+                            </CarouselItem>
+                            <CarouselItem>
+                                <div className='relative aspect-video h-full w-full overflow-hidden rounded-2xl'>
+                                    <Image className='select-none' fill alt='' src='/img/dashboarddark.png' />
+                                </div>
+                            </CarouselItem>
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </Carousel>
                 </div>
             </section>
             <section className='relative z-10 flex flex-col items-center gap-8 px-4 py-32 text-center text-white xl:px-24'>
