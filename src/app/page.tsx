@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
+import { BackgroundBeams } from '@/components/ui/BackgroundBeams';
 
 export const metadata: Metadata = {
     title: 'Pyro - Where your world plays',
@@ -673,7 +674,7 @@ export default function Home() {
                 </div>
             </section>
             <section className='relative z-10 flex flex-col items-center gap-8 px-4 py-32 text-center text-white xl:px-24'>
-                <Image src='/img/pyrocpu.png' width={335} height={335} alt='' className='h-32 w-32' />
+                <Image src='/img/pyrocpu.png' width={335} height={335} alt='' className='relative z-10 h-32 w-32' />
                 <h1 className='max-w-3xl py-4 pb-3 pt-5 text-[max(84px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter lg:pb-5'>
                     Make Pyro where your world plays
                 </h1>
