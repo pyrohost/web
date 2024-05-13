@@ -559,9 +559,9 @@ export default function Home() {
 
                         <Link
                             href='https://pyro.host/discord'
-                            className='flex w-fit items-center justify-center gap-4 rounded-full border-2 border-neutral-800/10 px-6 py-3 text-sm font-bold'
+                            className='flex w-fit items-center justify-center gap-4 rounded-full border-2 border-white/10 px-6 py-3 text-sm font-bold'
                         >
-                            <p>Contact Sales</p>
+                            <p>Contact Us</p>
                         </Link>
                     </div>
                     <div className='relative flex w-full flex-col gap-5 md:flex-row'>
