@@ -682,7 +682,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className='container relative z-10 flex flex-col items-center gap-8 px-8 py-32 text-center text-white'>
+            <section className='container relative z-10 flex flex-col items-center gap-8 bg-black px-8 py-32 text-center text-white'>
                 <h1 className='max-w-3xl py-4 pb-3 pt-5 text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter lg:pb-5'>
                     Stay in the loop
                 </h1>
@@ -739,7 +739,49 @@ export default function Home() {
                     </Link>
                 </div>
             </section>
-            <section className='relative z-10 flex flex-col items-center gap-8 px-4 py-32 text-center text-white xl:px-24'>
+            <section className='relative z-10 flex flex-col items-center gap-8 overflow-hidden rounded-b-3xl px-4 py-48 text-center text-white xl:px-24'>
+                <div className='relative top-12'>
+                    <div
+                        className='pointer-events-none absolute left-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': 'rgba(113 64 253 / 100%)',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute left-0 top-[-80px] z-[0] hidden h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%] xl:block'
+                        style={
+                            {
+                                '--circle-background': 'rgba(246 111 143 / 100%)',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute right-0 top-[400px] z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': 'rgba(25 146 215 / 100%)',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute left-[220px] top-[400px] z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': 'rgba(255 125 70 / 100%)',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute right-[200px] top-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': 'rgba(255 125 70 / 100%)',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                </div>
                 <Image src='/img/pyrocpu.png' width={335} height={335} alt='' className='relative z-10 h-32 w-32' />
                 <h1 className='max-w-3xl py-4 pb-3 pt-5 text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter lg:pb-5'>
                     Make Pyro where your world plays
