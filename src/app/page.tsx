@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Link from 'next/link';
 
 import { ArrowRightIcon } from '@radix-ui/react-icons';
