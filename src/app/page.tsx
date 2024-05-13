@@ -332,7 +332,7 @@ export default function Home() {
                             </CarouselItem>
                             <CarouselItem>
                                 <div className='relative aspect-video h-full w-full overflow-hidden rounded-2xl'>
-                                    <Image className='select-none' fill alt='' src='/img/dashboarddark.png' />
+                                    <Image className='select-none' fill alt='' src='/img/panel/home.png' />
                                 </div>
                             </CarouselItem>
                         </CarouselContent>
