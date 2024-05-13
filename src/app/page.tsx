@@ -448,7 +448,7 @@ export default function Home() {
                                         width={576}
                                         height={400}
                                         alt=''
-                                        className='relative mb-8 w-full grayscale'
+                                        className='relative mb-8 w-full opacity-75 grayscale'
                                     />
                                     <div className='mb-2 mt-auto text-2xl font-bold tracking-tight'>
                                         Free backups included. Never lose your worlds or data again
@@ -464,7 +464,7 @@ export default function Home() {
                                         width={576}
                                         height={400}
                                         alt=''
-                                        className='relative mb-8 w-full'
+                                        className='relative mb-8 w-full opacity-75'
                                     />
                                     <div className='mb-2 mt-auto text-2xl font-bold tracking-tight'>
                                         Unlimited storage for all of your files, mods, and worlds
@@ -629,7 +629,7 @@ export default function Home() {
                                         width={576}
                                         height={400}
                                         alt=''
-                                        className='relative mb-8 w-full'
+                                        className='relative mb-8 w-full opacity-75'
                                     />
                                     <div className='mb-2 mt-auto text-2xl font-bold tracking-tight'>
                                         Unlimited bandwidth. No overages, zero throttling.
@@ -645,7 +645,7 @@ export default function Home() {
                                         width={576}
                                         height={400}
                                         alt=''
-                                        className='relative mb-8 w-full'
+                                        className='relative mb-8 w-full opacity-75'
                                     />
                                     <div className='mb-2 mt-auto text-2xl font-bold tracking-tight'>
                                         Full access to your hardware. Use all of your favorite tools
