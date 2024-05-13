@@ -1,5 +1,7 @@
+import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Pyro - Alerion',
@@ -18,9 +20,15 @@ const Page = () => {
                             <p className='text-[20px] leading-[155%] text-[#ffffffbb]'>
                                 It&apos;s the hosting industry&apos;s easiest billing management system.
                             </p>
-                            <a className='flex items-center justify-center gap-4 rounded-full bg-white py-3 pl-8 pr-6 text-sm font-bold text-black'>
-                                <p>Star on GitHub</p>
-                            </a>
+                            <Link
+                                href={'https://pay.pyro.host'}
+                                rel='noopener noreferrer'
+                                target='_blank'
+                                className='flex items-center justify-center gap-4 rounded-full bg-white py-3 pl-8 pr-6 text-sm font-bold text-black'
+                            >
+                                <p>Try it out</p>
+                                <ArrowRightIcon className='h-4 w-4' />
+                            </Link>
                         </div>
                     </div>
                     <div className='relative mt-8 min-h-[750px] w-full scale-[1.08]'>
