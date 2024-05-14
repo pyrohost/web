@@ -284,7 +284,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:w-[45%] xl:gap-5'>
-                            <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-2xl border-2 text-white border-white/10 bg-[#ffffff08] p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
+                            <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-2xl border-2 border-white/10 bg-[#ffffff08] p-4 text-white sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
                                 <ul className='relative flex flex-col gap-4 lg:gap-8'>
                                     <li className='leading-[190%]'>
                                         <span className='font-bold'>Easy. </span>
@@ -370,7 +370,7 @@ export default function Home() {
                     quality={100}
                     width={239}
                     height={800}
-                    className='absolute right-0 top-0'
+                    className='absolute right-0 top-0 z-0'
                 />
             </section>
             <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#000] to-black '>
