@@ -16,6 +16,9 @@ const Footer = () => {
                         <Link href='/legal/privacy' className='text-xs text-[#999]'>
                             Privacy Policy
                         </Link>
+                        <Link href='/legal/cookies' className='text-xs text-[#999]'>
+                            Cookies
+                        </Link>
                     </div>
                 </div>
             </div>

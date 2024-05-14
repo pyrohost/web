@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const Page = () => {
     return (
         <div className='flex flex-1 flex-col overflow-x-clip xl:px-1 xl:pb-1'>
-            <div className='relative z-10 min-h-[calc(100vh-76px)] w-full overflow-clip rounded-3xl bg-white'>
+            <div className='relative z-10 min-h-[calc(100vh-76px)] w-full overflow-clip rounded-3xl'>
                 <section className='relative h-full w-full px-16'>
                     <div className='mx-auto mb-32 flex w-full max-w-[1620px] flex-col'>
                         <div className='z-10 mx-auto flex w-full max-w-[62ch] flex-col pt-60'>
