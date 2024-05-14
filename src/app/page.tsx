@@ -379,7 +379,7 @@ export default function Home() {
                     alt=''
                     width={1920}
                     height={1080}
-                    className='absolute inset-0 mx-auto opacity-15 grayscale'
+                    className='w-full absolute inset-0 mx-auto opacity-15 grayscale'
                     style={{
                         maskImage: 'radial-gradient(85% 100% at 50% 100%, transparent 55.5%, white)',
                     }}
