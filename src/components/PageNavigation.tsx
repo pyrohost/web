@@ -7,21 +7,27 @@ import LogoColored from './LogoColored';
 const PageNavigation = () => {
     return (
         <NavigationMenu.Root>
-            <header className='relative flex min-h-[72px] w-full items-center justify-between px-8 text-white'>
+            <header className='relative flex min-h-[72px] w-full items-center justify-between px-8'>
                 <nav className='flex items-center gap-8'>
                     <Link href='/'>
                         <LogoColored />
                     </Link>
 
                     <NavigationMenu.List className='hidden items-center md:flex'>
-                        <Link className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold' href='/'>
-                            Hosting
-                        </Link>
+                        <NavigationMenu.Item>
+                            <Link
+                                className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
+                                href='/for'
+                            >
+                                Games
+                            </Link>
+                        </NavigationMenu.Item>
+
                         <NavigationMenu.Item>
                             <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
                                 Products
                             </NavigationMenu.Trigger>
-                            <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[234px] text-white'>
+                            <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[234px] '>
                                 <Link
                                     className='flex h-fit w-full items-center gap-2 text-3xl font-extrabold'
                                     href='/pyrodactyl'
@@ -46,7 +52,7 @@ const PageNavigation = () => {
                             <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
                                 Resources
                             </NavigationMenu.Trigger>
-                            <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[330px] text-white'>
+                            <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[330px] '>
                                 <Link
                                     target='_blank'
                                     rel='noopener noreferrer'

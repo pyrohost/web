@@ -36,7 +36,7 @@ const Page = () => {
                                 href={'https://github.com/pyrohost/panel'}
                                 rel='noopener noreferrer'
                                 target='_blank'
-                                className='flex items-center justify-center gap-4 rounded-full bg-white py-3 pl-8 pr-6 text-sm font-bold text-black'
+                                className='flex items-center justify-center gap-4 rounded-full bg-white text-black py-3 pl-8 pr-6 text-sm font-bold'
                             >
                                 <svg height='16' viewBox='0 0 14 14' width='16'>
                                     <path

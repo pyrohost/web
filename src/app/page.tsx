@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Home() {
     return (
         <div className='flex flex-1 flex-col overflow-x-clip xl:px-1 xl:pb-1'>
-            <div className='relative z-10 min-h-[calc(100vh-76px)] w-full overflow-clip rounded-3xl rounded-b-none bg-black text-white'>
+            <div className='relative z-10 min-h-[calc(100vh-76px)] w-full overflow-clip rounded-3xl rounded-b-none  '>
                 <>
                     <div className='pointer-events-none absolute -top-40 z-20 flex min-h-screen w-full select-none items-center justify-center'>
                         <div className='pointer-events-none absolute inset-0 -z-20 flex h-full w-full select-none justify-between opacity-10 blur-sm contrast-200'>
@@ -247,7 +247,7 @@ export default function Home() {
                     </div>
                 </>
             </div>
-            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-[#000000] to-[#121212] text-white'>
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-[#000000] to-[#121212] '>
                 <div className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'>
                     <div className='relative z-[14] flex max-w-[600px] flex-col items-start justify-start'>
                         <div className='mb-4'>
@@ -262,7 +262,7 @@ export default function Home() {
                                 <div className='text-15 font-medium'>Better Software</div>
                             </div>
                         </div>
-                        <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
+                        <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
                             <div className='flex flex-row items-center gap-4'>One app to manage it all</div>
                         </h1>
                         <p className='mb-6 text-xl font-medium leading-[190%] text-[#ffffff99]'>
@@ -272,7 +272,7 @@ export default function Home() {
 
                         <Link
                             href='https://pay.pyro.host'
-                            className='flex w-fit items-center justify-center gap-4 rounded-full border-2 border-white/10 px-6 py-3 text-sm font-bold'
+                            className='flex w-fit items-center justify-center gap-4 rounded-full border-2 border-white/10 px-6 py-3 text-sm font-bold text-white'
                         >
                             <p>Learn more</p>
                         </Link>
@@ -284,7 +284,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:w-[45%] xl:gap-5'>
-                            <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-2xl border-2 border-white/10 bg-[#ffffff08] p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
+                            <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-2xl border-2 text-white border-white/10 bg-[#ffffff08] p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
                                 <ul className='relative flex flex-col gap-4 lg:gap-8'>
                                     <li className='leading-[190%]'>
                                         <span className='font-bold'>Easy. </span>
@@ -340,7 +340,7 @@ export default function Home() {
                     </Carousel>
                 </div>
             </section>
-            <section className='relative z-10 flex flex-col items-center gap-8 px-4 py-32 text-center text-white xl:px-24'>
+            <section className='relative z-10 flex flex-col items-center gap-8 px-4 py-32 text-center  xl:px-24'>
                 <h1 className='mb-6 max-w-3xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
                     <div className=''>
                         Transparent and <span className='text-brand'>open-source</span>
@@ -373,7 +373,7 @@ export default function Home() {
                     className='absolute right-0 top-0'
                 />
             </section>
-            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#000] to-black text-white'>
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#000] to-black '>
                 <Image
                     src='/img/minecrafthero.jpg'
                     alt=''
@@ -542,7 +542,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className='relative z-10 flex flex-col items-center gap-8 overflow-hidden px-4 py-32 text-center text-white xl:px-24'>
+            <section className='relative z-10 flex flex-col items-center gap-8 overflow-hidden px-4 py-32 text-center  xl:px-24'>
                 <h1 className='relative z-10 mb-6 max-w-[58rem] text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
                     <div className=''>
                         Servers that <span className='text-brand'>spark to life</span> in seconds
@@ -572,7 +572,7 @@ export default function Home() {
                     className='pointer-events-none absolute top-[35%] mx-auto select-none'
                 />
             </section>
-            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-black to-[#121212] text-white'>
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-black to-[#121212] '>
                 <div
                     className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'
                     style={
@@ -682,7 +682,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className='container relative z-10 flex flex-col items-center gap-8 bg-black px-8 py-32 text-center text-white'>
+            <section className='container relative z-10 flex flex-col items-center gap-8  px-8 py-32 text-center '>
                 <h1 className='max-w-3xl py-4 pb-3 pt-5 text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter lg:pb-5'>
                     Stay in the loop
                 </h1>
@@ -739,7 +739,7 @@ export default function Home() {
                     </Link>
                 </div>
             </section>
-            <section className='relative z-10 flex flex-col items-center gap-8 overflow-hidden rounded-b-3xl px-4 py-48 text-center text-white xl:px-24'>
+            <section className='relative z-10 flex flex-col items-center gap-8 overflow-hidden rounded-b-3xl px-4 py-48 text-center  xl:px-24'>
                 <div className='relative top-12'>
                     <div
                         className='pointer-events-none absolute left-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
@@ -793,7 +793,7 @@ export default function Home() {
                 <div className='inline-flex items-center gap-5 rounded-full border border-dashed border-brand/50 p-2'>
                     <Link
                         href='https://pay.pyro.host'
-                        className='flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad px-12 py-5 text-sm font-bold text-white shadow-lg'
+                        className='flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad px-12 py-5 text-sm font-bold  shadow-lg'
                     >
                         <p>Start a game server in minutes</p>
                         <ArrowRightIcon />
