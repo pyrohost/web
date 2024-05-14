@@ -554,7 +554,7 @@ export default function Home() {
                 </div>
                 <Link
                     href={'https://pay.pyro.host'}
-                    className='flex items-center justify-center gap-4 rounded-full bg-brand py-3 pl-8 pr-6 text-sm font-bold'
+                    className='flex items-center justify-center gap-4 rounded-full bg-brand py-3 pl-8 pr-6 text-sm font-bold z-10'
                     rel='noopener noreferrer'
                     target='_blank'
                 >
