@@ -341,19 +341,19 @@ export default function Home() {
                 </div>
             </section>
             <section className='relative z-10 flex flex-col items-center gap-8 px-4 py-32 text-center  xl:px-24'>
-                <h1 className='mb-6 max-w-3xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
+                <h1 className='relative z-10 mb-6 max-w-3xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
                     <div className=''>
                         Transparent and <span className='text-brand'>open-source</span>
                     </div>
                 </h1>
-                <div className='lg max-w-[600px] text-[16px] leading-[190%]'>
+                <div className='relative z-10 lg max-w-[600px] text-[16px] leading-[190%]'>
                     Pyro is the only hosting company that publicly shares its core source code. We&apos;re transparent
                     about how we operate, we iterate in coordination with our community, and we&apos;re always open to
                     contributions.
                 </div>
                 <Link
                     href='https://github.com/pyrohost'
-                    className='flex w-fit items-center justify-center gap-4 rounded-full border-2 border-white/20 px-6 py-3 text-sm font-bold'
+                    className='relative z-10 bg-black flex w-fit items-center justify-center gap-4 rounded-full border-2 border-white/20 px-6 py-3 text-sm font-bold'
                 >
                     <svg height='16' viewBox='0 0 14 14' width='16'>
                         <path
