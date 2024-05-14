@@ -5,9 +5,12 @@ import { useState } from 'react';
 
 export const GameSearchBar = () => {
     const [searchTerm, setSearchTerm] = useState<string>('');
+
     return (
-        <div className=''>
+        <>
             <input
+                autoFocus
+                className='w-full px-6 py-4 rounded-xl bg-[#ffffff12] outline-none shadow-xl'
                 type='text'
                 placeholder='Search for a game...'
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
@@ -29,6 +32,6 @@ export const GameSearchBar = () => {
                         );
                     })}
             </div>
-        </div>
+        </>
     );
 };
