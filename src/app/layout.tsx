@@ -38,10 +38,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 data-pyro-body=''
                 className={`${jakarta.className} flex min-h-screen w-full flex-col overflow-x-hidden bg-black text-white`}
             >
-                <div data-pyro-index='' className='h-fit min-h-screen w-full flex-1 shrink-0 flex-col'>
+                <div data-pyro-index='' className='relative h-fit min-h-screen w-full flex-1 shrink-0 flex-col'>
                     <PageNavigation />
-                    <div className='flex-1 flex-col xl:px-1 xl:pb-1'>
-                        <main className='z-10 min-h-[calc(100vh-76px-116px)] w-full overflow-clip rounded-3xl'></main>
+                    <div className='relative flex-1 flex-col xl:px-1 xl:pb-1'>
+                        <main className='relative z-10 min-h-[calc(100vh-76px-116px)] w-full overflow-clip rounded-3xl'>
+                            {children}
+                        </main>
                     </div>
                     <Footer />
                 </div>
