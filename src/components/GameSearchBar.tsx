@@ -100,7 +100,7 @@ export const GameSearchBar = () => {
                 {Array.from({ length: totalPages }, (_, i) => (
                     <button
                         key={i}
-                        className={`rounded-lg font-extrabold px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-opacity-50 ${
+                        className={`rounded-lg px-4 py-2 font-extrabold focus:outline-none focus:ring-2 focus:ring-brand focus:ring-opacity-50 ${
                             currentPage === i + 1 ? 'bg-brand text-white' : 'bg-[#ffffff14] text-white'
                         }`}
                         onClick={() => setCurrentPage(i + 1)}

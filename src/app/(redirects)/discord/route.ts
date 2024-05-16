@@ -1,7 +1,5 @@
 import { redirect } from 'next/navigation';
 
-const Page = () => {
+export async function GET() {
     redirect('https://discord.gg/fxeRFRbhQh');
-};
-
-export default Page;
+}
