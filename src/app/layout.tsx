@@ -41,9 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div data-pyro-index='' className='h-fit min-h-screen w-full flex-1 shrink-0 flex-col'>
                     <PageNavigation />
                     <div className='flex-1 flex-col xl:px-1 xl:pb-1'>
-                        <main className='z-10 min-h-[calc(100vh-76px)] w-full overflow-clip rounded-3xl'>
-                            {children}
-                        </main>
+                        <main className='z-10 min-h-[calc(100vh-76px-116px)] w-full overflow-clip rounded-3xl'></main>
                     </div>
                     <Footer />
                 </div>
