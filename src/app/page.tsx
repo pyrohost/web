@@ -355,7 +355,7 @@ export default function Home() {
                     quality={100}
                     width={239}
                     height={800}
-                    className='absolute right-0 top-0 z-0'
+                    className='absolute right-0 top-0 z-0 hidden lg:block'
                 />
             </section>
             <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#000] to-black '>
