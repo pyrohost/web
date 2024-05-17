@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { games } from '@/lib/games';
+import { games } from '@/lib/static';
 
 export const GameSearchBar = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -57,6 +57,7 @@ export const GameSearchBar = () => {
             <div className='grid w-full grid-cols-1 gap-4 md:grid-cols-3'>
                 {currentGames.length > 0 ? (
                     currentGames.map((game) => (
+                        // TODO: Finish per game pages and switch to the correct link
                         <Link
                             href={'https://pay.pyro.host/category/Game%20Panel'}
                             className='group relative flex min-h-[124px] flex-col items-center justify-center gap-4 rounded-xl bg-[#ffffff14] p-6 transition hover:-translate-y-0.5'
@@ -70,11 +71,11 @@ export const GameSearchBar = () => {
                             >
                                 {game.name}
                             </h2>
-                            {game.banner ? (
+                            {game.images ? (
                                 <>
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
-                                        src={game.banner}
+                                        src={game.images.banner}
                                         alt={`${game.name}'s banner`}
                                         decoding='async'
                                         loading='lazy'

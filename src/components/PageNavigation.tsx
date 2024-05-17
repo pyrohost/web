@@ -10,7 +10,7 @@ const PageNavigation = () => {
         <NavigationMenu.Root delayDuration={0}>
             <header className='relative flex min-h-[72px] w-full items-center justify-between px-8'>
                 <nav className="flex w-full items-center gap-8 [&>div[style='position:relative']]:!w-full">
-                    <Link aria-label='Pyro Home Page' href='/'>
+                    <Link aria-label='Pyro Home Page' className='shrink-0' href='/'>
                         <LogoColored />
                     </Link>
 
