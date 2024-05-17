@@ -70,6 +70,7 @@ export default function Home() {
                                     width={400}
                                     height={400}
                                     quality={100}
+                                    priority
                                 />
                                 <svg
                                     className='pointer-events-none absolute w-screen'
