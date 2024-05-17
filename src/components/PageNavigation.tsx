@@ -13,7 +13,7 @@ const PageNavigation = () => {
                         <LogoColored />
                     </Link>
 
-                    <NavigationMenu.List className='flex items-center'>
+                    <NavigationMenu.List className='hidden items-center md:flex'>
                         <NavigationMenu.Item>
                             <Link
                                 className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
@@ -240,17 +240,17 @@ const PageNavigation = () => {
                                 </svg>
                             </Link>
                         </NavigationMenu.Item>
+
+                        <Link
+                            className='flex items-center gap-2 truncate rounded-full border-[1px] border-solid border-[#ffffff22] bg-[#ffffff11] px-5 py-2 text-sm font-bold transition hover:bg-[#ffffff22] hover:duration-0'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            href='https://pay.pyro.host'
+                        >
+                            Sign in
+                        </Link>
                     </NavigationMenu.List>
                 </nav>
-
-                <Link
-                    className='flex items-center gap-2 truncate rounded-full border-[1px] border-solid border-[#ffffff22] bg-[#ffffff11] px-5 py-2 text-sm font-bold transition hover:bg-[#ffffff22] hover:duration-0'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    href='https://pay.pyro.host'
-                >
-                    Sign in
-                </Link>
             </header>
             <NavigationMenu.Viewport className='navTransition h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn' />
         </NavigationMenu.Root>
