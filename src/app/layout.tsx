@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html
             data-pyro-html=''
             lang='en'
-            className='font-synthesis-none min-h-screen w-full overflow-x-hidden bg-black antialiased'
+            className='min-h-screen w-full overflow-x-hidden bg-black antialiased [font-synthesis-weight:none]'
         >
             <body
                 data-pyro-body=''
