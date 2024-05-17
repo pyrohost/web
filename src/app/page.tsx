@@ -331,14 +331,14 @@ export default function Home() {
                         Transparent and <span className='text-brand'>open-source</span>
                     </div>
                 </h1>
-                <div className='relative z-10 lg max-w-[600px] text-[16px] leading-[190%]'>
+                <div className='lg relative z-10 max-w-[600px] text-[16px] leading-[190%]'>
                     Pyro is the only hosting company that publicly shares its core source code. We&apos;re transparent
                     about how we operate, we iterate in coordination with our community, and we&apos;re always open to
                     contributions.
                 </div>
                 <Link
                     href='https://github.com/pyrohost'
-                    className='relative z-10 bg-black flex w-fit items-center justify-center gap-4 rounded-full border-2 border-white/20 px-6 py-3 text-sm font-bold'
+                    className='relative z-10 flex w-fit items-center justify-center gap-4 rounded-full border-2 border-white/20 bg-black px-6 py-3 text-sm font-bold'
                 >
                     <svg height='16' viewBox='0 0 14 14' width='16'>
                         <path
@@ -364,7 +364,7 @@ export default function Home() {
                     alt=''
                     width={1920}
                     height={1080}
-                    className='w-full absolute inset-0 mx-auto opacity-15 grayscale'
+                    className='absolute inset-0 mx-auto w-full opacity-15 grayscale'
                     style={{
                         maskImage: 'radial-gradient(85% 100% at 50% 100%, transparent 55.5%, white)',
                     }}
@@ -582,7 +582,7 @@ export default function Home() {
                                         strokeLinejoin='round'
                                     />
                                 </svg>
-                                <div className='text-15 font-medium'>Pyro&apos;s VPS</div>
+                                <div className='text-15 font-medium'>Better VPS</div>
                             </div>
                         </div>
                         <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
