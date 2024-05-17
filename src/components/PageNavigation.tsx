@@ -8,12 +8,12 @@ const PageNavigation = () => {
     return (
         <NavigationMenu.Root>
             <header className='relative flex min-h-[72px] w-full items-center justify-between px-8'>
-                <nav className='flex w-full items-center justify-between gap-8'>
+                <nav className='flex w-full items-center gap-8'>
                     <Link aria-label='Pyro Home Page' href='/'>
                         <LogoColored />
                     </Link>
 
-                    <NavigationMenu.List className='hidden items-center md:flex'>
+                    <NavigationMenu.List className='w-full hidden items-center md:flex'>
                         <NavigationMenu.Item>
                             <Link
                                 className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
