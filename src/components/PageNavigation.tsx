@@ -8,7 +8,7 @@ const PageNavigation = () => {
     return (
         <NavigationMenu.Root>
             <header className='relative flex min-h-[72px] w-full items-center justify-between px-8'>
-                <nav className='flex w-full items-center gap-8'>
+                <nav className="flex w-full items-center gap-8 [&>div[style='position:relative']]:!w-full">
                     <Link aria-label='Pyro Home Page' href='/'>
                         <LogoColored />
                     </Link>
@@ -241,7 +241,7 @@ const PageNavigation = () => {
                         </NavigationMenu.Item>
 
                         <Link
-                            className='flex items-center gap-2 truncate rounded-full border-[1px] border-solid border-[#ffffff22] bg-[#ffffff11] px-5 py-2 text-sm font-bold transition hover:bg-[#ffffff22] hover:duration-0'
+                            className='ml-auto flex items-center gap-2 truncate rounded-full border-[1px] border-solid border-[#ffffff22] bg-[#ffffff11] px-5 py-2 text-sm font-bold transition hover:bg-[#ffffff22] hover:duration-0'
                             target='_blank'
                             rel='noopener noreferrer'
                             href='https://pay.pyro.host'
