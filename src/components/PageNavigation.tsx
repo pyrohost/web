@@ -13,7 +13,7 @@ const PageNavigation = () => {
                         <LogoColored />
                     </Link>
 
-                    <NavigationMenu.List className='hidden w-full items-center md:flex'>
+                    <NavigationMenu.List className='flex w-full items-center'>
                         <NavigationMenu.Item>
                             <Link
                                 className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
