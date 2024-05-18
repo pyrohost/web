@@ -14,6 +14,7 @@ const Page = () => {
 
     return (
         <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
                 aria-hidden='true'
                 style={{
@@ -21,16 +22,20 @@ const Page = () => {
                 }}
                 className='pointer-events-none absolute inset-0 z-0 h-[350px] w-full select-none object-cover opacity-50'
                 src={game.images.banner}
-                alt={`${game.name}'s banner`}
+                alt={``}
+                decoding='async'
+                loading='lazy'
             ></img>
 
             <div className='container relative flex pb-24 pt-24'>
-                <div className='flex flex-col gap-4'>
+                <div className='flex flex-col gap-8'>
                     <h1 className='text-[max(48px,min(5vw,72px))] font-extrabold leading-[1.09] tracking-tighter'>
                         Minecraft Hosting
                     </h1>
-                    <p className='text-lg text-gray-500'>
-                        Minecraft is a sandbox video game developed and published by Mojang Studios.
+                    <p className='max-w-2xl text-lg leading-[190%] text-[#ffffff99]'>
+                        Minecraft is a sandbox video game developed and published by Mojang Studios. With Pyro, you can
+                        host your own Minecraft server with ease. Whether you&apos;re playing with friends or running a
+                        public server, we&apos;ve got a plan for you.
                     </p>
 
                     <div className='flex flex-row gap-2'>
@@ -61,7 +66,9 @@ const Page = () => {
                             <div className='border-t border-gray-700'></div>
                             <div className='flex flex-row gap-2'>
                                 <BlockchainIcon fill='brand' />
-                                <p>{plan.ram} GB RAM</p> + <code>{plan.overflow} GB Overflow</code>
+                                <div>
+                                    <p>{plan.ram} GB RAM</p> + <code>{plan.overflow} GB Overflow</code>
+                                </div>
                             </div>
                             <div className='flex flex-row gap-2'>
                                 <CpuIcon fill='brand' />
