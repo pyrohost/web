@@ -541,7 +541,7 @@ export default function Home() {
                 <PyroButton href='/for/'>Start your game server</PyroButton>
                 <div className='min-h-[200px]' />
                 <Image
-                    src='/img/globe.png'
+                    src='/img/globenew.png'
                     width={1478}
                     height={906}
                     alt={''}
