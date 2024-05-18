@@ -546,7 +546,7 @@ export default function Home() {
                     height={906}
                     alt={''}
                     aria-hidden
-                    className='pointer-events-none absolute top-[35%] mx-auto select-none'
+                    className='pointer-events-none absolute top-[35%] -z-10 mx-auto select-none'
                 />
             </section>
             <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-black to-[#121212] '>
