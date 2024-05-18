@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { PyroButton } from '../ui/PyroButton';
+import PyroPill from '../ui/PyroPill';
 
 const BetterVPS = () => {
     return (
@@ -15,8 +16,8 @@ const BetterVPS = () => {
                 <div className='pointer-events-none absolute bottom-0 left-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%] xl:left-auto xl:right-[50px]'></div>
                 <div className='pointer-events-none absolute left-0 right-auto top-[0] z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%] xl:left-auto xl:right-[50px]'></div>
                 <div className='relative z-[14] flex max-w-[700px] flex-col items-start justify-start'>
-                    <div className='mb-4'>
-                        <div className='flex h-8 cursor-default select-none items-center gap-[6px] rounded-full border border-brand/30 bg-brand/10 px-[11px] py-[4px] text-brand'>
+                    <PyroPill
+                        leftChild={
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
                                 width='24'
@@ -37,9 +38,10 @@ const BetterVPS = () => {
                                     strokeLinejoin='round'
                                 />
                             </svg>
-                            <div className='text-15 font-medium'>Better VPS</div>
-                        </div>
-                    </div>
+                        }
+                    >
+                        Better VPS
+                    </PyroPill>
                     <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter'>
                         <div className='flex flex-row items-center gap-4'>A VPS like no other</div>
                     </h1>

@@ -1,17 +1,19 @@
 import Image from 'next/image';
 import { PyroButton } from '../ui/PyroButton';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import PyroPill from '../ui/PyroPill';
 const OneApp = () => {
     return (
         <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-[#000000] to-[#121212] '>
             <div className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'>
                 <div className='relative z-[14] flex max-w-[600px] flex-col items-start justify-start'>
-                    <div className='mb-4'>
-                        <div className='flex h-8 cursor-default select-none items-center gap-[6px] rounded-full border border-brand/30 bg-brand/10 px-[11px] py-[4px] text-brand'>
+                    <PyroPill
+                        leftChild={
                             <Image src='/img/pyrodactylorange.png' width={24} height={24} alt='' className='h-6 w-6' />
-                            <div className='text-15 font-medium'>Better Software</div>
-                        </div>
-                    </div>
+                        }
+                    >
+                        Better Software
+                    </PyroPill>
                     <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
                         <div className='flex flex-row items-center gap-4'>One app to manage it all</div>
                     </h1>
