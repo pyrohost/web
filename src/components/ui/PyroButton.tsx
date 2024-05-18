@@ -17,8 +17,8 @@ const button = cva(['relative', 'flex', 'items-center', 'justify-center', 'round
         },
         size: {
             small: ['py-2', 'px-4', 'text-sm'],
-            medium: ['py-3', 'px-6', 'text-base'],
-            large: ['py-4', 'px-8', 'text-lg'],
+            medium: ['py-3', 'px-8', 'text-base'],
+            large: ['py-4', 'px-10', 'text-lg'],
         },
     },
     defaultVariants: {
