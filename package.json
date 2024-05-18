@@ -1,6 +1,6 @@
 {
-    "name": "pyro-landing",
-    "version": "0.1.0",
+    "name": "@pyrohost/web",
+    "version": "1.0.0-beta",
     "private": true,
     "scripts": {
         "dev": "next dev --turbo",
