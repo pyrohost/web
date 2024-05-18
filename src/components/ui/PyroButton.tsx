@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { PyroLink } from './PyroLink';
 import type { VariantProps } from 'class-variance-authority';
 import { cva, cx } from 'class-variance-authority';
@@ -33,6 +34,7 @@ export const PyroButton = ({
     children,
     leftChild,
     rightChild,
+    useArrow,
     className = '',
     ...props
 }: {
@@ -41,6 +43,7 @@ export const PyroButton = ({
     children: React.ReactNode;
     leftChild?: React.ReactNode;
     rightChild?: React.ReactNode;
+    useArrow?: boolean;
     className?: string;
 } & VariantProps<typeof button>) => {
     return (
@@ -48,6 +51,7 @@ export const PyroButton = ({
             {leftChild}
             {children}
             {rightChild}
+            {useArrow && <ArrowRightIcon className='h-4 w-4' />}
         </PyroLink>
     );
 };
