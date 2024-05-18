@@ -3,7 +3,7 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import Link from 'next/link';
 import LogoColored from './LogoColored';
-import { DropdownMenuIcon, HamburgerMenuIcon } from '@radix-ui/react-icons';
+import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 
 const ExternalLinkIcon = () => (
     <svg
