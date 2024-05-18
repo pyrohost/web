@@ -10,11 +10,13 @@ const button = cva(['relative', 'flex', 'items-center', 'justify-center', 'round
             brand: ['bg-brand', 'text-white'],
             white: ['bg-white', 'text-black'],
             black: ['bg-black', 'text-white'],
+            transparentWhite: ['bg-transparent', 'text-white'],
+            transparentBlack: ['bg-transparent', 'text-black'],
         },
         type: {
             primary: ['border-2', 'border-brand'],
             outline: ['border-2', 'border-white'],
-            outlineOnBlack: ['border-2', 'border-white/10'],
+            outlineLight: ['border-2', 'border-white/10'],
         },
         size: {
             small: ['py-2', 'px-4', 'text-sm'],
