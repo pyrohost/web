@@ -13,6 +13,7 @@ export const PyroLink = ({
 }) => {
     return (
         <Link
+            data-pyro-ui='link'
             target={external ? '_blank' : ''}
             rel={external ? 'noopener noreferrer' : ''}
             href={href}
