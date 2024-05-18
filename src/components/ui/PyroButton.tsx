@@ -31,17 +31,23 @@ export const PyroButton = ({
     href,
     external = false,
     children,
+    leftChild,
+    rightChild,
     className = '',
     ...props
 }: {
     href: string;
     external?: boolean;
     children: React.ReactNode;
+    leftChild?: React.ReactNode;
+    rightChild?: React.ReactNode;
     className?: string;
 } & VariantProps<typeof button>) => {
     return (
         <PyroLink href={href} external={external} className={twMerge(cx(button(props), className))}>
+            {leftChild}
             {children}
+            {rightChild}
         </PyroLink>
     );
 };
