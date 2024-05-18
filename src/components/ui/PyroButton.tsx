@@ -14,6 +14,7 @@ const button = cva(['relative', 'flex', 'items-center', 'justify-center', 'round
         type: {
             primary: ['border-2', 'border-brand'],
             outline: ['border-2', 'border-white'],
+            outlineOnBlack: ['border-2', 'border-white/10'],
         },
         size: {
             small: ['py-2', 'px-4', 'text-sm'],
