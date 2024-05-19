@@ -1,6 +1,12 @@
+import { Metadata } from 'next';
+
 import { GameSearchBar } from '@/components/GameSearchBar';
 import { PyroLink } from '@/components/ui/PyroLink';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+    title: 'Pyro - Search Games',
+};
 
 export default function Search() {
     return (

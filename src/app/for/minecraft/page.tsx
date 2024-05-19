@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+
 import {
     CloudIcon,
     DatabaseIcon,
@@ -8,6 +10,10 @@ import {
 } from '@/components/icons/HugeIcons';
 import { PyroButton } from '@/components/ui/PyroButton';
 import { getGameBySlug, plans } from '@/lib/static';
+
+export const metadata: Metadata = {
+    title: 'Pyro - Minecraft Hosting',
+};
 
 const Page = () => {
     const game = getGameBySlug('minecraft')!;
