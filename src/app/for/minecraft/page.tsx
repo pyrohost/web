@@ -39,7 +39,7 @@ const Page = () => {
                     </p>
 
                     <div className='flex flex-row gap-2'>
-                        <PyroButton color='brand' href={`/for/${game.slug}/#recommended`}>
+                        <PyroButton useArrow color='brand' href={`/for/${game.slug}/#recommended`}>
                             Get started
                         </PyroButton>
                     </div>
