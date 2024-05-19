@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
 import {
     CloudIcon,
     DatabaseIcon,
@@ -37,16 +39,15 @@ const Page = () => {
 
             <section className='container relative flex flex-col items-center py-32'>
                 <div className='flex flex-col items-center gap-8 text-center'>
-                    <p>
+                    {/* <p>
                         NOTICE: This page is a work-in-progress. You caught us in the middle of making banger ass marketing material. Our work is open source, so keep track of progress here: <PyroLink external href='https://github.com/pyrohost/web'>https://github.com/pyrohost/web</PyroLink>
-                    </p>
+                    </p> */}
                     <h1 className='text-[max(48px,min(5vw,72px))] font-extrabold leading-[1.09] tracking-tighter'>
                         Minecraft Hosting
                     </h1>
                     <p className='max-w-2xl text-lg leading-[190%] text-[#ffffff99]'>
-                        Minecraft is a sandbox video game developed and published by Mojang Studios. With Pyro, you can
-                        host your own Minecraft server with ease. Whether you&apos;re playing with friends or running a
-                        public server, we&apos;ve got a plan for you.
+                        With Pyro, you can host your own Minecraft server with ease. Whether you&apos;re playing with
+                        friends or running a public server, we&apos;ve got a plan for you.
                     </p>
 
                     <div className='flex flex-row gap-2'>
@@ -69,22 +70,86 @@ const Page = () => {
                             </div>
                         </h2> */}
 
-                        <div className='flex w-full flex-col items-center gap-8'>
-                            <div className='relative flex min-h-[450px] w-full max-w-[650px] flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
-                                <Image src='/img/unlimitedplayers.png' fill alt='' className='object-cover' />
+                        <div className='flex w-full flex-col items-center gap-8 md:flex-row'>
+                            <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
+                                <Image
+                                    aria-hidden
+                                    src='/img/unlimitedplayers.png'
+                                    fill
+                                    alt=''
+                                    className='pointer-events-none select-none object-cover'
+                                />
                                 <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
                                     No player limits. Invite as many friends as you want, zero extra charges.
                                 </div>
                             </div>
 
-                            <div className='relative flex min-h-[450px] w-full max-w-[650px] flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
-                                <Image src='/img/unlimitedplayers.png' fill alt='' className='object-cover' />
+                            <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
+                                <Image
+                                    aria-hidden
+                                    src='/img/unlimitedspecs.png'
+                                    quality={100}
+                                    fill
+                                    alt=''
+                                    className='pointer-events-none select-none object-cover'
+                                />
                                 <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
-                                    Only pay for your memory usage. Everything else is on us.
+                                    Only pay for the RAM you need. Upgrade or downgrade at any time.
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section className='relative z-10 flex flex-col items-center gap-8 px-4 py-32 text-center xl:px-24'>
+                <div className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'>
+                    <h1 className='mx-auto mb-16 text-[max(48px,min(5vw,64px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
+                        <div className=''>Frequently Asked Questions</div>
+                    </h1>
+
+                    <Accordion className='mx-auto w-full max-w-3xl text-left' type='multiple'>
+                        <AccordionItem value='item-1'>
+                            <AccordionTrigger>Can I add plugins and mods to my Minecraft server?</AccordionTrigger>
+                            <AccordionContent>
+                                Yes! You can add plugins and mods to your Minecraft server. You have full control over
+                                your server, so you can upload your own mods and plugins, and install them with ease.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value='item-2'>
+                            <AccordionTrigger>Can I upgrade my server later?</AccordionTrigger>
+                            <AccordionContent>
+                                Yes! You can upgrade your server at any time. You can easily upgrade your server by
+                                selecting a new plan and paying the difference. Your server will be upgraded instantly.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value='item-3'>
+                            <AccordionTrigger>
+                                Can I switch between mod loaders? Do you support Fabric, Forge, Neoforge?
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                Yes! You can switch between games and software at any time. Our panel allows you to
+                                easily switch with just a few clicks. And with free backups, you can switch back to your
+                                old setup at any time.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value='item-4'>
+                            <AccordionTrigger>How much storage do I get with my Minecraft server?</AccordionTrigger>
+                            <AccordionContent>
+                                You get unlimited storage with your Minecraft server. You can upload as many worlds,
+                                mods, and plugins as you want. There are no limits to how much storage you can use. You
+                                only pay for the RAM you need.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value='item-5'>
+                            <AccordionTrigger>Do you have player limits?</AccordionTrigger>
+                            <AccordionContent>
+                                No, we do not have player limits. You can invite as many friends as you want to play on
+                                your server. There are no extra charges for additional players. Ever.
+                            </AccordionContent>
+                        </AccordionItem>
+                        
+                    </Accordion>
                 </div>
             </section>
         </>
