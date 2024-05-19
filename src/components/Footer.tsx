@@ -6,9 +6,8 @@ const Footer = () => {
         <footer className='sticky bottom-0 flex w-full flex-col justify-between gap-12 rounded-t-3xl px-4 py-7  md:flex-col md:gap-x-12 md:px-10 lg:flex-row'>
             <div className='flex flex-col items-start gap-4 md:w-full lg:w-fit'>
                 <LogoWhite />
-                <div className='flex flex-col gap-4 md:flex-row md:items-center'>
-                    <p className='text-xs text-[#999]'>© 2024 Pyro Host Inc. All rights reserved.</p>
-                    <div className='hidden h-1 w-1 rounded-full bg-[#ffffff55] md:block'></div>
+                <div className='flex flex-col gap-3'>
+                    <p className='text-xs text-[#999]'>Copyright © 2023 - 2024 Pyro Host Inc.</p>
                     <div className='flex flex-row gap-4'>
                         <Link href='/legal/tos' className='text-xs text-[#999]'>
                             Terms of Service
