@@ -64,11 +64,6 @@ const Page = () => {
                         <h1 className='mx-auto mb-16 text-[max(48px,min(5vw,64px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
                             <div className='flex flex-row items-center gap-4'>Why Pyro is right for you</div>
                         </h1>
-                        {/* <h2 className='mx-auto mb-6 text-[max(18px,min(5vw,20px))] text-white'>
-                            <div className='flex flex-row items-center gap-4'>
-                                Pyro is the ultimate package for your server, no matter what you play.
-                            </div>
-                        </h2> */}
 
                         <div className='flex w-full flex-col items-center gap-8 md:flex-row'>
                             <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
@@ -148,7 +143,7 @@ const Page = () => {
                                 your server. There are no extra charges for additional players. Ever.
                             </AccordionContent>
                         </AccordionItem>
-                        
+
                     </Accordion>
                 </div>
             </section>
