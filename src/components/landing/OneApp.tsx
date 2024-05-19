@@ -4,7 +4,7 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 import PyroPill from '../ui/PyroPill';
 const OneApp = () => {
     return (
-        <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-[#000000] to-[#121212] '>
+        <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-[#000000] to-[#121212]'>
             <div className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'>
                 <div className='relative z-[14] flex max-w-[600px] flex-col items-start justify-start'>
                     <PyroPill

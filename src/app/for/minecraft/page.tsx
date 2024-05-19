@@ -8,8 +8,10 @@ import {
     BlockchainIcon,
     UserHeart,
 } from '@/components/icons/HugeIcons';
+import Image from 'next/image';
 import { PyroButton } from '@/components/ui/PyroButton';
 import { getGameBySlug, plans } from '@/lib/static';
+import { PyroLink } from '@/components/ui/PyroLink';
 
 export const metadata: Metadata = {
     title: 'Pyro - Minecraft Hosting',
@@ -33,8 +35,11 @@ const Page = () => {
                 loading='lazy'
             ></img>
 
-            <div className='container relative flex pb-24 pt-24'>
-                <div className='flex flex-col gap-8'>
+            <section className='container relative flex flex-col items-center py-32'>
+                <div className='flex flex-col items-center gap-8 text-center'>
+                    <p>
+                        NOTICE: This page is a work-in-progress. You caught us in the middle of making banger ass marketing material. Our work is open source, so keep track of progress here: <PyroLink external href='https://github.com/pyrohost/web'>https://github.com/pyrohost/web</PyroLink>
+                    </p>
                     <h1 className='text-[max(48px,min(5vw,72px))] font-extrabold leading-[1.09] tracking-tighter'>
                         Minecraft Hosting
                     </h1>
@@ -46,65 +51,42 @@ const Page = () => {
 
                     <div className='flex flex-row gap-2'>
                         <PyroButton useArrow color='brand' href={`/for/${game.slug}/#recommended`}>
-                            Get started
+                            View Plans
                         </PyroButton>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            {/* TODO: Add a section for features with all our branding pop */}
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-[#000000] to-[#121212]'>
+                <div className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'>
+                    <div className='relative z-[14] flex flex-col items-start justify-start'>
+                        <h1 className='mx-auto mb-16 text-[max(48px,min(5vw,64px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
+                            <div className='flex flex-row items-center gap-4'>Why Pyro is right for you</div>
+                        </h1>
+                        {/* <h2 className='mx-auto mb-6 text-[max(18px,min(5vw,20px))] text-white'>
+                            <div className='flex flex-row items-center gap-4'>
+                                Pyro is the ultimate package for your server, no matter what you play.
+                            </div>
+                        </h2> */}
 
-            <div className='container relative flex flex-col gap-4'>
-                <h2 className='text-3xl font-extrabold' id='recommended'>
-                    Recommended Plans
-                </h2>
-                {/* TODO: Better pricing cards */}
-                {/* TODO: Add a most popular badge and a recommended badge */}
-                <div className='grid grid-cols-1 gap-4 md:grid-cols-4'>
-                    {plans.map((plan) => (
-                        <div
-                            key={plan.name}
-                            className='group relative flex min-h-[124px] flex-col gap-4 rounded-xl bg-[#ffffff14] p-6 transition hover:-translate-y-0.5'
-                        >
-                            <p className='relative z-10 text-2xl font-extrabold'>
-                                {plan.name} - ${plan.price}
-                            </p>
-                            <div className='border-t border-gray-700'></div>
-                            <div className='flex flex-row gap-2'>
-                                <BlockchainIcon fill='brand' />
-                                <div>
-                                    <p>{plan.ram} GB RAM</p> + <code>{plan.overflow} GB Overflow</code>
+                        <div className='flex w-full flex-col items-center gap-8'>
+                            <div className='relative flex min-h-[450px] w-full max-w-[650px] flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
+                                <Image src='/img/unlimitedplayers.png' fill alt='' className='object-cover' />
+                                <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
+                                    No player limits. Invite as many friends as you want, zero extra charges.
                                 </div>
                             </div>
-                            <div className='flex flex-row gap-2'>
-                                <CpuIcon fill='brand' />
-                                <p>{plan.cpu} vCores</p>
+
+                            <div className='relative flex min-h-[450px] w-full max-w-[650px] flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
+                                <Image src='/img/unlimitedplayers.png' fill alt='' className='object-cover' />
+                                <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
+                                    Only pay for your memory usage. Everything else is on us.
+                                </div>
                             </div>
-                            <div className='flex flex-row gap-2'>
-                                <HardDriveIcon fill='brand' />
-                                <p>Uncapped NVMe Storage</p>
-                            </div>
-                            <div className='flex flex-row gap-2'>
-                                <UserHeart fill='brand' />
-                                <p>Unlimited Players</p>
-                            </div>
-                            <div className='flex flex-row gap-2'>
-                                <DatabaseIcon fill='brand' />
-                                <p>15 Database Slots</p>
-                            </div>
-                            <div className='flex flex-row gap-2'>
-                                <CloudIcon fill='brand' />
-                                <p>15 Backup Slots</p>
-                            </div>
-                            <div className='border-t border-gray-700'></div>
-                            {/* Button should probably be styled differently per plan */}
-                            <PyroButton color='brand' href='https://pay.pyro.host/'>
-                                Select Plan
-                            </PyroButton>
                         </div>
-                    ))}
+                    </div>
                 </div>
-            </div>
+            </section>
         </>
     );
 };
