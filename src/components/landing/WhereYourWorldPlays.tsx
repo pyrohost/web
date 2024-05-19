@@ -52,10 +52,10 @@ const WhereYourWorldPlays = () => {
                                 padding: '0 0.5rem',
                             }}
                         >
-                            <div className='mb-12 flex h-[406px] items-center justify-center'>
+                            <div className='mb-12 flex h-[206px] items-center justify-center md:h-[406px]'>
                                 <Image
                                     alt=''
-                                    className='pointer-events-none absolute z-[200]'
+                                    className='pointer-events-none absolute z-[200] h-[200px] w-[200px] select-none md:h-[400px] md:w-[400px]'
                                     aria-hidden
                                     src='/img/pyrocpu.png'
                                     width={400}
