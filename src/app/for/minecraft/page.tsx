@@ -69,7 +69,7 @@ const Page = () => {
                             <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
                                 <Image
                                     aria-hidden
-                                    src='/img/unlimitedplayers.png'
+                                    src='/img/unlimitedplayers_final.png'
                                     fill
                                     alt=''
                                     className='pointer-events-none select-none object-cover'
@@ -143,7 +143,6 @@ const Page = () => {
                                 your server. There are no extra charges for additional players. Ever.
                             </AccordionContent>
                         </AccordionItem>
-
                     </Accordion>
                 </div>
             </section>
