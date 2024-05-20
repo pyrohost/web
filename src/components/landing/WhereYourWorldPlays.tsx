@@ -40,7 +40,7 @@ const WhereYourWorldPlays = () => {
                             aria-hidden
                             src='/img/herobackground.svg'
                             fill
-                            className='pointer-events-none select-none object-cover opacity-45'
+                            className='pointer-events-none select-none object-cover opacity-75'
                         />
                     </div>
                 </div>
