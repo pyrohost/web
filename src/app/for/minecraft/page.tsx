@@ -47,19 +47,6 @@ const getPlanDescription = (slug: string) => {
     }
 };
 
-const getPlanFeatures = (slug: string) => {
-    switch (slug) {
-        case 'solo':
-            return 'Perfect for you and a few friends to play together.';
-        case 'friends':
-            return 'Great for small communities running an SMP or modpacks.';
-        case 'community':
-            return 'Ideal for larger communities and groups .';
-        case 'network':
-            return 'For extraordinarily large networks and communities.';
-    }
-};
-
 const Page = () => {
     const game = getGameBySlug('minecraft')!;
 
