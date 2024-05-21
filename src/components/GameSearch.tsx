@@ -1,7 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 import Link from 'next/link';
+
 import { games } from '@/lib/static';
 
 export const GameSearch = () => {

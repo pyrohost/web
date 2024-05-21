@@ -1,5 +1,7 @@
-import { PyroButton } from '@/components/ui/PyroButton';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
+
+import { PyroButton } from '@/components/ui/PyroButton';
+
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';

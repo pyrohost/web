@@ -1,5 +1,6 @@
-import { getGameBySlug } from '@/lib/static';
 import { notFound } from 'next/navigation';
+
+import { getGameBySlug } from '@/lib/static';
 
 const Page = ({ params }: { params: { game: string } }) => {
     const game = getGameBySlug(params.game);

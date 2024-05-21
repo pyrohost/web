@@ -1,7 +1,10 @@
 import Image from 'next/image';
-import { PyroButton } from '../ui/PyroButton';
+
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+
+import { PyroButton } from '../ui/PyroButton';
 import PyroPill from '../ui/PyroPill';
+
 const OneApp = () => {
     return (
         <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-[#000000] to-[#121212]'>

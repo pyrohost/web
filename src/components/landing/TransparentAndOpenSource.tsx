@@ -1,6 +1,6 @@
 import Image from 'next/image';
+
 import { PyroButton } from '../ui/PyroButton';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 
 const TransparentAndOpenSource = () => {
     return (

@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 
-import WhereYourWorldPlays from '@/components/landing/WhereYourWorldPlays';
-import OneApp from '@/components/landing/OneApp';
-import TransparentAndOpenSource from '@/components/landing/TransparentAndOpenSource';
 import BetterHosting from '@/components/landing/BetterHosting';
-import SparkToLife from '@/components/landing/SparkToLife';
 import BetterVPS from '@/components/landing/BetterVPS';
-import StayInTheLoop from '@/components/landing/StayInTheLoop';
 import MakePyroWhereYourWorldPlays from '@/components/landing/MakePyroWhereYourWorldPlays';
+import OneApp from '@/components/landing/OneApp';
+import SparkToLife from '@/components/landing/SparkToLife';
+import StayInTheLoop from '@/components/landing/StayInTheLoop';
+import TransparentAndOpenSource from '@/components/landing/TransparentAndOpenSource';
+import WhereYourWorldPlays from '@/components/landing/WhereYourWorldPlays';
 
 export const metadata: Metadata = {
     title: 'Pyro - Where your world plays',

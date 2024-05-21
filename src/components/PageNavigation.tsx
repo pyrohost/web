@@ -1,9 +1,11 @@
 'use client';
 
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import Link from 'next/link';
-import LogoColored from './LogoColored';
+
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+
+import LogoColored from '@/components/LogoColored';
 
 const ExternalLinkIcon = () => (
     <svg

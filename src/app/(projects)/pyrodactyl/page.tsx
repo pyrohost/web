@@ -1,7 +1,8 @@
-import { PyroButton } from '@/components/ui/PyroButton';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { PyroButton } from '@/components/ui/PyroButton';
 
 export const metadata: Metadata = {
     title: 'Pyro - Pyrodactyl',

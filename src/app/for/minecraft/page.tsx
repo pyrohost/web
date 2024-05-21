@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 
+import { PyroButton } from '@/components/ui/PyroButton';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
-import Image from 'next/image';
-import { PyroButton } from '@/components/ui/PyroButton';
 import { getGameBySlug, plans } from '@/lib/static';
 
 export const metadata: Metadata = {
