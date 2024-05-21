@@ -57,12 +57,13 @@ const Page = () => {
             <h1 className='max-w-4xl py-4 pb-3 pt-5 text-[max(40px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter lg:pb-5'>
                 <div className='flex flex-row items-center gap-4'>Pioneers of open hosting infrastructure</div>
             </h1>
-            <div className='relative w-full max-w-[75ch]'>
+            <div className='relative w-full max-w-[80ch]'>
                 <div className='flex w-full flex-col gap-8'>
                     <p className='text-xl leading-[190%]'>
-                        Pyro is a hosting infrastructure company. We&apos;re an atypically talented, globally
-                        distributed team of engineers, designers, and strategists with one ambition: to perfect game
-                        hosting.
+                        Pyro is an atypically talented, globally distributed team of engineers, designers, and
+                        strategists building open-source hosting infrastructure. We are on a mission to make hosting
+                        accessible to everyone, and we&apos;re building the ecosystem of tools and services to make that
+                        possible.
                     </p>
                 </div>
             </div>
