@@ -244,7 +244,7 @@ const Page = () => {
                                     }}
                                 />
                                 <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
-                                    Unlimited storage. Upload whatever you want to your server.
+                                    Unlimited storage. Upload as many worlds, mods, and plugins as you want.
                                 </div>
                             </div>
 
