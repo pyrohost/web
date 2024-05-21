@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import { Metadata } from 'next';
 import Image from 'next/image';
 
@@ -8,6 +10,19 @@ import { getGameBySlug, plans } from '@/lib/static';
 
 export const metadata: Metadata = {
     title: 'Pyro - Minecraft Hosting',
+};
+
+const getPlanDescription = (slug: string) => {
+    switch (slug) {
+        case 'solo':
+            return 'Perfect for you and a few friends to play together.';
+        case 'friends':
+            return 'Great for small communities running an SMP or modpacks.';
+        case 'community':
+            return 'Ideal for larger communities and groups .';
+        case 'network':
+            return 'For extraordinarily large networks and communities.';
+    }
 };
 
 const Page = () => {
@@ -33,17 +48,53 @@ const Page = () => {
                     <h1 className='text-[max(48px,min(5vw,72px))] font-extrabold leading-[1.09] tracking-tighter'>
                         Minecraft Hosting
                     </h1>
-                    <p className='max-w-2xl text-lg leading-[190%] text-[#ffffff99]'>
+                    <p className='max-w-3xl text-xl leading-[190%] font-medium text-[#ffffff99]'>
                         With Pyro, you can host your own Minecraft server with ease. Whether you&apos;re playing with
                         friends or running a public server, we&apos;ve got a plan for you.
                     </p>
+                </div>
+                <div className='relative mx-auto w-full mt-20 xl:mt-12 lg:w-full md:mt-9'>
+                    <h2 className='sr-only'>Pyro pricing plans</h2>
+                    <ul className='grid-gap relative z-10 grid grid-cols-1 gap-x-6 gap-y-4 lg:gap-y-4 lg:grid-cols-2 md:gap-y-6 xl:grid-cols-4'>
+                        {plans.map((plan) => (
+                            <li
+                                className={clsx(
+                                    'group relative flex min-h-full flex-col rounded-xl px-8 pb-10 pt-5 xl:px-6 xl:py-5 sm:p-5 bg-[#ffffff15]',
+                                    {
+                                        'border-brand border-[1px]': plan.slug === 'friends',
+                                        'border border-transparent': plan.slug !== 'friends',
+                                    },
+                                )}
+                                key={plan.slug}
+                            >
+                                <div className='mb-6 flex flex-col border-b border-dashed border-white/20 pb-5 xl:mb-5'>
+                                    <h3
+                                        className={clsx('text-xl font-medium leading-none tracking-tight xl:text-lg', {
+                                            'text-brand': plan.slug === 'friends',
+                                        })}
+                                    >
+                                        {plan.name}
+                                    </h3>
 
-                    <div className='relative mx-auto mt-20 xl:mt-12 lg:w-full lg:max-w-[700px] md:mt-8'>
-                        <h2 className='sr-only'>Pyro pricing plans</h2>
-                        <ul className='grid-gap relative z-10 grid grid-cols-4 gap-x-6 xl:grid-cols-2 lg:gap-y-4 md:grid-cols-1 md:gap-y-6'>
-                            
-                        </ul>
-                    </div>
+                                    <p className='font-bold relative mt-14 text-[36px] leading-none tracking-tighter xl:mt-9 xl:text-[32px] md:mt-4'>
+                                        ${plan.price}{' '}
+                                        <span className='font-normal text-[20px] tracking-normal text-[#ffffff99]'>
+                                            /month
+                                        </span>
+                                    </p>
+                                    <a
+                                        className={`inline-flex justify-center items-center outline-none rounded-full whitespace-nowrap text-center transition-colors font-bold shadow-md duration-200 px-12 py-4 mt-9 ${plan.slug === 'friends' ? 'bg-brand' : 'bg-[#ffffff22]'}`}
+                                        href='https://pay.pyro.host'
+                                    >
+                                        Get started
+                                    </a>
+                                    <p className='mt-9 font-light leading-snug text-gray-new-50 2xl:min-h-[66px] xl:mt-8 xl:min-h-[44px] lg:min-h-max'>
+                                        {getPlanDescription(plan.slug)}
+                                    </p>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </section>
 
