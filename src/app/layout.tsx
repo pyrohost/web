@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         description: 'Pyro is where your world plays. Instantly available, lag-free servers with unmatched value.',
         images: [
             {
-                url: './ogimage.png',
+                url: './ogimage_refresh.png',
             },
         ],
         url: 'https://pyro.host',

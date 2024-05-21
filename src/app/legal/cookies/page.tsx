@@ -9,7 +9,7 @@ export const metadata: Metadata = {
         description: 'Pyro takes your privacy seriously. Read and learn about our cookie policy.',
         images: [
             {
-                url: './ogimage.png',
+                url: './ogimage_refresh.png',
             },
         ],
     },

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
         description: "Read about Pyro's Terms of Service.",
         images: [
             {
-                url: './ogimage.png',
+                url: './ogimage_refresh.png',
             },
         ],
     },
