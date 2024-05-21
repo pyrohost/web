@@ -1,4 +1,5 @@
 import { GoogleAnalytics } from '@next/third-parties/google';
+
 import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     description: 'Pyro is where your world plays. Instantly available, lag-free servers with unmatched value.',
     openGraph: {
         title: 'Pyro',
-        description: 'Pyro where your world plays. Instantly available, lag-free servers with unmatched value.',
+        description: 'Pyro is where your world plays. Instantly available, lag-free servers with unmatched value.',
         images: [
             {
                 url: './ogimage.png',
