@@ -135,22 +135,22 @@ const Page = () => {
                     </h1>
 
                     <Accordion className='mx-auto w-full max-w-3xl text-left' type='multiple'>
-                        <AccordionItem value='item-1'>
-                            <AccordionTrigger>Can I add plugins and mods to my Minecraft server?</AccordionTrigger>
+                        <AccordionItem className='text-left' value='item-1'>
+                            <AccordionTrigger className='text-left'>Can I add plugins and mods to my Minecraft server?</AccordionTrigger>
                             <AccordionContent>
                                 Yes! You can add plugins and mods to your Minecraft server. You have full control over
                                 your server, so you can upload your own mods and plugins, and install them with ease.
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value='item-2'>
-                            <AccordionTrigger>Can I upgrade my Pyro server later?</AccordionTrigger>
+                        <AccordionItem className='text-left' value='item-2'>
+                            <AccordionTrigger className='text-left'>Can I upgrade my Pyro server later?</AccordionTrigger>
                             <AccordionContent>
                                 Yes! You can upgrade your server at any time. You can easily upgrade your server by
                                 selecting a new plan and paying the difference. Your server will be upgraded instantly.
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value='item-3'>
-                            <AccordionTrigger>
+                        <AccordionItem className='text-left' value='item-3'>
+                            <AccordionTrigger className='text-left'>
                                 Can I switch between mod loaders? Does Pyro support Fabric, Forge, Neoforge?
                             </AccordionTrigger>
                             <AccordionContent>
@@ -159,8 +159,8 @@ const Page = () => {
                                 old setup at any time.
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value='item-4'>
-                            <AccordionTrigger>
+                        <AccordionItem className='text-left' value='item-4'>
+                            <AccordionTrigger className='text-left'>
                                 How much storage do I get with my Minecraft server on Pyro?
                             </AccordionTrigger>
                             <AccordionContent>
@@ -169,23 +169,43 @@ const Page = () => {
                                 only pay for the RAM you need.
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value='item-5'>
-                            <AccordionTrigger>Does Pyro have player limits?</AccordionTrigger>
+                        <AccordionItem className='text-left' value='backups'>
+                            <AccordionTrigger className='text-left'>Does Pyro offer backups?</AccordionTrigger>
+                            <AccordionContent>
+                                Yes! Pyro offers multiple free backups for all servers. You can create a backup of your
+                                server at any time, and restore it in one click. You can also schedule backups to run
+                                automatically, so you never lose your progress.
+                            </AccordionContent>
+                        </AccordionItem>
+                        {/* offsite backups */}
+                        <AccordionItem className='text-left' value='offsite'>
+                            <AccordionTrigger className='text-left'>
+                                Can I store my Pyro backups elsewhere, like Google Drive?
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                Yes! You can store your backups offsite, like on Google Drive. You can set up automatic
+                                backups to run on a schedule. You can also download your backups at any time, so you
+                                always have a copy of your server.
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem className='text-left' value='item-5'>
+                            <AccordionTrigger className='text-left'>Does Pyro have player limits?</AccordionTrigger>
                             <AccordionContent>
                                 No, we do not have player limits. You can invite as many friends as you want to play on
                                 your server. There are no extra charges for additional players. Ever.
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value='item-6'>
-                            <AccordionTrigger>Can I run a public server with Pyro?</AccordionTrigger>
+                        <AccordionItem className='text-left' value='item-6'>
+                            <AccordionTrigger className='text-left'>Can I run a public server with Pyro?</AccordionTrigger>
                             <AccordionContent>
                                 Yes! You can run a public server with Pyro. You can set up your server to be public or
                                 private, using Minecraft&apos;s whitelist system, or a plugin that manages it for you.
                                 You have full control over your server, so you can customize it to your liking.
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value='item-7'>
-                            <AccordionTrigger>Can I invite others to manage my server?</AccordionTrigger>
+                        <AccordionItem className='text-left' value='item-7'>
+                            <AccordionTrigger className='text-left'>Can I invite others to manage my server?</AccordionTrigger>
                             <AccordionContent>
                                 Yes! You can invite others to manage your server. You can create multiple accounts with
                                 different permissions, so you can give others access to your server without giving them
