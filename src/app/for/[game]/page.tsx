@@ -52,6 +52,16 @@ export async function generateMetadata({ params }: { params: { game: string } })
 
     return {
         title: `Pyro - ${game.name} Hosting`,
+        description: `Host your own ${game.name} server with ease on Pyro, whether you're playing with friends or running a public server.`,
+        openGraph: {
+            title: `Pyro - ${game.name} Hosting`,
+            description: `Host your own ${game.name} server with ease on Pyro, whether you're playing with friends or running a public server.`,
+            images: [
+                {
+                    url: './ogimage_refresh.png',
+                },
+            ],
+        },
     };
 }
 

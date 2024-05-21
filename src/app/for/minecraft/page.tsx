@@ -12,7 +12,17 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 import { getGameBySlug, plans } from '@/lib/static';
 
 export const metadata: Metadata = {
-    title: 'Pyro - Minecraft Hosting',
+    title: `Pyro - Minecraft Hosting`,
+    description: `Host your own Minecraft server with ease on Pyro, whether you're playing with friends or running a public server.`,
+    openGraph: {
+        title: `Pyro - Minecraft Hosting`,
+        description: `Host your own Minecraft server with ease on Pyro, whether you're playing with friends or running a public server.`,
+        images: [
+            {
+                url: './ogimage_refresh.png',
+            },
+        ],
+    },
 };
 
 const Checkmark = ({ brand }: { brand?: boolean }) => (
