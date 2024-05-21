@@ -2,18 +2,9 @@ import { Metadata } from 'next';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
-import {
-    CloudIcon,
-    DatabaseIcon,
-    HardDriveIcon,
-    CpuIcon,
-    BlockchainIcon,
-    UserHeart,
-} from '@/components/icons/HugeIcons';
 import Image from 'next/image';
 import { PyroButton } from '@/components/ui/PyroButton';
 import { getGameBySlug, plans } from '@/lib/static';
-import { PyroLink } from '@/components/ui/PyroLink';
 
 export const metadata: Metadata = {
     title: 'Pyro - Minecraft Hosting',
@@ -39,9 +30,6 @@ const Page = () => {
 
             <section className='container relative flex flex-col items-center py-32'>
                 <div className='flex flex-col items-center gap-8 text-center'>
-                    {/* <p>
-                        NOTICE: This page is a work-in-progress. You caught us in the middle of making banger ass marketing material. Our work is open source, so keep track of progress here: <PyroLink external href='https://github.com/pyrohost/web'>https://github.com/pyrohost/web</PyroLink>
-                    </p> */}
                     <h1 className='text-[max(48px,min(5vw,72px))] font-extrabold leading-[1.09] tracking-tighter'>
                         Minecraft Hosting
                     </h1>
