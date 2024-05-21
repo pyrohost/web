@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { PyroButton } from '@/components/ui/PyroButton';
+import { PyroLink } from '@/components/ui/PyroLink';
 import PyroPill from '@/components/ui/PyroPill';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
@@ -174,10 +175,10 @@ const Page = () => {
                         ))}
                     </ul>
                     <p className='mx-auto mt-12 max-w-3xl text-center text-xl font-medium leading-[190%] text-[#ffffff99]'>
-                        Not sure which plan is right for you?{' '}
-                        <Link className='text-brand underline' href={`/for/${game.slug}/#recommended`}>
-                            Explore detailed plan features
-                        </Link>
+                        Need more power?{' '}
+                        <PyroLink external className='text-brand underline' href={`https://pay.pyro.host`}>
+                            Explore more plans
+                        </PyroLink>
                     </p>
                 </div>
             </section>
