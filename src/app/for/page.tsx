@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { GameSearch } from '@/components/GameSearchBar';
+import { GameSearch } from '@/components/GameSearch';
 import { PyroLink } from '@/components/ui/PyroLink';
 import Image from 'next/image';
 
