@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { PyroButton } from '@/components/ui/PyroButton';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -39,10 +38,11 @@ const Page = () => {
                         friends or running a public server, we&apos;ve got a plan for you.
                     </p>
 
-                    <div className='flex flex-row gap-2'>
-                        <PyroButton useArrow color='brand' href={`/for/${game.slug}/#recommended`}>
-                            View Plans
-                        </PyroButton>
+                    <div className='relative mx-auto mt-20 xl:mt-12 lg:w-full lg:max-w-[700px] md:mt-8'>
+                        <h2 className='sr-only'>Pyro pricing plans</h2>
+                        <ul className='grid-gap relative z-10 grid grid-cols-4 gap-x-6 xl:grid-cols-2 lg:gap-y-4 md:grid-cols-1 md:gap-y-6'>
+                            
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -136,14 +136,18 @@ const Page = () => {
 
                     <Accordion className='mx-auto w-full max-w-3xl text-left' type='multiple'>
                         <AccordionItem className='text-left' value='item-1'>
-                            <AccordionTrigger className='text-left'>Can I add plugins and mods to my Minecraft server?</AccordionTrigger>
+                            <AccordionTrigger className='text-left'>
+                                Can I add plugins and mods to my Minecraft server?
+                            </AccordionTrigger>
                             <AccordionContent>
                                 Yes! You can add plugins and mods to your Minecraft server. You have full control over
                                 your server, so you can upload your own mods and plugins, and install them with ease.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem className='text-left' value='item-2'>
-                            <AccordionTrigger className='text-left'>Can I upgrade my Pyro server later?</AccordionTrigger>
+                            <AccordionTrigger className='text-left'>
+                                Can I upgrade my Pyro server later?
+                            </AccordionTrigger>
                             <AccordionContent>
                                 Yes! You can upgrade your server at any time. You can easily upgrade your server by
                                 selecting a new plan and paying the difference. Your server will be upgraded instantly.
@@ -197,7 +201,9 @@ const Page = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem className='text-left' value='item-6'>
-                            <AccordionTrigger className='text-left'>Can I run a public server with Pyro?</AccordionTrigger>
+                            <AccordionTrigger className='text-left'>
+                                Can I run a public server with Pyro?
+                            </AccordionTrigger>
                             <AccordionContent>
                                 Yes! You can run a public server with Pyro. You can set up your server to be public or
                                 private, using Minecraft&apos;s whitelist system, or a plugin that manages it for you.
@@ -205,7 +211,9 @@ const Page = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem className='text-left' value='item-7'>
-                            <AccordionTrigger className='text-left'>Can I invite others to manage my server?</AccordionTrigger>
+                            <AccordionTrigger className='text-left'>
+                                Can I invite others to manage my server?
+                            </AccordionTrigger>
                             <AccordionContent>
                                 Yes! You can invite others to manage your server. You can create multiple accounts with
                                 different permissions, so you can give others access to your server without giving them
