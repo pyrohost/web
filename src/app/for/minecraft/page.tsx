@@ -2,9 +2,12 @@ import clsx from 'clsx';
 
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { PyroButton } from '@/components/ui/PyroButton';
+import PyroPill from '@/components/ui/PyroPill';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 
 import { getGameBySlug, plans } from '@/lib/static';
 
@@ -12,7 +15,39 @@ export const metadata: Metadata = {
     title: 'Pyro - Minecraft Hosting',
 };
 
+const Checkmark = ({ brand }: { brand?: boolean }) => (
+    <svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='18'
+        height='18'
+        fill='none'
+        viewBox='0 0 18 18'
+        className='absolute left-0 top-[2px] h-4 w-4'
+        aria-hidden='true'
+    >
+        <path
+            fill={brand ? '#FF4438' : 'currentColor'}
+            fillRule='evenodd'
+            d='M9 18A9 9 0 1 0 9 0a9 9 0 0 0 0 18m3.626-11.687a.7.7 0 0 0-1.252-.626l-3.066 6.131-1.813-1.813a.7.7 0 0 0-.99.99l2.5 2.5a.7.7 0 0 0 1.121-.182z'
+            clipRule='evenodd'
+        ></path>
+    </svg>
+);
+
 const getPlanDescription = (slug: string) => {
+    switch (slug) {
+        case 'solo':
+            return 'Perfect for you and a few friends to play together.';
+        case 'friends':
+            return 'Great for small communities running an SMP or modpacks.';
+        case 'community':
+            return 'Ideal for larger communities and groups .';
+        case 'network':
+            return 'For extraordinarily large networks and communities.';
+    }
+};
+
+const getPlanFeatures = (slug: string) => {
     switch (slug) {
         case 'solo':
             return 'Perfect for you and a few friends to play together.';
@@ -43,7 +78,7 @@ const Page = () => {
                 loading='lazy'
             ></img>
 
-            <section className='container relative flex flex-col items-center py-32'>
+            <section className='container relative flex flex-col items-center py-32 pt-24'>
                 <div className='flex flex-col items-center gap-8 text-center'>
                     <h1 className='text-[max(48px,min(5vw,72px))] font-extrabold leading-[1.09] tracking-tighter'>
                         Minecraft Hosting
@@ -94,17 +129,60 @@ const Page = () => {
                                     >
                                         Get started
                                     </a>
-                                    <p className='mt-9 font-light leading-snug text-gray-new-50 2xl:min-h-[66px] xl:mt-8 xl:min-h-[44px] lg:min-h-max'>
+                                    <p className='mt-9 font-light leading-snug xl:mt-8 lg:min-h-max'>
                                         {getPlanDescription(plan.slug)}
                                     </p>
+                                </div>
+                                <div className='mt-auto flex grow flex-col'>
+                                    <ul className='flex flex-col flex-wrap gap-y-4'>
+                                        <li className='relative pl-6 leading-tight tracking-tight'>
+                                            <Checkmark brand={plan.slug === 'friends'} />
+                                            <span>{plan.cpu} CPU cores</span>
+                                        </li>
+
+                                        <li className='relative pl-6 leading-tight tracking-tight'>
+                                            <Checkmark brand={plan.slug === 'friends'} />
+                                            <span>
+                                                {plan.ram} GB of RAM with {plan.overflow} GB overflow
+                                            </span>
+                                        </li>
+                                        <li className='relative pl-6 leading-tight tracking-tight'>
+                                            <Checkmark brand={plan.slug === 'friends'} />
+                                            <span>Unlimited players</span>
+                                        </li>
+
+                                        <li className='relative pl-6 leading-tight tracking-tight'>
+                                            <Checkmark brand={plan.slug === 'friends'} />
+                                            <span>Unlimited storage</span>
+                                        </li>
+
+                                        <li className='relative pl-6 leading-tight tracking-tight'>
+                                            <Checkmark brand={plan.slug === 'friends'} />
+                                            <span>15 free backups included</span>
+                                        </li>
+
+                                        <li className='relative pl-6 leading-tight tracking-tight'>
+                                            <Checkmark brand={plan.slug === 'friends'} />
+                                            <span>Support over Discord</span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </li>
                         ))}
                     </ul>
+                    <p className='text-center mx-auto mt-12 max-w-3xl text-xl leading-[190%] font-medium text-[#ffffff99]'>
+                        Not sure which plan is right for you?{' '}
+                        <Link className='text-brand underline' href={`/for/${game.slug}/#recommended`}>
+                            Explore detailed plan features
+                        </Link>
+                    </p>
                 </div>
             </section>
 
-            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-[#000000] to-[#121212]'>
+            <section
+                id='recommended'
+                className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-[#000000] to-[#121212]'
+            >
                 <div className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'>
                     <div className='relative z-[14] flex flex-col items-start justify-start'>
                         <h1 className='mx-auto mb-6 text-[max(48px,min(5vw,64px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
@@ -182,6 +260,94 @@ const Page = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section className='relative z-10 w-full overflow-clip'>
+                <div className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'>
+                    <div className='relative z-[14] flex max-w-[600px] flex-col items-start justify-start'>
+                        <PyroPill
+                            leftChild={
+                                <Image
+                                    src='/img/pyrodactylorange.png'
+                                    width={24}
+                                    height={24}
+                                    alt=''
+                                    className='h-6 w-6'
+                                />
+                            }
+                        >
+                            Better Software
+                        </PyroPill>
+                        <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,84px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
+                            <div className='flex flex-row items-center gap-4'>Manage it all with Pyro&apos;s app</div>
+                        </h1>
+                        <p className='mb-6 text-xl font-medium leading-[190%] text-[#ffffff99]'>
+                            With Pyro, you don’t hop through loops to get from paying to playing, it just works better.
+                            It’s like a super-app for your server.
+                        </p>
+                    </div>
+                    <div className='relative flex w-full flex-col gap-5 xl:flex-row'>
+                        <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5'>
+                            <div className='relative grid aspect-video w-full place-items-center overflow-hidden'>
+                                <Image src='/img/panel/home.png' fill alt='' className='object-cover' />
+                            </div>
+                        </div>
+                        <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:w-[45%] xl:gap-5'>
+                            <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-2xl border-2 border-white/10 bg-[#ffffff08] p-4 text-white sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
+                                <ul className='relative flex flex-col gap-4 lg:gap-8'>
+                                    <li className='leading-[190%]'>
+                                        <span className='font-bold'>Easy. </span>
+                                        <span>
+                                            Whether you’re a complete beginner or a seasoned pro, Pyro makes it easy to
+                                            manage your server.
+                                        </span>
+                                    </li>
+                                    <li className='leading-[190%]'>
+                                        <span className='font-bold'>Fast. </span>
+                                        <span>
+                                            Uncompromising speed. Optimal performance. Pyro software is entirely
+                                            bullet-proof.
+                                        </span>
+                                    </li>
+                                    <li className='leading-[190%]'>
+                                        <span className='font-bold'>Powerful. </span>
+                                        <span>With an in-browser IDE, file searching, CMD+K, and so much more.</span>
+                                    </li>
+                                    <li className='leading-[190%]'>
+                                        <span className='font-bold'>Delightful. </span>
+                                        <span>You’ve never used anything like Pyro before.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <Carousel
+                        className='dark w-full'
+                        opts={{
+                            align: 'start',
+                            loop: true,
+                        }}
+                    >
+                        <CarouselContent>
+                            <CarouselItem>
+                                <div className='relative aspect-video h-full w-full overflow-hidden rounded-2xl bg-[#d6b4ba0f]'>
+                                    <Image className='select-none' fill alt='' src='/img/panel/files.png' />
+                                </div>
+                            </CarouselItem>
+                            <CarouselItem>
+                                <div className='relative aspect-video h-full w-full overflow-hidden rounded-2xl'>
+                                    <Image className='select-none' fill alt='' src='/img/panel/editor.png' />
+                                </div>
+                            </CarouselItem>
+                            <CarouselItem>
+                                <div className='relative aspect-video h-full w-full overflow-hidden rounded-2xl'>
+                                    <Image className='select-none' fill alt='' src='/img/panel/home.png' />
+                                </div>
+                            </CarouselItem>
+                        </CarouselContent>
+                        <p className='mt-4 text-center text-xs font-bold opacity-50'>Drag or swipe to see more</p>
+                    </Carousel>
                 </div>
             </section>
 
