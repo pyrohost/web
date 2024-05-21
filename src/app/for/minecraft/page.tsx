@@ -112,7 +112,11 @@ const Page = () => {
                                     src='/img/unlimitedmods_fixfix.png'
                                     fill
                                     alt=''
+                                    quality={100}
                                     className='pointer-events-none select-none object-cover'
+                                    style={{
+                                        maskImage: 'radial-gradient(85% 100% at 50% 120%, transparent 55.5%, white)',
+                                    }}
                                 />
                                 <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
                                     Pyro works with all your favorite mods and plugins. No restrictions.
