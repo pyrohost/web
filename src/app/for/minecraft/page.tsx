@@ -513,11 +513,22 @@ const Page = () => {
                         }
                     ></div>
                 </div>
-                <h1 className='max-w-4xl py-4 pb-3 pt-5 text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter lg:pb-5'>
+                <div className='img-opacity-animation pointer-events-none absolute inset-0 select-none'>
+                    <div className='pointer-events-none relative inset-0 h-screen min-h-screen w-screen select-none'>
+                        <Image
+                            alt=''
+                            aria-hidden
+                            src='/img/herobackground.svg'
+                            fill
+                            className='pointer-events-none select-none object-cover opacity-25'
+                        />
+                    </div>
+                </div>
+                <h1 className='relative max-w-4xl py-4 pb-3 pt-5 text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter lg:pb-5'>
                     Still have questions?
                 </h1>
-                <p className='text-xl leading-[195%] text-[#ffffff99]'>
-                    Need to learn more about Pyro&apos;s plans and pricing? Contact us and get in touch with our team.
+                <p className='relative text-xl leading-[195%] text-[#ffffff99]'>
+                    Contact us and get in touch with our team.
                 </p>
                 <PyroButton
                     leftChild={
