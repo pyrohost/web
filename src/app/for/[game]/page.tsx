@@ -11,6 +11,7 @@ const Page = ({ params }: { params: { game: string } }) => {
     return (
         <div>
             <h1>{game.name}</h1>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={game.images.banner} alt={game.name} />
         </div>
     );
