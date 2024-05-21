@@ -81,20 +81,20 @@ const Page = ({ params }: { params: { game: string } }) => {
                     <h1 className='text-[max(48px,min(5vw,72px))] font-extrabold leading-[1.09] tracking-tighter'>
                         {game.name} Hosting
                     </h1>
-                    <p className='max-w-3xl text-xl leading-[190%] font-medium text-[#ffffff99]'>
+                    <p className='max-w-3xl text-xl font-medium leading-[190%] text-[#ffffff99]'>
                         With Pyro, you can host your own {game.name} server with ease. Whether you&apos;re playing with
                         friends or running a public server, we&apos;ve got a plan for you.
                     </p>
                 </div>
-                <div className='relative mx-auto w-full mt-20 xl:mt-12 lg:w-full md:mt-9'>
+                <div className='relative mx-auto mt-20 w-full md:mt-9 lg:w-full xl:mt-12'>
                     <h2 className='sr-only'>Pyro pricing plans</h2>
-                    <ul className='grid-gap relative z-10 grid grid-cols-1 gap-x-6 gap-y-4 lg:gap-y-4 lg:grid-cols-2 md:gap-y-6 xl:grid-cols-4'>
+                    <ul className='grid-gap relative z-10 grid grid-cols-1 gap-x-6 gap-y-4 md:gap-y-6 lg:grid-cols-2 lg:gap-y-4 xl:grid-cols-4'>
                         {plans.map((plan) => (
                             <li
                                 className={clsx(
-                                    'group relative flex min-h-full flex-col rounded-xl px-8 pb-10 pt-5 xl:px-6 xl:py-5 sm:p-5 bg-[#ffffff15]',
+                                    'group relative flex min-h-full flex-col rounded-xl bg-[#ffffff15] px-8 pb-10 pt-5 sm:p-5 xl:px-6 xl:py-5',
                                     {
-                                        'border-brand border-[1px]': plan.slug === 'friends',
+                                        'border-[1px] border-brand': plan.slug === 'friends',
                                         'border border-transparent': plan.slug !== 'friends',
                                     },
                                 )}
@@ -109,21 +109,21 @@ const Page = ({ params }: { params: { game: string } }) => {
                                         {plan.name}
 
                                         {plan.slug === 'friends' && (
-                                            <span className='ml-2 text-xs font-bold text-white bg-brand rounded-full px-2 py-1'>
+                                            <span className='ml-2 rounded-full bg-brand px-2 py-1 text-xs font-bold text-white'>
                                                 Recommended
                                             </span>
                                         )}
                                     </h3>
 
-                                    <p className='font-bold relative mt-14 text-[36px] leading-none tracking-tighter xl:mt-9 xl:text-[32px] md:mt-4'>
+                                    <p className='relative mt-14 text-[36px] font-bold leading-none tracking-tighter md:mt-4 xl:mt-9 xl:text-[32px]'>
                                         ${plan.price}{' '}
-                                        <span className='font-normal text-[20px] tracking-normal text-[#ffffff99]'>
+                                        <span className='text-[20px] font-normal tracking-normal text-[#ffffff99]'>
                                             /month
                                         </span>
                                     </p>
                                     <a
                                         className={clsx(
-                                            'inline-flex justify-center items-center outline-none rounded-full whitespace-nowrap text-center transition-colors font-bold shadow-md duration-200 px-12 py-4 mt-9',
+                                            'mt-9 inline-flex items-center justify-center whitespace-nowrap rounded-full px-12 py-4 text-center font-bold shadow-md outline-none transition-colors duration-200',
                                             {
                                                 'bg-brand hover:bg-brand/70': plan.slug === 'friends',
                                                 'bg-[#ffffff22] hover:bg-[#ffffff33]': plan.slug !== 'friends',
@@ -133,7 +133,7 @@ const Page = ({ params }: { params: { game: string } }) => {
                                     >
                                         Get started
                                     </a>
-                                    <p className='mt-9 font-light leading-snug xl:mt-8 lg:min-h-max'>
+                                    <p className='mt-9 font-light leading-snug lg:min-h-max xl:mt-8'>
                                         {getPlanDescription(plan.slug)}
                                     </p>
                                 </div>
@@ -174,7 +174,7 @@ const Page = ({ params }: { params: { game: string } }) => {
                             </li>
                         ))}
                     </ul>
-                    <p className='text-center mx-auto mt-12 max-w-3xl text-xl leading-[190%] font-medium text-[#ffffff99]'>
+                    <p className='mx-auto mt-12 max-w-3xl text-center text-xl font-medium leading-[190%] text-[#ffffff99]'>
                         Not sure which plan is right for you?{' '}
                         <Link className='text-brand underline' href={`/for/${game.slug}/#recommended`}>
                             Explore detailed plan features
@@ -193,12 +193,12 @@ const Page = ({ params }: { params: { game: string } }) => {
                             <div className='flex flex-row items-center gap-4'>Why Pyro is right for you</div>
                         </h1>
 
-                        <h2 className='max-w-4xl text-center mx-auto mb-12 text-xl font-medium leading-[190%] text-[#ffffff99]'>
+                        <h2 className='mx-auto mb-12 max-w-4xl text-center text-xl font-medium leading-[190%] text-[#ffffff99]'>
                             All Pyro plans are fully-featured and come with everything you need to run a successful{' '}
                             {game.name} server. You get the same great features no matter which plan you choose.
                         </h2>
 
-                        <div className='flex w-full flex-col items-center gap-8 md:flex-row mb-8'>
+                        <div className='mb-8 flex w-full flex-col items-center gap-8 md:flex-row'>
                             <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
                                 <Image
                                     aria-hidden
@@ -228,7 +228,7 @@ const Page = ({ params }: { params: { game: string } }) => {
                             </div>
                         </div>
 
-                        <div className='flex w-full flex-col items-center gap-8 md:flex-row mb-8'>
+                        <div className='mb-8 flex w-full flex-col items-center gap-8 md:flex-row'>
                             <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
                                 <Image
                                     aria-hidden
@@ -504,7 +504,7 @@ const Page = ({ params }: { params: { game: string } }) => {
                 <p className='relative text-xl leading-[195%] text-[#ffffff99]'>
                     Contact us and get in touch with our team if you have any questions, or desire a custom plan.
                 </p>
-                <div className='flex flex-col sm:flex-row gap-4 items-center'>
+                <div className='flex flex-col items-center gap-4 sm:flex-row'>
                     <PyroButton
                         leftChild={
                             <svg viewBox='0 0 16 16' className='h-4 w-4'>
