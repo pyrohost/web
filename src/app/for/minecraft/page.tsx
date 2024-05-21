@@ -49,21 +49,27 @@ const Page = () => {
             <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-[#000000] to-[#121212]'>
                 <div className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'>
                     <div className='relative z-[14] flex flex-col items-start justify-start'>
-                        <h1 className='mx-auto mb-16 text-[max(48px,min(5vw,64px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
+                        <h1 className='mx-auto mb-6 text-[max(48px,min(5vw,64px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
                             <div className='flex flex-row items-center gap-4'>Why Pyro is right for you</div>
                         </h1>
 
-                        <div className='flex w-full flex-col items-center gap-8 md:flex-row'>
+                        <h2 className='mx-auto mb-6 text-xl font-medium leading-[190%] text-[#ffffff99]'>
+                            All Pyro plans are fully-featured and come with everything you need to run a successful
+                            Minecraft server. Here&apos;s what you get with every plan.
+                        </h2>
+
+                        <div className='flex w-full flex-col items-center gap-8 md:flex-row mb-8'>
                             <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
                                 <Image
                                     aria-hidden
                                     src='/img/unlimitedplayers_final.png'
                                     fill
                                     alt=''
+                                    quality={100}
                                     className='pointer-events-none select-none object-cover'
                                 />
                                 <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
-                                    No player limits. Invite as many friends as you want, zero extra charges.
+                                    No player limits. Invite as many friends as you want with zero extra charges.
                                 </div>
                             </div>
 
@@ -77,7 +83,39 @@ const Page = () => {
                                     className='pointer-events-none select-none object-cover'
                                 />
                                 <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
-                                    Only pay for the RAM you need. Upgrade or downgrade at any time.
+                                    Only pay for the RAM you need. Everything else is on Pyro, for free.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='flex w-full flex-col items-center gap-8 md:flex-row'>
+                            <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
+                                <Image
+                                    aria-hidden
+                                    src='/img/unlimitedstorage.png'
+                                    fill
+                                    alt=''
+                                    className='pointer-events-none select-none object-cover'
+                                    quality={100}
+                                    style={{
+                                        maskImage: 'radial-gradient(85% 100% at 50% 120%, transparent 55.5%, white)',
+                                    }}
+                                />
+                                <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
+                                    Unlimited storage. Upload whatever you want to your server.
+                                </div>
+                            </div>
+
+                            <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
+                                <Image
+                                    aria-hidden
+                                    src='/img/unlimitedmods_fixfix.png'
+                                    fill
+                                    alt=''
+                                    className='pointer-events-none select-none object-cover'
+                                />
+                                <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
+                                    Pyro works with all your favorite mods and plugins. No restrictions.
                                 </div>
                             </div>
                         </div>
