@@ -5,7 +5,10 @@ import { PyroButton } from '../ui/PyroButton';
 const WhereYourWorldPlays = () => {
     return (
         <>
-            <div className='pointer-events-none absolute -top-40 z-20 flex min-h-screen w-full select-none items-center justify-center'>
+            <div
+                aria-hidden
+                className='pointer-events-none absolute -top-40 z-20 flex min-h-screen w-full select-none items-center justify-center'
+            >
                 <div className='pointer-events-none absolute inset-0 -z-20 flex h-full w-full select-none justify-between opacity-10 blur-sm contrast-200'>
                     <div className='relative h-full w-[29%]'>
                         <Image
@@ -218,10 +221,10 @@ const WhereYourWorldPlays = () => {
                             Where your world plays
                         </span>
                     </h1>
-                    <p className='mb-8 max-w-[750px] text-xl leading-[195%] text-[#ffffff99]'>
+                    <h2 className='mb-8 max-w-[750px] text-xl leading-[195%] text-[#ffffff99]'>
                         Pyro is a game hosting platform that makes it easier to play your favorite games with friends.
                         Incredible reliability, a beautiful game panel, and more.
-                    </p>
+                    </h2>
                     <PyroButton useArrow href='/for/'>
                         Start your game server
                     </PyroButton>
