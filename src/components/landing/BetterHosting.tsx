@@ -5,7 +5,7 @@ import PyroPill from '../ui/PyroPill';
 
 const BetterHosting = () => {
     return (
-        <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#000] to-black '>
+        <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#000] to-black'>
             <Image
                 src='/img/minecrafthero.jpg'
                 alt=''

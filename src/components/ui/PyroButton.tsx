@@ -42,7 +42,7 @@ const button = cva(
         },
         defaultVariants: {
             color: 'brand',
-            type: 'primary',
+            type: 'ghost',
             size: 'medium',
         },
     },

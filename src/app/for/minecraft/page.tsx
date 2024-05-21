@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { PyroButton } from '@/components/ui/PyroButton';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -127,7 +128,7 @@ const Page = () => {
                 </div>
             </section>
 
-            <section className='relative z-10 flex flex-col items-center gap-8 px-4 py-32 text-center xl:px-24'>
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#121212] to-black'>
                 <div className='container relative grid gap-4 pb-20 pt-24 lg:gap-12 lg:py-40'>
                     <h1 className='mx-auto mb-4 text-[max(48px,min(5vw,64px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
                         <div className=''>Frequently Asked Questions</div>
@@ -193,6 +194,73 @@ const Page = () => {
                         </AccordionItem>
                     </Accordion>
                 </div>
+            </section>
+
+            <section className='relative z-10 flex flex-col items-center gap-8 overflow-hidden rounded-b-3xl px-4 py-48 text-center  xl:px-24'>
+                <div className='relative top-12' aria-hidden>
+                    <div
+                        className='pointer-events-none absolute left-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': '#FF4438',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute left-0 top-[-80px] z-[0] hidden h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%] xl:block'
+                        style={
+                            {
+                                '--circle-background': '#FF4438',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute right-0 top-[400px] z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': '#FF4438',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute left-[220px] top-[400px] z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': '#FF4438',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute right-[200px] top-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': '#FF4438',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                </div>
+                <h1 className='max-w-4xl py-4 pb-3 pt-5 text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter lg:pb-5'>
+                    Still have questions?
+                </h1>
+                <p className='text-xl leading-[195%] text-[#ffffff99]'>
+                    Need to learn more about Pyro&apos;s plans and pricing? Contact us and get in touch with our team.
+                </p>
+                <PyroButton
+                    leftChild={
+                        <svg viewBox='0 0 16 16' className='h-4 w-4'>
+                            <path
+                                fill='currentColor'
+                                d='M13.538 2.997A13.092 13.092 0 0 0 10.285 2a.07.07 0 0 0-.054.023c-.137.247-.297.57-.404.817a12.456 12.456 0 0 0-3.657 0 7.468 7.468 0 0 0-.411-.817C5.75 2.008 5.729 2 5.705 2a13.192 13.192 0 0 0-3.253.997c-.008 0-.015.008-.023.015C.357 6.064-.215 9.033.067 11.972c0 .015.008.03.023.038 1.371.99 2.69 1.59 3.993 1.987.022.007.045 0 .053-.015.305-.412.579-.847.815-1.305.015-.03 0-.06-.03-.067a9.446 9.446 0 0 1-1.25-.585c-.03-.015-.03-.06-.008-.083.084-.06.168-.127.252-.187a.048.048 0 0 1 .053-.008c2.621 1.178 5.448 1.178 8.039 0a.048.048 0 0 1 .053.008c.084.067.167.127.251.195.03.022.03.067-.007.082-.396.233-.816.42-1.25.585-.03.008-.038.045-.03.068.244.457.518.892.815 1.304.023.008.046.015.069.008a13.266 13.266 0 0 0 4-1.987.041.041 0 0 0 .023-.038c.335-3.396-.557-6.343-2.362-8.96-.008-.007-.016-.015-.031-.015Zm-8.19 7.183c-.785 0-1.44-.712-1.44-1.59 0-.876.64-1.589 1.44-1.589.807 0 1.447.72 1.44 1.59 0 .877-.64 1.59-1.44 1.59Zm5.31 0c-.785 0-1.44-.712-1.44-1.59 0-.876.64-1.589 1.44-1.589.808 0 1.448.72 1.44 1.59 0 .877-.632 1.59-1.44 1.59Z'
+                            ></path>
+                        </svg>
+                    }
+                    color={'brand'}
+                    type={'ghost'}
+                    external
+                    href='https://pyro.host/discord'
+                >
+                    Contact Us
+                </PyroButton>
             </section>
         </>
     );
