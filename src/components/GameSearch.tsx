@@ -103,6 +103,7 @@ export const GameSearch = () => {
                 {Array.from({ length: totalPages }, (_, i) => (
                     <button
                         key={i}
+                        aria-label={`Go to page ${i + 1}`}
                         className={`rounded-lg px-4 py-2 font-extrabold focus:outline-none focus:ring-2 focus:ring-brand focus:ring-opacity-50 ${
                             currentPage === i + 1 ? 'bg-brand text-white' : 'bg-[#ffffff14] text-white'
                         }`}
