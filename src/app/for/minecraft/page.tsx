@@ -230,7 +230,7 @@ const Page = () => {
                             </div>
                         </div>
 
-                        <div className='flex w-full flex-col items-center gap-8 md:flex-row'>
+                        <div className='flex w-full flex-col items-center gap-8 md:flex-row mb-8'>
                             <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
                                 <Image
                                     aria-hidden
@@ -262,6 +262,23 @@ const Page = () => {
                                 />
                                 <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
                                     Works with all your favorite mods and plugins. No restrictions.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='flex w-full flex-col items-center'>
+                            <div className='relative flex w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8'>
+                                <div className='relative mb-2 text-3xl font-bold tracking-tight'>
+                                    A minimum of 2 CPU cores on every plan. Always.
+                                </div>
+                                <div
+                                    className='relative max-w-[47rem] mb-2 text-xl'
+                                    style={{
+                                        textWrap: 'balance',
+                                    }}
+                                >
+                                    Why? Although Minecraft is single-threaded, your mods and plugins will take
+                                    advantage of multiple cores. Your Pyro server will simply run smoother and faster.
                                 </div>
                             </div>
                         </div>
