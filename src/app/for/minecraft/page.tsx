@@ -470,7 +470,7 @@ const Page = () => {
                 </div>
             </section>
 
-            <section className='relative z-10 flex flex-col items-center gap-8 overflow-hidden rounded-b-3xl px-4 py-48 text-center  xl:px-24'>
+            <section className='relative z-10 flex flex-col items-center gap-8 overflow-hidden rounded-b-3xl px-4 py-48 text-center xl:px-24'>
                 <div className='relative top-12' aria-hidden>
                     <div
                         className='pointer-events-none absolute left-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
@@ -528,7 +528,7 @@ const Page = () => {
                     Still have questions?
                 </h1>
                 <p className='relative text-xl leading-[195%] text-[#ffffff99]'>
-                    Contact us and get in touch with our team.
+                    Contact us and get in touch with our team if you have any questions, or desire a custom plan.
                 </p>
                 <PyroButton
                     leftChild={
