@@ -159,7 +159,6 @@ export let plans = [
     {
         name: 'Solo',
         slug: 'solo',
-        description: 'Perfect for you and a few friends playing Vanilla.',
         price: 6,
         cpu: 2,
         ram: 3,
@@ -168,7 +167,6 @@ export let plans = [
     {
         name: 'Friends',
         slug: 'friends',
-        description: 'Great for a small community and mods, like an SMP.',
         price: 12,
         cpu: 3,
         ram: 6,
@@ -177,7 +175,6 @@ export let plans = [
     {
         name: 'Community',
         slug: 'community',
-        description: 'For a large community and many mods.',
         price: 18,
         cpu: 4.5,
         ram: 9,
@@ -186,7 +183,6 @@ export let plans = [
     {
         name: 'Network',
         slug: 'network',
-        description: 'For servers with an extraordinary amount of players.',
         price: 24,
         cpu: 6,
         ram: 12,
