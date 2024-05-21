@@ -7,6 +7,8 @@ import { notFound } from 'next/navigation';
 
 import { PyroButton } from '@/components/ui/PyroButton';
 import PyroPill from '@/components/ui/PyroPill';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 
 import { getGameBySlug, plans } from '@/lib/static';
 
@@ -179,6 +181,345 @@ const Page = ({ params }: { params: { game: string } }) => {
                         </Link>
                     </p>
                 </div>
+            </section>
+
+            <section
+                id='recommended'
+                className='relative z-10 w-full overflow-clip rounded-3xl rounded-t-none bg-gradient-to-b from-[#000000] to-[#121212]'
+            >
+                <div className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'>
+                    <div className='relative z-[14] flex flex-col items-start justify-start'>
+                        <h1 className='mx-auto mb-6 text-[max(48px,min(5vw,64px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
+                            <div className='flex flex-row items-center gap-4'>Why Pyro is right for you</div>
+                        </h1>
+
+                        <h2 className='max-w-4xl text-center mx-auto mb-12 text-xl font-medium leading-[190%] text-[#ffffff99]'>
+                            All Pyro plans are fully-featured and come with everything you need to run a successful{' '}
+                            {game.name} server. You get the same great features no matter which plan you choose.
+                        </h2>
+
+                        <div className='flex w-full flex-col items-center gap-8 md:flex-row mb-8'>
+                            <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
+                                <Image
+                                    aria-hidden
+                                    src='/img/unlimitedplayers_final.png'
+                                    fill
+                                    alt=''
+                                    quality={100}
+                                    className='pointer-events-none select-none object-cover'
+                                />
+                                <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
+                                    No player limits. Invite as many friends as you want with zero extra charges.
+                                </div>
+                            </div>
+
+                            <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
+                                <Image
+                                    aria-hidden
+                                    src='/img/unlimitedspecs.png'
+                                    quality={100}
+                                    fill
+                                    alt=''
+                                    className='pointer-events-none select-none object-cover'
+                                />
+                                <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
+                                    Only pay for the RAM you need. Everything else is included on Pyro, for free.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='flex w-full flex-col items-center gap-8 md:flex-row mb-8'>
+                            <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
+                                <Image
+                                    aria-hidden
+                                    src='/img/unlimitedstorage.png'
+                                    fill
+                                    alt=''
+                                    className='pointer-events-none select-none object-cover'
+                                    quality={100}
+                                    style={{
+                                        maskImage: 'radial-gradient(85% 100% at 50% 120%, transparent 55.5%, white)',
+                                    }}
+                                />
+                                <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
+                                    Unlimited storage. Upload as many worlds, mods, and plugins as you want.
+                                </div>
+                            </div>
+
+                            <div className='relative flex min-h-[450px] w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8 text-center'>
+                                <Image
+                                    aria-hidden
+                                    src='/img/unlimitedmods_fixfix.png'
+                                    fill
+                                    alt=''
+                                    quality={100}
+                                    className='pointer-events-none select-none object-cover'
+                                    style={{
+                                        maskImage: 'radial-gradient(85% 100% at 50% 120%, transparent 55.5%, white)',
+                                    }}
+                                />
+                                <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
+                                    Works with all your favorite mods and plugins. No restrictions.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='flex w-full flex-col items-center'>
+                            <div className='relative flex w-full flex-col gap-4 overflow-hidden rounded-3xl bg-[#232323] p-8'>
+                                <div className='relative mb-2 text-3xl font-bold tracking-tight'>
+                                    A minimum of 2 CPU cores on every plan. Always.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className='relative z-10 w-full overflow-clip'>
+                <div className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'>
+                    <div className='relative z-[14] flex max-w-[600px] flex-col items-start justify-start'>
+                        <PyroPill
+                            leftChild={
+                                <Image
+                                    src='/img/pyrodactylorange.png'
+                                    width={24}
+                                    height={24}
+                                    alt=''
+                                    className='h-6 w-6'
+                                />
+                            }
+                        >
+                            Better Software
+                        </PyroPill>
+                        <h1 className='mb-6 max-w-4xl text-[max(48px,min(5vw,84px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
+                            <div className='flex flex-row items-center gap-4'>Manage it all with Pyro&apos;s app</div>
+                        </h1>
+                        <p className='mb-6 text-xl font-medium leading-[190%] text-[#ffffff99]'>
+                            With Pyro, you don’t hop through loops to get from paying to playing, it just works better.
+                            It’s like a super-app for your server.
+                        </p>
+                    </div>
+                    <div className='relative flex w-full flex-col gap-5 xl:flex-row'>
+                        <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5'>
+                            <div className='relative grid aspect-video w-full place-items-center overflow-hidden'>
+                                <Image src='/img/panel/home.png' fill alt='' className='object-cover' />
+                            </div>
+                        </div>
+                        <div className='relative z-[14] grid w-full grid-flow-row gap-3 xl:w-[45%] xl:gap-5'>
+                            <div className='xl:px-auto relative grid place-items-center overflow-hidden rounded-2xl border-2 border-white/10 bg-[#ffffff08] p-4 text-white sm:py-6 lg:p-4 2xl:px-6 2xl:py-6'>
+                                <ul className='relative flex flex-col gap-4 lg:gap-8'>
+                                    <li className='leading-[190%]'>
+                                        <span className='font-bold'>Easy. </span>
+                                        <span>
+                                            Whether you’re a complete beginner or a seasoned pro, Pyro makes it easy to
+                                            manage your server.
+                                        </span>
+                                    </li>
+                                    <li className='leading-[190%]'>
+                                        <span className='font-bold'>Fast. </span>
+                                        <span>
+                                            Uncompromising speed. Optimal performance. Pyro software is entirely
+                                            bullet-proof.
+                                        </span>
+                                    </li>
+                                    <li className='leading-[190%]'>
+                                        <span className='font-bold'>Powerful. </span>
+                                        <span>With an in-browser IDE, file searching, CMD+K, and so much more.</span>
+                                    </li>
+                                    <li className='leading-[190%]'>
+                                        <span className='font-bold'>Delightful. </span>
+                                        <span>You’ve never used anything like Pyro before.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <Carousel
+                        className='dark w-full'
+                        opts={{
+                            align: 'start',
+                            loop: true,
+                        }}
+                    >
+                        <CarouselContent>
+                            <CarouselItem>
+                                <div className='relative aspect-video h-full w-full overflow-hidden rounded-2xl bg-[#d6b4ba0f]'>
+                                    <Image className='select-none' fill alt='' src='/img/panel/files.png' />
+                                </div>
+                            </CarouselItem>
+                            <CarouselItem>
+                                <div className='relative aspect-video h-full w-full overflow-hidden rounded-2xl'>
+                                    <Image className='select-none' fill alt='' src='/img/panel/editor.png' />
+                                </div>
+                            </CarouselItem>
+                            <CarouselItem>
+                                <div className='relative aspect-video h-full w-full overflow-hidden rounded-2xl'>
+                                    <Image className='select-none' fill alt='' src='/img/panel/home.png' />
+                                </div>
+                            </CarouselItem>
+                        </CarouselContent>
+                        <p className='mt-4 text-center text-xs font-bold opacity-50'>Drag or swipe to see more</p>
+                    </Carousel>
+                </div>
+            </section>
+
+            <section className='relative z-10 w-full overflow-clip rounded-3xl rounded-b-none bg-gradient-to-b from-[#121212] to-black'>
+                <div className='container relative grid gap-4 pb-20 pt-24 lg:gap-12 lg:py-40'>
+                    <h1 className='mx-auto mb-4 text-[max(48px,min(5vw,64px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
+                        <div className=''>Frequently Asked Questions</div>
+                    </h1>
+
+                    <Accordion className='mx-auto w-full max-w-3xl text-left' type='multiple'>
+                        <AccordionItem className='text-left' value='modsplugins'>
+                            <AccordionTrigger className='text-left'>
+                                Can I add plugins and mods to my {game.name} server?
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                Yes! You can add any plugins or mods you want to your server. If it runs on {game.name},
+                                it runs on Pyro.
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem className='text-left' value='support'>
+                            <AccordionTrigger className='text-left'>
+                                How do I get support for my server?
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                We offer support over Discord. If you have any questions or need help with your server,
+                                just ask. You&apos;ll get a dedicated channel that always stays open for the duration of
+                                your plan.
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem className='text-left' value='backups'>
+                            <AccordionTrigger className='text-left'>Does Pyro offer backups?</AccordionTrigger>
+                            <AccordionContent>
+                                Yes! Pyro offers multiple free backups for all servers. You can create a backup of your
+                                server at any time, and restore it in one click. You can also schedule backups to run
+                                automatically, so you never lose your progress.
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem className='text-left' value='offsite'>
+                            <AccordionTrigger className='text-left'>
+                                Can I store my Pyro backups elsewhere, like Google Drive?
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                Yes! You can store your backups offsite, like on Google Drive. You can set up automatic
+                                backups to run on a schedule. You can also download your backups at any time, so you
+                                always have a copy of your server.
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem className='text-left' value='item-5'>
+                            <AccordionTrigger className='text-left'>Does Pyro have player limits?</AccordionTrigger>
+                            <AccordionContent>
+                                No, we do not have player limits. You can invite as many friends as you want to play on
+                                your server. There are no extra charges for additional players. Ever.
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem className='text-left' value='item-7'>
+                            <AccordionTrigger className='text-left'>
+                                Can I invite others to manage my server?
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                Yes! You can invite others to manage your server. You can create multiple accounts with
+                                different permissions, so you can give others access to your server without giving them
+                                full control. You can also revoke access at any time.
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem className='text-left' value='refunds'>
+                            <AccordionTrigger className='text-left'>
+                                Does Pyro offer refunds if I&apos;m not satisfied?
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                Yes! We offer a 24-hour money-back guarantee. If you&apos;re not satisfied with your
+                                server, you can request a refund within 24 hours of purchase. All we ask is that you let
+                                us know why you&apos;re not satisfied, so we can improve.
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                </div>
+            </section>
+
+            <section className='relative z-10 flex flex-col items-center gap-8 overflow-hidden rounded-b-3xl px-4 py-48 text-center xl:px-24'>
+                <div className='relative top-12' aria-hidden>
+                    <div
+                        className='pointer-events-none absolute left-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': '#FF4438',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute left-0 top-[-80px] z-[0] hidden h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%] xl:block'
+                        style={
+                            {
+                                '--circle-background': '#FF4438',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute right-0 top-[400px] z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': '#FF4438',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute left-[220px] top-[400px] z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': '#FF4438',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                    <div
+                        className='pointer-events-none absolute right-[200px] top-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%]'
+                        style={
+                            {
+                                '--circle-background': '#FF4438',
+                            } as React.CSSProperties
+                        }
+                    ></div>
+                </div>
+                <div className='img-opacity-animation pointer-events-none absolute inset-0 select-none'>
+                    <div className='pointer-events-none relative inset-0 h-screen min-h-screen w-screen select-none'>
+                        <Image
+                            alt=''
+                            aria-hidden
+                            src='/img/herobackground.svg'
+                            fill
+                            className='pointer-events-none select-none object-cover opacity-25'
+                        />
+                    </div>
+                </div>
+                <h1 className='relative max-w-4xl py-4 pb-3 pt-5 text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter lg:pb-5'>
+                    Still have questions?
+                </h1>
+                <p className='relative text-xl leading-[195%] text-[#ffffff99]'>
+                    Contact us and get in touch with our team if you have any questions, or desire a custom plan.
+                </p>
+                <PyroButton
+                    leftChild={
+                        <svg viewBox='0 0 16 16' className='h-4 w-4'>
+                            <path
+                                fill='currentColor'
+                                d='M13.538 2.997A13.092 13.092 0 0 0 10.285 2a.07.07 0 0 0-.054.023c-.137.247-.297.57-.404.817a12.456 12.456 0 0 0-3.657 0 7.468 7.468 0 0 0-.411-.817C5.75 2.008 5.729 2 5.705 2a13.192 13.192 0 0 0-3.253.997c-.008 0-.015.008-.023.015C.357 6.064-.215 9.033.067 11.972c0 .015.008.03.023.038 1.371.99 2.69 1.59 3.993 1.987.022.007.045 0 .053-.015.305-.412.579-.847.815-1.305.015-.03 0-.06-.03-.067a9.446 9.446 0 0 1-1.25-.585c-.03-.015-.03-.06-.008-.083.084-.06.168-.127.252-.187a.048.048 0 0 1 .053-.008c2.621 1.178 5.448 1.178 8.039 0a.048.048 0 0 1 .053.008c.084.067.167.127.251.195.03.022.03.067-.007.082-.396.233-.816.42-1.25.585-.03.008-.038.045-.03.068.244.457.518.892.815 1.304.023.008.046.015.069.008a13.266 13.266 0 0 0 4-1.987.041.041 0 0 0 .023-.038c.335-3.396-.557-6.343-2.362-8.96-.008-.007-.016-.015-.031-.015Zm-8.19 7.183c-.785 0-1.44-.712-1.44-1.59 0-.876.64-1.589 1.44-1.589.807 0 1.447.72 1.44 1.59 0 .877-.64 1.59-1.44 1.59Zm5.31 0c-.785 0-1.44-.712-1.44-1.59 0-.876.64-1.589 1.44-1.589.808 0 1.448.72 1.44 1.59 0 .877-.632 1.59-1.44 1.59Z'
+                            ></path>
+                        </svg>
+                    }
+                    color={'brand'}
+                    type={'ghost'}
+                    external
+                    href='https://pyro.host/discord'
+                >
+                    Contact Us
+                </PyroButton>
             </section>
         </>
     );

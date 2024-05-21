@@ -414,7 +414,6 @@ const Page = () => {
                                 automatically, so you never lose your progress.
                             </AccordionContent>
                         </AccordionItem>
-                        {/* offsite backups */}
                         <AccordionItem className='text-left' value='offsite'>
                             <AccordionTrigger className='text-left'>
                                 Can I store my Pyro backups elsewhere, like Google Drive?
@@ -425,7 +424,6 @@ const Page = () => {
                                 always have a copy of your server.
                             </AccordionContent>
                         </AccordionItem>
-
                         <AccordionItem className='text-left' value='item-5'>
                             <AccordionTrigger className='text-left'>Does Pyro have player limits?</AccordionTrigger>
                             <AccordionContent>
@@ -451,6 +449,16 @@ const Page = () => {
                                 Yes! You can invite others to manage your server. You can create multiple accounts with
                                 different permissions, so you can give others access to your server without giving them
                                 full control. You can also revoke access at any time.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem className='text-left' value='refunds'>
+                            <AccordionTrigger className='text-left'>
+                                Does Pyro offer refunds if I&apos;m not satisfied?
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                Yes! We offer a 24-hour money-back guarantee. If you&apos;re not satisfied with your
+                                server, you can request a refund within 24 hours of purchase. All we ask is that you let
+                                us know why you&apos;re not satisfied, so we can improve.
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
