@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { GameSearchBar } from '@/components/GameSearchBar';
+import { GameSearch } from '@/components/GameSearchBar';
 import { PyroLink } from '@/components/ui/PyroLink';
 import Image from 'next/image';
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'Pyro - Search Games',
 };
 
-export default function Search() {
+const Page = () => {
     return (
         <div className='relative mx-auto flex flex-col items-center gap-8 px-4 py-16 text-center xl:px-24'>
             <div className='pointer-events-none absolute inset-0 flex h-full w-full select-none justify-between opacity-10 blur-sm contrast-200'>
@@ -50,8 +50,10 @@ export default function Search() {
                         .
                     </p>
                 </section>
-                <GameSearchBar />
+                <GameSearch />
             </div>
         </div>
     );
-}
+};
+
+export default Page;
