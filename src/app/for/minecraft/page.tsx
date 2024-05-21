@@ -86,8 +86,8 @@ const Page = () => {
                                         className={clsx(
                                             'inline-flex justify-center items-center outline-none rounded-full whitespace-nowrap text-center transition-colors font-bold shadow-md duration-200 px-12 py-4 mt-9',
                                             {
-                                                'bg-brand': plan.slug === 'friends',
-                                                'bg-[#ffffff22]': plan.slug !== 'friends',
+                                                'bg-brand hover:bg-brand/70': plan.slug === 'friends',
+                                                'bg-[#ffffff22] hover:bg-[#ffffff33]': plan.slug !== 'friends',
                                             },
                                         )}
                                         href='https://pay.pyro.host'
