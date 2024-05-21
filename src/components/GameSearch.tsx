@@ -61,7 +61,7 @@ export const GameSearch = () => {
                     currentGames.map((game) => (
                         // TODO: Finish per game pages and switch to the correct link
                         <Link
-                            href={'https://pay.pyro.host/category/Game%20Panel'}
+                            href={`/for/${game.slug}`}
                             className='group relative flex min-h-[124px] flex-col items-center justify-center gap-4 rounded-xl bg-[#ffffff14] p-6 transition hover:-translate-y-0.5'
                             key={game.name}
                         >
