@@ -112,7 +112,7 @@ const Page = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value='item-2'>
-                            <AccordionTrigger>Can I upgrade my server later?</AccordionTrigger>
+                            <AccordionTrigger>Can I upgrade my Pyro server later?</AccordionTrigger>
                             <AccordionContent>
                                 Yes! You can upgrade your server at any time. You can easily upgrade your server by
                                 selecting a new plan and paying the difference. Your server will be upgraded instantly.
@@ -120,7 +120,7 @@ const Page = () => {
                         </AccordionItem>
                         <AccordionItem value='item-3'>
                             <AccordionTrigger>
-                                Can I switch between mod loaders? Do you support Fabric, Forge, Neoforge?
+                                Can I switch between mod loaders? Does Pyro support Fabric, Forge, Neoforge?
                             </AccordionTrigger>
                             <AccordionContent>
                                 Yes! You can switch between games and software at any time. Our panel allows you to
@@ -129,7 +129,9 @@ const Page = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value='item-4'>
-                            <AccordionTrigger>How much storage do I get with my Minecraft server?</AccordionTrigger>
+                            <AccordionTrigger>
+                                How much storage do I get with my Minecraft server on Pyro?
+                            </AccordionTrigger>
                             <AccordionContent>
                                 You get unlimited storage with your Minecraft server. You can upload as many worlds,
                                 mods, and plugins as you want. There are no limits to how much storage you can use. You
@@ -137,10 +139,26 @@ const Page = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value='item-5'>
-                            <AccordionTrigger>Do you have player limits?</AccordionTrigger>
+                            <AccordionTrigger>Does Pyro have player limits?</AccordionTrigger>
                             <AccordionContent>
                                 No, we do not have player limits. You can invite as many friends as you want to play on
                                 your server. There are no extra charges for additional players. Ever.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value='item-6'>
+                            <AccordionTrigger>Can I run a public server with Pyro?</AccordionTrigger>
+                            <AccordionContent>
+                                Yes! You can run a public server with Pyro. You can set up your server to be public or
+                                private, using Minecraft&apos;s whitelist system, or a plugin that manages it for you.
+                                You have full control over your server, so you can customize it to your liking.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value='item-7'>
+                            <AccordionTrigger>Can I invite others to manage my server?</AccordionTrigger>
+                            <AccordionContent>
+                                Yes! You can invite others to manage your server. You can create multiple accounts with
+                                different permissions, so you can give others access to your server without giving them
+                                full control. You can also revoke access at any time.
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
