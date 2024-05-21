@@ -109,6 +109,12 @@ const Page = () => {
                                         })}
                                     >
                                         {plan.name}
+
+                                        {plan.slug === 'friends' && (
+                                            <span className='ml-2 text-xs font-bold text-white bg-brand rounded-full px-2 py-1'>
+                                                Recommended
+                                            </span>
+                                        )}
                                     </h3>
 
                                     <p className='font-bold relative mt-14 text-[36px] leading-none tracking-tighter xl:mt-9 xl:text-[32px] md:mt-4'>
