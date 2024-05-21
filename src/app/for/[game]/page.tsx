@@ -41,6 +41,17 @@ const getPlanDescription = (slug: string) => {
             return 'For extraordinarily large networks and communities.';
     }
 };
+export async function generateMetadata({ params }: { params: { game: string } }) {
+    const game = await getGameBySlug(params.game);
+
+    if (!game) {
+        return 'Pyro - Game Not Found';
+    }
+
+    return {
+        title: `Pyro - ${game.name} Hosting`,
+    };
+}
 
 const Page = ({ params }: { params: { game: string } }) => {
     const game = getGameBySlug(params.game);
