@@ -53,9 +53,9 @@ const Page = () => {
                             <div className='flex flex-row items-center gap-4'>Why Pyro is right for you</div>
                         </h1>
 
-                        <h2 className='mx-auto mb-6 text-xl font-medium leading-[190%] text-[#ffffff99]'>
+                        <h2 className='max-w-4xl text-center mx-auto mb-12 text-xl font-medium leading-[190%] text-[#ffffff99]'>
                             All Pyro plans are fully-featured and come with everything you need to run a successful
-                            Minecraft server. Here&apos;s what you get with every plan.
+                            Minecraft server. You get the same great features no matter which plan you choose.
                         </h2>
 
                         <div className='flex w-full flex-col items-center gap-8 md:flex-row mb-8'>
@@ -119,7 +119,7 @@ const Page = () => {
                                     }}
                                 />
                                 <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
-                                    Pyro works with all your favorite mods and plugins. No restrictions.
+                                    Works with all your favorite mods and plugins. No restrictions.
                                 </div>
                             </div>
                         </div>
@@ -128,8 +128,8 @@ const Page = () => {
             </section>
 
             <section className='relative z-10 flex flex-col items-center gap-8 px-4 py-32 text-center xl:px-24'>
-                <div className='container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40'>
-                    <h1 className='mx-auto mb-16 text-[max(48px,min(5vw,64px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
+                <div className='container relative grid gap-4 pb-20 pt-24 lg:gap-12 lg:py-40'>
+                    <h1 className='mx-auto mb-4 text-[max(48px,min(5vw,64px))] font-extrabold leading-[1.09] tracking-tighter text-white'>
                         <div className=''>Frequently Asked Questions</div>
                     </h1>
 
