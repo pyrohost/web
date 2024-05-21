@@ -225,7 +225,7 @@ const Page = () => {
                                     className='pointer-events-none select-none object-cover'
                                 />
                                 <div className='relative mb-2 mt-auto text-3xl font-bold tracking-tight'>
-                                    Only pay for the RAM you need. Everything else is on Pyro, for free.
+                                    Only pay for the RAM you need. Everything else is included on Pyro, for free.
                                 </div>
                             </div>
                         </div>
