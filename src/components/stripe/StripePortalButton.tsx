@@ -1,6 +1,6 @@
 'use client';
 
-import { createPortalSession } from '@/app/actions/stripe';
+import { createPortalSession } from '@/actions/stripe';
 import { useState } from 'react';
 
 import { PencilIcon } from '@/components/ui/Icons';

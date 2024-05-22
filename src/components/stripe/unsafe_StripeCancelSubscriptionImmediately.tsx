@@ -1,6 +1,6 @@
 'use client';
 
-import { cancelSubscription, cancelSubscriptionAtPeriodEnd } from '@/app/actions/stripe';
+import { cancelSubscription, cancelSubscriptionAtPeriodEnd } from '@/actions/stripe';
 import { useState } from 'react';
 
 import { useRouter } from 'next/navigation';
