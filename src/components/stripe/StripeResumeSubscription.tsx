@@ -1,6 +1,6 @@
 'use client';
 
-import { resumeSubscription } from '@/app/actions/stripe';
+import { resumeSubscription } from '@/actions/stripe';
 import { useState } from 'react';
 
 import { useRouter } from 'next/navigation';
