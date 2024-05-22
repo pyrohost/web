@@ -1,9 +1,11 @@
 'use client';
 
-import LoadingIcon from '../ui/LoadingIcon';
 import { cancelSubscription, cancelSubscriptionAtPeriodEnd } from '@/app/actions/stripe';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+
+import { useRouter } from 'next/navigation';
+
+import LoadingIcon from '@/components/ui/LoadingIcon';
 
 const StripeCancelSubscriptionImmediately = ({ subscriptionId }: { subscriptionId: string }) => {
     const router = useRouter();
