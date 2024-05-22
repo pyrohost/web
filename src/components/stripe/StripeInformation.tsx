@@ -6,7 +6,7 @@ import { LockClosedIcon } from '@/components/ui/Icons';
 import { stripe } from '@/lib/stripe';
 import formatPhoneNumber from '@/lib/utils/formatPhoneNumber';
 
-import StripePortal from './StripePortal';
+import StripePortal from '@/components/stripe/StripePortal';
 
 const InfoRow = ({
     label,

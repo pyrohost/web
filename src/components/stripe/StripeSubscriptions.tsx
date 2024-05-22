@@ -11,8 +11,8 @@ import { MoreIcon } from '@/components/ui/Icons';
 import { stripe } from '@/lib/stripe';
 import { formatAmountForDisplay } from '@/lib/utils/stripeHelpers';
 
-import StripeCancelSubscription from './StripeCancelSubscription';
-import StripeResumeSubscription from './StripeResumeSubscription';
+import StripeCancelSubscription from '@/components/stripe/StripeCancelSubscription';
+import StripeResumeSubscription from '@/components/stripe/StripeResumeSubscription';
 
 interface ExtendedSubscription extends Stripe.Subscription {
     productID?: string;

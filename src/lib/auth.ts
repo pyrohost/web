@@ -8,7 +8,7 @@ import Nodemailer from 'next-auth/providers/nodemailer';
 import prisma from '@/lib/prisma';
 import { stripe } from '@/lib/stripe';
 
-import { sendEmail } from './email';
+import { sendEmail } from '@/lib/email';
 
 export const {
     handlers: { GET, POST },
