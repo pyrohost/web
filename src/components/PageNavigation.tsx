@@ -7,6 +7,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 import LogoColored from '@/components/LogoColored';
 
+
 const ExternalLinkIcon = () => (
     <svg
         className='flex h-4 w-4'
@@ -56,145 +57,131 @@ const NavLinkItem = ({
 
 const PageNavigation = () => {
     return (
-        <NavigationMenu.Root delayDuration={0}>
-            <header className='relative flex min-h-[72px] w-full items-center justify-between px-8'>
-                <div className="flex w-full items-center gap-8 [&>div[style='position:relative']]:!w-full">
-                    <Link aria-label='Pyro Home Page' className='shrink-0' href='/'>
-                        <LogoColored />
-                    </Link>
+        <>
+            <NavigationMenu.Root delayDuration={0}>
+                <header className='relative flex min-h-[72px] w-full items-center justify-between px-8'>
+                    <div className="flex w-full items-center gap-8 [&>div[style='position:relative']]:!w-full">
+                        <Link aria-label='Pyro Home Page' className='shrink-0' href='/'>
+                            <LogoColored />
+                        </Link>
 
-                    <NavigationMenu.List asChild className='flex w-full items-center'>
-                        <div className='flex w-full items-center'>
-                            <ul className='hidden w-full items-center md:flex'>
-                                <NavigationMenu.Item>
-                                    <Link
-                                        className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
-                                        href='/for'
-                                    >
-                                        Games
-                                    </Link>
-                                </NavigationMenu.Item>
+                        <NavigationMenu.List asChild className='flex w-full items-center'>
+                            <div className='flex w-full items-center'>
+                                <ul className='hidden w-full items-center md:flex'>
+                                    <NavigationMenu.Item>
+                                        <Link
+                                            className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
+                                            href='/for'
+                                        >
+                                            Games
+                                        </Link>
+                                    </NavigationMenu.Item>
 
-                                <NavigationMenu.Item>
-                                    <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
-                                        Products
-                                    </NavigationMenu.Trigger>
-                                    <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[234px] '>
-                                        <NavLinkItem href='/pyrodactyl'>Pyrodactyl Panel</NavLinkItem>
-                                        <NavLinkItem href='/pay'>Pyro Pay</NavLinkItem>
-                                        <NavLinkItem href='/alerion'>Alerion</NavLinkItem>
-                                    </NavigationMenu.Content>
-                                </NavigationMenu.Item>
-                                <NavigationMenu.Item>
-                                    <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
-                                        Resources
-                                    </NavigationMenu.Trigger>
-                                    <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[330px] '>
-                                        <NavLinkItem href='https://panel.pyro.host' external>
-                                            Game Panel
-                                        </NavLinkItem>
-                                        <NavLinkItem href='https://vps.pyro.host' external>
-                                            VPS Panel
-                                        </NavLinkItem>
-                                        <NavLinkItem href='https://pay.pyro.host' external>
-                                            Billing
-                                        </NavLinkItem>
-                                        <NavLinkItem href='https://pyro.host/discord' external>
-                                            Support
-                                        </NavLinkItem>
-                                        <NavLinkItem href='https://status.pyro.host' external>
-                                            Status & Uptime
-                                        </NavLinkItem>
-                                    </NavigationMenu.Content>
-                                </NavigationMenu.Item>
-                                <NavigationMenu.Item>
-                                    <Link
-                                        className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
-                                        href='/about'
-                                    >
-                                        Company
-                                    </Link>
-                                </NavigationMenu.Item>
-                                <NavigationMenu.Item>
-                                    <Link
-                                        className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
-                                        rel='noopener noreferrer'
-                                        target='_blank'
-                                        href='https://discord.gg/fxeRFRbhQh'
-                                    >
-                                        <span>Discord</span>
-                                        <ExternalLinkIcon />
-                                    </Link>
-                                </NavigationMenu.Item>
-
-                                <Link
-                                    className='ml-auto flex items-center gap-2 truncate rounded-full border-[1px] border-solid border-[#ffffff22] bg-[#ffffff11] px-5 py-2 text-sm font-bold transition hover:bg-[#ffffff22] hover:duration-0'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    href='https://pay.pyro.host'
-                                >
-                                    Sign in
-                                </Link>
-                            </ul>
-
-                            <ul className='ml-auto flex items-center md:hidden'>
-                                <NavigationMenu.Item>
-                                    <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
-                                        <HamburgerMenuIcon />
-                                    </NavigationMenu.Trigger>
-                                    <NavigationMenu.Content className='navContent flex flex-col gap-4 px-[1.75rem] pb-12'>
-                                        <div className='flex w-full items-center justify-between'>
-                                            <h2 className='text-sm font-bold'>Manage your Pyro account</h2>
-                                            <Link
-                                                className='flex items-center gap-2 truncate rounded-full border-[1px] border-solid border-[#ffffff22] bg-[#ffffff11] px-5 py-2 text-sm font-bold transition hover:bg-[#ffffff22] hover:duration-0'
-                                                target='_blank'
-                                                rel='noopener noreferrer'
-                                                href='https://pay.pyro.host'
-                                            >
-                                                Sign in
-                                            </Link>
-                                        </div>
-
-                                        <NavLinkItem href='/for'>Games</NavLinkItem>
-                                        <h2 className='-mb-2 mt-8 text-sm font-black uppercase opacity-50'>Products</h2>
-                                        <NavLinkItem href='/pyrodactyl'>Pyrodactyl Panel</NavLinkItem>
-                                        <NavLinkItem href='/pay'>Pyro Pay</NavLinkItem>
-                                        <NavLinkItem href='/alerion'>Alerion</NavLinkItem>
-
-                                        <h2 className='-mb-2 mt-8 text-sm font-black uppercase opacity-50'>
+                                    <NavigationMenu.Item>
+                                        <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
+                                            Products
+                                        </NavigationMenu.Trigger>
+                                        <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[234px] '>
+                                            <NavLinkItem href='/pyrodactyl'>Pyrodactyl Panel</NavLinkItem>
+                                            <NavLinkItem href='/pay'>Pyro Pay</NavLinkItem>
+                                            <NavLinkItem href='/alerion'>Alerion</NavLinkItem>
+                                        </NavigationMenu.Content>
+                                    </NavigationMenu.Item>
+                                    <NavigationMenu.Item>
+                                        <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
                                             Resources
-                                        </h2>
-                                        <NavLinkItem href='https://panel.pyro.host' external>
-                                            Game Panel
-                                        </NavLinkItem>
-                                        <NavLinkItem href='https://vps.pyro.host' external>
-                                            VPS Panel
-                                        </NavLinkItem>
-                                        <NavLinkItem href='https://pay.pyro.host' external>
-                                            Billing
-                                        </NavLinkItem>
-                                        <NavLinkItem href='https://pyro.host/discord' external>
-                                            Support
-                                        </NavLinkItem>
-                                        <NavLinkItem href='https://status.pyro.host' external>
-                                            Status & Uptime
-                                        </NavLinkItem>
-                                        <div className='min-h-[1rem]'></div>
-                                        <NavLinkItem href='/about'>Company</NavLinkItem>
+                                        </NavigationMenu.Trigger>
+                                        <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[330px] '>
+                                            <NavLinkItem href='https://panel.pyro.host' external>
+                                                Game Panel
+                                            </NavLinkItem>
+                                            <NavLinkItem href='https://vps.pyro.host' external>
+                                                VPS Panel
+                                            </NavLinkItem>
+                                            <NavLinkItem href='https://pay.pyro.host' external>
+                                                Billing
+                                            </NavLinkItem>
+                                            <NavLinkItem href='https://pyro.host/discord' external>
+                                                Support
+                                            </NavLinkItem>
+                                            <NavLinkItem href='https://status.pyro.host' external>
+                                                Status & Uptime
+                                            </NavLinkItem>
+                                        </NavigationMenu.Content>
+                                    </NavigationMenu.Item>
+                                    <NavigationMenu.Item>
+                                        <Link
+                                            className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
+                                            href='/about'
+                                        >
+                                            Company
+                                        </Link>
+                                    </NavigationMenu.Item>
+                                    <NavigationMenu.Item>
+                                        <Link
+                                            className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
+                                            rel='noopener noreferrer'
+                                            target='_blank'
+                                            href='https://discord.gg/fxeRFRbhQh'
+                                        >
+                                            <span>Discord</span>
+                                            <ExternalLinkIcon />
+                                        </Link>
+                                    </NavigationMenu.Item>
+                                </ul>
 
-                                        <div className='min-h-[1rem]'></div>
-                                        <NavLinkItem href='https://discord.gg/fxeRFRbhQh' external>
-                                            Discord
-                                        </NavLinkItem>
-                                    </NavigationMenu.Content>
-                                </NavigationMenu.Item>
-                            </ul>
-                        </div>
-                    </NavigationMenu.List>
-                </div>
-            </header>
-            <NavigationMenu.Viewport className='navTransition h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn' />
-        </NavigationMenu.Root>
+                                <ul className='ml-auto flex items-center md:hidden'>
+                                    <NavigationMenu.Item>
+                                        <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
+                                            <HamburgerMenuIcon />
+                                        </NavigationMenu.Trigger>
+                                        <NavigationMenu.Content className='navContent flex flex-col gap-4 px-[1.75rem] pb-12'>
+
+                                            <NavLinkItem href='/for'>Games</NavLinkItem>
+                                            <h2 className='-mb-2 mt-8 text-sm font-black uppercase opacity-50'>
+                                                Products
+                                            </h2>
+                                            <NavLinkItem href='/pyrodactyl'>Pyrodactyl Panel</NavLinkItem>
+                                            <NavLinkItem href='/pay'>Pyro Pay</NavLinkItem>
+                                            <NavLinkItem href='/alerion'>Alerion</NavLinkItem>
+
+                                            <h2 className='-mb-2 mt-8 text-sm font-black uppercase opacity-50'>
+                                                Resources
+                                            </h2>
+                                            <NavLinkItem href='https://panel.pyro.host' external>
+                                                Game Panel
+                                            </NavLinkItem>
+                                            <NavLinkItem href='https://vps.pyro.host' external>
+                                                VPS Panel
+                                            </NavLinkItem>
+                                            <NavLinkItem href='https://pay.pyro.host' external>
+                                                Billing
+                                            </NavLinkItem>
+                                            <NavLinkItem href='https://pyro.host/discord' external>
+                                                Support
+                                            </NavLinkItem>
+                                            <NavLinkItem href='https://status.pyro.host' external>
+                                                Status & Uptime
+                                            </NavLinkItem>
+                                            <div className='min-h-[1rem]'></div>
+                                            <NavLinkItem href='/about'>Company</NavLinkItem>
+
+                                            <div className='min-h-[1rem]'></div>
+                                            <NavLinkItem href='https://discord.gg/fxeRFRbhQh' external>
+                                                Discord
+                                            </NavLinkItem>
+                                        </NavigationMenu.Content>
+                                    </NavigationMenu.Item>
+                                </ul>
+                            </div>
+                        </NavigationMenu.List>
+                    </div>
+                </header>
+                <NavigationMenu.Viewport className='navTransition h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn' />
+            </NavigationMenu.Root>
+
+
+        </>
     );
 };
 
