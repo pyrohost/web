@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { PyroButton } from '@/components/ui/PyroButton';
 
@@ -11,21 +12,23 @@ const HeaderLoginButton = async () => {
         <>
             {session ? (
                 <div className='ml-auto'>
-                    <div className='flex flex-row shrink-0 justify-center items-center bg-[#ffffff11] p-1 rounded-full'>
-                    <img
-                        src={
-                            session?.user?.image ||
-                            `https://source.boringavatars.com/marble/120/${session.user?.name}?colors=264653,2a9d8f,f4a261,e9c46a,e76f51`
-                        }
-                        alt={`${session.user?.name}'s' avatar`}
-                        width={30}
-                        height={30}
-                        className='flex shrink-0 min-h-8 min-w-8 rounded-full'
-                    />
-                    <p className='text-sm font-bold px-2'>
-                        {session.user?.name}
-                    </p>
-                    </div>
+                    <Link
+                        href='/account'
+                        className='flex shrink-0 flex-row items-center justify-center rounded-full bg-[#ffffff11] p-1 transition hover:bg-[#ffffff22]'
+                    >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                            src={
+                                session?.user?.image ||
+                                `https://source.boringavatars.com/marble/120/${session.user?.name}?colors=264653,2a9d8f,f4a261,e9c46a,e76f51`
+                            }
+                            alt={`${session.user?.name}'s' avatar`}
+                            width={30}
+                            height={30}
+                            className='flex min-h-8 min-w-8 shrink-0 rounded-full'
+                        />
+                        <p className='px-2 text-sm font-bold'>{session.user?.name}</p>
+                    </Link>
                 </div>
             ) : (
                 <PyroButton className='ml-auto' size={'small'} href='/auth/login'>
