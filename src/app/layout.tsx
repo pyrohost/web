@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div data-pyro-index='' className='relative h-fit min-h-screen w-full flex-1 shrink-0 flex-col'>
                     <div className='flex flex-row items-center justify-between pr-4'>
                         <PageNavigation />
-                        <div className='absolute top-4 right-4'>
+                        <div className='absolute right-4 top-3'>
                             <HeaderLoginButton />
                         </div>
                     </div>

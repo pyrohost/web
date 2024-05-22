@@ -14,7 +14,7 @@ const HeaderLoginButton = async () => {
                 <div className='ml-auto'>
                     <Link
                         href='/account'
-                        className='flex shrink-0 flex-row items-center justify-center rounded-full bg-[#ffffff11] p-1 transition hover:bg-[#ffffff22]'
+                        className='flex shrink-0 flex-row items-center justify-center rounded-full p-2 transition hover:bg-[#ffffff22]'
                     >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
@@ -27,7 +27,6 @@ const HeaderLoginButton = async () => {
                             height={30}
                             className='flex min-h-8 min-w-8 shrink-0 rounded-full'
                         />
-                        <p className='px-2 text-sm font-bold'>{session.user?.name}</p>
                     </Link>
                 </div>
             ) : (
