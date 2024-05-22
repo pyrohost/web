@@ -24,7 +24,7 @@
         "@radix-ui/react-tooltip": "^1.0.7",
         "@react-email/components": "0.0.18",
         "@stripe/react-stripe-js": "^2.7.0",
-        "@stripe/stripe-js": "^3.3.0",
+        "@stripe/stripe-js": "^3.4.1",
         "@trivago/prettier-plugin-sort-imports": "^4.3.0",
         "bufferutil": "^4.0.8",
         "class-variance-authority": "^0.7.0",
