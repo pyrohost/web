@@ -24,7 +24,7 @@ const StripePortalButton = ({ customerID }: { customerID: string }) => {
     };
 
     return (
-        <form action={formAction}>
+        <form className='flex flex-col items-end' action={formAction}>
             <button
                 className='flex items-center justify-center gap-2 rounded-full bg-[#ffffff33] px-3 py-1.5 text-sm font-bold text-white transition hover:bg-[#ffffff44]'
                 onClick={(e) => {
