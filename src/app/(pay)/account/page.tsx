@@ -2,6 +2,10 @@ import React, { Suspense } from 'react';
 
 import { redirect } from 'next/navigation';
 
+import DashboardSkeletonSection from '@/components/DashboardSkeletonSection';
+import StripeInformation from '@/components/stripe/StripeInformation';
+import StripeSubscriptions from '@/components/stripe/StripeSubscriptions';
+
 import { auth } from '@/lib/auth';
 import prisma from '@/lib/prisma';
 
@@ -30,9 +34,14 @@ const Page = async () => {
     }
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto flex flex-col gap-4'>
             <h1 className='text-4xl font-bold'>Account</h1>
-            <p className='mb-4'>Welcome back, {user.preferredName ?? user.name}!</p>
+            <Suspense fallback={<DashboardSkeletonSection title={'Account Information'} />}>
+                <StripeInformation customerId={user.stripeCustomerId ?? ''} />
+            </Suspense>
+            <Suspense fallback={<DashboardSkeletonSection title={'Active Subscriptions'} />}>
+                <StripeSubscriptions customerId={user.stripeCustomerId ?? ''} />
+            </Suspense>
         </div>
     );
 };
