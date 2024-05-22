@@ -7,8 +7,8 @@ import Link from 'next/link';
 import { PyroButton } from '@/components/ui/PyroButton';
 import { PyroLink } from '@/components/ui/PyroLink';
 import PyroPill from '@/components/ui/PyroPill';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/Accordion';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/Carousel';
 
 import { getGameBySlug, plans } from '@/lib/static';
 
