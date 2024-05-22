@@ -1,16 +1,14 @@
 'use client';
 
+import { useState } from 'react';
+
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
-import { useState } from 'react';
 
 import LoadingIcon from '@/components/ui/LoadingIcon';
 
-// import { usePersistedState } from '@/lib/hooks/usePersistedState';
-
 const OauthLogIn = () => {
     const [loggingInProvider, setLoggingInProvider] = useState<string | null>(null);
-    // const [lastUsedProvider, setLastUsedProvider] = usePersistedState<string | null>(`lastUsedProvider`, null);
 
     const handleSignIn = async (provider: string) => {
         if (loggingInProvider) {
@@ -18,24 +16,15 @@ const OauthLogIn = () => {
         }
 
         setLoggingInProvider(provider);
-        // setLastUsedProvider(provider);
-        await signIn(provider, { callbackUrl: '/dashboard' });
+        await signIn(provider, { callbackUrl: '/account' });
 
-        // it should never take this long fyi
         setTimeout(() => {
             setLoggingInProvider(null);
-        }, 7500);
+        }, 10000);
     };
 
     return (
         <div className='mb-6 flex flex-col gap-2'>
-            {/* Todo: move to new component */}
-            {/* {lastUsedProvider && (
-                <div className='text-center text-xs font-bold text-subtext'>
-                    You logged in last with {lastUsedProvider.charAt(0).toUpperCase() + lastUsedProvider.slice(1)}
-                </div>
-            )} */}
-
             {['github', 'discord'].map((provider) => (
                 <button
                     className='flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 text-sm font-bold outline-none transition hover:bg-[#ffffff24] hover:duration-0'

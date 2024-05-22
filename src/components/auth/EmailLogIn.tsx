@@ -16,7 +16,7 @@ const EmailLogIn = () => {
             return;
         }
 
-        await signIn('nodemailer', { email, callbackUrl: '/dashboard' });
+        await signIn('nodemailer', { email, callbackUrl: '/account' });
     };
 
     return (
