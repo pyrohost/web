@@ -226,6 +226,10 @@ html {
     background-color: #000000;
 }
 
+html:has(body[data-scroll-locked]) {
+    overflow: hidden;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

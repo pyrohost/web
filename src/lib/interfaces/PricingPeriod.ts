@@ -1,1 +1,1 @@
-export type PricingPeriod = 'monthly' | 'quarterly' | 'biannual' | 'yearly';
+export type PricingPeriod = 'monthly' | 'quarterly' | 'biannually' | 'yearly';

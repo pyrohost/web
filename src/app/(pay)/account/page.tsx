@@ -26,11 +26,11 @@ const Page = async () => {
     });
 
     if (!user) {
-        return redirect('/auth/logout');
+        return redirect('/auth/login');
     }
 
     if (!user.stripeCustomerId) {
-        return redirect('/auth/logout');
+        return redirect('/auth/login');
     }
 
     return (

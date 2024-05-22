@@ -10,7 +10,7 @@ import { auth } from '@/lib/auth';
 const Page = async () => {
     const session = await auth();
     if (session) {
-        return redirect('/');
+        return redirect('/account');
     }
 
     return (

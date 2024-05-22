@@ -3,6 +3,8 @@ import Stripe from 'stripe';
 // import StripeCancelSubscriptionImmediately from './unsafe_StripeCancelSubscriptionImmediately';
 import { CaretSortIcon } from '@radix-ui/react-icons';
 
+import StripeCancelSubscription from '@/components/stripe/StripeCancelSubscription';
+import StripeResumeSubscription from '@/components/stripe/StripeResumeSubscription';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/DropdownMenu';
 import GoToServerDropdownItem from '@/components/ui/GoToServerDropdownItem';
@@ -10,9 +12,6 @@ import { MoreIcon } from '@/components/ui/Icons';
 
 import { stripe } from '@/lib/stripe';
 import { formatAmountForDisplay } from '@/lib/utils/stripeHelpers';
-
-import StripeCancelSubscription from '@/components/stripe/StripeCancelSubscription';
-import StripeResumeSubscription from '@/components/stripe/StripeResumeSubscription';
 
 interface ExtendedSubscription extends Stripe.Subscription {
     productID?: string;
@@ -125,7 +124,7 @@ const StripeSubscriptions = async ({ customerId }: { customerId: string }) => {
                                                     <p className='text-red-500'>Pending Cancellation</p>
                                                 )}
                                             </div>
-                                            <p>
+                                            <p className='text-wrap'>
                                                 Your subscription {subscription.canceled_at ? 'ends' : 'will renew'} on{' '}
                                                 {new Date(subscription.current_period_end * 1000).toLocaleDateString()}
                                                 {subscription.canceled_at ? (
