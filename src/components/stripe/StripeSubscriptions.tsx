@@ -1,16 +1,18 @@
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '../ui/DropdownMenu';
-import GoToServerDropdownItem from '../ui/GoToServerDropdownItem';
-import { MoreIcon } from '../ui/Icons';
-import StripeCancelSubscription from './StripeCancelSubscription';
-import StripeResumeSubscription from './StripeResumeSubscription';
-// import StripeCancelSubscriptionImmediately from './unsafe_StripeCancelSubscriptionImmediately';
-import { CaretSortIcon } from '@radix-ui/react-icons';
 import Stripe from 'stripe';
 
+// import StripeCancelSubscriptionImmediately from './unsafe_StripeCancelSubscriptionImmediately';
+import { CaretSortIcon } from '@radix-ui/react-icons';
+
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/DropdownMenu';
+import GoToServerDropdownItem from '@/components/ui/GoToServerDropdownItem';
+import { MoreIcon } from '@/components/ui/Icons';
 
 import { stripe } from '@/lib/stripe';
 import { formatAmountForDisplay } from '@/lib/utils/stripeHelpers';
+
+import StripeCancelSubscription from './StripeCancelSubscription';
+import StripeResumeSubscription from './StripeResumeSubscription';
 
 interface ExtendedSubscription extends Stripe.Subscription {
     productID?: string;

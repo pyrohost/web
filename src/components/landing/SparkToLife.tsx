@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { PyroButton } from '../ui/PyroButton';
+import { PyroButton } from '@/components/ui/PyroButton';
 
 const SparkToLife = () => {
     return (

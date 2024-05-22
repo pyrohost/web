@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import { PyroButton } from '../ui/PyroButton';
-import PyroPill from '../ui/PyroPill';
+import { PyroButton } from '@/components/ui/PyroButton';
+import PyroPill from '@/components/ui/PyroPill';
 
 const BetterVPS = () => {
     return (

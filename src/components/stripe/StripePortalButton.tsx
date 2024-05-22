@@ -1,8 +1,9 @@
 'use client';
 
-import { PencilIcon } from '../ui/Icons';
 import { createPortalSession } from '@/app/actions/stripe';
 import { useState } from 'react';
+
+import { PencilIcon } from '@/components/ui/Icons';
 
 const StripePortalButton = ({ customerID }: { customerID: string }) => {
     const [formState, setFormState] = useState<string>('');
