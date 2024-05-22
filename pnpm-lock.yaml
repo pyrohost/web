@@ -99,7 +99,7 @@ importers:
         specifier: ^0.33.4
         version: 0.33.4
       stripe:
-        specifier: ^15.4.0
+        specifier: ^15.7.0
         version: 15.7.0
       tailwind-merge:
         specifier: ^2.3.0
