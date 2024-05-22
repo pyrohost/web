@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 
-import { PyroLink } from './PyroLink';
+import { PyroLink } from '@/components/ui/PyroLink';
 
 const button = cva(
     [

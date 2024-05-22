@@ -1,4 +1,4 @@
-import StripePortalButton from './StripePortalButton';
+import StripePortalButton from '@/components/stripe/StripePortalButton';
 
 const StripePortal = async ({ customerId }: { customerId: string }) => {
     if (!customerId || customerId === '') {

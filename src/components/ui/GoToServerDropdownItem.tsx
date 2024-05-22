@@ -1,6 +1,6 @@
 'use client';
 
-import { DropdownMenuItem } from './DropdownMenu';
+import { DropdownMenuItem } from '@/components/ui/DropdownMenu';
 import { getServerByExternalIdAction } from '@/actions/pterodactyl';
 import { useRouter } from 'next/navigation';
 
