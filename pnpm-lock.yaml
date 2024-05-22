@@ -71,9 +71,6 @@ importers:
       embla-carousel-react:
         specifier: 8.1.1
         version: 8.1.1(react@18.3.1)
-      framer-motion:
-        specifier: ^11.2.4
-        version: 11.2.4(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       million:
         specifier: ^3.1.1
         version: 3.1.1(rollup@3.29.4)
@@ -2360,20 +2357,6 @@ packages:
       react: ^18.0.0
       react-dom: ^18.0.0
     peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-
-  framer-motion@11.2.4:
-    resolution: {integrity: sha512-D+EXd0lspaZijv3BJhAcSsyGz+gnvoEdnf+QWkPZdhoFzbeX/2skrH9XSVFb0osgUnCajW8x1frjhLuKwa/Reg==}
-    peerDependencies:
-      '@emotion/is-prop-valid': '*'
-      react: ^18.0.0
-      react-dom: ^18.0.0
-    peerDependenciesMeta:
-      '@emotion/is-prop-valid':
-        optional: true
       react:
         optional: true
       react-dom:
@@ -6262,14 +6245,6 @@ snapshots:
   fraction.js@4.3.7: {}
 
   framer-motion@10.17.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      tslib: 2.6.2
-    optionalDependencies:
-      '@emotion/is-prop-valid': 0.8.8
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  framer-motion@11.2.4(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       tslib: 2.6.2
     optionalDependencies:
