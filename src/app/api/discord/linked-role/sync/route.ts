@@ -51,4 +51,6 @@ export async function GET(request: NextRequest) {
     });
 
     await Promise.all(promises);
+
+    return new Response('OK', { status: 200 });
 }
