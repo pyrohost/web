@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
     }
 
     const dbTokens = await prisma.discordTokens.findMany();
-    const promises = dbTokens.map(async (token) => {
+    const promises = dbTokens.map(async (token: any) => {
         try {
             const tokenData = await discord.getAccessToken({
                 access_token: token.accessToken,
