@@ -15,20 +15,47 @@ export async function GET(req: NextRequest, res: Response) {
     const searchParams = req.nextUrl.searchParams;
     const code = searchParams.get('code');
 
-    let tokens = await discord.getOAuthTokens(code!);
-    const accessToken = await discord.getAccessToken(tokens);
-    tokens.access_token = accessToken.access_token;
-    tokens.expires_at = accessToken.expires_at;
+    if (!code) {
+        return redirect('/account/?error=NoCodeDiscordLinkedRole');
+    }
 
-    const discordUser = await discord.getUserData(tokens.access_token);
+    const token = await discord.getOAuthTokens(code);
+
     const dbUser = await prisma.user.findUnique({
         where: {
             id: session.user?.id,
         },
+        include: {
+            discordLinkedRole: true,
+        },
     });
 
     if (!dbUser || !dbUser.stripeCustomerId) {
-        throw new Error('Achievement Get: How Did We Get Here?');
+        throw new Error('Achievement Get: How did we get here?');
+    }
+
+    if (!dbUser.discordLinkedRole) {
+        const discordUser = await discord.getUserData(token.access_token);
+        await prisma.discordLinkedRole.create({
+            data: {
+                userId: dbUser.id,
+                discordId: discordUser.id,
+                accessToken: token.access_token,
+                refreshToken: token.refresh_token,
+                expiresAt: token.expires_at,
+            },
+        });
+    } else {
+        await prisma.discordLinkedRole.update({
+            where: {
+                id: dbUser.discordLinkedRole.id,
+            },
+            data: {
+                accessToken: token.access_token,
+                refreshToken: token.refresh_token,
+                expiresAt: token.expires_at,
+            },
+        });
     }
 
     const subscriptions = await stripe.subscriptions.list({
@@ -36,25 +63,9 @@ export async function GET(req: NextRequest, res: Response) {
         status: 'active',
     });
 
-    await discord.pushMetadata(tokens, {
+    await discord.pushMetadata(token, {
         services: subscriptions.data.length,
         customer_since: dbUser.createdAt,
-    });
-
-    await prisma.user.update({
-        where: {
-            id: session.user?.id,
-        },
-        data: {
-            discordLinkedRole: {
-                create: {
-                    discordId: discordUser.id,
-                    accessToken: tokens.access_token,
-                    refreshToken: tokens.refresh_token,
-                    expiresAt: tokens.expires_at,
-                },
-            },
-        },
     });
 
     return redirect('/account/?success=DiscordLinkedRole');
