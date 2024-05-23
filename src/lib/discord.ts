@@ -68,7 +68,7 @@ class DiscordAPI {
     async pushMetadata(tokens: { access_token: string; refresh_token: string; expires_at: Date }, metadata: any) {
         const accessToken = await this.getAccessToken(tokens);
 
-        await this.request('/users/@me/applications/:id/role-connection', {
+        await this.request(`/users/@me/applications/${process.env.DISCORD_CLIENT_ID!}/role-connection`, {
             method: 'PUT',
             body: JSON.stringify({
                 platform_name: 'Pyro',
@@ -84,7 +84,7 @@ class DiscordAPI {
     async getMetadata(tokens: { access_token: string; refresh_token: string; expires_at: Date }) {
         const accessToken = await this.getAccessToken(tokens);
 
-        return await this.request('/users/@me/applications/:id/role-connection', {
+        return await this.request(`/users/@me/applications/${process.env.DISCORD_CLIENT_ID!}/role-connection`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
             },
