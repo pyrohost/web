@@ -4,7 +4,7 @@ import { type NextRequest } from 'next/server';
 import { auth } from '@/lib/auth';
 import discord from '@/lib/discord';
 import prisma from '@/lib/prisma';
-import { stripe } from '@/lib/stripe';
+import stripe from '@/lib/stripe';
 
 export async function GET(req: NextRequest, res: Response) {
     let session = await auth();
@@ -15,9 +15,12 @@ export async function GET(req: NextRequest, res: Response) {
     const searchParams = req.nextUrl.searchParams;
     const code = searchParams.get('code');
 
-    const tokens = await discord.getOAuthTokens(code as string);
-    const discordUser = await discord.getUserData(tokens.access_token);
+    let tokens = await discord.getOAuthTokens(code!);
+    const accessToken = await discord.getAccessToken(tokens);
+    tokens.access_token = accessToken.access_token;
+    tokens.expires_at = accessToken.expires_at;
 
+    const discordUser = await discord.getUserData(tokens.access_token);
     const dbUser = await prisma.user.findUnique({
         where: {
             id: session.user?.id,

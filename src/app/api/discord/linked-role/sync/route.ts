@@ -1,60 +1,54 @@
 import type { NextRequest } from 'next/server';
 
-import discord, { TokenInfo } from '@/lib/discord';
+import discord from '@/lib/discord';
 import prisma from '@/lib/prisma';
-import { stripe } from '@/lib/stripe';
+import stripe from '@/lib/stripe';
 
 export async function GET(request: NextRequest) {
     const authHeader = request.headers.get('authorization');
     if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-        return new Response('Unauthorized', {
-            status: 401,
-        });
+        return new Response('Unauthorized', { status: 401 });
     }
 
-    const users = await prisma.user.findMany({
-        where: { discordLinkedRole: { discordId: { not: undefined } } },
-    });
-
-    for (const user of users) {
+    const dbTokens = await prisma.discordLinkedRole.findMany();
+    const promises = dbTokens.map(async (token) => {
         try {
-            const data = await prisma.discordLinkedRole.findUniqueOrThrow({
-                where: { userId: user.id },
+            const tokenData = await discord.getAccessToken({
+                access_token: token.accessToken,
+                refresh_token: token.refreshToken,
+                expires_at: token.expiresAt,
             });
 
-            let tokens: TokenInfo = {
-                access_token: data.accessToken,
-                refresh_token: data.refreshToken,
-                expires_at: data.expiresAt,
-            };
+            const dbUser = await prisma.user.findUnique({ where: { id: token.userId } });
 
-            const accessToken = await discord.getAccessToken(tokens);
-            tokens.access_token = accessToken.access_token;
-            tokens.expires_at = accessToken.expires_at;
-
-            prisma.discordLinkedRole.update({
-                where: { userId: user.id },
-                data: {
-                    accessToken: accessToken.access_token,
-                    expiresAt: accessToken.expires_at,
-                },
-            });
+            if (!dbUser || !dbUser.stripeCustomerId) {
+                return;
+            }
 
             const subscriptions = await stripe.subscriptions.list({
-                customer: user.stripeCustomerId!,
+                customer: dbUser.stripeCustomerId,
                 status: 'active',
             });
 
-            await discord.pushMetadata(accessToken, {
+            await discord.pushMetadata(tokenData, {
                 services: subscriptions.data.length,
-                customer_since: user.createdAt,
+                customer_since: dbUser.createdAt,
             });
-        } catch (error) {
-            console.error(`Error running cron job for user ${user.id}: ${error}`);
-        }
-    }
 
-    return new Response('Success', {
-        status: 200,
+            await prisma.discordLinkedRole.update({
+                where: { id: token.id },
+                data: {
+                    accessToken: tokenData.access_token,
+                    refreshToken: tokenData.refresh_token,
+                    expiresAt: tokenData.expires_at,
+                },
+            });
+
+            console.log(`Updated token for user ${dbUser.id} with ${subscriptions.data.length} services.`);
+        } catch (error) {
+            console.error(`Failed to update token for user ${token.userId}:`, error);
+        }
     });
+
+    await Promise.all(promises);
 }

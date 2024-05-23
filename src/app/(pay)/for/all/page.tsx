@@ -8,7 +8,7 @@ import { auth } from '@/lib/auth';
 import { ExtendedProduct } from '@/lib/interfaces/Product';
 import prisma from '@/lib/prisma';
 import { products } from '@/lib/products';
-import { stripe } from '@/lib/stripe';
+import stripe from '@/lib/stripe';
 
 export const metadata: Metadata = {
     title: 'Pyro - All Plans',

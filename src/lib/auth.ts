@@ -6,7 +6,7 @@ import GitHub from 'next-auth/providers/github';
 import Nodemailer from 'next-auth/providers/nodemailer';
 
 import prisma from '@/lib/prisma';
-import { stripe } from '@/lib/stripe';
+import stripe from '@/lib/stripe';
 
 import { sendEmail } from './utils/sendEmail';
 import { VerificationEmail } from '@/emails/VerificationEmail';

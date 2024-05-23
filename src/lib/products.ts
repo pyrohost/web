@@ -1,4 +1,4 @@
-import { stripe } from '@/lib/stripe';
+import stripe from '@/lib/stripe';
 
 import { ExtendedProduct } from '@/lib/interfaces/Product';
 

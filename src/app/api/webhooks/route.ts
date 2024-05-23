@@ -6,7 +6,7 @@ import { NextResponse } from 'next/server';
 
 import prisma from '@/lib/prisma';
 import PterodactylClient, { UserObject } from '@/lib/pterodactyl';
-import { stripe } from '@/lib/stripe';
+import stripe from '@/lib/stripe';
 import { sendEmail } from '@/lib/utils/sendEmail';
 
 function getNames(name: string): [string, string] {

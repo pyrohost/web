@@ -3,7 +3,7 @@ import { CaretSortIcon, CheckCircledIcon, CrossCircledIcon } from '@radix-ui/rea
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
 import { LockClosedIcon } from '@/components/ui/Icons';
 
-import { stripe } from '@/lib/stripe';
+import stripe from '@/lib/stripe';
 import formatPhoneNumber from '@/lib/utils/formatPhoneNumber';
 
 import StripePortal from '@/components/stripe/StripePortal';

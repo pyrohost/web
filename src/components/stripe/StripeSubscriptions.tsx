@@ -10,7 +10,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/compon
 import GoToServerDropdownItem from '@/components/ui/GoToServerDropdownItem';
 import { MoreIcon } from '@/components/ui/Icons';
 
-import { stripe } from '@/lib/stripe';
+import stripe from '@/lib/stripe';
 import { formatAmountForDisplay } from '@/lib/utils/stripeHelpers';
 
 interface ExtendedSubscription extends Stripe.Subscription {
