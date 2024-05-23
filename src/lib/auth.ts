@@ -8,7 +8,9 @@ import Nodemailer from 'next-auth/providers/nodemailer';
 import prisma from '@/lib/prisma';
 import { stripe } from '@/lib/stripe';
 
-import { sendEmail } from '@/lib/email';
+import { sendEmail } from './utils/sendEmail';
+import { VerificationEmail } from '@/emails/VerificationEmail';
+import PterodactylClient from './pterodactyl';
 
 export const {
     handlers: { GET, POST },
@@ -54,27 +56,52 @@ export const {
                 }
             }
 
+            if (!user.pyrodactylUserId) {
+                const pyrodactylUser = await PterodactylClient.getUserByEmail(user.email!);
+                if (pyrodactylUser) {
+                    // Link their Pyrodactyl account to their user in the database
+                    await prisma.user.update({
+                        where: { id: user.id },
+                        data: { pyrodactylUserId: pyrodactylUser.id },
+                    });
+                }
+                
+                // NOTE: We don't create them a pterodactyl account here because it 
+                // requires us to send them an email with their password, which we
+                // would rather send them when they purchase a product.
+            }
+            
             return Promise.resolve();
         },
     },
     providers: [
         Nodemailer({
             server: {
-                raw: process.env.EMAIL_SERVER!,
+                host: process.env.SMTP_HOST!,
+                port: parseInt(process.env.SMTP_PORT!),
+                auth: {
+                    user: process.env.SMTP_USER!,
+                    pass: process.env.SMTP_PASS!,
+                },
             },
             from: process.env.EMAIL_FROM!,
-            sendVerificationRequest({ identifier: email, url, provider: { server, from } }) {
-                sendEmail(email, 'Magic Link', `<a href="${url}">${url}</a>`, { server, from });
+            sendVerificationRequest({ identifier: email, url, provider: { server, from } }): Promise<void> {
+                sendEmail(
+                    email,
+                    VerificationEmail(url)
+                );
+                
+                return Promise.resolve();
             },
         }),
         GitHub({
-            clientId: process.env.GITHUB_APP_CLIENT_ID!,
-            clientSecret: process.env.GITHUB_APP_CLIENT_SECRET!,
+            clientId: process.env.GITHUB_CLIENT_ID!,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET!,
             allowDangerousEmailAccountLinking: true,
         }),
         Discord({
-            clientId: process.env.DISCORD_APP_CLIENT_ID!,
-            clientSecret: process.env.DISCORD_APP_CLIENT_SECRET!,
+            clientId: process.env.DISCORD_CLIENT_ID!,
+            clientSecret: process.env.DISCORD_CLIENT_SECRET!,
             allowDangerousEmailAccountLinking: true,
         }),
     ],

@@ -132,7 +132,7 @@ const Page = ({ params }: { params: { game: string } }) => {
                                             /month
                                         </span>
                                     </p>
-                                    <a
+                                    <Link
                                         className={clsx(
                                             'mt-9 inline-flex items-center justify-center whitespace-nowrap rounded-full px-12 py-4 text-center font-bold shadow-md outline-none transition-colors duration-200',
                                             {
@@ -140,10 +140,10 @@ const Page = ({ params }: { params: { game: string } }) => {
                                                 'bg-[#ffffff22] hover:bg-[#ffffff33]': plan.slug !== 'friends',
                                             },
                                         )}
-                                        href='https://pay.pyro.host'
+                                        href='/for/all'
                                     >
                                         Get started
-                                    </a>
+                                    </Link>
                                     <p className='mt-9 font-light leading-snug lg:min-h-max xl:mt-8'>
                                         {getPlanDescription(plan.slug)}
                                     </p>
@@ -186,10 +186,10 @@ const Page = ({ params }: { params: { game: string } }) => {
                         ))}
                     </ul>
                     <p className='mx-auto mt-12 max-w-3xl text-center text-xl font-medium leading-[190%] text-[#ffffff99]'>
-                        Need more power?{' '}
-                        <PyroLink external className='text-brand underline' href={`https://pay.pyro.host`}>
-                            Explore more plans
-                        </PyroLink>
+                        Not what you&apos;re looking for?{' '}
+                        <PyroLink className='text-brand underline' href={`/for/all`}>
+                            Explore all plans
+                        </PyroLink>.
                     </p>
                 </div>
             </section>

@@ -7,7 +7,7 @@ export const PyroLink = ({
     children,
 }: {
     href: string;
-    external: boolean;
+    external?: boolean;
     className?: string;
     children: React.ReactNode;
 }) => {

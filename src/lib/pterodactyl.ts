@@ -30,7 +30,8 @@ class BaseAPI {
             429: 'Too Many Requests.',
             500: 'Internal Server Error.',
         };
-        return messages[status] || 'An error occurred.';
+
+        return messages[status] || `Unknown error: ${status}`;
     }
 
     private handleError(err: any): never {
@@ -38,6 +39,7 @@ class BaseAPI {
             console.error(`${err.status} - ${err.url}\nMSG: ${err.message}`);
             throw new Error(this.getErrorMessage(err.status));
         }
+        
         throw err;
     }
 
@@ -135,8 +137,9 @@ class PterodactylApi extends BaseAPI {
         super(baseURL, apiKey);
     }
 
-    async getUserById(id: number): Promise<UserObject | null> {
+    async getUserById(id: string): Promise<UserObject | null> {
         try {
+            debugger;
             const response = await this.request<UserObject>('get', `/api/application/users/${id}`);
             return response.attributes;
         } catch (error) {
