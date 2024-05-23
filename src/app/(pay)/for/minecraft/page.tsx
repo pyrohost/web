@@ -129,7 +129,7 @@ const Page = () => {
                                                 'bg-[#ffffff22] hover:bg-[#ffffff33]': plan.slug !== 'friends',
                                             },
                                         )}
-                                        href='/store'
+                                        href='/for/all'
                                     >
                                         Get started
                                     </Link>
@@ -174,6 +174,12 @@ const Page = () => {
                             </li>
                         ))}
                     </ul>
+                    <p className='mx-auto mt-12 max-w-3xl text-center text-xl font-medium leading-[190%] text-[#ffffff99]'>
+                        Not what you&apos;re looking for?{' '}
+                        <PyroLink className='text-brand underline' href={`/for/all`}>
+                            Explore all plans
+                        </PyroLink>.
+                    </p>
                 </div>
             </section>
 

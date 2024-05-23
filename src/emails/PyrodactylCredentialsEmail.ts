@@ -1,12 +1,9 @@
-export const PyrodactylCredentialsEmail = (email: string, password: string) => {
-    return `
-<html>
-<body>
-    <p>Thank you for choosing Pyro!</p>
-    <p>Your account has been created. Here are your login details:</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Password:</strong> ${password}</p>
-    <p>You can login at <a href="https://panel.pyro.host">https://panel.pyro.host</a>.</p>
-</body>
-</html>`;
+import Email from '@/emails/Email';
+
+export const PyrodactylCredentialsEmail = (email: string, password: string): Email => {
+    return {
+        subject: 'Pyrodactyl Credentials',
+        html: undefined,
+        fallback: `Your Pyrodactyl credentials have been created. You can log in at ${process.env.PTERODACTYL_API_URL} with the following credentials:\n\nEmail: ${email}\nPassword: ${password}\n\nPlease change your password after logging in.`,
+    };
 };

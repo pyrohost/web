@@ -226,9 +226,9 @@ html {
     background-color: #000000;
 }
 
-html:has(body[data-scroll-locked]) {
+/* html:has(body[data-scroll-locked]) {
     overflow: hidden;
-}
+} */
 
 @keyframes fadeIn {
     0% {

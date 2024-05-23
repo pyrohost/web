@@ -4,10 +4,10 @@ import type { Stripe } from 'stripe';
 
 import { NextResponse } from 'next/server';
 
-import { sendEmail } from '@/lib/email';
 import prisma from '@/lib/prisma';
 import PterodactylClient, { UserObject } from '@/lib/pterodactyl';
 import { stripe } from '@/lib/stripe';
+import { sendEmail } from '@/lib/utils/sendEmail';
 
 function getNames(name: string): [string, string] {
     let names = name.trim().split(' ');
@@ -89,7 +89,6 @@ export async function POST(req: Request) {
                     let metadata = (await stripe.products.retrieve(invoice.lines.data[0].plan!.product as string))
                         .metadata;
 
-                    // ok if this returns 404
                     let existingServer = await PterodactylClient.getServerByExternalId(subscription.id);
 
                     if (existingServer) {
@@ -106,13 +105,15 @@ export async function POST(req: Request) {
 
                     let pyrodactylUser: UserObject | null;
 
+                    // NOTE: these are arrow operators on purpose as they
+                    // perserve the context of the function.
                     const getUser = !dbUser.pyrodactylUserId
-                        ? PterodactylClient.getUserByEmail
-                        : PterodactylClient.getUserById;
+                        ? (idOrEmail: string) => PterodactylClient.getUserByEmail(idOrEmail)
+                        : (idOrEmail: string) => PterodactylClient.getUserById(idOrEmail);
 
-                    const userId = !dbUser.pyrodactylUserId ? dbUser.email! : dbUser.pyrodactylUserId;
+                    const userSearchableAttr = !dbUser.pyrodactylUserId ? dbUser.email : dbUser.pyrodactylUserId;
+                    pyrodactylUser = await getUser(userSearchableAttr as string);
 
-                    pyrodactylUser = await getUser(userId as never);
                     if (!pyrodactylUser) {
                         let password = randomBytes(32).toString('hex');
                         let [first_name, last_name] = getNames(dbUser.preferredName || stripeCustomer.name!);
@@ -127,9 +128,7 @@ export async function POST(req: Request) {
 
                         await sendEmail(
                             dbUser.email!,
-                            'Pyrodactyl Credentials',
                             PyrodactylCredentialsEmail(dbUser.email!, password),
-                            { server: process.env.EMAIL_SERVER, from: process.env.EMAIL_FROM },
                         );
 
                         await prisma.user.update({
@@ -139,10 +138,9 @@ export async function POST(req: Request) {
                     }
 
                     let allocation = await PterodactylClient.getFirstAvailableAllocation(2);
-                    const serverName = `NewServer-${dbUser.id}-${randomBytes(4).toString('hex')}`;
 
                     let server = await PterodactylClient.createBlankServer(
-                        serverName,
+                        'Server',
                         pyrodactylUser.id,
                         allocation.id,
                         {
@@ -159,6 +157,7 @@ export async function POST(req: Request) {
                         },
                     );
 
+                    const serverName = `Server #${server.id}`;
                     await PterodactylClient.updateServerDetails(server.id, {
                         name: serverName,
                         user: pyrodactylUser.id,
