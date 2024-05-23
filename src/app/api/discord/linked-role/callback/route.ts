@@ -18,23 +18,7 @@ export async function GET(req: NextRequest, res: Response) {
     const tokens = await discord.getOAuthTokens(code as string);
     const discordUser = await discord.getUserData(tokens.access_token);
 
-    prisma.user.update({
-        where: {
-            id: session.user?.id,
-        },
-        data: {
-            discordLinkedRole: {
-                create: {
-                    discordId: discordUser.id,
-                    accessToken: tokens.access_token,
-                    refreshToken: tokens.refresh_token,
-                    expiresAt: tokens.expires_at,
-                },
-            },
-        },
-    });
-
-    let dbUser = await prisma.user.findUnique({
+    const dbUser = await prisma.user.findUnique({
         where: {
             id: session.user?.id,
         },
@@ -49,13 +33,25 @@ export async function GET(req: NextRequest, res: Response) {
         status: 'active',
     });
 
-    if (subscriptions.data.length === 0) {
-        return redirect('/account?error=NoActiveSubscriptionsDiscordLinkedRole');
-    }
-
     await discord.pushMetadata(tokens, {
         services: subscriptions.data.length,
         customer_since: dbUser.createdAt,
+    });
+
+    await prisma.user.update({
+        where: {
+            id: session.user?.id,
+        },
+        data: {
+            discordLinkedRole: {
+                create: {
+                    discordId: discordUser.id,
+                    accessToken: tokens.access_token,
+                    refreshToken: tokens.refresh_token,
+                    expiresAt: tokens.expires_at,
+                },
+            },
+        },
     });
 
     return redirect('/account/?success=DiscordLinkedRole');

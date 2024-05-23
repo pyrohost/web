@@ -19,18 +19,11 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
 
     const user = await prisma.user.findUnique({
         where: {
-            id: session?.user?.id,
-        },
-        include: {
-            discordLinkedRole: true,
+            id: session.user?.id,
         },
     });
 
-    if (!user) {
-        return redirect('/auth/login');
-    }
-
-    if (!user.stripeCustomerId) {
+    if (!user || !user.stripeCustomerId) {
         return redirect('/auth/login');
     }
 
