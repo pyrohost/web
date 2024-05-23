@@ -12,8 +12,15 @@ export async function GET(request: NextRequest) {
         });
     }
 
+    const discordLinkedRoles: { userId: string }[] = await prisma.discordLinkedRole.findMany({
+        where: { discordId: { not: null } },
+        select: { userId: true },
+    });
+
+    const userIds: string[] = discordLinkedRoles.map((role: { userId: string }) => role.userId);
+
     const users = await prisma.user.findMany({
-        where: { discordLinkedRole: { discordId: { not: undefined } } },
+        where: { discordLinkedRoles: { some: { userId: { in: userIds } } } },
     });
 
     for (const user of users) {
