@@ -5,7 +5,7 @@ import { CaretSortIcon } from '@radix-ui/react-icons';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
 import { PyroButton } from '@/components/ui/PyroButton';
 
-const AccountConnections = ({ user }: { user: User }) => {
+const AccountConnections = ({ user }: { user: any }) => {
     return (
         <Collapsible>
             <div className='flex flex-col rounded-xl border-[1px] border-[#ffffff11] bg-[#ffffff09] shadow-sm'>
@@ -38,7 +38,7 @@ const AccountConnections = ({ user }: { user: User }) => {
                                 <p>Discord</p>
                             </div>
                             <div className='text-sm font-bold'>
-                                {user.discordLinkedRoleId ? (
+                                {user.discordTokens ? (
                                     <div className='text-green-700'>
                                         <span className='h-1.5 w-1.5 rounded-full bg-green-700'></span>
                                         Connected!

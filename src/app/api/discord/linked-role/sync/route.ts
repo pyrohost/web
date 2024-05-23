@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
         return new Response('Unauthorized', { status: 401 });
     }
 
-    const dbTokens = await prisma.discordLinkedRole.findMany();
+    const dbTokens = await prisma.discordTokens.findMany();
     const promises = dbTokens.map(async (token) => {
         try {
             const tokenData = await discord.getAccessToken({
@@ -35,8 +35,8 @@ export async function GET(request: NextRequest) {
                 customer_since: dbUser.createdAt,
             });
 
-            await prisma.discordLinkedRole.update({
-                where: { id: token.id },
+            await prisma.discordTokens.update({
+                where: { userId: dbUser.id },
                 data: {
                     accessToken: tokenData.access_token,
                     refreshToken: tokenData.refresh_token,

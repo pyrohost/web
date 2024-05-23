@@ -21,6 +21,9 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
         where: {
             id: session.user?.id,
         },
+        include: {
+            discordTokens: true,
+        },
     });
 
     if (!user || !user.stripeCustomerId) {

@@ -26,7 +26,7 @@ export async function GET(req: NextRequest, res: Response) {
             id: session.user?.id,
         },
         include: {
-            discordLinkedRole: true,
+            discordTokens: true,
         },
     });
 
@@ -34,56 +34,22 @@ export async function GET(req: NextRequest, res: Response) {
         throw new Error('Achievement Get: How did we get here?');
     }
 
-    if (!dbUser.discordLinkedRole) {
-        const discordUser = await discord.getUserData(discordTokens);
-
-        await prisma.discordLinkedRole.create({
-            data: {
-                userId: dbUser.id,
-                discordId: discordUser.id,
-                accessToken: discordTokens.access_token,
-                refreshToken: discordTokens.refresh_token,
-                expiresAt: discordTokens.expires_at,
-            },
-        });
-
-        await prisma.user.update({
-            where: {
-                id: dbUser.id,
-            },
-            data: {
-                discordLinkedRole: {
-                    connect: {
-                        id: dbUser.id,
-                    },
-                },
-            },
-        });
-    } else {
-        await prisma.discordLinkedRole.update({
-            where: {
-                id: dbUser.discordLinkedRole.id,
-            },
-            data: {
-                accessToken: discordTokens.access_token,
-                refreshToken: discordTokens.refresh_token,
-                expiresAt: discordTokens.expires_at,
-            },
-        });
-
-        await prisma.user.update({
-            where: {
-                id: dbUser.id,
-            },
-            data: {
-                discordLinkedRole: {
-                    connect: {
-                        id: dbUser.id,
-                    },
-                },
-            },
-        });
-    }
+    await prisma.discordTokens.upsert({
+        where: {
+            userId: dbUser.id,
+        },
+        update: {
+            accessToken: discordTokens.access_token,
+            refreshToken: discordTokens.refresh_token,
+            expiresAt: discordTokens.expires_at,
+        },
+        create: {
+            userId: dbUser.id,
+            accessToken: discordTokens.access_token,
+            refreshToken: discordTokens.refresh_token,
+            expiresAt: discordTokens.expires_at,
+        },
+    });
 
     const subscriptions = await stripe.subscriptions.list({
         customer: dbUser.stripeCustomerId,

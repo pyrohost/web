@@ -44,12 +44,11 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model DiscordLinkedRole {
+model DiscordTokens {
   id     String @id @default(cuid())
   userId String @unique
-  User   User   @relation(fields: [userId], references: [id]) // Only declare fields and references here
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  discordId    String
   accessToken  String
   refreshToken String
   expiresAt    DateTime
@@ -76,8 +75,7 @@ model User {
   stripeCustomerId String?
 
   // connections
-  discordLinkedRoleId String?
-  discordLinkedRole   DiscordLinkedRole?
+  discordTokens DiscordTokens?
 
   // system
   role   String?
