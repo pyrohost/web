@@ -19,7 +19,7 @@ export async function GET(req: NextRequest, res: Response) {
         return redirect('/account/?error=NoCodeDiscordLinkedRole');
     }
 
-    const token = await discord.getOAuthTokens(code);
+    const discordTokens = await discord.getOAuthTokens(code);
 
     const dbUser = await prisma.user.findUnique({
         where: {
@@ -35,14 +35,15 @@ export async function GET(req: NextRequest, res: Response) {
     }
 
     if (!dbUser.discordLinkedRole) {
-        const discordUser = await discord.getUserData(token.access_token);
+        const discordUser = await discord.getUserData(discordTokens);
+
         await prisma.discordLinkedRole.create({
             data: {
                 userId: dbUser.id,
                 discordId: discordUser.id,
-                accessToken: token.access_token,
-                refreshToken: token.refresh_token,
-                expiresAt: token.expires_at,
+                accessToken: discordTokens.access_token,
+                refreshToken: discordTokens.refresh_token,
+                expiresAt: discordTokens.expires_at,
             },
         });
     } else {
@@ -51,9 +52,9 @@ export async function GET(req: NextRequest, res: Response) {
                 id: dbUser.discordLinkedRole.id,
             },
             data: {
-                accessToken: token.access_token,
-                refreshToken: token.refresh_token,
-                expiresAt: token.expires_at,
+                accessToken: discordTokens.access_token,
+                refreshToken: discordTokens.refresh_token,
+                expiresAt: discordTokens.expires_at,
             },
         });
     }
@@ -63,7 +64,7 @@ export async function GET(req: NextRequest, res: Response) {
         status: 'active',
     });
 
-    await discord.pushMetadata(token, {
+    await discord.pushMetadata(discordTokens, {
         services: subscriptions.data.length,
         customer_since: dbUser.createdAt,
     });

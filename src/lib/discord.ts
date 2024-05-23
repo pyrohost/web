@@ -96,33 +96,29 @@ class DiscordAPI {
         };
     }
 
-    async getUserData(accessToken: string): Promise<any> {
+    async getUserData(tokens: TokenInfo): Promise<any> {
         return await this.request('/users/@me', {
             headers: {
-                Authorization: `Bearer ${accessToken}`,
+                Authorization: `Bearer ${tokens.access_token}`,
             },
         });
     }
 
     async pushMetadata(tokens: TokenInfo, metadata: Record<string, any>) {
-        const accessToken = await this.getAccessToken(tokens);
-
         await this.request(`/users/@me/applications/${this.clientId}/role-connection`, {
             method: 'PUT',
             body: JSON.stringify({ platform_name: 'Pyro', metadata }),
             headers: {
-                Authorization: `Bearer ${accessToken}`,
+                Authorization: `Bearer ${tokens.access_token}`,
                 'Content-Type': 'application/json',
             },
         });
     }
 
     async getMetadata(tokens: TokenInfo) {
-        const accessToken = await this.getAccessToken(tokens);
-
         return await this.request(`/users/@me/applications/${this.clientId}/role-connection`, {
             headers: {
-                Authorization: `Bearer ${accessToken}`,
+                Authorization: `Bearer ${tokens.access_token}`,
             },
         });
     }
