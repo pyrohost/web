@@ -34,27 +34,27 @@ class DiscordAPI {
     }
 
     async getAccessToken(tokens: { access_token: string; refresh_token: string; expires_at: Date }): Promise<string> {
-        if (Date.now() > tokens.expires_at.getTime()) {
-            const body = new URLSearchParams({
-                client_id: process.env.DISCORD_CLIENT_ID!,
-                client_secret: process.env.DISCORD_CLIENT_SECRET!,
-                grant_type: 'refresh_token',
-                refresh_token: tokens.refresh_token,
-            });
-
-            const newTokens = await this.request<any>('/oauth2/token', {
-                body,
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-            });
-
-            newTokens.expires_at = new Date(Date.now() + newTokens.expires_in * 1000);
-            return newTokens.access_token;
+        if (new Date() < tokens.expires_at) {
+            return tokens.access_token;
         }
 
-        return tokens.access_token;
+        const body = new URLSearchParams({
+            client_id: process.env.DISCORD_CLIENT_ID!,
+            client_secret: process.env.DISCORD_CLIENT_SECRET!,
+            grant_type: 'refresh_token',
+            refresh_token: tokens.refresh_token,
+            redirect_uri: process.env.DISCORD_LINKED_ROLE_REDIRECT!,
+        });
+
+        const newTokens = await this.request<{ access_token: string; refresh_token: string; expires_in: number }>('/oauth2/token', {
+            body,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        });
+
+        return newTokens.access_token;
     }
 
     async getUserData(tokens: { access_token: string }): Promise<any> {
