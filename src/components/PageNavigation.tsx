@@ -122,7 +122,7 @@ const PageNavigation = () => {
                                             className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
                                             rel='noopener noreferrer'
                                             target='_blank'
-                                            href='https://discord.gg/fxeRFRbhQh'
+                                            href='/discord'
                                         >
                                             <span>Discord</span>
                                             <ExternalLinkIcon />
@@ -167,7 +167,7 @@ const PageNavigation = () => {
                                             <NavLinkItem href='/about'>Company</NavLinkItem>
 
                                             <div className='min-h-[1rem]'></div>
-                                            <NavLinkItem href='https://discord.gg/fxeRFRbhQh' external>
+                                            <NavLinkItem href='/discord' external>
                                                 Discord
                                             </NavLinkItem>
                                         </NavigationMenu.Content>

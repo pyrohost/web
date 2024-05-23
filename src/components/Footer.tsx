@@ -58,7 +58,7 @@ const Footer = () => {
                     aria-label='Join the Pyro Discord community'
                     rel='noopener noreferrer'
                     target='_blank'
-                    href='https://discord.gg/fxeRFRbhQh'
+                    href='/discord'
                 >
                     <svg viewBox='0 0 16 16' className='h-4 w-4'>
                         <path
