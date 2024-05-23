@@ -46,7 +46,7 @@ const AccountConnections = ({ user }: { user: User }) => {
                                     </div>
                                 ) : (
                                     // we know it's hardcoded. too bad!
-                                    <PyroButton href='https://discord.com/oauth2/authorize?client_id=1107058928061263942&response_type=code&redirect_uri=https%3A%2F%2Fpyro.host%2Fapi%2Fdiscord%2Flinked-role%2Fcallback&scope=role_connections.write'>
+                                    <PyroButton size={'small'} href='https://discord.com/oauth2/authorize?client_id=1107058928061263942&response_type=code&redirect_uri=https%3A%2F%2Fpyro.host%2Fapi%2Fdiscord%2Flinked-role%2Fcallback&scope=role_connections.write+identify+email'>
                                         Link Discord
                                     </PyroButton>
                                 )}

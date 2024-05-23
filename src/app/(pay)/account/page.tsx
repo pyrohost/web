@@ -14,7 +14,7 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
     const session = await auth();
 
     if (!session) {
-        return redirect('/category');
+        return redirect('/auth/login');
     }
 
     const user = await prisma.user.findUnique({
