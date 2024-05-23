@@ -46,12 +46,12 @@ export default async function ResultPage({
                         className='mb-4 w-full rounded-xl'
                     />
                     <h1 className='text-center text-3xl font-extrabold'>Thank You for Choosing Pyro!</h1>
-                    <p className='mt-2 text-center'>We're excited to have you on board!</p>
+                    <p className='mt-2 text-center'>We&apos;re excited to have you on board!</p>
                     <div className='mx-auto my-4 w-full max-w-lg border-t border-brand border-opacity-20' />
 
-                    <h2 className='text-center text-2xl font-extrabold'>What's next?</h2>
+                    <h2 className='text-center text-2xl font-extrabold'>What&apos;s next?</h2>
                     <p className='mt-2 text-center'>
-                        Check your email for login details if you don't already have a Pyrodactyl account.
+                        Check your email for login details if you don&apos;t already have a Pyrodactyl account.
                     </p>
 
                     <PyroButton href='https://panel.pyro.host' external={true} className='mt-6'>
