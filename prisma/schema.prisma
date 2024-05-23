@@ -45,8 +45,9 @@ model VerificationToken {
 }
 
 model DiscordLinkedRole {
-  id   String @id @default(cuid())
-  User User[]
+  id     String @id @default(cuid())
+  userId String @unique
+  User   User   @relation(fields: [userId], references: [id]) // Only declare fields and references here
 
   discordId    String
   accessToken  String
@@ -76,7 +77,7 @@ model User {
 
   // connections
   discordLinkedRoleId String?
-  discordLinkedRole   DiscordLinkedRole? @relation(fields: [discordLinkedRoleId], references: [id])
+  discordLinkedRole   DiscordLinkedRole?
 
   // system
   role   String?
