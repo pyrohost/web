@@ -46,6 +46,19 @@ export async function GET(req: NextRequest, res: Response) {
                 expiresAt: discordTokens.expires_at,
             },
         });
+
+        await prisma.user.update({
+            where: {
+                id: dbUser.id,
+            },
+            data: {
+                discordLinkedRole: {
+                    connect: {
+                        id: dbUser.id,
+                    },
+                },
+            },
+        });
     } else {
         await prisma.discordLinkedRole.update({
             where: {
@@ -55,6 +68,19 @@ export async function GET(req: NextRequest, res: Response) {
                 accessToken: discordTokens.access_token,
                 refreshToken: discordTokens.refresh_token,
                 expiresAt: discordTokens.expires_at,
+            },
+        });
+
+        await prisma.user.update({
+            where: {
+                id: dbUser.id,
+            },
+            data: {
+                discordLinkedRole: {
+                    connect: {
+                        id: dbUser.id,
+                    },
+                },
             },
         });
     }
