@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
     }
 
     const users = await prisma.user.findMany({
-        where: { discordLinkedRole: { NOT: undefined } },
+        where: { discordLinkedRole: { discordId: { not: undefined } } },
     });
 
     for (const user of users) {
