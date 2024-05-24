@@ -3,7 +3,7 @@
 import { headers } from 'next/headers';
 import Stripe from 'stripe';
 
-import stripe from '@/lib/stripe';
+import stripe from '@/lib/api/stripe';
 
 export const createCheckoutSession = async (
     data: FormData,

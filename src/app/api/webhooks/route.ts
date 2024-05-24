@@ -4,9 +4,9 @@ import type { Stripe } from 'stripe';
 
 import { NextResponse } from 'next/server';
 
-import prisma from '@/lib/prisma';
-import PterodactylClient, { UserObject } from '@/lib/pterodactyl';
-import stripe from '@/lib/stripe';
+import prisma from '@/lib/api/prisma';
+import PterodactylClient, { UserObject } from '@/lib/api/pterodactyl';
+import stripe from '@/lib/api/stripe';
 import { sendEmail } from '@/lib/utils/sendEmail';
 
 function getNames(name: string): [string, string] {

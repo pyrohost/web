@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 
-import { GameSearch } from '@/components/GameSearch';
+import { GameSearch } from '@/components/pay/GameSearch';
 import { PyroLink } from '@/components/ui/PyroLink';
 
 export const metadata: Metadata = {

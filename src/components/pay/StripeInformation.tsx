@@ -3,10 +3,10 @@ import { CaretSortIcon, CheckCircledIcon, CrossCircledIcon } from '@radix-ui/rea
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
 import { LockClosedIcon } from '@/components/ui/Icons';
 
-import stripe from '@/lib/stripe';
+import stripe from '@/lib/api/stripe';
 import formatPhoneNumber from '@/lib/utils/formatPhoneNumber';
 
-import StripePortal from '@/components/stripe/StripePortal';
+import StripePortal from '@/components/pay/StripePortal';
 
 const InfoRow = ({
     label,

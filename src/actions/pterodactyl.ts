@@ -1,6 +1,6 @@
 'use server';
 
-import PterodactylClient from '@/lib/pterodactyl';
+import PterodactylClient from '@/lib/api/pterodactyl';
 
 export const getServerByExternalIdAction = async (externalId: string) => {
     try {

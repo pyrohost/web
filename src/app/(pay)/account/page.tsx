@@ -5,13 +5,13 @@ import { redirect } from 'next/navigation';
 
 import { Cross1Icon } from '@radix-ui/react-icons';
 
-import AccountConnections from '@/components/AccountConnections';
-import DashboardSkeletonSection from '@/components/DashboardSkeletonSection';
-import StripeInformation from '@/components/stripe/StripeInformation';
-import StripeSubscriptions from '@/components/stripe/StripeSubscriptions';
+import AccountConnections from '@/components/pay/AccountConnections';
+import DashboardSkeletonSection from '@/components/pay/DashboardSkeletonSection';
+import StripeInformation from '@/components/pay/StripeInformation';
+import StripeSubscriptions from '@/components/pay/StripeSubscriptions';
 
-import { auth } from '@/lib/auth';
-import prisma from '@/lib/prisma';
+import { auth } from '@/lib/api/auth';
+import prisma from '@/lib/api/prisma';
 
 const Page = async ({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) => {
     const session = await auth();

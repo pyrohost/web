@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import LogoWhite from '@/components/LogoWhite';
+import LogoWhite from '@/components/ui/layout/LogoWhite';
 
 const Footer = () => {
     return (

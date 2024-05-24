@@ -3,14 +3,14 @@ import Stripe from 'stripe';
 // import StripeCancelSubscriptionImmediately from './unsafe_StripeCancelSubscriptionImmediately';
 import { CaretSortIcon } from '@radix-ui/react-icons';
 
-import StripeCancelSubscription from '@/components/stripe/StripeCancelSubscription';
-import StripeResumeSubscription from '@/components/stripe/StripeResumeSubscription';
+import StripeCancelSubscription from '@/components/pay/StripeCancelSubscription';
+import StripeResumeSubscription from '@/components/pay/StripeResumeSubscription';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/DropdownMenu';
 import GoToServerDropdownItem from '@/components/ui/GoToServerDropdownItem';
 import { MoreIcon } from '@/components/ui/Icons';
 
-import stripe from '@/lib/stripe';
+import stripe from '@/lib/api/stripe';
 import { formatAmountForDisplay } from '@/lib/utils/stripeHelpers';
 
 interface ExtendedSubscription extends Stripe.Subscription {

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { PyroButton } from '@/components/ui/PyroButton';
 
-import { auth } from '@/lib/auth';
+import { auth } from '@/lib/api/auth';
 
 const HeaderLoginButton = async () => {
     const session = await auth();

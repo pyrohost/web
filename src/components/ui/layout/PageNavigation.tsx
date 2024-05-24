@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
-import LogoColored from '@/components/LogoColored';
+import LogoColored from '@/components/ui/layout/LogoColored';
 
 
 const ExternalLinkIcon = () => (

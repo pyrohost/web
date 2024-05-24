@@ -1,7 +1,7 @@
 import { PyroButton } from '@/components/ui/PyroButton';
 import { PyroLink } from '@/components/ui/PyroLink';
 
-import stripe from '@/lib/stripe';
+import stripe from '@/lib/api/stripe';
 
 export default async function ResultPage({
     searchParams,

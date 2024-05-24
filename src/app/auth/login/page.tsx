@@ -5,7 +5,7 @@ import EmailLogIn from '@/components/auth/EmailLogIn';
 import LogInErrors from '@/components/auth/LogInErrors';
 import OauthLogIn from '@/components/auth/OauthLogIn';
 
-import { auth } from '@/lib/auth';
+import { auth } from '@/lib/api/auth';
 
 const Page = async () => {
     const session = await auth();

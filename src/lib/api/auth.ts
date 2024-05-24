@@ -5,10 +5,10 @@ import Discord from 'next-auth/providers/discord';
 import GitHub from 'next-auth/providers/github';
 import Nodemailer from 'next-auth/providers/nodemailer';
 
-import prisma from '@/lib/prisma';
-import stripe from '@/lib/stripe';
+import prisma from '@/lib/api/prisma';
+import stripe from '@/lib/api/stripe';
 
-import { sendEmail } from './utils/sendEmail';
+import { sendEmail } from '../utils/sendEmail';
 import { VerificationEmail } from '@/emails/VerificationEmail';
 import PterodactylClient from './pterodactyl';
 
@@ -65,12 +65,12 @@ export const {
                         data: { pyrodactylUserId: pyrodactylUser.id },
                     });
                 }
-                
-                // NOTE: We don't create them a pterodactyl account here because it 
+
+                // NOTE: We don't create them a pterodactyl account here because it
                 // requires us to send them an email with their password, which we
                 // would rather send them when they purchase a product.
             }
-            
+
             return Promise.resolve();
         },
     },
@@ -90,7 +90,7 @@ export const {
                     email,
                     VerificationEmail(url)
                 );
-                
+
                 return Promise.resolve();
             },
         }),

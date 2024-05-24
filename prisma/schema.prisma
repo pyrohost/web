@@ -86,3 +86,31 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 }
+
+enum PriceType {
+  ONE_TIME
+  SUBSCRIPTION
+}
+
+enum PricePeriod {
+  DAY
+  WEEK
+  MONTH
+  YEAR
+}
+
+model Price {
+  id          String      @id @default(cuid())
+  type        PriceType
+  period      PricePeriod
+  amount      Int // in cents
+  currency    String
+  description String?
+}
+
+model Product {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+  prices      Price[]
+}

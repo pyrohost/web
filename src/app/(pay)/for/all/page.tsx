@@ -4,11 +4,11 @@ import BackgroundAccent from '@/components/ui/BackgroundAccent';
 import ProductListing from '@/components/ui/ProductListing';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
 
-import { auth } from '@/lib/auth';
+import { auth } from '@/lib/api/auth';
 import { ExtendedProduct } from '@/lib/interfaces/Product';
-import prisma from '@/lib/prisma';
+import prisma from '@/lib/api/prisma';
 import { products } from '@/lib/products';
-import stripe from '@/lib/stripe';
+import stripe from '@/lib/api/stripe';
 
 export const metadata: Metadata = {
     title: 'Pyro - All Plans',

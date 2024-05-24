@@ -1,8 +1,8 @@
 import type { NextRequest } from 'next/server';
 
-import discord from '@/lib/discord';
-import prisma from '@/lib/prisma';
-import stripe from '@/lib/stripe';
+import discord from '@/lib/api/discord';
+import prisma from '@/lib/api/prisma';
+import stripe from '@/lib/api/stripe';
 
 export async function GET(request: NextRequest) {
     const authHeader = request.headers.get('authorization');

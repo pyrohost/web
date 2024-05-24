@@ -11,7 +11,7 @@ import PyroPill from '@/components/ui/PyroPill';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/Accordion';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/Carousel';
 
-import { getGameBySlug, plans } from '@/lib/static';
+import { getGameBySlug, plans } from '@/lib/static/static';
 
 const Checkmark = ({ brand }: { brand?: boolean }) => (
     <svg

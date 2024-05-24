@@ -3,9 +3,9 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 
-import Footer from '@/components/Footer';
-import HeaderLoginButton from '@/components/HeaderLoginButton';
-import PageNavigation from '@/components/PageNavigation';
+import Footer from '@/components/ui/layout/Footer';
+import HeaderLoginButton from '@/components/ui/layout/HeaderLoginButton';
+import PageNavigation from '@/components/ui/layout/PageNavigation';
 
 import './globals.css';
 

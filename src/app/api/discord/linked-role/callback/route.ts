@@ -1,10 +1,10 @@
 import { redirect } from 'next/navigation';
 import { type NextRequest } from 'next/server';
 
-import { auth } from '@/lib/auth';
-import discord from '@/lib/discord';
-import prisma from '@/lib/prisma';
-import stripe from '@/lib/stripe';
+import { auth } from '@/lib/api/auth';
+import discord from '@/lib/api/discord';
+import prisma from '@/lib/api/prisma';
+import stripe from '@/lib/api/stripe';
 
 export async function GET(req: NextRequest, res: Response) {
     let session = await auth();
