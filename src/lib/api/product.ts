@@ -19,7 +19,7 @@ class ProductAPI {
             price = price - price * discount;
         }
 
-        return price;
+        return Math.ceil(price);
     }
 
     private async createPrices(dbProductId: string, baseMonthlyPrice: string): Promise<Price[]> {
@@ -35,7 +35,7 @@ class ProductAPI {
                 product: dbProduct.stripeId,
                 currency: 'usd',
                 unit_amount: amount,
-                recurring: { interval: 'month' },
+                recurring: { interval: 'month', interval_count: months },
             });
 
             let price = await prisma.price.create({
@@ -44,7 +44,7 @@ class ProductAPI {
                     stripeId: stripePrice.id,
                     amount,
                     recurring: true,
-                    interval: 'monthly',
+                    every_months: months,
                     currency: 'usd',
                 },
             });
@@ -59,8 +59,8 @@ class ProductAPI {
         return prisma.price.findMany({ where: { productId } });
     }
 
-    async getPricesByProductIdAndInterval(productId: string, interval: string): Promise<Price[]> {
-        return prisma.price.findMany({ where: { productId, interval } });
+    async getPricesByProductIdAndMonths(productId: string, every_months: number): Promise<Price[]> {
+        return prisma.price.findMany({ where: { productId, every_months } });
     }
 
     async getProducts(): Promise<Product[]> {

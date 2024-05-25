@@ -1,7 +1,8 @@
 'use server';
 
-import { headers } from 'next/headers';
 import Stripe from 'stripe';
+
+import { headers } from 'next/headers';
 
 import stripe from '@/lib/api/stripe';
 
@@ -34,7 +35,7 @@ export const createCheckoutSession = async (
         },
         billing_address_collection: 'required',
         automatic_tax: {
-            enabled: true,
+            enabled: false,
         },
     });
 

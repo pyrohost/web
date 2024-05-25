@@ -5,7 +5,6 @@ import BackgroundAccent from '@/components/ui/BackgroundAccent';
 import ProductListing from '@/components/ui/ProductListing';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
 
-
 import prisma from '@/lib/api/prisma';
 import productAPI from '@/lib/api/product';
 import userAPI, { getUserBySession } from '@/lib/api/user';
@@ -20,16 +19,16 @@ const Page = async () => {
     const sessionUser = await getUserBySession();
     const products = await productAPI.getProducts();
 
-    const renderProductList = async (pricingPeriod: string) => (
+    const renderProductList = async (everyMonths: number) => (
         <>
             <ul className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                 {products.map(async (product) => (
                     <ProductListing
                         key={product?.id}
                         product={product}
-                        prices={await productAPI.getPricesByProductIdAndInterval(product.id, pricingPeriod)}
+                        prices={await productAPI.getPricesByProductIdAndMonths(product.id, everyMonths)}
                         user={sessionUser}
-                        pricingPeriod={pricingPeriod}
+                        everyMonths={everyMonths}
                     />
                 ))}
             </ul>
@@ -61,18 +60,18 @@ const Page = async () => {
                             <TabsTrigger className='w-full' value='quarterly'>
                                 Quarterly (3% off!)
                             </TabsTrigger>
-                            <TabsTrigger className='w-full' value='biannually'>
-                                Biannually (6% off!)
+                            <TabsTrigger className='w-full' value='semiannually'>
+                                Semiannually (6% off!)
                             </TabsTrigger>
                             <TabsTrigger className='w-full' value='yearly'>
                                 Yearly (12% off!)
                             </TabsTrigger>
                         </TabsList>
                     </div>
-                    <TabsContent value='monthly'>{renderProductList('monthly')}</TabsContent>
-                    <TabsContent value='quarterly'>{renderProductList('quarterly')}</TabsContent>
-                    <TabsContent value='biannually'>{renderProductList('biannually')}</TabsContent>
-                    <TabsContent value='yearly'>{renderProductList('yearly')}</TabsContent>
+                    <TabsContent value='monthly'>{renderProductList(1)}</TabsContent>
+                    <TabsContent value='quarterly'>{renderProductList(3)}</TabsContent>
+                    <TabsContent value='semiannually'>{renderProductList(6)}</TabsContent>
+                    <TabsContent value='yearly'>{renderProductList(12)}</TabsContent>
                 </Tabs>
             </div>
         </>

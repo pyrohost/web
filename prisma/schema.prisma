@@ -59,8 +59,8 @@ model Price {
   amount   Int
   currency String
 
-  recurring Boolean
-  interval  String?
+  recurring    Boolean
+  every_months Int?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt

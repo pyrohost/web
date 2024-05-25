@@ -14,25 +14,25 @@ import { PricingPeriod } from '@/lib/interfaces/PricingPeriod';
 import getStripe from '@/lib/utils/getStripe';
 import { formatAmountForDisplay } from '@/lib/utils/stripeHelpers';
 import { User } from 'lucia';
-import { Product } from '@/lib/interfaces/Product';
-import { Price } from '@prisma/client';
+import { Price, Product } from '@prisma/client';
+import { TIME_TABLE } from '@/lib/static/time';
 
-const ProductListing = async ({
+const ProductListing = ({
     product,
     prices,
     user,
-    pricingPeriod = 'monthly',
+    everyMonths,
 }: {
     product: Product;
     prices: Price[];
     user: User | null;
-    pricingPeriod?: string;
+    everyMonths: number;
 }) => {
     const [open, setOpen] = useState<boolean>(false);
     const [clientSecret, setClientSecret] = useState<string | null>(null);
-    const price = prices.find((price) => price.interval === pricingPeriod);
+    const price = prices.find((price) => price.every_months === everyMonths);
+    
     if (!price) return null;
-
     const formAction = async (data: FormData): Promise<void> => {
         window.scrollTo(0, 0);
         setOpen(true);
@@ -75,7 +75,7 @@ const ProductListing = async ({
                             {currency(price?.amount ?? 0)
                                 .divide(100)
                                 .format()}{' '}
-                            / {pricingPeriod}
+                            / {everyMonths}
                         </span>
                     </h1>
                     {product.description ? (
@@ -93,7 +93,7 @@ const ProductListing = async ({
                     <form action={formAction} className='contents'>
                         <div
                             className='relative flex w-full flex-col gap-4 break-words rounded-xl border-[1px] border-[#ffffff11] bg-[#ffffff09] p-6 shadow-sm'
-                            data-price-id={product.price_id}
+                            data-price-id={product.stripeId}
                             key={product.id}
                         >
                             {/* <img src={product.icon} alt={product.name} className='w-full h-48 object-cover rounded-lg' /> */}
@@ -103,7 +103,7 @@ const ProductListing = async ({
                                     {currency(price?.amount ?? 0)
                                         .divide(100)
                                         .format()}{' '}
-                                    / {pricingPeriod}
+                                    / {TIME_TABLE[everyMonths as keyof typeof TIME_TABLE]}
                                 </span>
                             </h1>
                             {product.description ? (
