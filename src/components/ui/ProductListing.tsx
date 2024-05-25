@@ -1,7 +1,6 @@
 'use client';
 
 import { createCheckoutSession } from '@/actions/stripe';
-import { Price, Product, type User } from '@prisma/client';
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from '@stripe/react-stripe-js';
 import currency from 'currency.js';
 import React, { useState } from 'react';
@@ -14,18 +13,19 @@ import productAPI from '@/lib/api/product';
 import { PricingPeriod } from '@/lib/interfaces/PricingPeriod';
 import getStripe from '@/lib/utils/getStripe';
 import { formatAmountForDisplay } from '@/lib/utils/stripeHelpers';
+import { User } from 'lucia';
+import { Product } from '@/lib/interfaces/Product';
+import { Price } from '@prisma/client';
 
 const ProductListing = async ({
     product,
     prices,
     user,
-    customer,
     pricingPeriod = 'monthly',
 }: {
     product: Product;
     prices: Price[];
     user: User | null;
-    customer: any;
     pricingPeriod?: string;
 }) => {
     const [open, setOpen] = useState<boolean>(false);
@@ -57,11 +57,11 @@ const ProductListing = async ({
 
     if (
         !user ||
-        !user.stripeCustomerId ||
-        !customer ||
-        !customer.phone ||
-        !customer.address ||
-        Object.keys(customer.address || {}).length === 0
+        !user.stripeCustomerId
+        // !customer ||
+        // !customer.phone ||
+        // !customer.address ||
+        // Object.keys(customer.address || {}).length === 0
     )
         return (
             <li className='flex h-fit w-full'>
@@ -93,7 +93,7 @@ const ProductListing = async ({
                     <form action={formAction} className='contents'>
                         <div
                             className='relative flex w-full flex-col gap-4 break-words rounded-xl border-[1px] border-[#ffffff11] bg-[#ffffff09] p-6 shadow-sm'
-                            data-price-id={product.stripeId}
+                            data-price-id={product.price_id}
                             key={product.id}
                         >
                             {/* <img src={product.icon} alt={product.name} className='w-full h-48 object-cover rounded-lg' /> */}

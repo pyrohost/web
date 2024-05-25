@@ -4,8 +4,8 @@ import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 
 import Footer from '@/components/ui/layout/Footer';
-import HeaderLoginButton from '@/components/ui/layout/HeaderLoginButton';
 import Header from '@/components/ui/layout/Header';
+import HeaderLoginButton from '@/components/ui/layout/HeaderLoginButton';
 
 import './globals.css';
 
@@ -38,14 +38,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             lang='en'
             className='min-h-screen w-full overflow-x-hidden bg-black antialiased [font-synthesis-weight:none]'
         >
+            <head>
+                <meta name='darkreader-lock' />
+            </head>
             <body
                 data-pyro-body=''
                 className={`${jakarta.className} flex min-h-screen w-full flex-col overflow-x-hidden bg-black text-white`}
             >
                 <div data-pyro-index='' className='relative h-fit min-h-screen w-full flex-1 shrink-0 flex-col'>
-                    <div className='flex flex-row items-center justify-between pr-4'>
+                    <div className='relative container flex flex-row items-center justify-between'>
                         <Header />
-                        <div className='absolute right-4 top-4'>
+                        <div className='absolute right-6 top-4'>
                             <HeaderLoginButton />
                         </div>
                     </div>

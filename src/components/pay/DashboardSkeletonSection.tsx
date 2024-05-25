@@ -3,7 +3,7 @@ import { CaretSortIcon } from '@radix-ui/react-icons';
 const DashboardSkeletonSection = ({ title }: { title: string }) => {
     return (
         <div className='flex flex-col gap-4'>
-            <div className='flex min-h-[108px] flex-col justify-center gap-4 overflow-hidden rounded-xl border-[1px] border-[#ffffff11] bg-[#ffffff09] shadow-sm'>
+            <div className='flex min-h-[108px] flex-col justify-center gap-4 overflow-hidden rounded-xl border-[1px] border-[#ffffff14] bg-[#ffffff14] shadow-sm'>
                 <div className='flex w-full items-center justify-between p-6 text-left'>
                     <div className='flex flex-col gap-2'>
                         <h2 className='text-2xl font-extrabold'>{title}</h2>

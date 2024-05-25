@@ -10,7 +10,7 @@ export function isValidEmail(email: string) {
 async function generateEmailVerificationCode(userId: string, email: string): Promise<string> {
     const code = generateRandomString(6, alphabet('0-9', 'A-Z'));
     
-    await prisma.verificationToken.create({
+    await prisma.emailVerificationToken.create({
         data: {
             userId,
             email,

@@ -1,4 +1,4 @@
-import { Category, Interval, Price, Product } from '@prisma/client';
+import { Category, Price, Product } from '@prisma/client';
 import currency from 'currency.js';
 
 import prisma from '@/lib/api/prisma';
@@ -59,7 +59,7 @@ class ProductAPI {
         return prisma.price.findMany({ where: { productId } });
     }
 
-    async getPricesByProductIdAndInterval(productId: string, interval: Interval): Promise<Price[]> {
+    async getPricesByProductIdAndInterval(productId: string, interval: string): Promise<Price[]> {
         return prisma.price.findMany({ where: { productId, interval } });
     }
 

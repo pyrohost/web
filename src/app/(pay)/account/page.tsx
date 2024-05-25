@@ -5,17 +5,24 @@ import { redirect } from 'next/navigation';
 
 import { Cross1Icon } from '@radix-ui/react-icons';
 
+import AccountInformation from '@/components/account/AccountInformation';
 import AccountConnections from '@/components/pay/AccountConnections';
 import DashboardSkeletonSection from '@/components/pay/DashboardSkeletonSection';
 import UserInformation from '@/components/pay/StripeInformation';
 import StripeSubscriptions from '@/components/pay/StripeSubscriptions';
 
 import prisma from '@/lib/api/prisma';
-import { getUserBySession } from '@/lib/api/user';
+import userAPI, { getUserBySession } from '@/lib/api/user';
 
 const Page = async ({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) => {
-    const user = await getUserBySession();
-    if (!user) {
+    const sessionUser = await getUserBySession();
+    if (!sessionUser) {
+        return redirect('/login');
+    }
+
+    const dbUser = await userAPI.getUserBySessionUser(sessionUser);
+
+    if (!dbUser) {
         return redirect('/login');
     }
 
@@ -44,14 +51,16 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
             )}
 
             <Suspense fallback={<DashboardSkeletonSection title={'Account Information'} />}>
-                <UserInformation customerId={user.stripeCustomerId ?? ''} /> 
+                <AccountInformation user={dbUser} />
             </Suspense>
+
+            {/* <AccountInformation sessionUser={user} /> */}
             {/* <Suspense fallback={<DashboardSkeletonSection title={'Account Connections'} />}>
                 <AccountConnections user={user} />
-            </Suspense>
-            <Suspense fallback={<DashboardSkeletonSection title={'Active Subscriptions'} />}>
-                <StripeSubscriptions customerId={user.stripeCustomerId ?? ''} />
             </Suspense> */}
+            <Suspense fallback={<DashboardSkeletonSection title={'Active Subscriptions'} />}>
+                <StripeSubscriptions customerId={dbUser.stripeCustomerId ?? ''} />
+            </Suspense>
         </div>
     );
 };

@@ -73,7 +73,7 @@ const StripeSubscriptions = async ({ customerId }: { customerId: string }) => {
 
     return (
         <Collapsible>
-            <div className='flex flex-col rounded-xl border-[1px] border-[#ffffff11] bg-[#ffffff09] shadow-sm'>
+            <div className='flex flex-col rounded-xl border-[1px] border-[#ffffff15] bg-[#ffffff14] shadow-sm'>
                 <CollapsibleTrigger asChild>
                     <div className='group flex w-full cursor-pointer select-none items-center justify-between p-6 text-left'>
                         <div className='flex flex-col gap-2'>

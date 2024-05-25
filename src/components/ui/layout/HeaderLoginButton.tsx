@@ -1,22 +1,32 @@
 import Link from 'next/link';
 
+import { MixIcon } from '@radix-ui/react-icons';
+
 import { PyroButton } from '@/components/ui/PyroButton';
 
 import { getUserBySession } from '@/lib/api/user';
 
 const HeaderLoginButton = async () => {
-    const user = await getUserBySession();
+    const sessionUser = await getUserBySession();
 
     return (
         <>
-            {user ? (
-                <div className='ml-auto'>
+            {sessionUser ? (
+                <div className='ml-auto items-center gap-4 flex'>
+                    {sessionUser.admin && (
+                        <Link
+                            href='/admin'
+                            className='flex h-fit shrink-0 flex-row items-center justify-center rounded-full p-2 text-sm font-bold transition hover:bg-[#ffffff22]'
+                        >
+                            <MixIcon className='h-6 w-6' />
+                        </Link>
+                    )}
                     <Link
                         href='/account'
                         className='flex shrink-0 flex-row items-center justify-center rounded-full p-2 transition hover:bg-[#ffffff22]'
                     >
                         <img
-                            src={`https://source.boringavatars.com/marble/120/${user.id}?colors=f06d61,da825f,c4975c,a8ab7b,8cbf99`}
+                            src={`https://source.boringavatars.com/marble/120/${sessionUser.id}?colors=f06d61,da825f,c4975c,a8ab7b,8cbf99`}
                             width={30}
                             height={30}
                             className='min-sh-8 flex min-w-8 shrink-0 rounded-full'

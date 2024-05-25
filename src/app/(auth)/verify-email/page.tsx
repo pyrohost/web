@@ -1,10 +1,25 @@
+import LogoColored from "@/components/ui/layout/LogoColored";
+import VerifyEmailForm from "@/components/ui/VerifyEmailForm";
+import { getUserBySession } from '@/lib/api/user';
+import { redirect } from "next/navigation";
+
+
 const Page = async () => {
+    const user = await getUserBySession();
+    if (!user) {
+        // if this happens something terrible has gone wrong enog sa
+        return redirect('/login');
+    }
+
     return (
         <>
-            <div className='container mx-auto flex flex-col gap-4 lg:py-4'>
-                <h1 className='text-[max(24px,min(5vw,48px))] font-extrabold leading-[1.09] tracking-tighter'>Verify Email</h1>
-                <p>Thank you for signing up! Please check your email to verify your account.</p>
+        <div className='relative m-auto flex w-full max-w-[400px] flex-col gap-4 p-8 rounded-xl border-[1px] border-[#ffffff15] bg-[#ffffff14] shadow-sm'>
+            <div className=''>
+                <LogoColored />
             </div>
+
+            <VerifyEmailForm user={user} />
+        </div>
         </>
     );
 };

@@ -59,7 +59,7 @@ const Header = () => {
     return (
         <>
             <NavigationMenu.Root delayDuration={0}>
-                <header className='relative flex min-h-[72px] w-full items-center justify-between px-8'>
+                <header className='relative flex min-h-[72px] w-full items-center justify-between'>
                     <div className="flex w-full items-center gap-8 [&>div[style='position:relative']]:!w-full">
                         <Link aria-label='Pyro Home Page' className='shrink-0' href='/'>
                             <LogoColored />
@@ -81,7 +81,7 @@ const Header = () => {
                                         <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
                                             Products
                                         </NavigationMenu.Trigger>
-                                        <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[234px] '>
+                                        <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[200px] '>
                                             <NavLinkItem href='/pyrodactyl'>Pyrodactyl Panel</NavLinkItem>
                                             <NavLinkItem href='/pay'>Pyro Pay</NavLinkItem>
                                             <NavLinkItem href='/alerion'>Alerion</NavLinkItem>
@@ -91,7 +91,7 @@ const Header = () => {
                                         <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
                                             Resources
                                         </NavigationMenu.Trigger>
-                                        <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[330px] '>
+                                        <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[300px] '>
                                             <NavLinkItem href='https://panel.pyro.host' external>
                                                 Game Panel
                                             </NavLinkItem>

@@ -1,5 +1,8 @@
-import { User } from '@prisma/client';
-import { Session } from 'lucia';
+import { VerificationEmail } from '@/emails/VerificationEmail';
+import { Address, User } from '@prisma/client';
+import { Session, SessionUser } from 'lucia';
+import { TimeSpan, createDate } from 'oslo';
+import { alphabet, generateRandomString } from 'oslo/crypto';
 import { cache } from 'react';
 import Stripe from 'stripe';
 
@@ -9,6 +12,8 @@ import lucia from '@/lib/api/auth';
 import prisma from '@/lib/api/prisma';
 import pterodactyl from '@/lib/api/pterodactyl';
 import stripe from '@/lib/api/stripe';
+
+import { sendEmail } from '../utils/sendEmail';
 
 export const getUserBySession = cache(async () => {
     const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
@@ -30,7 +35,64 @@ export const getUserBySession = cache(async () => {
 });
 
 class UserAPI {
-    
+    async generateEmailVerificationCode(userId: string, email: string): Promise<string> {
+        await prisma.emailVerificationToken.deleteMany({ where: { userId } });
+
+        const code = generateRandomString(6, alphabet('0-9', 'A-Z'));
+        await prisma.emailVerificationToken.create({
+            data: {
+                userId,
+                email,
+                code,
+                expiresAt: createDate(new TimeSpan(15, 'm')),
+            },
+        });
+
+        return code;
+    }
+
+    async getUserBySessionUser(sessionUser: SessionUser): Promise<User | null> {
+        return prisma.user.findUnique({ where: { id: sessionUser.id } });
+    }
+
+    async getUserById(id: string): Promise<User | null> {
+        return prisma.user.findUnique({ where: { id } });
+    }
+
+    async getUserByEmail(email: string): Promise<User | null> {
+        return prisma.user.findUnique({ where: { email } });
+    }
+
+    async updateUser(user: User): Promise<User> {
+        const updatedUser = prisma.user.update({
+            where: { id: user.id },
+            data: user,
+        });
+
+        await this.syncChanges(user);
+        return updatedUser;
+    }
+
+    async syncChanges(user: User): Promise<void> {
+        if (!user.stripeCustomerId) return;
+        const customer = await stripe.customers.retrieve(user.stripeCustomerId);
+        if (!customer || customer.deleted) return;
+
+        let fullName = null;
+        if (user.firstName && user.lastName) fullName = `${user.firstName} ${user.lastName}`;
+
+        if (fullName && fullName !== customer.name) {
+            await stripe.customers.update(customer.id, { name: fullName });
+        }
+
+        if (user.email !== customer.email) {
+            await stripe.customers.update(customer.id, { email: user.email });
+        }
+
+        if (user.phone && user.phone !== customer.phone) {
+            await stripe.customers.update(customer.id, { phone: user.phone });
+        }
+    }
 
     async createUser(email: string, passwordHash: string): Promise<User> {
         const user = await prisma.user.create({
@@ -41,6 +103,9 @@ class UserAPI {
         });
 
         await this.linkOrCreateExternalAccounts(user);
+
+        const code = await this.generateEmailVerificationCode(user.id, email);
+        await sendEmail(email, VerificationEmail(code));
 
         return user;
     }
@@ -86,6 +151,44 @@ class UserAPI {
                 });
             }
         }
+    }
+
+    async getUserAddress(user: User): Promise<Address | null> {
+        return prisma.address.findUnique({ where: { userId: user.id } });
+    }
+
+    async setUserAddress(user: User, address: any): Promise<Address> {
+        const newAddress = prisma.address.upsert({
+            where: { userId: user.id },
+            update: address,
+            create: {
+                userId: user.id,
+                street1: address.street1,
+                street2: address.street2,
+                city: address.city,
+                state: address.state,
+                postal: address.postal,
+                country: address.country,
+            },
+        });
+
+        if (!user.stripeCustomerId) return newAddress;
+
+        const customer = await stripe.customers.retrieve(user.stripeCustomerId);
+        if (!customer || customer.deleted) return newAddress;
+
+        const stripeAddress = {
+            line1: address.street1,
+            line2: address.street2,
+            city: address.city,
+            state: address.state,
+            postal_code: address.postal,
+            country: address.country,
+        };
+
+        await stripe.customers.update(user.stripeCustomerId, { address: stripeAddress });
+
+        return newAddress;
     }
 }
 

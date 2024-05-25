@@ -9,188 +9,95 @@ datasource db {
   directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
-// model Account {
-//   userId            String
-//   type              String
-//   provider          String
-//   providerAccountId String
-//   refresh_token     String?
-//   access_token      String?
-//   expires_at        Int?
-//   token_type        String?
-//   scope             String?
-//   id_token          String?
-//   session_state     String?
-
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
-
-//   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-//   @@id([provider, providerAccountId])
-// }
-
-// model Session {
-//   sessionToken String   @unique
-//   userId       String
-//   expires      DateTime
-//   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
-// }
-
-// model VerificationToken {
-//   identifier String
-//   token      String
-//   expires    DateTime
-
-//   @@id([identifier, token])
-// }
-
-// // Optional for WebAuthn support
-// model Authenticator {
-//   credentialID         String  @unique
-//   userId               String
-//   providerAccountId    String
-//   credentialPublicKey  String
-//   counter              Int
-//   credentialDeviceType String
-//   credentialBackedUp   Boolean
-//   transports           String?
-
-//   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-//   @@id([userId, credentialID])
-// }
-
-// model DiscordTokens {
-//   id     String @id @default(cuid())
-//   userId String @unique
-//   User   User[]
-
-//   accessToken  String
-//   refreshToken String
-//   expiresAt    DateTime
-// }
-
-// model User {
-//   id       String    @id
-//   firstName String
-//   lastName  String
-//   email    String    @unique
-//   password_hash String
-
-//   sessions Session[]
-// }
-
-// model Session {
-//   id        String   @id
-//   userId    String
-//   expiresAt DateTime
-//   user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
-// }
-
-// model User {
-//   id String @id @default(cuid())
-
-//   preferredName String?
-//   pronouns      String?
-
-//   // external accounts
-//   pyrodactylUserId Int?    @unique
-//   stripeCustomerId String? @unique
-
-//   // connections
-//   discordTokensId String?
-//   discordTokens   DiscordTokens? @relation(fields: [discordTokensId], references: [id])
-
-//   // auth.js
-//   name          String?
-//   email         String    @unique
-//   emailVerified DateTime?
-//   image         String?
-//   accounts      Account[]
-//   sessions      Session[]
-
-//   // Optional for WebAuthn support
-//   Authenticator Authenticator[]
-
-//   // system
-//   admin Boolean? @default(false)
-
-//   // metadata
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
-// }
-
-// model Category {
-//   id          String  @id @default(cuid())
-//   name        String
-//   description String?
-
-//   products Product[]
-
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @default(now()) @updatedAt
-// }
-
-// model Price {
-//   id        String  @id @default(cuid())
-//   stripeId  String
-//   productId String
-//   product   Product @relation(fields: [productId], references: [id])
-
-//   amount   Int
-//   currency String
-
-//   recurring Boolean
-//   interval  String?
-
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @default(now()) @updatedAt
-// }
-
-// model Product {
-//   id          String @id @default(cuid())
-//   stripeId    String
-//   name        String
-//   description String
-
-//   categoryId String
-//   category   Category @relation(fields: [categoryId], references: [id])
-//   prices     Price[]
-//   metadata   Json?
-
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @default(now()) @updatedAt
-// }
-
 model User {
   id               String  @id @default(cuid())
   stripeCustomerId String?
   pyrodactylUserId Int?
 
+  // profile
   preferredName String?
   pronouns      String?
-  
-  firstName     String?
-  middleName    String?
-  lastName      String?
-  
 
-  email        String @unique
-  passwordHash String
+  // legal
+  firstName String?
+  lastName  String?
+  phone     String?
+  address   Address?
+
+  // auth
+  email        String  @unique
+  passwordHash String?
+
+  // permissions
+  admin Boolean? @default(false)
 
   // email verification
-  emailVerified     Boolean            @default(false)
-  VerificationToken VerificationToken?
+  emailVerified          Boolean                 @default(false)
+  emailVerificationToken EmailVerificationToken?
 
   // sessions
   sessions Session[]
 }
 
-model VerificationToken {
+model Category {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+
+  products Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Price {
+  id        String  @id @default(cuid())
+  stripeId  String
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+
+  amount   Int
+  currency String
+
+  recurring Boolean
+  interval  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Product {
+  id          String @id @default(cuid())
+  stripeId    String
+  name        String
+  description String
+
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+  prices     Price[]
+  metadata   Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Address {
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+
+  street1 String
+  street2 String?
+  city    String
+  state   String
+  postal  String
+  country String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model EmailVerificationToken {
   id        String   @id @default(cuid())
   code      String
   email     String

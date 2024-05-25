@@ -1,5 +1,8 @@
 import { PrismaAdapter } from '@lucia-auth/adapter-prisma';
+import { Discord, GitHub, Twitch, Twitter } from 'arctic';
 import { Lucia, TimeSpan } from 'lucia';
+
+export const github = new GitHub(process.env.GITHUB_CLIENT_ID!, process.env.GITHUB_CLIENT_SECRET!);
 
 import prisma from './prisma';
 
@@ -14,8 +17,19 @@ const lucia = new Lucia(adapter, {
     },
     getUserAttributes: (attributes) => {
         return {
+            // info
+            id: attributes.id,
+            fullName:
+                attributes.firstName && attributes.lastName ? `${attributes.firstName} ${attributes.lastName}` : null,
+            firstName: attributes.firstName,
+            lastName: attributes.lastName,
+
+            // email
             email: attributes.email,
-            emailVerified: attributes.email_verified,
+            emailVerified: attributes.emailVerified,
+            admin: attributes.admin,
+
+            // external
             stripeCustomerId: attributes.stripeCustomerId,
             pyrodactylUserId: attributes.pyrodactylUserId,
         };
@@ -29,10 +43,17 @@ declare module 'lucia' {
     interface Register {
         Lucia: typeof lucia;
         DatabaseUserAttributes: {
+            id: string;
+            fullName: string | null;
+            firstName: string | null;
+            lastName: string | null;
             email: string;
-            email_verified: boolean;
-            stripeCustomerId: string;
-            pyrodactylUserId: string;
+            emailVerified: boolean;
+            admin: boolean;
+            stripeCustomerId: string | null;
+            pyrodactylUserId: string | null;
         };
     }
+    // what the fuck
+    export type SessionUser = Register['DatabaseUserAttributes'];
 }
