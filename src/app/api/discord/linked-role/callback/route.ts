@@ -1,65 +1,65 @@
-import { redirect } from 'next/navigation';
-import { type NextRequest } from 'next/server';
+// import { redirect } from 'next/navigation';
+// import { type NextRequest } from 'next/server';
 
-import { auth } from '@/lib/api/auth';
-import discord from '@/lib/api/discord';
-import prisma from '@/lib/api/prisma';
-import stripe from '@/lib/api/stripe';
 
-export async function GET(req: NextRequest, res: Response) {
-    let session = await auth();
-    if (!session) {
-        return redirect('/auth/login');
-    }
+// import discord from '@/lib/api/discord';
+// import prisma from '@/lib/api/prisma';
+// import stripe from '@/lib/api/stripe';
 
-    const searchParams = req.nextUrl.searchParams;
-    const code = searchParams.get('code');
+// export async function GET(req: NextRequest, res: Response) {
+    
+//     if (!session) {
+//         return redirect('/auth/login');
+//     }
 
-    if (!code) {
-        return redirect('/account/?error=NoCodeDiscordLinkedRole');
-    }
+//     const searchParams = req.nextUrl.searchParams;
+//     const code = searchParams.get('code');
 
-    const discordTokens = await discord.getOAuthTokens(code);
+//     if (!code) {
+//         return redirect('/account/?error=NoCodeDiscordLinkedRole');
+//     }
 
-    const dbUser = await prisma.user.findUnique({
-        where: {
-            id: session.user?.id,
-        },
-        include: {
-            discordTokens: true,
-        },
-    });
+//     const discordTokens = await discord.getOAuthTokens(code);
 
-    if (!dbUser || !dbUser.stripeCustomerId) {
-        throw new Error('Achievement Get: How did we get here?');
-    }
+//     const dbUser = await prisma.user.findUnique({
+//         where: {
+//             id: session.user?.id,
+//         },
+//         include: {
+//             discordTokens: true,
+//         },
+//     });
 
-    await prisma.discordTokens.upsert({
-        where: {
-            userId: dbUser.id,
-        },
-        update: {
-            accessToken: discordTokens.access_token,
-            refreshToken: discordTokens.refresh_token,
-            expiresAt: discordTokens.expires_at,
-        },
-        create: {
-            userId: dbUser.id,
-            accessToken: discordTokens.access_token,
-            refreshToken: discordTokens.refresh_token,
-            expiresAt: discordTokens.expires_at,
-        },
-    });
+//     if (!dbUser || !dbUser.stripeCustomerId) {
+//         throw new Error('Achievement Get: How did we get here?');
+//     }
 
-    const subscriptions = await stripe.subscriptions.list({
-        customer: dbUser.stripeCustomerId,
-        status: 'active',
-    });
+//     await prisma.discordTokens.upsert({
+//         where: {
+//             userId: dbUser.id,
+//         },
+//         update: {
+//             accessToken: discordTokens.access_token,
+//             refreshToken: discordTokens.refresh_token,
+//             expiresAt: discordTokens.expires_at,
+//         },
+//         create: {
+//             userId: dbUser.id,
+//             accessToken: discordTokens.access_token,
+//             refreshToken: discordTokens.refresh_token,
+//             expiresAt: discordTokens.expires_at,
+//         },
+//     });
 
-    await discord.pushMetadata(discordTokens, {
-        services: subscriptions.data.length,
-        customer_since: dbUser.createdAt,
-    });
+//     const subscriptions = await stripe.subscriptions.list({
+//         customer: dbUser.stripeCustomerId,
+//         status: 'active',
+//     });
 
-    return redirect('/account/?success=DiscordLinkedRole');
-}
+//     await discord.pushMetadata(discordTokens, {
+//         services: subscriptions.data.length,
+//         customer_since: dbUser.createdAt,
+//     });
+
+//     return redirect('/account/?success=DiscordLinkedRole');
+// }

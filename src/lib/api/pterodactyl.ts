@@ -283,6 +283,6 @@ class PterodactylApi extends BaseAPI {
     }
 }
 
-const PterodactylClient = new PterodactylApi(process.env.PTERODACTYL_API_URL!, process.env.PTERODACTYL_API_KEY!);
+const pterodactyl = new PterodactylApi(process.env.PTERODACTYL_API_URL!, process.env.PTERODACTYL_API_KEY!);
 
-export default PterodactylClient;
+export default pterodactyl;

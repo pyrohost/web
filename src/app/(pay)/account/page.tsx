@@ -7,30 +7,16 @@ import { Cross1Icon } from '@radix-ui/react-icons';
 
 import AccountConnections from '@/components/pay/AccountConnections';
 import DashboardSkeletonSection from '@/components/pay/DashboardSkeletonSection';
-import StripeInformation from '@/components/pay/StripeInformation';
+import UserInformation from '@/components/pay/StripeInformation';
 import StripeSubscriptions from '@/components/pay/StripeSubscriptions';
 
-import { auth } from '@/lib/api/auth';
 import prisma from '@/lib/api/prisma';
+import { getUserBySession } from '@/lib/api/user';
 
 const Page = async ({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) => {
-    const session = await auth();
-
-    if (!session) {
-        return redirect('/auth/login');
-    }
-
-    const user = await prisma.user.findUnique({
-        where: {
-            id: session.user?.id,
-        },
-        include: {
-            discordTokens: true,
-        },
-    });
-
-    if (!user || !user.stripeCustomerId) {
-        return redirect('/auth/login');
+    const user = await getUserBySession();
+    if (!user) {
+        return redirect('/login');
     }
 
     return (
@@ -56,15 +42,16 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
                     </Link>
                 </div>
             )}
+
             <Suspense fallback={<DashboardSkeletonSection title={'Account Information'} />}>
-                <StripeInformation customerId={user.stripeCustomerId ?? ''} />
+                <UserInformation customerId={user.stripeCustomerId ?? ''} /> 
             </Suspense>
-            <Suspense fallback={<DashboardSkeletonSection title={'Account Connections'} />}>
+            {/* <Suspense fallback={<DashboardSkeletonSection title={'Account Connections'} />}>
                 <AccountConnections user={user} />
             </Suspense>
             <Suspense fallback={<DashboardSkeletonSection title={'Active Subscriptions'} />}>
                 <StripeSubscriptions customerId={user.stripeCustomerId ?? ''} />
-            </Suspense>
+            </Suspense> */}
         </div>
     );
 };

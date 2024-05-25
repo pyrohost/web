@@ -42,7 +42,7 @@ const InfoRow = ({
     </div>
 );
 
-const StripeInformation = async ({ customerId }: { customerId: string }) => {
+const UserInformation = async ({ customerId }: { customerId: string }) => {
     if (!customerId || customerId === '') {
         return <p>No customer ID provided</p>;
     }
@@ -115,4 +115,4 @@ const StripeInformation = async ({ customerId }: { customerId: string }) => {
     );
 };
 
-export default StripeInformation;
+export default UserInformation;

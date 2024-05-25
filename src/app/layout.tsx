@@ -5,7 +5,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 
 import Footer from '@/components/ui/layout/Footer';
 import HeaderLoginButton from '@/components/ui/layout/HeaderLoginButton';
-import PageNavigation from '@/components/ui/layout/PageNavigation';
+import Header from '@/components/ui/layout/Header';
 
 import './globals.css';
 
@@ -44,8 +44,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             >
                 <div data-pyro-index='' className='relative h-fit min-h-screen w-full flex-1 shrink-0 flex-col'>
                     <div className='flex flex-row items-center justify-between pr-4'>
-                        <PageNavigation />
-                        <div className='absolute right-4 top-3'>
+                        <Header />
+                        <div className='absolute right-4 top-4'>
                             <HeaderLoginButton />
                         </div>
                     </div>

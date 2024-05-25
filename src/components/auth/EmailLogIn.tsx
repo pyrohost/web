@@ -1,27 +1,19 @@
 'use client';
 
-import { signIn } from 'next-auth/react';
+import { login } from '@/actions/auth';
+import { useState } from 'react';
 
 const EmailLogIn = () => {
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    const [error, setError] = useState('');
 
-        const target = event.target as typeof event.target & {
-            email: { value: string };
-        };
-
-        const email = target.email.value;
-
-        if (!email) {
-            return;
-        }
-
-        await signIn('nodemailer', { email, callbackUrl: '/account' });
+    const formAction = async (data: FormData) => {
+        const { error } = await login(data);
+        setError(error);
     };
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form action={formAction}>
                 <div className='flex flex-col gap-2'>
                     <label className='text-sm text-[#ffffff77]' htmlFor='email'>
                         Email
@@ -32,6 +24,16 @@ const EmailLogIn = () => {
                         name='email'
                         type='email'
                     />
+
+                    <label className='mt-2 text-sm text-[#ffffff77]' htmlFor='password'>
+                        Password
+                    </label>
+                    <input
+                        className='rounded-lg bg-[#ffffff17] px-4 py-2 text-sm outline-none'
+                        id='password'
+                        name='password'
+                        type='password'
+                    />
                 </div>
                 <div className='mt-6'>
                     <button
@@ -41,6 +43,7 @@ const EmailLogIn = () => {
                         Login
                     </button>
                 </div>
+                {error && <div className='text-red-500'>{error}</div>}
             </form>
         </>
     );

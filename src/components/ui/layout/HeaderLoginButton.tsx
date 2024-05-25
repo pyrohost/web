@@ -1,36 +1,30 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { PyroButton } from '@/components/ui/PyroButton';
 
-import { auth } from '@/lib/api/auth';
+import { getUserBySession } from '@/lib/api/user';
 
 const HeaderLoginButton = async () => {
-    const session = await auth();
+    const user = await getUserBySession();
 
     return (
         <>
-            {session ? (
+            {user ? (
                 <div className='ml-auto'>
                     <Link
                         href='/account'
                         className='flex shrink-0 flex-row items-center justify-center rounded-full p-2 transition hover:bg-[#ffffff22]'
                     >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                            src={
-                                session?.user?.image ||
-                                `https://source.boringavatars.com/marble/120/${session.user?.name}?colors=264653,2a9d8f,f4a261,e9c46a,e76f51`
-                            }
-                            alt={`${session.user?.name}'s' avatar`}
+                            src={`https://source.boringavatars.com/marble/120/${user.id}?colors=f06d61,da825f,c4975c,a8ab7b,8cbf99`}
                             width={30}
                             height={30}
-                            className='flex min-h-8 min-w-8 shrink-0 rounded-full'
+                            className='min-sh-8 flex min-w-8 shrink-0 rounded-full'
                         />
                     </Link>
                 </div>
             ) : (
-                <PyroButton className='ml-auto' size={'small'} href='/auth/login'>
+                <PyroButton className='ml-auto' size={'small'} href='/login'>
                     Login
                 </PyroButton>
             )}

@@ -55,7 +55,7 @@ const NavLinkItem = ({
     );
 };
 
-const PageNavigation = () => {
+const Header = () => {
     return (
         <>
             <NavigationMenu.Root delayDuration={0}>
@@ -185,4 +185,4 @@ const PageNavigation = () => {
     );
 };
 
-export default PageNavigation;
+export default Header;

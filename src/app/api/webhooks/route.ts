@@ -5,7 +5,7 @@ import type { Stripe } from 'stripe';
 import { NextResponse } from 'next/server';
 
 import prisma from '@/lib/api/prisma';
-import PterodactylClient, { UserObject } from '@/lib/api/pterodactyl';
+import pterodactyl, { UserObject } from '@/lib/api/pterodactyl';
 import stripe from '@/lib/api/stripe';
 import { sendEmail } from '@/lib/utils/sendEmail';
 
@@ -55,10 +55,10 @@ export async function POST(req: Request) {
                 case 'customer.subscription.deleted':
                     const deletedSubscription = event.data.object as Stripe.Subscription;
 
-                    const deletedServer = await PterodactylClient.getServerByExternalId(deletedSubscription.id);
+                    const deletedServer = await pterodactyl.getServerByExternalId(deletedSubscription.id);
 
                     if (deletedServer) {
-                        await PterodactylClient.suspendServer(deletedServer.id);
+                        await pterodactyl.suspendServer(deletedServer.id);
                     } else {
                         console.log(`No server found with external ID ${deletedSubscription.id}.`);
                     }
@@ -73,10 +73,10 @@ export async function POST(req: Request) {
                         failureInvoice.subscription as string,
                     );
 
-                    const failureServer = await PterodactylClient.getServerByExternalId(failureSubscription.id);
+                    const failureServer = await pterodactyl.getServerByExternalId(failureSubscription.id);
 
                     if (failureServer) {
-                        await PterodactylClient.suspendServer(failureServer.id);
+                        await pterodactyl.suspendServer(failureServer.id);
                     } else {
                         console.log(`No server found with external ID ${failureSubscription.id}.`);
                     }
@@ -89,7 +89,7 @@ export async function POST(req: Request) {
                     let metadata = (await stripe.products.retrieve(invoice.lines.data[0].plan!.product as string))
                         .metadata;
 
-                    let existingServer = await PterodactylClient.getServerByExternalId(subscription.id);
+                    let existingServer = await pterodactyl.getServerByExternalId(subscription.id);
 
                     if (existingServer) {
                         return NextResponse.json({ message: 'Server already exists' }, { status: 400 });
@@ -108,8 +108,8 @@ export async function POST(req: Request) {
                     // NOTE: these are arrow operators on purpose as they
                     // perserve the context of the function.
                     const getUser = !dbUser.pyrodactylUserId
-                        ? (idOrEmail: string) => PterodactylClient.getUserByEmail(idOrEmail)
-                        : (idOrEmail: string) => PterodactylClient.getUserById(idOrEmail);
+                        ? (idOrEmail: string) => pterodactyl.getUserByEmail(idOrEmail)
+                        : (idOrEmail: string) => pterodactyl.getUserById(idOrEmail);
 
                     const userSearchableAttr = !dbUser.pyrodactylUserId ? dbUser.email : dbUser.pyrodactylUserId;
                     pyrodactylUser = await getUser(userSearchableAttr as string);
@@ -118,7 +118,7 @@ export async function POST(req: Request) {
                         let password = randomBytes(32).toString('hex');
                         let [first_name, last_name] = getNames(dbUser.preferredName || stripeCustomer.name!);
 
-                        pyrodactylUser = await PterodactylClient.createUser(
+                        pyrodactylUser = await pterodactyl.createUser(
                             dbUser.email!,
                             dbUser.id,
                             first_name,
@@ -137,9 +137,9 @@ export async function POST(req: Request) {
                         });
                     }
 
-                    let allocation = await PterodactylClient.getFirstAvailableAllocation(2);
+                    let allocation = await pterodactyl.getFirstAvailableAllocation(2);
 
-                    let server = await PterodactylClient.createBlankServer(
+                    let server = await pterodactyl.createBlankServer(
                         'Server',
                         pyrodactylUser.id,
                         allocation.id,
@@ -158,7 +158,7 @@ export async function POST(req: Request) {
                     );
 
                     const serverName = `Server #${server.id}`;
-                    await PterodactylClient.updateServerDetails(server.id, {
+                    await pterodactyl.updateServerDetails(server.id, {
                         name: serverName,
                         user: pyrodactylUser.id,
                         external_id: subscription.id,
