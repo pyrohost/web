@@ -4,7 +4,6 @@ import { Session, SessionUser } from 'lucia';
 import { TimeSpan, createDate } from 'oslo';
 import { alphabet, generateRandomString } from 'oslo/crypto';
 import { cache } from 'react';
-import Stripe from 'stripe';
 
 import { cookies } from 'next/headers';
 
@@ -12,8 +11,7 @@ import lucia from '@/lib/api/auth';
 import prisma from '@/lib/api/prisma';
 import pterodactyl from '@/lib/api/pterodactyl';
 import stripe from '@/lib/api/stripe';
-
-import { sendEmail } from '../utils/sendEmail';
+import { sendEmail } from '@/lib/utils/sendEmail';
 
 export const getUserBySession = cache(async () => {
     const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;

@@ -4,7 +4,7 @@ import { Lucia, TimeSpan } from 'lucia';
 
 export const github = new GitHub(process.env.GITHUB_CLIENT_ID!, process.env.GITHUB_CLIENT_SECRET!);
 
-import prisma from './prisma';
+import prisma from '@/lib/api/prisma';
 
 const adapter = new PrismaAdapter(prisma.session, prisma.user);
 

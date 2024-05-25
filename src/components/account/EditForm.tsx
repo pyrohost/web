@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/Popover';
 
-import { PencilIcon } from '../ui/Icons';
+import { PencilIcon } from '@/components/ui/Icons';
 
 const EditForm = ({ label, user }: { label: string; user: User }) => {
     const router = useRouter();
