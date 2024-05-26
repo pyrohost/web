@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
-import EmailLogIn from '@/components/auth/EmailLogIn';
-import OauthLogIn from '@/components/auth/OauthLogIn';
+import EmailLogIn from '@/components/auth/EmailLogInForm';
+import OauthLogIn from '@/components/auth/OauthLogInForm';
 import LogoColored from '@/components/ui/layout/LogoColored';
 
 import { getUserBySession } from '@/lib/api/user';
