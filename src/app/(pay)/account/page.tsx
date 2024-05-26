@@ -8,10 +8,8 @@ import { Cross1Icon } from '@radix-ui/react-icons';
 import AccountInformation from '@/components/account/AccountInformation';
 import AccountConnections from '@/components/pay/AccountConnections';
 import DashboardSkeletonSection from '@/components/pay/DashboardSkeletonSection';
-import UserInformation from '@/components/pay/StripeInformation';
 import StripeSubscriptions from '@/components/pay/StripeSubscriptions';
 
-import prisma from '@/lib/api/prisma';
 import userAPI, { getUserBySession } from '@/lib/api/user';
 
 const Page = async ({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) => {

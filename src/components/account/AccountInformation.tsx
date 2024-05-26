@@ -1,15 +1,16 @@
 import { User } from '@prisma/client';
-import { SessionUser } from 'lucia';
 
 import { CaretSortIcon, CheckCircledIcon, CrossCircledIcon } from '@radix-ui/react-icons';
 
 import AccountInformationRow from '@/components/account/AccountInformationRow';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
-import { LockClosedIcon } from '@/components/ui/Icons';
 
 import userAPI from '@/lib/api/user';
 import { buildAddress } from '@/lib/utils/address';
 import formatPhoneNumber from '@/lib/utils/formatPhoneNumber';
+
+import { PyroButton } from '../ui/PyroButton';
+import LogoutForm from './LogoutForm';
 
 const AccountInformation = async ({ user }: { user: User }) => {
     if (!user) {
@@ -67,9 +68,7 @@ const AccountInformation = async ({ user }: { user: User }) => {
                         <AccountInformationRow
                             error={user.phone ? '' : 'You must provide a phone number.'}
                             label='Phone Number'
-                            value={
-                              formatPhoneNumber(user.phone as string)
-                            }
+                            value={formatPhoneNumber(user.phone as string)}
                             user={user}
                         />
                         <AccountInformationRow
@@ -78,6 +77,7 @@ const AccountInformation = async ({ user }: { user: User }) => {
                             value={buildAddress(userAddress)}
                             user={user}
                         />
+                        <LogoutForm />
                     </div>
                 </CollapsibleContent>
             </div>
