@@ -319,3 +319,7 @@ html {
 .navTransition {
     transition: all 0.6s var(--ease-spring-3);
 }
+
+.navTransition[data-state='closed'] {
+    transition: all 0.6s ease;
+}
