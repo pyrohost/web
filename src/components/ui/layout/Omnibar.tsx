@@ -9,9 +9,11 @@ const Omnibar = async () => {
 
     return (
         <div className='container mx-auto flex w-full items-center'>
-            <div className='flex w-full flex-row items-center justify-between'>
+            <div className='relative flex w-full flex-row items-center justify-between'>
                 {user ? <AuthedHeader /> : <MarketingHeader />}
-                <HeaderLoginButton />
+                <div className='absolute right-0 top-3 h-12 flex items-center'>
+                    <HeaderLoginButton />
+                </div>
             </div>
         </div>
     );
