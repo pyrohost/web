@@ -14,7 +14,7 @@ const SparkToLife = () => {
                 Zero waiting. Zero hassle. Pyro&apos;s servers are globally available and ready to play on as soon as
                 you subscribe. Choose your game, and we&apos;ll take care of the rest.
             </div>
-            <PyroButton useArrow href='/for/'>
+            <PyroButton isArrow href='/for/'>
                 Start your game server
             </PyroButton>
             <div className='min-h-[200px]' />

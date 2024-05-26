@@ -231,7 +231,7 @@ const WhereYourWorldPlays = () => {
                         Pyro is a game hosting platform that makes it easier to play your favorite games with friends.
                         Incredible reliability, a beautiful game panel, and more.
                     </h2>
-                    <PyroButton useArrow href='/for/'>
+                    <PyroButton isArrow href='/for/'>
                         Start your game server
                     </PyroButton>
                 </div>
