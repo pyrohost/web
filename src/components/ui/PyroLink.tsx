@@ -5,12 +5,15 @@ export const PyroLink = ({
     external = false,
     className = 'text-brand',
     children,
+    ...props
 }: {
     href: string;
     external?: boolean;
     className?: string;
     children: React.ReactNode;
 }) => {
+    const { ...rest } = props;
+
     return (
         <Link
             data-pyro-ui='link'
@@ -18,6 +21,7 @@ export const PyroLink = ({
             rel={external ? 'noopener noreferrer' : ''}
             href={href}
             className={className}
+            {...rest}
         >
             {children}
         </Link>
