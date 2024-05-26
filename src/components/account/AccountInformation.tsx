@@ -9,7 +9,6 @@ import userAPI from '@/lib/api/user';
 import { buildAddress } from '@/lib/utils/address';
 import formatPhoneNumber from '@/lib/utils/formatPhoneNumber';
 
-import { PyroButton } from '../ui/PyroButton';
 import LogoutForm from './LogoutForm';
 
 const AccountInformation = async ({ user }: { user: User }) => {
