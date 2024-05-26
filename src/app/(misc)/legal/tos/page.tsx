@@ -323,7 +323,7 @@ const Page = () => {
                         questions about this Agreement, please email us at support@pyro.host.
                     </div>
                 </article>
-                <h1 className='mt-16 text-[60px] font-extrabold leading-[98%] tracking-[-0.22rem] md:text-[84px] md:tracking-[-0.3rem]'>
+                <h1 className='mt-4 text-[max(36px,min(5vw,48px))] font-extrabold leading-[98%] tracking-[-0.22rem]'>
                     Acceptable Use Policy
                 </h1>
                 <article className='mt-8 flex flex-col gap-4 leading-[155%]'>
