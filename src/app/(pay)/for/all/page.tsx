@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
 import BackgroundAccent from '@/components/ui/BackgroundAccent';
-import ProductListing from '@/components/ui/ProductListing';
+import ProductListing from '@/components/pay/ProductListing';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/primitives/Tabs';
 
 import prisma from '@/lib/api/prisma';

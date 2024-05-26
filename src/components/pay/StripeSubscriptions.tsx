@@ -5,7 +5,7 @@ import { CaretSortIcon } from '@radix-ui/react-icons';
 
 import StripeCancelSubscription from '@/components/pay/StripeCancelSubscription';
 import StripeResumeSubscription from '@/components/pay/StripeResumeSubscription';
-import GoToServerDropdownItem from '@/components/ui/GoToServerDropdownItem';
+import GoToServerDropdownItem from '@/components/pay/GoToServerDropdownItem';
 import { MoreIcon } from '@/components/ui/Icons';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/primitives/Collapsible';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/primitives/DropdownMenu';
