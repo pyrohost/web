@@ -2,9 +2,9 @@ import { PrismaAdapter } from '@lucia-auth/adapter-prisma';
 import { Discord, GitHub, Twitch, Twitter } from 'arctic';
 import { Lucia, TimeSpan } from 'lucia';
 
-export const github = new GitHub(process.env.GITHUB_CLIENT_ID!, process.env.GITHUB_CLIENT_SECRET!);
-
 import prisma from '@/lib/api/prisma';
+
+export const github = new GitHub(process.env.GITHUB_CLIENT_ID!, process.env.GITHUB_CLIENT_SECRET!);
 
 const adapter = new PrismaAdapter(prisma.session, prisma.user);
 

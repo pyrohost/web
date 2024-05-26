@@ -1,11 +1,13 @@
 import { VerificationEmail } from '@/emails/VerificationEmail';
-import { Address, User } from '@prisma/client';
 import { Session, SessionUser } from 'lucia';
 import { TimeSpan, createDate } from 'oslo';
 import { alphabet, generateRandomString } from 'oslo/crypto';
-import { cache } from 'react';
 
 import { cookies } from 'next/headers';
+
+import { cache } from 'react';
+
+import { Address, User } from '@prisma/client';
 
 import lucia from '@/lib/api/auth';
 import prisma from '@/lib/api/prisma';

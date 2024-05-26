@@ -39,7 +39,7 @@ class BaseAPI {
             console.error(`${err.status} - ${err.url}\nMSG: ${err.message}`);
             throw new Error(this.getErrorMessage(err.status));
         }
-        
+
         throw err;
     }
 

@@ -1,5 +1,6 @@
-import { Category, Price, Product } from '@prisma/client';
 import currency from 'currency.js';
+
+import { Category, Price, Product } from '@prisma/client';
 
 import prisma from '@/lib/api/prisma';
 import stripe from '@/lib/api/stripe';

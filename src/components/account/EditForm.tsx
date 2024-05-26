@@ -1,11 +1,13 @@
 'use client';
 
-import { editAddress, editName, editPhoneNumber } from '@/actions/user';
 import { User } from '@prisma/client';
 import clsx from 'clsx';
-import { useEffect, useState, useTransition } from 'react';
 
 import { useRouter } from 'next/navigation';
+
+import { useEffect, useState, useTransition } from 'react';
+
+import { editAddress, editName, editPhoneNumber } from '@/actions/user';
 
 import { PencilIcon } from '@/components/ui/Icons';
 import LoadingIcon from '@/components/ui/LoadingIcon';

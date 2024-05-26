@@ -1,7 +1,8 @@
 'use client';
 
-import { login } from '@/actions/auth';
 import { useState } from 'react';
+
+import { login } from '@/actions/auth';
 
 const EmailLogIn = () => {
     const [error, setError] = useState('');

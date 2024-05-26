@@ -1,12 +1,10 @@
 'use client';
 
-import { editName } from '@/actions/user';
 import { User } from '@prisma/client';
 
-import { CheckIcon, Cross1Icon, LockClosedIcon } from '@radix-ui/react-icons';
+import { LockClosedIcon } from '@radix-ui/react-icons';
 
 import EditForm from '@/components/account/EditForm';
-import { PencilIcon } from '@/components/ui/Icons';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const AccountInformationRow = ({
@@ -49,6 +47,7 @@ const AccountInformationRow = ({
                         </Tooltip>
                     )}
                     {locked ? null : <EditForm label={label} user={user} />}
+                    {required && null}
                 </div>
                 <div className='flex flex-row items-center gap-2'>
                     {error && (

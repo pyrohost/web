@@ -3,13 +3,12 @@ import { User } from '@prisma/client';
 import { CaretSortIcon, CheckCircledIcon, CrossCircledIcon } from '@radix-ui/react-icons';
 
 import AccountInformationRow from '@/components/account/AccountInformationRow';
+import LogoutForm from '@/components/account/LogoutForm';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
 
 import userAPI from '@/lib/api/user';
 import { buildAddress } from '@/lib/utils/address';
 import formatPhoneNumber from '@/lib/utils/formatPhoneNumber';
-
-import LogoutForm from './LogoutForm';
 
 const AccountInformation = async ({ user }: { user: User }) => {
     if (!user) {

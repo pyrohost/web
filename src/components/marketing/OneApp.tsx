@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/Carousel';
-
 import { PyroButton } from '@/components/ui/PyroButton';
 import PyroPill from '@/components/ui/PyroPill';
 

@@ -1,21 +1,22 @@
 'use client';
 
-import { createCheckoutSession } from '@/actions/stripe';
-import { EmbeddedCheckout, EmbeddedCheckoutProvider } from '@stripe/react-stripe-js';
 import currency from 'currency.js';
+import { User } from 'lucia';
+
 import React, { useState } from 'react';
+
+import { Price, Product } from '@prisma/client';
+
+import { EmbeddedCheckout, EmbeddedCheckoutProvider } from '@stripe/react-stripe-js';
+
+import { createCheckoutSession } from '@/actions/stripe';
 
 import * as Dialog from '@radix-ui/react-dialog';
 
 import { CloseIcon } from '@/components/ui/Icons';
 
-import productAPI from '@/lib/api/product';
-import { PricingPeriod } from '@/lib/interfaces/PricingPeriod';
-import getStripe from '@/lib/utils/getStripe';
-import { formatAmountForDisplay } from '@/lib/utils/stripeHelpers';
-import { User } from 'lucia';
-import { Price, Product } from '@prisma/client';
 import { TIME_TABLE } from '@/lib/static/time';
+import getStripe from '@/lib/utils/getStripe';
 
 const ProductListing = ({
     product,
@@ -31,7 +32,7 @@ const ProductListing = ({
     const [open, setOpen] = useState<boolean>(false);
     const [clientSecret, setClientSecret] = useState<string | null>(null);
     const price = prices.find((price) => price.every_months === everyMonths);
-    
+
     if (!price) return null;
     const formAction = async (data: FormData): Promise<void> => {
         window.scrollTo(0, 0);
