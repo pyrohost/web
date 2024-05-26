@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 
-import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 import LogoColored from '@/components/ui/layout/LogoColored';
+
+import HeaderLoginButton from './HeaderLoginButton';
 
 const ExternalLinkIcon = () => (
     <svg
@@ -54,10 +55,10 @@ const NavLinkItem = ({
     );
 };
 
-const Header = () => {
+const MarketingHeader = () => {
     return (
         <>
-            <NavigationMenu.Root delayDuration={0}>
+            <NavigationMenu.Root className='w-full' delayDuration={0}>
                 <header className='relative flex min-h-[72px] w-full items-center justify-between'>
                     <div className="flex w-full items-center gap-8 [&>div[style='position:relative']]:!w-full">
                         <Link aria-label='Pyro Home Page' className='shrink-0' href='/'>
@@ -143,4 +144,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default MarketingHeader;

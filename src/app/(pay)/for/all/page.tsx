@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
-import BackgroundAccent from '@/components/ui/BackgroundAccent';
 import ProductListing from '@/components/pay/ProductListing';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/primitives/Tabs';
 
@@ -44,9 +43,6 @@ const Page = async () => {
                         Pyro offers a variety of plans to suit your needs. Whether you want to play games with friends
                         or host your own server, we have you covered.
                     </p>
-                </div>
-                <div className='pointer-events-none absolute inset-0 opacity-25'>
-                    <BackgroundAccent />
                 </div>
             </section>
 

@@ -1,7 +1,7 @@
 const HomeIcon = () => {
     return (
         <svg
-            className='h-6 w-6'
+            className='flex w-full h-full'
             width='24'
             height='24'
             viewBox='0 0 24 24'

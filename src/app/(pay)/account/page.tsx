@@ -1,7 +1,7 @@
-import React, { Suspense } from 'react';
-
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
+
+import React, { Suspense } from 'react';
 
 import { Cross1Icon } from '@radix-ui/react-icons';
 
@@ -26,7 +26,6 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
 
     return (
         <div className='container mx-auto flex flex-col gap-4 lg:py-4'>
-            <h1 className='text-[max(24px,min(5vw,48px))] font-extrabold leading-[1.09] tracking-tighter'>Account</h1>
             {searchParams?.error === 'NoActiveSubscriptionsDiscordLinkedRole' && (
                 <div className='relative flex rounded-full bg-red-800/20 px-4 py-3 text-red-400' role='alert'>
                     <strong className='font-bold'>Failed to link Discord account! </strong>
