@@ -54,7 +54,6 @@
         "wretch": "^2.8.1"
     },
     "devDependencies": {
-        "@biomejs/biome": "1.7.3",
         "@types/node": "^20.12.12",
         "@types/nodemailer": "^6.4.15",
         "@types/react": "^18.3.2",
