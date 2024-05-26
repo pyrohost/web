@@ -94,7 +94,7 @@ class UserAPI {
         }
     }
 
-    async createUser(email: string, passwordHash: string): Promise<User> {
+    async createUser(email: string, passwordHash: string | null): Promise<User> {
         const user = await prisma.user.create({
             data: {
                 email,
