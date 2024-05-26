@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
 import EmailLogIn from '@/components/auth/EmailLogIn';
+import OauthLogIn from '@/components/auth/OauthLogIn';
 import LogoColored from '@/components/ui/layout/LogoColored';
 
 import { getUserBySession } from '@/lib/api/user';
@@ -26,6 +27,7 @@ const Page = async () => {
                     Sign up
                 </Link>
             </div>
+            <OauthLogIn />
             <EmailLogIn />
         </div>
     );

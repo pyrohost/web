@@ -124,5 +124,5 @@ class DiscordAPI {
     }
 }
 
-const discord = new DiscordAPI();
-export default discord;
+const discordAPI = new DiscordAPI();
+export default discordAPI;

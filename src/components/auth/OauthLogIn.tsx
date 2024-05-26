@@ -1,62 +1,21 @@
-'use client';
-
-import { useState } from 'react';
-
-import { signIn } from 'next-auth/react';
-import Image from 'next/image';
-
-import LoadingIcon from '@/components/ui/LoadingIcon';
-
 const OauthLogIn = () => {
-    const [loggingInProvider, setLoggingInProvider] = useState<string | null>(null);
-
-    const handleSignIn = async (provider: string) => {
-        if (loggingInProvider) {
-            return;
-        }
-
-        setLoggingInProvider(provider);
-        await signIn(provider, { callbackUrl: '/account' });
-
-        setTimeout(() => {
-            setLoggingInProvider(null);
-        }, 10000);
-    };
-
-    return (
-        <div className='mb-6 flex flex-col gap-2'>
-            {['github', 'discord'].map((provider) => (
-                <button
-                    className='flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 text-sm font-bold outline-none transition hover:bg-[#ffffff24] hover:duration-0'
-                    key={provider}
-                    aria-label={`Sign in with third-party account: ${provider.charAt(0).toUpperCase() + provider.slice(1)}`}
-                    aria-disabled={loggingInProvider === provider}
-                    onClick={() => handleSignIn(provider)}
-                >
-                    <div className='flex flex-col items-center justify-center'>
-                        <div
-                            className={`flex flex-row items-center justify-center gap-2 transition-all ${loggingInProvider === provider ? '-mt-5 opacity-0' : 'mt-5'}`}
-                        >
-                            <Image
-                                width={16}
-                                height={16}
-                                src={`/icons/${provider}.svg`}
-                                alt={`${provider} Logo`}
-                                className='invert'
-                            />
-                            Continue with {provider.charAt(0).toUpperCase() + provider.slice(1)}
-                        </div>
-                        <div
-                            aria-hidden
-                            className={`transition-all ${loggingInProvider === provider ? 'opacity-100' : ' opacity-0'}`}
-                        >
-                            <LoadingIcon />
-                        </div>
-                    </div>
-                </button>
-            ))}
-        </div>
-    );
+	return (
+		<form action={"/login/github"} method="get">
+			<button
+				className="flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 text-sm font-bold outline-none transition hover:bg-[#ffffff24] hover:duration-0"
+				type="submit"
+			>
+				<svg height="16" viewBox="0 0 14 14" width="16">
+					<path
+						d="M7 .175c-3.872 0-7 3.128-7 7 0 3.084 2.013 5.71 4.79 6.65.35.066.482-.153.482-.328v-1.181c-1.947.415-2.363-.941-2.363-.941-.328-.81-.787-1.028-.787-1.028-.634-.438.044-.416.044-.416.7.044 1.071.722 1.071.722.635 1.072 1.641.766 2.035.59.066-.459.24-.765.437-.94-1.553-.175-3.193-.787-3.193-3.456 0-.766.262-1.378.721-1.881-.065-.175-.306-.897.066-1.86 0 0 .59-.197 1.925.722a6.754 6.754 0 0 1 1.75-.24c.59 0 1.203.087 1.75.24 1.335-.897 1.925-.722 1.925-.722.372.963.131 1.685.066 1.86.46.48.722 1.115.722 1.88 0 2.691-1.641 3.282-3.194 3.457.24.219.481.634.481 1.29v1.926c0 .197.131.415.481.328C11.988 12.884 14 10.259 14 7.175c0-3.872-3.128-7-7-7z"
+						fill="currentColor"
+						fillRule="nonzero"
+					></path>
+				</svg>
+				Continue with GitHub
+			</button>
+		</form>
+	);
 };
 
 export default OauthLogIn;

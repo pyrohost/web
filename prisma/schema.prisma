@@ -25,9 +25,9 @@ model User {
   address   Address?
 
   // auth
-  OAuthAccounts OAuthAccount[]
-  email         String         @unique
-  passwordHash  String?
+  email        String            @unique
+  passwordHash String?
+  connections  OAuthConnection[]
 
   // permissions
   admin Boolean? @default(false)
@@ -40,12 +40,19 @@ model User {
   sessions Session[]
 }
 
-model OAuthAccount {
+model OAuthConnection {
   id             String @id @default(cuid())
   providerId     String
   providerUserId String
   userId         String
   user           User   @relation(fields: [userId], references: [id])
+
+  accessToken  String?
+  refreshToken String?
+  expiresAt    DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model Category {
