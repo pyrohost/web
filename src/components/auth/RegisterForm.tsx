@@ -47,7 +47,7 @@ const RegisterForm = () => {
                 </div>
                 <div className='mt-6'>
                     <PyroButton className='w-full' type='submit' size='medium' variant='primary' isPending={isPending}>
-                        Register
+                        Sign Up
                     </PyroButton>
                 </div>
                 {error && (
