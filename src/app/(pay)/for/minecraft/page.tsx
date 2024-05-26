@@ -7,8 +7,8 @@ import Link from 'next/link';
 import { PyroButton } from '@/components/ui/PyroButton';
 import { PyroLink } from '@/components/ui/PyroLink';
 import PyroPill from '@/components/ui/PyroPill';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/Accordion';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/Carousel';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/primitives/Accordion';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/primitives/Carousel';
 
 import { getGameBySlug, plans } from '@/lib/static/static';
 
@@ -178,7 +178,8 @@ const Page = () => {
                         Not what you&apos;re looking for?{' '}
                         <PyroLink className='text-brand underline' href={`/for/all`}>
                             Explore all plans
-                        </PyroLink>.
+                        </PyroLink>
+                        .
                     </p>
                 </div>
             </section>

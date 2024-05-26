@@ -5,7 +5,7 @@ import { User } from '@prisma/client';
 import { LockClosedIcon } from '@radix-ui/react-icons';
 
 import EditForm from '@/components/account/EditForm';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/primitives/Tooltip';
 
 const AccountInformationRow = ({
     label,

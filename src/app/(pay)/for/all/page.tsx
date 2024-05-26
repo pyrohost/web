@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 
 import BackgroundAccent from '@/components/ui/BackgroundAccent';
 import ProductListing from '@/components/ui/ProductListing';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/primitives/Tabs';
 
 import prisma from '@/lib/api/prisma';
 import productAPI from '@/lib/api/product';

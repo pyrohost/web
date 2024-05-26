@@ -4,7 +4,7 @@ import { CaretSortIcon, CheckCircledIcon, CrossCircledIcon } from '@radix-ui/rea
 
 import AccountInformationRow from '@/components/account/AccountInformationRow';
 import LogoutForm from '@/components/account/LogoutForm';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/primitives/Collapsible';
 
 import userAPI from '@/lib/api/user';
 import { buildAddress } from '@/lib/utils/address';

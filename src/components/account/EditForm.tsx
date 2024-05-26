@@ -11,7 +11,7 @@ import { editAddress, editName, editPhoneNumber } from '@/actions/user';
 
 import { PencilIcon } from '@/components/ui/Icons';
 import LoadingIcon from '@/components/ui/LoadingIcon';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/Popover';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/primitives/Popover';
 
 const SubmitButton = ({ isPending }: { isPending: boolean }) => {
     const buttonClasses = clsx(

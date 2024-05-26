@@ -1,8 +1,10 @@
 'use client';
 
-import { DropdownMenuItem } from '@/components/ui/DropdownMenu';
-import { getServerByExternalIdAction } from '@/actions/pterodactyl';
 import { useRouter } from 'next/navigation';
+
+import { getServerByExternalIdAction } from '@/actions/pterodactyl';
+
+import { DropdownMenuItem } from '@/components/ui/primitives/DropdownMenu';
 
 const GoToServerDropdownItem = ({ subscriptionId }: { subscriptionId: string }) => {
     const router = useRouter();

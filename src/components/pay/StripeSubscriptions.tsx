@@ -5,10 +5,10 @@ import { CaretSortIcon } from '@radix-ui/react-icons';
 
 import StripeCancelSubscription from '@/components/pay/StripeCancelSubscription';
 import StripeResumeSubscription from '@/components/pay/StripeResumeSubscription';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/DropdownMenu';
 import GoToServerDropdownItem from '@/components/ui/GoToServerDropdownItem';
 import { MoreIcon } from '@/components/ui/Icons';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/primitives/Collapsible';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/primitives/DropdownMenu';
 
 import stripe from '@/lib/api/stripe';
 import { formatAmountForDisplay } from '@/lib/utils/stripeHelpers';

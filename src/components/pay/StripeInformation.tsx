@@ -1,12 +1,11 @@
 import { CaretSortIcon, CheckCircledIcon, CrossCircledIcon } from '@radix-ui/react-icons';
 
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
+import StripePortal from '@/components/pay/StripePortal';
 import { LockClosedIcon } from '@/components/ui/Icons';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/primitives/Collapsible';
 
 import stripe from '@/lib/api/stripe';
 import formatPhoneNumber from '@/lib/utils/formatPhoneNumber';
-
-import StripePortal from '@/components/pay/StripePortal';
 
 const InfoRow = ({
     label,

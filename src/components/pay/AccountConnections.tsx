@@ -2,8 +2,8 @@ import { User } from '@prisma/client';
 
 import { CaretSortIcon } from '@radix-ui/react-icons';
 
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/Collapsible';
 import { PyroButton } from '@/components/ui/PyroButton';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/primitives/Collapsible';
 
 const AccountConnections = ({ user }: { user: any }) => {
     return (
