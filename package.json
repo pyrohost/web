@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
+        "dev:live": "next dev --turbo -H 0.0.0.0",
         "preinstall": "prisma generate && prisma db push --accept-data-loss",
         "build": "next build",
         "start": "next start",
