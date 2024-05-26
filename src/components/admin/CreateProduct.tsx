@@ -1,5 +1,3 @@
-'use client';
-
 const CreateProduct = () => {
     return (
         <div className='relative flex w-full max-w-[400px] flex-col gap-4 rounded-xl border-[1px] border-[#ffffff15] bg-[#ffffff14] p-8 shadow-sm'>
