@@ -12,7 +12,7 @@ const HeaderLoginButton = async () => {
     return (
         <>
             {sessionUser ? (
-                <div className='ml-auto items-center gap-4 flex'>
+                <div className='ml-auto flex items-center gap-4'>
                     {sessionUser.admin && (
                         <Link
                             href='/admin'
@@ -23,9 +23,12 @@ const HeaderLoginButton = async () => {
                     )}
                     <Link
                         href='/account'
+                        aria-label='Account page'
                         className='flex shrink-0 flex-row items-center justify-center rounded-full p-2 transition hover:bg-[#ffffff22]'
                     >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
+                            alt=''
                             src={`https://source.boringavatars.com/marble/120/${sessionUser.id}?colors=f06d61,da825f,c4975c,a8ab7b,8cbf99`}
                             width={30}
                             height={30}
@@ -34,7 +37,7 @@ const HeaderLoginButton = async () => {
                     </Link>
                 </div>
             ) : (
-                <PyroButton className='ml-auto' size={'small'} href='/login'>
+                <PyroButton className='ml-auto' size={'small'} type={'outlineLight'} color={'ghostWhite'} href='/login'>
                     Login
                 </PyroButton>
             )}
