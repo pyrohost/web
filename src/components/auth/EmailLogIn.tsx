@@ -1,15 +1,47 @@
 'use client';
 
-import { useState } from 'react';
+import clsx from 'clsx';
+
+import { useEffect, useState, useTransition } from 'react';
 
 import { login } from '@/actions/auth';
 
+import LoadingIcon from '@/components/ui/LoadingIcon';
+
+const SubmitButton = ({ isPending }: { isPending: boolean }) => {
+    const buttonClasses = clsx(
+        'relative mt-2 w-full rounded-full border-0 bg-brand py-2 text-sm font-bold capitalize outline-none ring-0 flex flex-row items-center justify-center gap-4',
+        {
+            'opacity-40 pointer-events-none': isPending,
+        },
+    );
+
+    return (
+        <button aria-label='Login' className={buttonClasses} type='submit' disabled={isPending}>
+            {isPending ? (
+                <>
+                    <LoadingIcon />
+                </>
+            ) : (
+                'Login'
+            )}
+        </button>
+    );
+};
+
 const EmailLogIn = () => {
     const [error, setError] = useState('');
+    const [isPending, startTransition] = useTransition();
+
+    useEffect(() => {
+        if (isPending) return;
+    }, [isPending]);
 
     const formAction = async (data: FormData) => {
-        const { error } = await login(data);
-        setError(error);
+        startTransition(async () => {
+            const { error } = await login(data);
+            setError(error);
+        });
     };
 
     return (
@@ -37,12 +69,7 @@ const EmailLogIn = () => {
                     />
                 </div>
                 <div className='mt-6'>
-                    <button
-                        className='relative mt-4 w-full rounded-full border-0 bg-brand py-2 text-sm font-bold capitalize outline-none ring-0'
-                        type='submit'
-                    >
-                        Login
-                    </button>
+                    <SubmitButton isPending={isPending} />
                 </div>
                 {error && <div className='text-red-500'>{error}</div>}
             </form>
