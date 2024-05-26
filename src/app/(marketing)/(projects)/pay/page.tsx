@@ -1,10 +1,10 @@
-import { ArrowRightIcon } from '@radix-ui/react-icons';
-
-import { PyroButton } from '@/components/ui/PyroButton';
-
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { ArrowRightIcon } from '@radix-ui/react-icons';
+
+import { PyroButton } from '@/components/ui/PyroButton';
 
 export const metadata: Metadata = {
     title: 'Pyro - Pay',
@@ -28,7 +28,7 @@ const Page = () => {
                     <p className='text-[20px] leading-[155%] text-[#ffffffbb]'>
                         It&apos;s the hosting industry&apos;s easiest billing management system.
                     </p>
-                    <PyroButton variant='white' href='https://pay.pyro.host'>
+                    <PyroButton variant='secondary' href='https://pay.pyro.host'>
                         Try it out
                     </PyroButton>
                 </div>

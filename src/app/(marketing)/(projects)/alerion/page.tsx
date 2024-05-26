@@ -31,7 +31,7 @@ const Page = () => {
                     <p className='text-[20px] leading-[155%] text-[#ffffffbb]'>
                         Manage and run Dockerized game servers with Alerion. Super fast, super reliable.
                     </p>
-                    <PyroButton variant='white' href='https://github.com/pyrohost/alerion'>
+                    <PyroButton variant='secondary' href='https://github.com/pyrohost/alerion'>
                         Star on GitHub
                     </PyroButton>
                 </div>

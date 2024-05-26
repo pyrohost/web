@@ -18,7 +18,8 @@ const button = cva(
         'select-none',
         'transition-all',
         'outline-none',
-        'border-0',
+        'border-2',
+        'border-transparent',
         'ring-0',
         'focus-visible:ring-2',
         'focus-visible:ring-offset-2',
@@ -28,11 +29,10 @@ const button = cva(
     {
         variants: {
             variant: {
-                brand: ['bg-brand', 'text-white', 'hover:bg-brand/80'],
-                white: ['bg-white', 'text-black', 'hover:bg-white/80'],
-                black: ['bg-black', 'text-white', 'hover:bg-black/80'],
-                ghostWhite: ['bg-transparent', 'text-white', 'hover:bg-white/10'],
-                ghostBlack: ['bg-transparent', 'text-black', 'hover:bg-black/10'],
+                primary: ['bg-brand', 'text-white', 'hover:bg-brand/80'],
+                secondary: ['bg-white', 'text-black', 'hover:bg-white/80'],
+                tertiary: ['bg-[#ffffff33]', 'text-white', 'hover:bg-[#ffffff55]'],
+                quaternary: ['bg-transparent', 'text-white', 'hover:bg-black/80', 'border-[#ffffff33]', 'hover:border-[#ffffff55]'],
             },
             size: {
                 ghost: [],
@@ -42,7 +42,7 @@ const button = cva(
             },
         },
         defaultVariants: {
-            variant: 'brand',
+            variant: 'primary',
             size: 'medium',
         },
     },

@@ -62,7 +62,7 @@ const BetterHosting = () => {
                         software suite, and efficient hardware. No hidden fees, zero add-ons, it&apos;s just included.
                     </p>
 
-                    <PyroButton useArrow variant='black' href='https://pay.pyro.host' external>
+                    <PyroButton useArrow variant='quaternary' href='https://pay.pyro.host' external>
                         Host your server, risk-free
                     </PyroButton>
                 </div>

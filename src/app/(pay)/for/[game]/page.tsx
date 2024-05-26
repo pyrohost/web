@@ -531,7 +531,7 @@ const Page = ({ params }: { params: { game: string } }) => {
                     >
                         Contact Us
                     </PyroButton>
-                    <PyroButton variant='white' href='https://pyro.host/for'>
+                    <PyroButton variant='secondary' href='https://pyro.host/for'>
                         View other games
                     </PyroButton>
                 </div>

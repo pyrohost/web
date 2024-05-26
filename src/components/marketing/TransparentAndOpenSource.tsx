@@ -25,7 +25,7 @@ const TransparentAndOpenSource = () => {
                         ></path>
                     </svg>
                 }
-                variant='black'
+                variant='quaternary'
                 external
                 href='https://github.com/pyrohost'
             >
