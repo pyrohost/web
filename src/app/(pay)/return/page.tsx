@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { PyroButton } from '@/components/ui/PyroButton';
 import { PyroLink } from '@/components/ui/PyroLink';
 
@@ -18,7 +19,7 @@ export default async function ResultPage({
         return (
             <div className='flex flex-1 flex-col items-center justify-center'>
                 <div className='mx-auto w-full max-w-lg rounded-2xl border border-brand border-opacity-20 bg-[#111111] p-4'>
-                    <img src='https://i.giphy.com/ISOckXUybVfQ4.webp' className='mb-4 w-full rounded-xl' />
+                    <img alt='' src='https://i.giphy.com/ISOckXUybVfQ4.webp' className='mb-4 w-full rounded-xl' />
                     <h1 className='text-center text-3xl font-extrabold'>Payment Failed</h1>
                     <div className='mt-2'>
                         <p className='text-center'>Your payment could not be processed.</p>{' '}
@@ -42,6 +43,7 @@ export default async function ResultPage({
             <div className='flex flex-1 flex-col items-center justify-center'>
                 <div className='mx-auto w-full max-w-lg rounded-2xl border border-brand border-opacity-20 bg-[#111111] p-4'>
                     <img
+                        alt=''
                         src='https://media1.tenor.com/m/P63DgPMZ8-sAAAAC/party-hellmo.gif'
                         className='mb-4 w-full rounded-xl'
                     />
