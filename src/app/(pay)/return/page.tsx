@@ -30,7 +30,6 @@ export default async function ResultPage({
                     <div className='mx-auto my-4 w-full max-w-lg border-t border-brand border-opacity-20' />
 
                     <PyroButton href='/for' className='mt-6'>
-                        {' '}
                         Go Back to Games
                     </PyroButton>
                 </div>
@@ -57,7 +56,6 @@ export default async function ResultPage({
                     </p>
 
                     <PyroButton href='https://panel.pyro.host' external={true} className='mt-6'>
-                        {' '}
                         Go to Pyrodactyl Panel
                     </PyroButton>
                 </div>

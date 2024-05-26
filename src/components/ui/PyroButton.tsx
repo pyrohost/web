@@ -49,20 +49,24 @@ const button = cva(
 );
 
 export const PyroButton = ({
+    children,
+    leftChildren,
+    rightChildren,
+
     href,
     external = false,
-    children,
-    leftChild,
-    rightChild,
+
     useArrow,
     className = '',
     ...props
 }: {
-    href: string;
-    external?: boolean;
     children: React.ReactNode;
-    leftChild?: React.ReactNode;
-    rightChild?: React.ReactNode;
+    leftChildren?: React.ReactNode;
+    rightChildren?: React.ReactNode;
+
+    href?: string;
+    external?: boolean;
+
     useArrow?: boolean;
     className?: string;
 } & VariantProps<typeof button>) => {
@@ -70,16 +74,16 @@ export const PyroButton = ({
         <>
             {href ? (
                 <PyroLink href={href} external={external} className={twMerge(cx(button(props), className))}>
-                    {leftChild}
+                    {leftChildren}
                     {children}
-                    {rightChild}
+                    {rightChildren}
                     {useArrow && <ArrowRightIcon className='h-4 w-4' />}
                 </PyroLink>
             ) : (
                 <button className={twMerge(cx(button(props), className))}>
-                    {leftChild}
+                    {leftChildren}
                     {children}
-                    {rightChild}
+                    {rightChildren}
                     {useArrow && <ArrowRightIcon className='h-4 w-4' />}
                 </button>
             )}

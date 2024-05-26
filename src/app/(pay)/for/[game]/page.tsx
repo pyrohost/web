@@ -518,7 +518,7 @@ const Page = ({ params }: { params: { game: string } }) => {
                 </p>
                 <div className='flex flex-col items-center gap-4 sm:flex-row'>
                     <PyroButton
-                        leftChild={
+                        leftChildren={
                             <svg viewBox='0 0 16 16' className='h-4 w-4'>
                                 <path
                                     fill='currentColor'
@@ -527,13 +527,12 @@ const Page = ({ params }: { params: { game: string } }) => {
                             </svg>
                         }
                         color={'brand'}
-                        type={'ghost'}
                         external
                         href='https://pyro.host/discord'
                     >
                         Contact Us
                     </PyroButton>
-                    <PyroButton color={'white'} type={'ghost'} href='https://pyro.host/for'>
+                    <PyroButton color={'white'} href='https://pyro.host/for'>
                         View other games
                     </PyroButton>
                 </div>

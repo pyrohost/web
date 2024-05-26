@@ -539,7 +539,7 @@ const Page = () => {
                 </p>
                 <div className='flex flex-col items-center gap-4 sm:flex-row'>
                     <PyroButton
-                        leftChild={
+                        leftChildren={
                             <svg viewBox='0 0 16 16' className='h-4 w-4'>
                                 <path
                                     fill='currentColor'

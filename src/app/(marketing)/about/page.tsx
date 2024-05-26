@@ -109,7 +109,7 @@ const Page = () => {
                     open-source and want to help us build the future of hosting, we&apos;d love to hear from you.
                 </p>
                 <PyroButton
-                    leftChild={
+                    leftChildren={
                         <svg viewBox='0 0 16 16' className='h-4 w-4'>
                             <path
                                 fill='currentColor'
@@ -118,7 +118,6 @@ const Page = () => {
                         </svg>
                     }
                     color={'brand'}
-                    type={'ghost'}
                     external
                     href='https://pyro.host/discord'
                 >
