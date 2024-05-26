@@ -71,7 +71,11 @@ const EmailLogIn = () => {
                 <div className='mt-6'>
                     <SubmitButton isPending={isPending} />
                 </div>
-                {error && <div className='text-red-500'>{error}</div>}
+                {error && (
+                    <p role='alert' className='mx-auto mt-4 text-sm font-bold text-red-500'>
+                        {error}
+                    </p>
+                )}
             </form>
         </>
     );
