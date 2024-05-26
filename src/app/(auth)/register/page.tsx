@@ -3,7 +3,7 @@ import { register } from '@/actions/auth';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
-import RegisterForm from '@/components/ui/RegisterForm';
+import RegisterForm from '@/components/auth/RegisterForm';
 import LogoColored from '@/components/ui/layout/LogoColored';
 
 import { getUserBySession } from '@/lib/api/user';

@@ -1,5 +1,5 @@
 import LogoColored from "@/components/ui/layout/LogoColored";
-import VerifyEmailForm from "@/components/ui/VerifyEmailForm";
+import VerifyEmailForm from "@/components/auth/VerifyEmailForm";
 import { getUserBySession } from '@/lib/api/user';
 import { redirect } from "next/navigation";
 
