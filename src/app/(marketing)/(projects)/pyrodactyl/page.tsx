@@ -32,7 +32,7 @@ const Page = () => {
                         It&apos;s the world&apos;s best Pterodacyl panel. You&apos;ve never seen anything like it
                         before.
                     </p>
-                    <PyroButton color='white' href='https://github.com/pyrohost/panel'>
+                    <PyroButton variant='white' href='https://github.com/pyrohost/panel'>
                         Star on GitHub
                     </PyroButton>
                 </div>

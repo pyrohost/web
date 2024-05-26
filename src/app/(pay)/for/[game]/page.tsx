@@ -526,13 +526,13 @@ const Page = ({ params }: { params: { game: string } }) => {
                                 ></path>
                             </svg>
                         }
-                        color={'brand'}
+                        variant={'brand'}
                         external
                         href='https://pyro.host/discord'
                     >
                         Contact Us
                     </PyroButton>
-                    <PyroButton color={'white'} href='https://pyro.host/for'>
+                    <PyroButton variant={'white'} href='https://pyro.host/for'>
                         View other games
                     </PyroButton>
                 </div>

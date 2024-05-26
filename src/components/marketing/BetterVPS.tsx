@@ -60,7 +60,7 @@ const BetterVPS = () => {
                                 ></path>
                             </svg>
                         }
-                        color={'black'}
+                        variant={'black'}
                         external
                         href='https://pyro.host/discord'
                     >

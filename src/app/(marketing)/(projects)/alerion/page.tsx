@@ -1,7 +1,8 @@
-import { PyroButton } from '@/components/ui/PyroButton';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { PyroButton } from '@/components/ui/PyroButton';
 
 export const metadata: Metadata = {
     title: 'Pyro - Alerion',
@@ -30,7 +31,7 @@ const Page = () => {
                     <p className='text-[20px] leading-[155%] text-[#ffffffbb]'>
                         Manage and run Dockerized game servers with Alerion. Super fast, super reliable.
                     </p>
-                    <PyroButton color='white' href='https://github.com/pyrohost/alerion'>
+                    <PyroButton variant='white' href='https://github.com/pyrohost/alerion'>
                         Star on GitHub
                     </PyroButton>
                 </div>

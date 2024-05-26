@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const Page = () => {
     return (
         <>
-            <section className='relative mx-auto flex flex-col items-center gap-8 px-4 py-32 pb-64 text-center xl:px-24 overflow-clip'>
+            <section className='relative mx-auto flex flex-col items-center gap-8 overflow-clip px-4 py-32 pb-64 text-center xl:px-24'>
                 <div className='-mb-8'>
                     <div className='flex h-8 cursor-default select-none items-center gap-[6px] rounded-full border border-neutral-900/30 px-[11px] py-[4px]'>
                         <div className='text-15 font-medium'>About Us</div>
@@ -117,7 +117,7 @@ const Page = () => {
                             ></path>
                         </svg>
                     }
-                    color={'brand'}
+                    variant={'brand'}
                     external
                     href='https://pyro.host/discord'
                 >

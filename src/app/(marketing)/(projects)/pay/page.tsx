@@ -28,7 +28,7 @@ const Page = () => {
                     <p className='text-[20px] leading-[155%] text-[#ffffffbb]'>
                         It&apos;s the hosting industry&apos;s easiest billing management system.
                     </p>
-                    <PyroButton color='white' href='https://pay.pyro.host'>
+                    <PyroButton variant='white' href='https://pay.pyro.host'>
                         Try it out
                     </PyroButton>
                 </div>
