@@ -133,49 +133,6 @@ const Header = () => {
                                         </NavigationMenu.Trigger>
                                     </NavigationMenu.Item>
                                 </ul>
-
-                                <ul className='ml-auto flex items-center md:hidden'>
-                                    <NavigationMenu.Item>
-                                        <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
-                                            <HamburgerMenuIcon />
-                                        </NavigationMenu.Trigger>
-                                        <NavigationMenu.Content className='navContent flex flex-col gap-4 px-[1.75rem] pb-12'>
-                                            <NavLinkItem href='/for'>Games</NavLinkItem>
-                                            <h2 className='-mb-2 mt-8 text-sm font-black uppercase opacity-50'>
-                                                Products
-                                            </h2>
-                                            <NavLinkItem href='/pyrodactyl'>Pyrodactyl Panel</NavLinkItem>
-                                            <NavLinkItem href='/pay'>Pyro Pay</NavLinkItem>
-                                            <NavLinkItem href='/alerion'>Alerion</NavLinkItem>
-
-                                            <h2 className='-mb-2 mt-8 text-sm font-black uppercase opacity-50'>
-                                                Resources
-                                            </h2>
-                                            <NavLinkItem href='https://panel.pyro.host' external>
-                                                Game Panel
-                                            </NavLinkItem>
-                                            <NavLinkItem href='https://vps.pyro.host' external>
-                                                VPS Panel
-                                            </NavLinkItem>
-                                            <NavLinkItem href='https://pay.pyro.host' external>
-                                                Billing
-                                            </NavLinkItem>
-                                            <NavLinkItem href='https://pyro.host/discord' external>
-                                                Support
-                                            </NavLinkItem>
-                                            <NavLinkItem href='https://status.pyro.host' external>
-                                                Status & Uptime
-                                            </NavLinkItem>
-                                            <div className='min-h-[1rem]'></div>
-                                            <NavLinkItem href='/about'>Company</NavLinkItem>
-
-                                            <div className='min-h-[1rem]'></div>
-                                            <NavLinkItem href='/discord' external>
-                                                Discord
-                                            </NavLinkItem>
-                                        </NavigationMenu.Content>
-                                    </NavigationMenu.Item>
-                                </ul>
                             </div>
                         </NavigationMenu.List>
                     </div>
