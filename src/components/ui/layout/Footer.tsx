@@ -5,14 +5,14 @@ import { usePathname } from 'next/navigation';
 
 import LogoWhite from '@/components/ui/layout/LogoWhite';
 
+import { AUTHENTICATED_ROUTES } from '@/lib/static/authenticatedRoutes';
+
 const Footer = () => {
     const pathname = usePathname();
 
     return (
         <>
-            {pathname === '/account' ? (
-                <></>
-            ) : (
+            {AUTHENTICATED_ROUTES.some((route) => pathname.includes(route)) ? null : (
                 <footer className='container sticky bottom-0 flex w-full flex-col justify-between gap-12 rounded-t-3xl px-8 py-7 sm:flex-row md:gap-x-12'>
                     <div className='flex flex-col items-start gap-4 md:w-full lg:w-fit'>
                         <LogoWhite />
