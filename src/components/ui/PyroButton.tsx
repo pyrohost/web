@@ -1,9 +1,11 @@
 import type { VariantProps } from 'class-variance-authority';
 import { cva, cx } from 'class-variance-authority';
+import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 
+import LoadingIcon from '@/components/ui/LoadingIcon';
 import { PyroLink } from '@/components/ui/PyroLink';
 
 const button = cva(
@@ -93,11 +95,26 @@ export const PyroButton = ({
                     {isArrow && <ArrowRightIcon className='h-4 w-4' />}
                 </PyroLink>
             ) : (
-                <button className={twMerge(cx(button(rest), className))} {...rest}>
-                    {leftChildren}
-                    {children}
-                    {rightChildren}
-                    {isArrow && <ArrowRightIcon className='h-4 w-4' />}
+                <button
+                    className={clsx(twMerge(cx(button(rest), className)), {
+                        'pointer-events-none opacity-40': isPending,
+                    })}
+                    {...rest}
+                >
+                    {isPending ? (
+                        <>
+                            <LoadingIcon />
+
+                            {pendingChildren}
+                        </>
+                    ) : (
+                        <>
+                            {leftChildren}
+                            {children}
+                            {rightChildren}
+                            {isArrow && <ArrowRightIcon className='h-4 w-4' />}
+                        </>
+                    )}
                 </button>
             )}
         </>
