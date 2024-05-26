@@ -7,7 +7,6 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 import LogoColored from '@/components/ui/layout/LogoColored';
 
-
 const ExternalLinkIcon = () => (
     <svg
         className='flex h-4 w-4'
@@ -69,16 +68,16 @@ const Header = () => {
                             <div className='flex w-full items-center'>
                                 <ul className='hidden w-full items-center md:flex'>
                                     <NavigationMenu.Item>
-                                        <Link
-                                            className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
-                                            href='/for'
+                                        <NavigationMenu.Trigger
+                                            asChild
+                                            className='flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]'
                                         >
-                                            Games
-                                        </Link>
+                                            <Link href='/for'>Games</Link>
+                                        </NavigationMenu.Trigger>
                                     </NavigationMenu.Item>
 
                                     <NavigationMenu.Item>
-                                        <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
+                                        <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]'>
                                             Products
                                         </NavigationMenu.Trigger>
                                         <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[200px] '>
@@ -88,7 +87,7 @@ const Header = () => {
                                         </NavigationMenu.Content>
                                     </NavigationMenu.Item>
                                     <NavigationMenu.Item>
-                                        <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'>
+                                        <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]'>
                                             Resources
                                         </NavigationMenu.Trigger>
                                         <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[300px] '>
@@ -110,23 +109,28 @@ const Header = () => {
                                         </NavigationMenu.Content>
                                     </NavigationMenu.Item>
                                     <NavigationMenu.Item>
-                                        <Link
-                                            className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
-                                            href='/about'
+                                        <NavigationMenu.Trigger
+                                            asChild
+                                            className='flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]'
                                         >
-                                            Company
-                                        </Link>
+                                            <Link href='/about'>Company</Link>
+                                        </NavigationMenu.Trigger>
                                     </NavigationMenu.Item>
                                     <NavigationMenu.Item>
-                                        <Link
-                                            className='flex h-fit w-fit items-center gap-2 px-4 py-4 text-sm font-extrabold'
-                                            rel='noopener noreferrer'
-                                            target='_blank'
-                                            href='/discord'
+                                        <NavigationMenu.Trigger
+                                            asChild
+                                            className='flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]'
                                         >
-                                            <span>Discord</span>
-                                            <ExternalLinkIcon />
-                                        </Link>
+                                            <Link
+                                                className='flex items-center gap-2'
+                                                rel='noopener noreferrer'
+                                                target='_blank'
+                                                href='/discord'
+                                            >
+                                                <span>Discord</span>
+                                                <ExternalLinkIcon />
+                                            </Link>
+                                        </NavigationMenu.Trigger>
                                     </NavigationMenu.Item>
                                 </ul>
 
@@ -136,7 +140,6 @@ const Header = () => {
                                             <HamburgerMenuIcon />
                                         </NavigationMenu.Trigger>
                                         <NavigationMenu.Content className='navContent flex flex-col gap-4 px-[1.75rem] pb-12'>
-
                                             <NavLinkItem href='/for'>Games</NavLinkItem>
                                             <h2 className='-mb-2 mt-8 text-sm font-black uppercase opacity-50'>
                                                 Products
@@ -179,8 +182,6 @@ const Header = () => {
                 </header>
                 <NavigationMenu.Viewport className='navTransition h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn' />
             </NavigationMenu.Root>
-
-
         </>
     );
 };
