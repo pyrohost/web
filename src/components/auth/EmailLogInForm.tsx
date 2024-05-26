@@ -1,33 +1,10 @@
 'use client';
 
-import clsx from 'clsx';
-
 import { useEffect, useState, useTransition } from 'react';
 
 import { login } from '@/actions/auth';
 
-import LoadingIcon from '@/components/ui/LoadingIcon';
-
-const SubmitButton = ({ isPending }: { isPending: boolean }) => {
-    const buttonClasses = clsx(
-        'relative mt-2 w-full rounded-full border-0 bg-brand py-2 text-sm font-bold capitalize outline-none ring-0 flex flex-row items-center justify-center gap-4',
-        {
-            'opacity-40 pointer-events-none': isPending,
-        },
-    );
-
-    return (
-        <button aria-label='Login' className={buttonClasses} type='submit' disabled={isPending}>
-            {isPending ? (
-                <>
-                    <LoadingIcon />
-                </>
-            ) : (
-                'Login'
-            )}
-        </button>
-    );
-};
+import { PyroButton } from '@/components/ui/PyroButton';
 
 const EmailLogIn = () => {
     const [error, setError] = useState('');
@@ -69,7 +46,9 @@ const EmailLogIn = () => {
                     />
                 </div>
                 <div className='mt-6'>
-                    <SubmitButton isPending={isPending} />
+                    <PyroButton className='w-full' type='submit' size='medium' variant='primary' isPending={isPending}>
+                        Login
+                    </PyroButton>
                 </div>
                 {error && (
                     <p role='alert' className='mx-auto mt-4 text-sm font-bold text-red-500'>

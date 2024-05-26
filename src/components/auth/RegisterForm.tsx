@@ -1,14 +1,24 @@
 'use client';
 
+import { useEffect, useState, useTransition } from 'react';
+
 import { register } from '@/actions/auth';
-import { useState } from 'react';
+
+import { PyroButton } from '@/components/ui/PyroButton';
 
 const RegisterForm = () => {
     const [error, setError] = useState('');
+    const [isPending, startTransition] = useTransition();
+
+    useEffect(() => {
+        if (isPending) return;
+    }, [isPending]);
 
     const formAction = async (data: FormData) => {
-        const { error } = await register(data);
-        setError(error);
+        startTransition(async () => {
+            const { error } = await register(data);
+            setError(error);
+        });
     };
 
     return (
@@ -36,14 +46,15 @@ const RegisterForm = () => {
                     />
                 </div>
                 <div className='mt-6'>
-                    <button
-                        className='relative mt-4 w-full rounded-full border-0 bg-brand py-2 text-sm font-bold capitalize outline-none ring-0'
-                        type='submit'
-                    >
+                    <PyroButton className='w-full' type='submit' size='medium' variant='primary' isPending={isPending}>
                         Register
-                    </button>
+                    </PyroButton>
                 </div>
-                {error && <div className='text-red-500'>{error}</div>}
+                {error && (
+                    <p role='alert' className='mx-auto mt-4 text-sm font-bold text-red-500'>
+                        {error}
+                    </p>
+                )}
             </form>
         </>
     );
