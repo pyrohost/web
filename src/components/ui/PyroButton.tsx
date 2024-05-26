@@ -44,9 +44,9 @@ const button = cva(
             },
             size: {
                 ghost: [],
-                small: ['py-2', 'px-4', 'text-sm'],
-                medium: ['py-3', 'px-8', 'text-base'],
-                large: ['py-4', 'px-10', 'text-lg'],
+                small: ['py-1', 'px-4', 'text-sm'],
+                medium: ['py-2', 'px-8', 'text-base'],
+                large: ['py-3', 'px-10', 'text-lg'],
             },
         },
         defaultVariants: {
@@ -82,6 +82,7 @@ export const PyroButton = ({
     isPending?: boolean;
     className?: string;
     disabled?: boolean;
+    type?: 'button' | 'submit' | 'reset';
 } & VariantProps<typeof button>) => {
     const { ...rest } = props;
 
@@ -103,8 +104,9 @@ export const PyroButton = ({
                 >
                     {isPending ? (
                         <>
-                            <LoadingIcon />
-
+                            <div className='p-0.5'>
+                                <LoadingIcon />
+                            </div>
                             {pendingChildren}
                         </>
                     ) : (
