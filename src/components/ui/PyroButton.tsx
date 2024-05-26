@@ -27,7 +27,7 @@ const button = cva(
     ],
     {
         variants: {
-            color: {
+            variant: {
                 brand: ['bg-brand', 'text-white', 'hover:bg-brand/80'],
                 white: ['bg-white', 'text-black', 'hover:bg-white/80'],
                 black: ['bg-black', 'text-white', 'hover:bg-black/80'],
@@ -42,7 +42,7 @@ const button = cva(
             },
         },
         defaultVariants: {
-            color: 'brand',
+            variant: 'brand',
             size: 'medium',
         },
     },
@@ -69,18 +69,21 @@ export const PyroButton = ({
 
     useArrow?: boolean;
     className?: string;
+    disabled?: boolean;
 } & VariantProps<typeof button>) => {
+    const { ...rest } = props;
+
     return (
         <>
             {href ? (
-                <PyroLink href={href} external={external} className={twMerge(cx(button(props), className))}>
+                <PyroLink href={href} external={external} className={twMerge(cx(button(rest), className))} {...rest}>
                     {leftChildren}
                     {children}
                     {rightChildren}
                     {useArrow && <ArrowRightIcon className='h-4 w-4' />}
                 </PyroLink>
             ) : (
-                <button className={twMerge(cx(button(props), className))}>
+                <button className={twMerge(cx(button(rest), className))} {...rest}>
                     {leftChildren}
                     {children}
                     {rightChildren}
