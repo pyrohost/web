@@ -16,6 +16,8 @@ const WhereYourWorldPlays = () => {
                             aria-hidden
                             src='/img/chips2-nbg.png'
                             fill
+                            priority
+                            sizes='29vw'
                             className='pointer-events-none select-none object-cover brightness-125'
                         />
                     </div>
@@ -25,6 +27,8 @@ const WhereYourWorldPlays = () => {
                             aria-hidden
                             src='/img/chips-nbg.png'
                             fill
+                            priority
+                            sizes='25vw'
                             className='pointer-events-none select-none object-cover brightness-125'
                         />
                     </div>
@@ -44,6 +48,8 @@ const WhereYourWorldPlays = () => {
                             aria-hidden
                             src='/img/herobackground.svg'
                             fill
+                            priority
+                            sizes='100vw'
                             className='pointer-events-none select-none object-cover opacity-75'
                         />
                     </div>
