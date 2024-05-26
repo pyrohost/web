@@ -2,17 +2,41 @@
 
 import { editAddress, editName, editPhoneNumber } from '@/actions/user';
 import { User } from '@prisma/client';
-import { useState } from 'react';
+import clsx from 'clsx';
+import { useEffect, useState, useTransition } from 'react';
 
 import { useRouter } from 'next/navigation';
 
+import { PencilIcon } from '@/components/ui/Icons';
+import LoadingIcon from '@/components/ui/LoadingIcon';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/Popover';
 
-import { PencilIcon } from '@/components/ui/Icons';
+const SubmitButton = ({ isPending }: { isPending: boolean }) => {
+    const buttonClasses = clsx(
+        'relative mt-2 w-full rounded-full border-0 bg-brand py-2 text-sm font-bold capitalize outline-none ring-0 flex flex-row items-center justify-center gap-4',
+        {
+            'opacity-40 pointer-events-none': isPending,
+        },
+    );
+
+    return (
+        <button aria-label='Save' className={buttonClasses} type='submit' disabled={isPending}>
+            {isPending ? (
+                <>
+                    <LoadingIcon />
+                    <span>Saving</span>
+                </>
+            ) : (
+                'Save'
+            )}
+        </button>
+    );
+};
 
 const EditForm = ({ label, user }: { label: string; user: User }) => {
     const router = useRouter();
     const [open, setOpen] = useState<boolean>(false);
+    const [isPending, startTransition] = useTransition();
     const [firstNameState, setFirstNameState] = useState<string | null>(user.firstName);
     const [lastNameState, setLastNameState] = useState<string | null>(user.lastName);
 
@@ -25,11 +49,18 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 
     const [phoneState, setPhoneState] = useState<string | null>('');
 
+    useEffect(() => {
+        if (isPending) return;
+
+        router.refresh();
+        setOpen(false);
+    }, [isPending, router]);
+
     const fullNameAction = async (data: FormData): Promise<void> => {
         try {
-            const name = await editName(data, user);
-            router.refresh();
-            setOpen(false);
+            startTransition(async () => {
+                const name = await editName(data, user);
+            });
         } catch (error) {
             console.error(error);
             router.refresh();
@@ -38,9 +69,9 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 
     const phoneAction = async (data: FormData): Promise<void> => {
         try {
-            const phone = await editPhoneNumber(data, user);
-            router.refresh();
-            setOpen(false);
+            startTransition(async () => {
+                const phone = await editPhoneNumber(data, user);
+            });
         } catch (error) {
             console.error(error);
             router.refresh();
@@ -49,9 +80,9 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 
     const addressAction = async (data: FormData): Promise<void> => {
         try {
-            const address = await editAddress(data, user);
-            router.refresh();
-            setOpen(false);
+            startTransition(async () => {
+                const address = editAddress(data, user);
+            });
         } catch (error) {
             console.error(error);
             router.refresh();
@@ -115,12 +146,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
                                     autoComplete='family-name'
                                 />
                             </div>
-                            <button
-                                className='relative mt-2 w-full rounded-full border-0 bg-brand py-2 text-sm font-bold capitalize outline-none ring-0'
-                                type='submit'
-                            >
-                                Save
-                            </button>
+                            <SubmitButton isPending={isPending} />
                         </form>
                     )}
 
@@ -145,12 +171,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
                                     autoComplete='tel'
                                 />
                             </div>
-                            <button
-                                className='relative mt-2 w-full rounded-full border-0 bg-brand py-2 text-sm font-bold capitalize outline-none ring-0'
-                                type='submit'
-                            >
-                                Save
-                            </button>
+                            <SubmitButton isPending={isPending} />
                         </form>
                     )}
 
@@ -258,12 +279,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
                                     autoComplete='country-name'
                                 />
                             </div>
-                            <button
-                                className='relative mt-2 w-full rounded-full border-0 bg-brand py-2 text-sm font-bold capitalize outline-none ring-0'
-                                type='submit'
-                            >
-                                Save
-                            </button>
+                            <SubmitButton isPending={isPending} />
                         </form>
                     )}
                 </div>
