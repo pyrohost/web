@@ -58,22 +58,26 @@ export const PyroButton = ({
     children,
     leftChildren,
     rightChildren,
+    pendingChildren,
 
     href,
     external = false,
 
     isArrow,
+    isPending,
     className = '',
     ...props
 }: {
     children: React.ReactNode;
     leftChildren?: React.ReactNode;
     rightChildren?: React.ReactNode;
+    pendingChildren?: React.ReactNode;
 
     href?: string;
     external?: boolean;
 
     isArrow?: boolean;
+    isPending?: boolean;
     className?: string;
     disabled?: boolean;
 } & VariantProps<typeof button>) => {
