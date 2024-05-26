@@ -37,7 +37,7 @@ const HeaderLoginButton = async () => {
                     </Link>
                 </div>
             ) : (
-                <PyroButton className='ml-auto' size={'small'} type={'outlineLight'} color={'ghostWhite'} href='/login'>
+                <PyroButton className='ml-auto' size={'small'} color={'ghostWhite'} href='/login'>
                     Login
                 </PyroButton>
             )}

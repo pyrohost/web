@@ -27,12 +27,6 @@ const button = cva(
                 ghostWhite: ['bg-transparent', 'text-white', 'hover:bg-white/10'],
                 ghostBlack: ['bg-transparent', 'text-black', 'hover:bg-black/10'],
             },
-            type: {
-                primary: ['border-2', 'border-brand'],
-                outline: ['border-2', 'border-white'],
-                outlineLight: ['border-2', 'border-white/10'],
-                ghost: ['border-2', 'border-transparent'],
-            },
             size: {
                 ghost: [],
                 small: ['py-2', 'px-4', 'text-sm'],
@@ -42,7 +36,6 @@ const button = cva(
         },
         defaultVariants: {
             color: 'brand',
-            type: 'ghost',
             size: 'medium',
         },
     },

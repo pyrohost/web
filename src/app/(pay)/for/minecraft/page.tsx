@@ -548,13 +548,12 @@ const Page = () => {
                             </svg>
                         }
                         color={'brand'}
-                        type={'ghost'}
                         external
                         href='https://pyro.host/discord'
                     >
                         Contact Us
                     </PyroButton>
-                    <PyroButton color={'white'} type={'ghost'} href='https://pyro.host/for'>
+                    <PyroButton color={'white'} href='https://pyro.host/for'>
                         View other games
                     </PyroButton>
                 </div>
