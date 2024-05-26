@@ -24,7 +24,7 @@ const OneApp = () => {
                         like a super-app for your server.
                     </p>
 
-                    <PyroButton color={'black'} href='/pyrodactyl/'>
+                    <PyroButton variant={'black'} href='/pyrodactyl/'>
                         Learn more
                     </PyroButton>
                 </div>
