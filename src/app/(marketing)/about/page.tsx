@@ -117,7 +117,6 @@ const Page = () => {
                             ></path>
                         </svg>
                     }
-                    variant={'brand'}
                     external
                     href='https://pyro.host/discord'
                 >

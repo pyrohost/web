@@ -176,7 +176,7 @@ const Page = () => {
                     </ul>
                     <p className='mx-auto mt-12 max-w-3xl text-center text-xl font-medium leading-[190%] text-[#ffffff99]'>
                         Not what you&apos;re looking for?{' '}
-                        <PyroLink className='text-brand underline' href={`/for/all`}>
+                        <PyroLink className='text-brand underline' href='/for/all'>
                             Explore all plans
                         </PyroLink>
                         .
@@ -547,13 +547,12 @@ const Page = () => {
                                 ></path>
                             </svg>
                         }
-                        variant={'brand'}
                         external
                         href='https://pyro.host/discord'
                     >
                         Contact Us
                     </PyroButton>
-                    <PyroButton variant={'white'} href='https://pyro.host/for'>
+                    <PyroButton variant='white' href='https://pyro.host/for'>
                         View other games
                     </PyroButton>
                 </div>
