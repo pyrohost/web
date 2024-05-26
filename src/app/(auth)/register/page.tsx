@@ -7,6 +7,7 @@ import RegisterForm from '@/components/auth/RegisterForm';
 import LogoColored from '@/components/ui/layout/LogoColored';
 
 import { getUserBySession } from '@/lib/api/user';
+import OauthLogIn from '@/components/auth/OauthLogInForm';
 
 export default async function Page() {
     const user = await getUserBySession();
@@ -26,6 +27,7 @@ export default async function Page() {
                     Login
                 </Link>
             </div>
+            <OauthLogIn />
             <RegisterForm />
         </div>
     );
