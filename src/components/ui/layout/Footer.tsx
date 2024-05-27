@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import LogoWhite from '@/components/icons/LogoWhite';
+import { Logomark } from '@/components/icons/Logomark';
 
 import { AUTHENTICATED_ROUTES } from '@/lib/static/authenticatedRoutes';
 
@@ -13,18 +14,28 @@ const Footer = () => {
     return (
         <>
             {AUTHENTICATED_ROUTES.some((route) => pathname.includes(route)) ? (
-                <footer className='container sticky bottom-0 flex w-full flex-wrap items-center justify-center gap-4'>
-                    <p className='text-xs text-[#999]'>© 2024 Pyro Host Inc.</p>
-                    <Link href='/legal/tos' className='text-xs text-[#999]'>
-                        Terms
-                    </Link>
-                    <Link href='/legal/privacy' className='text-xs text-[#999]'>
-                        Privacy
-                    </Link>
-                    <Link href='/legal/cookies' className='text-xs text-[#999]'>
-                        Cookies
-                    </Link>
-                </footer>
+                <div className='border-t-[1px] border-t-[#ffffff16] bg-[#ffffff07]'>
+                    <footer className='container sticky bottom-0 flex w-full flex-wrap items-center justify-center gap-4 px-4 py-8 text-[#999]'>
+                        <div className='flex flex-row items-center gap-2'>
+                            <div className='flex h-5 w-5 shrink-0'>
+                                <Logomark />
+                            </div>
+                            <p className='text-xs text-[#999]'>© 2024 Pyro Host Inc.</p>
+                        </div>
+                        <Link href='https://status.pyro.host' className='text-xs text-[#999] hover:text-[#fff] transition'>
+                            Terms
+                        </Link>
+                        <Link href='https://status.pyro.host' className='text-xs text-[#999] hover:text-[#fff] transition'>
+                            Privacy
+                        </Link>
+                        <Link href='https://status.pyro.host' className='text-xs text-[#999] hover:text-[#fff] transition'>
+                            Status
+                        </Link>
+                        <Link href='https://status.pyro.host' className='text-xs text-[#999] hover:text-[#fff] transition'>
+                            Cookies
+                        </Link>
+                    </footer>
+                </div>
             ) : (
                 <footer className='container sticky bottom-0 flex w-full flex-col justify-between gap-12 rounded-t-3xl px-8 py-7 sm:flex-row md:gap-x-12'>
                     <div className='flex flex-col items-start gap-4 md:w-full lg:w-fit'>
