@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
-import Script from 'next/script';
+import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import Footer from "@/components/ui/layout/Footer";
 import Omnibar from "@/components/ui/layout/Omnibar";
+import { Toaster } from "sonner";
 
 import "./globals.css";
 
@@ -47,13 +48,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<main className="relative z-10 flex min-h-[calc(100vh-76px-144px)] w-full flex-1 flex-col overflow-clip rounded-3xl">{children}</main>
 					<Footer />
 				</div>
+				<Toaster
+					theme="dark"
+					toastOptions={{
+						unstyled: true,
+						classNames: {
+							toast: "p-4 bg-[#ffffff09] border border-[#ffffff12] rounded-2xl shadow-lg backdrop-blur-2xl flex items-center w-full gap-2",
+						},
+					}}
+				/>
 			</body>
-			<Script id='x-insights'>
-                {`!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+			<Script id="x-insights">
+				{`!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
 },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
 a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
 twq('config','om9ft');`}
-            </Script>
+			</Script>
 			<GoogleAnalytics gaId="G-NWVJ0FNXG1" />
 		</html>
 	);
