@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
@@ -11,6 +12,10 @@ import DashboardSkeletonSection from '@/components/pay/DashboardSkeletonSection'
 import StripeSubscriptions from '@/components/pay/StripeSubscriptions';
 
 import userAPI, { getUserBySession } from '@/lib/api/user';
+
+export const metadata: Metadata = {
+    title: 'Pyro - Account',
+};
 
 const Page = async ({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) => {
     const sessionUser = await getUserBySession();

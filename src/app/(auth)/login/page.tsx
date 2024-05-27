@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -7,6 +8,10 @@ import OauthLogIn from '@/components/auth/OauthLogInForm';
 import LogoColored from '@/components/icons/LogoColored';
 
 import { getUserBySession } from '@/lib/api/user';
+
+export const metadata: Metadata = {
+    title: 'Pyro - Login',
+};
 
 const Page = async () => {
     const user = await getUserBySession();
