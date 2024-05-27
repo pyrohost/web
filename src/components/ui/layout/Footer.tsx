@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import LogoWhite from '@/components/ui/layout/LogoWhite';
+import LogoWhite from '@/components/icons/LogoWhite';
 
 import { AUTHENTICATED_ROUTES } from '@/lib/static/authenticatedRoutes';
 
@@ -12,12 +12,25 @@ const Footer = () => {
 
     return (
         <>
-            {AUTHENTICATED_ROUTES.some((route) => pathname.includes(route)) ? null : (
+            {AUTHENTICATED_ROUTES.some((route) => pathname.includes(route)) ? (
+                <footer className='container sticky bottom-0 flex w-full flex-wrap items-center justify-center gap-4'>
+                    <p className='text-xs text-[#999]'>© 2024 Pyro Host Inc.</p>
+                    <Link href='/legal/tos' className='text-xs text-[#999]'>
+                        Terms
+                    </Link>
+                    <Link href='/legal/privacy' className='text-xs text-[#999]'>
+                        Privacy
+                    </Link>
+                    <Link href='/legal/cookies' className='text-xs text-[#999]'>
+                        Cookies
+                    </Link>
+                </footer>
+            ) : (
                 <footer className='container sticky bottom-0 flex w-full flex-col justify-between gap-12 rounded-t-3xl px-8 py-7 sm:flex-row md:gap-x-12'>
                     <div className='flex flex-col items-start gap-4 md:w-full lg:w-fit'>
                         <LogoWhite />
                         <div className='flex flex-col gap-3'>
-                            <p className='text-xs text-[#999]'>Copyright © 2023 - 2024 Pyro Host Inc.</p>
+                            <p className='text-xs text-[#999]'>© 2024 Pyro Host Inc.</p>
                             <div className='flex flex-row gap-4'>
                                 <Link href='/legal/tos' className='text-xs text-[#999]'>
                                     Terms of Service

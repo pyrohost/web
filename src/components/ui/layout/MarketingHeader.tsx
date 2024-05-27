@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
-import LogoColored from '@/components/ui/layout/LogoColored';
+import LogoColored from '@/components/icons/LogoColored';
 
 import HeaderLoginButton from './HeaderLoginButton';
 

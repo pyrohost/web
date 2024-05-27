@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
 import RegisterForm from '@/components/auth/RegisterForm';
-import LogoColored from '@/components/ui/layout/LogoColored';
+import LogoColored from '@/components/icons/LogoColored';
 
 import { getUserBySession } from '@/lib/api/user';
 import OauthLogIn from '@/components/auth/OauthLogInForm';

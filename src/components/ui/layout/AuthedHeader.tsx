@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import LogoColored from '@/components/ui/layout/LogoColored';
+import LogoColored from '@/components/icons/LogoColored';
 
 import { AUTHENTICATED_ROUTES } from '@/lib/static/authenticatedRoutes';
 
