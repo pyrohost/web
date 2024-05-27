@@ -44,7 +44,7 @@ const NavLinkItem = ({
             data-pyro-ui='pagenav-link'
             target={external ? '_blank' : ''}
             rel={external ? 'noopener noreferrer' : ''}
-            className='flex h-fit w-full items-center gap-2 text-3xl font-extrabold'
+            className='flex h-fit w-full items-center gap-2 pb-4 text-3xl font-extrabold hover:opacity-60 transition'
             href={href}
         >
             {children}
@@ -81,7 +81,7 @@ const MarketingHeader = () => {
                                                 <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]'>
                                                     Products
                                                 </NavigationMenu.Trigger>
-                                                <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[200px] '>
+                                                <NavigationMenu.Content className='navContent flex flex-col pb-12 pl-[200px] '>
                                                     <NavLinkItem href='/pyrodactyl'>Pyrodactyl Panel</NavLinkItem>
                                                     <NavLinkItem href='/pay'>Pyro Pay</NavLinkItem>
                                                     <NavLinkItem href='/alerion'>Alerion</NavLinkItem>
@@ -91,7 +91,7 @@ const MarketingHeader = () => {
                                                 <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]'>
                                                     Resources
                                                 </NavigationMenu.Trigger>
-                                                <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[290px] '>
+                                                <NavigationMenu.Content className='navContent flex flex-col pb-12 pl-[290px] '>
                                                     <NavLinkItem href='https://panel.pyro.host' external>
                                                         Game Panel
                                                     </NavLinkItem>
@@ -139,8 +139,7 @@ const MarketingHeader = () => {
                             </div>
                         </header>
                     </div>
-                    <NavigationMenu.Viewport className='navTransition container w-full mx-auto h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn' />
-
+                    <NavigationMenu.Viewport className='navTransition container mx-auto h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn' />
                 </div>
             </NavigationMenu.Root>
         </>
