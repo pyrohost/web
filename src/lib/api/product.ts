@@ -26,8 +26,12 @@ class ProductAPI {
 	}
 
 	async importProductsFromStripe(category: string): Promise<Product[]> {
-		const stripeProducts = await stripe.products.list();
-		const stripePrices = await stripe.prices.list();
+		const stripeProducts = await stripe.products.list({
+			limit: 100,
+		});
+		const stripePrices = await stripe.prices.list({
+			limit: 100,
+		});
 
 		const dbCategory = await this.getOrCreateCategory(category);
 		const newProducts: Product[] = [];
