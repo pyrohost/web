@@ -23,7 +23,7 @@ const AuthedHeaderLinks = () => {
             </li>
             <li>
                 <Link href={'/for/all'} className={getLinkClasses('/for/all')}>
-                    Products
+                    Store
                 </Link>
             </li>
         </>
