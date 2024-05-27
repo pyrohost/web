@@ -1,29 +1,29 @@
-import { Metadata } from 'next';
+import type { Metadata } from "next";
 
-import BetterHosting from '@/components/landing/BetterHosting';
-import BetterVPS from '@/components/landing/BetterVPS';
-import MakePyroWhereYourWorldPlays from '@/components/landing/MakePyroWhereYourWorldPlays';
-import OneApp from '@/components/landing/OneApp';
-import SparkToLife from '@/components/landing/SparkToLife';
-import StayInTheLoop from '@/components/landing/StayInTheLoop';
-import TransparentAndOpenSource from '@/components/landing/TransparentAndOpenSource';
-import WhereYourWorldPlays from '@/components/landing/WhereYourWorldPlays';
+import BetterHosting from "@/components/marketing/BetterHosting";
+import BetterVPS from "@/components/marketing/BetterVPS";
+import MakePyroWhereYourWorldPlays from "@/components/marketing/MakePyroWhereYourWorldPlays";
+import OneApp from "@/components/marketing/OneApp";
+import SparkToLife from "@/components/marketing/SparkToLife";
+import StayInTheLoop from "@/components/marketing/StayInTheLoop";
+import TransparentAndOpenSource from "@/components/marketing/TransparentAndOpenSource";
+import WhereYourWorldPlays from "@/components/marketing/WhereYourWorldPlays";
 
 export const metadata: Metadata = {
-    title: 'Pyro - Where your world plays',
+	title: "Pyro - Where your world plays",
 };
 
 const Page = () => (
-    <>
-        <WhereYourWorldPlays />
-        <OneApp />
-        <TransparentAndOpenSource />
-        <BetterHosting />
-        <SparkToLife />
-        <BetterVPS />
-        <StayInTheLoop />
-        <MakePyroWhereYourWorldPlays />
-    </>
+	<>
+		<WhereYourWorldPlays />
+		<OneApp />
+		<TransparentAndOpenSource />
+		<BetterHosting />
+		<SparkToLife />
+		<BetterVPS />
+		<StayInTheLoop />
+		<MakePyroWhereYourWorldPlays />
+	</>
 );
 
 export default Page;

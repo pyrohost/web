@@ -1,56 +1,73 @@
-import type { NextRequest } from 'next/server';
+import type { NextRequest } from "next/server";
 
-import discord from '@/lib/discord';
-import prisma from '@/lib/prisma';
-import stripe from '@/lib/stripe';
+import discord from "@/lib/api/discord";
+import prisma from "@/lib/api/prisma";
+import stripe from "@/lib/api/stripe";
 
 export async function GET(request: NextRequest) {
-    const authHeader = request.headers.get('authorization');
-    if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-        return new Response('Unauthorized', { status: 401 });
-    }
+	const authHeader = request.headers.get("authorization");
+	if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+		return new Response("Unauthorized", { status: 401 });
+	}
 
-    const dbTokens = await prisma.discordTokens.findMany();
-    const promises = dbTokens.map(async (token: any) => {
-        try {
-            const tokenData = await discord.getAccessToken({
-                access_token: token.accessToken,
-                refresh_token: token.refreshToken,
-                expires_at: token.expiresAt,
-            });
+	const connections = await prisma.oAuthConnection.findMany({
+		where: { providerId: "discord" },
+	});
 
-            const dbUser = await prisma.user.findUnique({ where: { id: token.userId } });
+	for (const connection of connections) {
+		if (!connection.accessToken || !connection.refreshToken || !connection.expiresAt) {
+			continue;
+		}
 
-            if (!dbUser || !dbUser.stripeCustomerId) {
-                return;
-            }
+		const user = await prisma.user.findUnique({
+			where: { id: connection.userId },
+		});
 
-            const subscriptions = await stripe.subscriptions.list({
-                customer: dbUser.stripeCustomerId,
-                status: 'active',
-            });
+		if (!user) {
+			await prisma.oAuthConnection.delete({
+				where: { id: connection.id },
+			});
+			continue;
+		}
 
-            await discord.pushMetadata(tokenData, {
-                services: subscriptions.data.length,
-                customer_since: dbUser.createdAt,
-            });
+		const accessToken = await discord.getAccessToken({
+			access_token: connection.accessToken,
+			refresh_token: connection.refreshToken,
+			expires_at: connection.expiresAt,
+		});
 
-            await prisma.discordTokens.update({
-                where: { userId: dbUser.id },
-                data: {
-                    accessToken: tokenData.access_token,
-                    refreshToken: tokenData.refresh_token,
-                    expiresAt: tokenData.expires_at,
-                },
-            });
+		connection.accessToken = accessToken.access_token;
+		connection.refreshToken = accessToken.refresh_token;
+		connection.expiresAt = accessToken.expires_at;
 
-            console.log(`Updated token for user ${dbUser.id} with ${subscriptions.data.length} services.`);
-        } catch (error) {
-            console.error(`Failed to update token for user ${token.userId}:`, error);
-        }
-    });
+		await prisma.oAuthConnection.update({
+			where: { id: connection.id },
+			data: {
+				accessToken: connection.accessToken,
+				refreshToken: connection.refreshToken,
+				expiresAt: connection.expiresAt,
+			},
+		});
 
-    await Promise.all(promises);
+		if (!user.stripeCustomerId) {
+			return new Response("OK", { status: 200 });
+		}
 
-    return new Response('OK', { status: 200 });
+		const stripeCustomer = await stripe.customers.retrieve(user.stripeCustomerId);
+
+		if (!stripeCustomer || stripeCustomer.deleted) {
+			return new Response("OK", { status: 200 });
+		}
+
+		const stripeSubscription = await stripe.subscriptions.list({
+			customer: user.stripeCustomerId,
+			status: "active",
+		});
+
+		await discord.pushMetadata(accessToken, {
+			is_active_customer: !!stripeSubscription.data.length,
+			active_services: stripeSubscription.data.length,
+			customer_since: new Date(stripeCustomer.created).toISOString(),
+		});
+	}
 }

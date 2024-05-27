@@ -9,80 +9,132 @@ datasource db {
   directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
-model Account {
-  id                String  @id @default(cuid())
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String? @db.Text
-  session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
-}
-
-model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
-  @@unique([identifier, token])
-}
-
-model DiscordTokens {
-  id     String @id @default(cuid())
-  userId String @unique
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  accessToken  String
-  refreshToken String
-  expiresAt    DateTime
-}
-
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+  id               String  @id @default(cuid())
+  stripeCustomerId String?
+  pyrodactylUserId Int?
 
   // profile
   preferredName String?
   pronouns      String?
 
-  // contact
-  phone String?
+  // legal
+  firstName String?
+  lastName  String?
+  phone     String?
+  address   Address?
 
-  // external
-  pyrodactylUserId Int?
-  stripeCustomerId String?
+  // auth
+  email        String            @unique
+  passwordHash String?
+  connections  OAuthConnection[]
 
-  // connections
-  discordTokens DiscordTokens?
+  // permissions
+  admin Boolean? @default(false)
 
-  // system
-  role   String?
-  locale String?
-  tz     String?
+  // email verification
+  emailVerified          Boolean                 @default(false)
+  emailVerificationToken EmailVerificationToken?
+  passwordResetToken     PasswordResetToken?
 
-  // metadata
+  // sessions
+  sessions Session[]
+}
+
+model OAuthConnection {
+  id             String @id @default(cuid())
+  providerId     String
+  providerUserId String
+  userId         String
+  user           User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  accessToken  String?
+  refreshToken String?
+  expiresAt    DateTime?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Category {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+
+  products Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Price {
+  id        String  @id @default(cuid())
+  stripeId  String
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  amount   Int
+  currency String
+
+  recurring    Boolean
+  every_months Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Product {
+  id          String @id @default(cuid())
+  stripeId    String
+  name        String
+  description String
+
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+  prices     Price[]
+  metadata   Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Address {
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  street1 String
+  street2 String?
+  city    String
+  state   String
+  postal  String
+  country String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model EmailVerificationToken {
+  id        String   @id @default(cuid())
+  code      String
+  email     String
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  code      String
+  email     String
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+}
+
+model Session {
+  id        String   @id
+  userId    String
+  expiresAt DateTime
+  user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
 }
