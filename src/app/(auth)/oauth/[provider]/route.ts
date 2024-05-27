@@ -1,7 +1,7 @@
 import { generateState } from "arctic";
 import { serializeCookie } from "oslo/cookie";
 
-import { discord, github, oauthProviders, twitch } from "@/lib/api/auth";
+import { discord, github, modrinth, oauthProviders, twitch } from "@/lib/api/auth";
 import { type NextRequest, NextResponse } from "next/server";
 
 async function createProviderAuthorizationURL(provider: string, state: string): Promise<URL> {
@@ -14,6 +14,8 @@ async function createProviderAuthorizationURL(provider: string, state: string): 
 			});
 		case "twitch":
 			return twitch.createAuthorizationURL(state);
+		case "modrinth":
+			return modrinth.createAuthorizationURL({ state: state, scopes: ["USER_READ", "USER_READ_EMAIL"] });
 		default:
 			throw new Error("Invalid provider");
 	}

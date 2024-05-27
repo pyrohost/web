@@ -1,9 +1,10 @@
-import { discord, github } from "@/lib/api/auth";
+import { discord, github, modrinth } from "@/lib/api/auth";
 import sessionAPI from "@/lib/api/session";
 import userAPI from "@/lib/api/user";
 import { cookies } from "next/headers";
+import { OAuth2Client } from "oslo/oauth2";
 
-interface GitHubAuthResponse {
+interface AuthResponse {
 	id: string;
 	email: string;
 	accessToken?: string;
@@ -11,7 +12,7 @@ interface GitHubAuthResponse {
 	expiry?: Date;
 }
 
-async function authenticateWithGitHub(code: string): Promise<GitHubAuthResponse> {
+async function authenticateWithGitHub(code: string): Promise<AuthResponse> {
 	const { accessToken } = await github.validateAuthorizationCode(code);
 
 	const userRequest = await fetch("https://api.github.com/user", {
@@ -33,7 +34,7 @@ async function authenticateWithGitHub(code: string): Promise<GitHubAuthResponse>
 	};
 }
 
-async function authenticateWithDiscord(code: string): Promise<GitHubAuthResponse> {
+async function authenticateWithDiscord(code: string): Promise<AuthResponse> {
 	const { accessToken, refreshToken, accessTokenExpiresAt } = await discord.validateAuthorizationCode(code);
 
 	const userRequest = await fetch("https://discord.com/api/v10/users/@me", {
@@ -47,6 +48,22 @@ async function authenticateWithDiscord(code: string): Promise<GitHubAuthResponse
 		accessToken,
 		refreshToken,
 		expiry: accessTokenExpiresAt,
+	};
+}
+
+async function authenticateWithModrinth(code: string): Promise<AuthResponse> {
+	const { access_token } = await modrinth.validateAuthorizationCode(code, {
+		credentials: process.env.MODRINTH_CLIENT_SECRET!,
+	});
+
+	const userRequest = await fetch("https://api.modrinth.com/v2/user", {
+		headers: { Authorization: `Bearer ${access_token}` },
+	});
+	const userData = await userRequest.json();
+
+	return {
+		id: userData.id,
+		email: userData.email,
 	};
 }
 
@@ -76,15 +93,23 @@ export async function GET(request: Request, { params }: { params: { provider: st
 			case "discord":
 				authResponse = await authenticateWithDiscord(authorizationCode);
 				break;
+			case "modrinth":
+				authResponse = await authenticateWithModrinth(authorizationCode);
+				break;
 			default:
 				return new Response("Unsupported OAuth provider", { status: 400 });
 		}
 	} catch (error) {
-		return new Response("Authentication failed", { status: 500 });
+		console.log(error);
+		return new Response("Authentication failed (1000)", { status: 500 });
 	}
 
 	if (!authResponse) {
-		return new Response("Authentication failed", { status: 500 });
+		return new Response("Authentication failed (1001)", { status: 500 });
+	}
+
+	if (!authResponse.email) {
+		return new Response(`No email found for ${provider} account`, { status: 400 });
 	}
 
 	let user = await userAPI.getUserByOAuthId(provider, authResponse.id.toString());

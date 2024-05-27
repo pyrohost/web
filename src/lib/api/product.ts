@@ -25,6 +25,55 @@ class ProductAPI {
 		return Math.ceil(price);
 	}
 
+	async importProductsFromStripe(category: string): Promise<Product[]> {
+		const stripeProducts = await stripe.products.list();
+		const stripePrices = await stripe.prices.list();
+
+		const dbCategory = await this.getOrCreateCategory(category);
+		const newProducts: Product[] = [];
+
+		for (const product of stripeProducts.data) {
+			console.log(`Importing product: ${product.name}...`);
+
+			const existingProduct = await prisma.product.findFirst({
+				where: { stripeId: product.id },
+			});
+
+			if (existingProduct) {
+				continue;
+			}
+
+			const dbProduct = await prisma.product.create({
+				data: {
+					categoryId: dbCategory.id,
+					stripeId: product.id,
+					name: product.name,
+					description: product.description || "",
+				},
+			});
+
+			newProducts.push(dbProduct);
+
+			const productPrices = stripePrices.data.filter((price) => price.product === product.id);
+			for (const price of productPrices) {
+				console.log(`Importing price: ${price.nickname}...`);
+
+				await prisma.price.create({
+					data: {
+						productId: dbProduct.id,
+						stripeId: price.id,
+						amount: price.unit_amount || 0,
+						recurring: price.recurring?.interval !== null,
+						every_months: price.recurring?.interval_count || 0,
+						currency: price.currency,
+					},
+				});
+			}
+		}
+
+		return newProducts;
+	}
+
 	private async createPrices(dbProductId: string, baseMonthlyPrice: string): Promise<Price[]> {
 		const dbProduct = await prisma.product.findUniqueOrThrow({
 			where: { id: dbProductId },

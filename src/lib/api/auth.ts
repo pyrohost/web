@@ -3,6 +3,16 @@ import { Discord, GitHub, Twitch, Twitter } from "arctic";
 import { Lucia, TimeSpan } from "lucia";
 
 import prisma from "@/lib/api/prisma";
+import { OAuth2Client } from "oslo/oauth2";
+
+export const modrinth = new OAuth2Client(
+	process.env.MODRINTH_CLIENT_ID!,
+	"https://modrinth.com/auth/authorize",
+	"https://api.modrinth.com/_internal/oauth/token",
+	{
+		redirectURI: `${process.env.BASE_URL!}/oauth/modrinth/callback`,
+	},
+);
 
 export const github = new GitHub(process.env.GITHUB_CLIENT_ID!, process.env.GITHUB_CLIENT_SECRET!);
 
@@ -12,7 +22,7 @@ export const twitch = new Twitch(process.env.TWITCH_CLIENT_ID!, process.env.TWIT
 
 export const twitter = new Twitter(process.env.TWITTER_CLIENT_ID!, process.env.TWITTER_CLIENT_SECRET!, `${process.env.BASE_URL!}/oauth/twitter/callback`);
 
-export const oauthProviders = ["github", "discord", "twitch", "twitter"];
+export const oauthProviders = ["github", "discord", "twitch", "twitter", "modrinth"];
 
 const adapter = new PrismaAdapter(prisma.session, prisma.user);
 

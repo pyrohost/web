@@ -1,10 +1,17 @@
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 
 import { ArchiveIcon } from "@radix-ui/react-icons";
 
+import UserAPI, { getUserBySession } from "@/lib/api/user";
 import { PyroButton } from "@/components/ui/PyroButton";
 
 const Page = async () => {
+	const user = await getUserBySession();
+	if (!user || !user.admin) {
+		return notFound();
+	}
+
 	return (
 		<div className="container mx-auto flex flex-col gap-4 lg:py-4">
 			<h1 className="font-extrabold text-[max(24px,min(5vw,48px))] leading-[1.09] tracking-tighter">Pyroneers</h1>
