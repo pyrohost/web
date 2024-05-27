@@ -36,17 +36,18 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 
 		router.refresh();
 		setOpen(false);
-		toast.success("Successfully updated your information!");
 	}, [isPending, router]);
 
 	const fullNameAction = async (data: FormData): Promise<void> => {
 		try {
 			startTransition(async () => {
 				const name = await editName(data, user);
+				toast.success("Successfully updated your name!");
 			});
 		} catch (error) {
 			console.error(error);
 			router.refresh();
+			toast.error("We couldn't update your name. Please try again.");
 		}
 	};
 
@@ -54,10 +55,12 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 		try {
 			startTransition(async () => {
 				const phone = await editPhoneNumber(data, user);
+				toast.success("Successfully updated your phone number!");
 			});
 		} catch (error) {
 			console.error(error);
 			router.refresh();
+			toast.error("We couldn't update your phone number. Please try again.");
 		}
 	};
 
@@ -65,10 +68,12 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 		try {
 			startTransition(async () => {
 				const address = editAddress(data, user);
+				toast.success("Successfully updated your address!");
 			});
 		} catch (error) {
 			console.error(error);
 			router.refresh();
+			toast.error("We couldn't update your address. Please try again.");
 		}
 	};
 
