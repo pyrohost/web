@@ -14,7 +14,16 @@ export const metadata: Metadata = {
 };
 
 const Page = async () => {
+	let dbUser: any;
+	let userAddress: any;
+
 	const sessionUser = await getUserBySession();
+
+	if (sessionUser) {
+		dbUser = await userAPI.getUserById(sessionUser?.id);
+		userAddress = await userAPI.getUserAddress(dbUser);
+	}
+
 	const products = await productAPI.getProducts();
 
 	const renderProductList = async (everyMonths: number) => (
@@ -26,6 +35,8 @@ const Page = async () => {
 						product={product}
 						prices={await productAPI.getPricesByProductIdAndMonths(product.id, everyMonths)}
 						user={sessionUser}
+						dbUser={dbUser}
+						userAddress={userAddress}
 						everyMonths={everyMonths}
 					/>
 				))}

@@ -2,6 +2,7 @@
 
 import currency from "currency.js";
 import type { User } from "lucia";
+import type { User as dbUser } from "@prisma/client";
 
 import React, { useState } from "react";
 
@@ -22,11 +23,15 @@ const ProductListing = ({
 	product,
 	prices,
 	user,
+	dbUser,
+	userAddress,
 	everyMonths,
 }: {
 	product: Product;
 	prices: Price[];
 	user: User | null;
+	dbUser: dbUser | null;
+	userAddress: any;
 	everyMonths: number;
 }) => {
 	const [open, setOpen] = useState<boolean>(false);
@@ -58,7 +63,12 @@ const ProductListing = ({
 
 	if (
 		!user ||
-		!user.stripeCustomerId
+		!user.stripeCustomerId ||
+		!dbUser?.emailVerified ||
+		!dbUser.firstName ||
+		!dbUser.lastName ||
+		!dbUser.phone ||
+		!userAddress
 		// !customer ||
 		// !customer.phone ||
 		// !customer.address ||
