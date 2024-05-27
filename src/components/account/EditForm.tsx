@@ -13,6 +13,7 @@ import { PencilIcon } from "@/components/ui/Icons";
 import LoadingIcon from "@/components/ui/LoadingIcon";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/primitives/Popover";
 import { PyroButton } from "@/components/ui/PyroButton";
+import { toast } from 'sonner';
 
 const EditForm = ({ label, user }: { label: string; user: User }) => {
 	const router = useRouter();
@@ -35,6 +36,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 
 		router.refresh();
 		setOpen(false);
+		toast.success("Successfully updated your information!");
 	}, [isPending, router]);
 
 	const fullNameAction = async (data: FormData): Promise<void> => {
