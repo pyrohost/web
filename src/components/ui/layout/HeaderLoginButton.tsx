@@ -10,9 +10,9 @@ const HeaderLoginButton = async () => {
     const sessionUser = await getUserBySession();
 
     return (
-        <>
+        <div className='ml-auto pointer-events-auto'>
             {sessionUser ? (
-                <div className='ml-auto flex items-center gap-4'>
+                <div className='flex items-center gap-4'>
                     {sessionUser.admin && (
                         <Link
                             href='/admin'
@@ -37,11 +37,11 @@ const HeaderLoginButton = async () => {
                     </Link>
                 </div>
             ) : (
-                <PyroButton className='ml-auto' size={'small'} variant={'tertiary'} href='/login'>
+                <PyroButton size={'small'} variant={'tertiary'} href='/login'>
                     Login
                 </PyroButton>
             )}
-        </>
+        </div>
     );
 };
 

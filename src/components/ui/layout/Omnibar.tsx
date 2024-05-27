@@ -10,7 +10,7 @@ const Omnibar = async () => {
     return (
         <div className='relative flex w-full flex-row items-center justify-between'>
             {user ? <AuthedHeader /> : <MarketingHeader />}
-            <div className='absolute -right-2 top-3 flex h-12 items-center'>
+            <div className='pointer-events-none absolute left-0 -right-2 container flex h-12 items-center'>
                 <HeaderLoginButton />
             </div>
         </div>
