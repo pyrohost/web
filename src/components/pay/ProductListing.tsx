@@ -83,7 +83,7 @@ const ProductListing = ({
 							{currency(price?.amount ?? 0)
 								.divide(100)
 								.format()}{" "}
-							/ {everyMonths}
+							/ {TIME_TABLE[everyMonths as keyof typeof TIME_TABLE]}
 						</span>
 					</h1>
 					{product.description ? <p className="w-full break-words text-sm opacity-50">{product.description}</p> : null}
