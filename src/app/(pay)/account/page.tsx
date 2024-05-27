@@ -25,7 +25,7 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
     }
 
     return (
-        <div className='container mx-auto flex flex-col gap-4 lg:py-4'>
+        <div className='container mx-auto flex flex-col gap-4 py-8'>
             {searchParams?.error === 'NoActiveSubscriptionsDiscordLinkedRole' && (
                 <div className='relative flex rounded-full bg-red-800/20 px-4 py-3 text-red-400' role='alert'>
                     <strong className='font-bold'>Failed to link Discord account! </strong>
