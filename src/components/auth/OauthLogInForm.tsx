@@ -1,6 +1,6 @@
 const OauthLogIn = () => {
 	return (
-		<form action={"/login/github"} method="get">
+		<form action={"/oauth/github/"} method="get">
 			<button
 				className="flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 text-sm font-bold outline-none transition hover:bg-[#ffffff24] hover:duration-0"
 				type="submit"

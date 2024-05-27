@@ -70,6 +70,14 @@ class UserAPI {
 		return prisma.user.findUnique({ where: { id } });
 	}
 
+	getUserByOAuthId(provider: string, id: string): Promise<User | null> {
+		return prisma.oAuthConnection
+			.findFirst({
+				where: { providerId: provider, providerUserId: id },
+			})
+			.user();
+	}
+
 	async getUserByEmail(email: string): Promise<User | null> {
 		return prisma.user.findUnique({ where: { email } });
 	}
@@ -78,11 +86,25 @@ class UserAPI {
 		providerId: string,
 		providerUserId: string,
 	): Promise<User | null> {
-		return prisma.oAuthAccount
+		return prisma.oAuthConnection
 			.findFirst({
 				where: { providerId, providerUserId },
 			})
 			.user();
+	}
+
+	async linkOAuthAccount(
+		user: User,
+		providerId: string,
+		providerUserId: string,
+	): Promise<void> {
+		await prisma.oAuthConnection.create({
+			data: {
+				providerId,
+				providerUserId,
+				userId: user.id,
+			},
+		});
 	}
 
 	async updateUser(user: User): Promise<User> {
@@ -117,11 +139,15 @@ class UserAPI {
 		}
 	}
 
-	async createUser(
-		email: string,
-		passwordHash?: string,
-		oauth?: { providerId: string; providerUserId: string },
-	): Promise<User> {
+	async createUser({
+		email,
+		passwordHash,
+		oauth,
+	}: {
+		email: string;
+		passwordHash?: string;
+		oauth?: { providerId: string; providerUserId: string };
+	}): Promise<User> {
 		const user = await prisma.user.create({
 			data: {
 				email,
@@ -134,7 +160,7 @@ class UserAPI {
 			const code = await this.generateEmailVerificationCode(user.id, email);
 			await sendEmail(email, VerificationEmail(code));
 		} else {
-			await prisma.oAuthAccount.create({
+			await prisma.oAuthConnection.create({
 				data: {
 					providerId: oauth.providerId,
 					providerUserId: oauth.providerUserId,
