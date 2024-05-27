@@ -96,7 +96,8 @@ export const GameSearch = () => {
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 						key={i}
 						aria-label={`Go to page ${i + 1}`}
-						className={`rounded-lg px-4 py-2 font-extrabold focus:outline-none focus:ring-2 focus:ring-brand focus:ring-opacity-50${
+						// biome-ignore lint/nursery/useSortedClasses: <explanation>
+						className={`rounded-lg px-4 py-2 font-extrabold focus:outline-none focus:ring-2 focus:ring-brand focus:ring-opacity-50 ${
 							currentPage === i + 1 ? "bg-brand text-white" : "bg-[#ffffff14] text-white"
 						}`}
 						onClick={() => setCurrentPage(i + 1)}

@@ -54,12 +54,30 @@ export const register = async (formData: FormData): Promise<ActionResult> => {
 	const email = formData.get("email") as string;
 	const password = formData.get("password") as string;
 
+	const token = formData.get("cf-turnstile-response") as string;
+
+	const captchaForm = new FormData();
+	captchaForm.append("secret", process.env.TURNSTILE_SECRET_KEY!);
+	captchaForm.append("response", token);
+	captchaForm.append("remoteip", headers().get("cf-connecting-ip") || "");
+
+	const captchaValidation = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+		method: "POST",
+		body: captchaForm,
+	});
+
+	const captchaResponse = await captchaValidation.json();
+
+	if (!captchaResponse.success) {
+		return { error: "Invalid captcha" };
+	}
+
 	if (!isValidInput(email, password)) return { error: "Invalid email or password" };
 
 	const passwordHash = await hash(password, HASHING_OPTIONS);
 
 	const existingUser = await prisma.user.findUnique({ where: { email } });
-	if (existingUser) return { error: "Invalid email or password" };
+	if (existingUser) return { error: "An account with that email already exists" };
 
 	const user = await userAPI.createUser({ email, passwordHash });
 	const code = await userAPI.generateEmailVerificationCode(user.id, email);

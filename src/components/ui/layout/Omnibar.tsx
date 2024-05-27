@@ -8,7 +8,7 @@ const Omnibar = async () => {
 	const user = await getUserBySession();
 
 	return (
-		<div className="relative flex w-full flex-row">
+		<div data-pyro-omnibar="" className="relative flex w-full flex-row">
 			{user ? <AuthedHeader /> : <MarketingHeader />}
 			<div className="-right-4 container pointer-events-none absolute left-0 flex h-[72px] items-center">
 				<HeaderLoginButton />

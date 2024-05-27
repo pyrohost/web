@@ -161,10 +161,7 @@ class UserAPI {
 			},
 		});
 
-		if (!oauth) {
-			const code = await this.generateEmailVerificationCode(user.id, email);
-			await sendEmail(email, VerificationEmail(code));
-		} else {
+		if (oauth) {
 			await prisma.oAuthConnection.create({
 				data: {
 					userId: user.id,

@@ -17,6 +17,7 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
 	return (
 		<li>
 			<button
+				type="button"
 				onMouseDown={() => router.push(href)}
 				onKeyDown={(e) => {
 					if (e.key === "Enter") {
@@ -37,7 +38,7 @@ const AuthedHeaderLinks = () => {
 	return (
 		<>
 			<NavLink href="/account">Overview</NavLink>
-			<NavLink href="/for/all">Store</NavLink>
+			<NavLink href="/for">Store</NavLink>
 		</>
 	);
 };

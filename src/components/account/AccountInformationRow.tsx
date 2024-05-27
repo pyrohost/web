@@ -20,7 +20,7 @@ const AccountInformationRow = ({
 	required?: boolean;
 	locked?: boolean;
 	hidden?: boolean;
-	value: string | null;
+	value?: string | null;
 	error?: string;
 	user: User;
 }) => {

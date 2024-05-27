@@ -58,6 +58,7 @@ const AccountInformation = async ({ user }: { user: User }) => {
 					<div className="flex flex-col gap-4 overflow-hidden p-6 pt-0">
 						<AccountInformationRow error={fullName ? "" : "You must provide your full name."} label="Full Name" value={fullName} user={user} />
 						<AccountInformationRow locked label="Email" value={user.email} user={user} />
+						<AccountInformationRow locked label="Email Verified" value={user.emailVerified ? "Yes" : "No"} user={user} />
 						<AccountInformationRow label="Password" hidden user={user} />
 						<AccountInformationRow
 							error={user.phone ? "" : "You must provide a phone number."}
@@ -66,7 +67,6 @@ const AccountInformation = async ({ user }: { user: User }) => {
 							user={user}
 						/>
 						<AccountInformationRow error={userAddress ? "" : "You must provide an address."} label="Address" value={buildAddress(userAddress)} user={user} />
-						<LogoutForm />
 					</div>
 				</CollapsibleContent>
 			</div>

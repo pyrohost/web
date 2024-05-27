@@ -26,7 +26,7 @@ export default async function Page() {
 				<LogoColored />
 			</div>
 			<h2 className="font-extrabold text-xl">Sign Up</h2>
-			<div className="mb-4 text-sm">
+			<div className="text-sm">
 				Already have an account?{" "}
 				<Link className="text-brand" href="/login">
 					Login

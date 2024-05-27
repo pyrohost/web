@@ -12,6 +12,7 @@ import DashboardSkeletonSection from "@/components/pay/DashboardSkeletonSection"
 import StripeSubscriptions from "@/components/pay/StripeSubscriptions";
 
 import userAPI, { getUserBySession } from "@/lib/api/user";
+import LogoutForm from "@/components/account/LogoutForm";
 
 export const metadata: Metadata = {
 	title: "Pyro - Account",
@@ -61,6 +62,15 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
 			<Suspense fallback={<DashboardSkeletonSection title={"Active Subscriptions"} />}>
 				<StripeSubscriptions customerId={dbUser.stripeCustomerId ?? ""} />
 			</Suspense>
+
+			<div className="flex flex-col rounded-xl border-[#ffffff15] border-[1px] bg-[#ffffff14] shadow-sm">
+				<div className="group flex w-full cursor-pointer select-none items-center justify-between p-6 text-left">
+					<div className="w-full flex flex-row items-center justify-between">
+						<h2 className="font-extrabold text-2xl">Log Out</h2>
+						<LogoutForm />
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };

@@ -180,6 +180,22 @@
     min-width: 0;
 }
 
+html {
+    background-color: #000000;
+    color-scheme: dark;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -221,15 +237,6 @@
         transform: none;
     }
 }
-
-html {
-    background-color: #000000;
-    color-scheme: dark;
-}
-
-/* html:has(body[data-scroll-locked]) {
-    overflow: hidden;
-} */
 
 @keyframes fadeIn {
     0% {

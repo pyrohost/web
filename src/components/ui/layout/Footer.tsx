@@ -15,7 +15,7 @@ const Footer = () => {
 		<>
 			{AUTHENTICATED_ROUTES.some((route) => pathname.includes(route)) ? (
 				<div className="border-t-[#ffffff16] border-t-[1px] bg-[#ffffff07]">
-					<footer className="container sticky bottom-0 flex w-full flex-wrap items-center justify-center gap-4 px-4 py-8 text-[#999]">
+					<footer className="container sticky bottom-0 flex w-full flex-wrap items-center justify-center gap-4 px-4 py-8 text-[#999] md:justify-between">
 						<div className="flex flex-row items-center gap-2">
 							<div className="flex h-5 w-5 shrink-0">
 								<Logomark />

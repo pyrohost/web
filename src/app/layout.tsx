@@ -32,14 +32,14 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html data-pyro-html="" lang="en" className="min-h-screen w-full overflow-x-hidden bg-black antialiased [font-synthesis-weight:none]">
+		<html data-pyro-html="" lang="en" className="no-scrollbar min-h-screen w-full overflow-x-hidden bg-black antialiased [font-synthesis-weight:none]">
 			<head>
 				<meta name="darkreader-lock" />
 			</head>
 			<body
 				data-pyro-body=""
 				// biome-ignore lint/nursery/useSortedClasses: I fucking hate Biome and I love Prettier and I think we should bring it back also Prettier is also Rust based just like Biome
-				className={`${jakarta.className} flex min-h-screen w-full flex-col overflow-x-hidden bg-black text-white`}
+				className={`${jakarta.className} no-scrollbar flex min-h-screen w-full flex-col overflow-x-hidden bg-black text-white`}
 			>
 				<div data-pyro-index="" className="relative flex h-fit min-h-screen w-full flex-1 shrink-0 flex-col">
 					<Omnibar />
