@@ -1,7 +1,6 @@
 "use client";
 
 import type { User } from "@prisma/client";
-import clsx from "clsx";
 
 import { useRouter } from "next/navigation";
 
@@ -10,7 +9,6 @@ import { useEffect, useState, useTransition } from "react";
 import { editAddress, editName, editPhoneNumber, editPassword } from "@/actions/user";
 
 import { PencilIcon } from "@/components/ui/Icons";
-import LoadingIcon from "@/components/ui/LoadingIcon";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/primitives/Popover";
 import { PyroButton } from "@/components/ui/PyroButton";
 import { toast } from 'sonner';
