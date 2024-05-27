@@ -22,16 +22,19 @@ const Footer = () => {
                             </div>
                             <p className='text-xs text-[#999]'>© 2024 Pyro Host Inc.</p>
                         </div>
-                        <Link href='/legal/tos' className='text-xs text-[#999] hover:text-[#fff] transition'>
+                        <Link href='/legal/tos' className='text-xs text-[#999] transition hover:text-[#fff]'>
                             Terms
                         </Link>
-                        <Link href='/legal/privacy' className='text-xs text-[#999] hover:text-[#fff] transition'>
+                        <Link href='/legal/privacy' className='text-xs text-[#999] transition hover:text-[#fff]'>
                             Privacy
                         </Link>
-                        <Link href='https://status.pyro.host' className='text-xs text-[#999] hover:text-[#fff] transition'>
+                        <Link
+                            href='https://status.pyro.host'
+                            className='text-xs text-[#999] transition hover:text-[#fff]'
+                        >
                             Status
                         </Link>
-                        <Link href='/legal/cookies' className='text-xs text-[#999] hover:text-[#fff] transition'>
+                        <Link href='/legal/cookies' className='text-xs text-[#999] transition hover:text-[#fff]'>
                             Cookies
                         </Link>
                     </footer>

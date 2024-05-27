@@ -44,7 +44,7 @@ const NavLinkItem = ({
             data-pyro-ui='pagenav-link'
             target={external ? '_blank' : ''}
             rel={external ? 'noopener noreferrer' : ''}
-            className='flex h-fit w-full items-center gap-2 pb-4 text-3xl font-extrabold hover:opacity-60 transition'
+            className='flex h-fit w-full items-center gap-2 pb-4 text-3xl font-extrabold transition hover:opacity-60'
             href={href}
         >
             {children}
