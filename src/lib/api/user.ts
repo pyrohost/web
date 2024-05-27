@@ -146,7 +146,13 @@ class UserAPI {
 	}: {
 		email: string;
 		passwordHash?: string;
-		oauth?: { providerId: string; providerUserId: string };
+		oauth?: {
+			providerId: string;
+			providerUserId: string;
+			accessToken?: string;
+			refreshToken?: string;
+			expiry?: Date;
+		};
 	}): Promise<User> {
 		const user = await prisma.user.create({
 			data: {
@@ -162,9 +168,14 @@ class UserAPI {
 		} else {
 			await prisma.oAuthConnection.create({
 				data: {
+					userId: user.id,
 					providerId: oauth.providerId,
 					providerUserId: oauth.providerUserId,
-					userId: user.id,
+
+					// optional
+					accessToken: oauth.accessToken,
+					refreshToken: oauth.refreshToken,
+					expiresAt: oauth.expiry,
 				},
 			});
 		}

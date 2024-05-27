@@ -1,13 +1,12 @@
 // import { redirect } from 'next/navigation';
 // import { type NextRequest } from 'next/server';
 
-
 // import discord from '@/lib/api/discord';
 // import prisma from '@/lib/api/prisma';
 // import stripe from '@/lib/api/stripe';
 
 // export async function GET(req: NextRequest, res: Response) {
-    
+
 //     if (!session) {
 //         return redirect('/auth/login');
 //     }
