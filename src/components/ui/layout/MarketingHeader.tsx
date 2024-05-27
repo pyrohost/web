@@ -91,7 +91,7 @@ const MarketingHeader = () => {
                                                 <NavigationMenu.Trigger className='flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]'>
                                                     Resources
                                                 </NavigationMenu.Trigger>
-                                                <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[300px] '>
+                                                <NavigationMenu.Content className='navContent flex flex-col gap-4 pb-12 pl-[290px] '>
                                                     <NavLinkItem href='https://panel.pyro.host' external>
                                                         Game Panel
                                                     </NavLinkItem>
@@ -139,7 +139,7 @@ const MarketingHeader = () => {
                             </div>
                         </header>
                     </div>
-                    <NavigationMenu.Viewport className='navTransition h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn' />
+                    <NavigationMenu.Viewport className='navTransition container w-full mx-auto h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn' />
 
                 </div>
             </NavigationMenu.Root>
