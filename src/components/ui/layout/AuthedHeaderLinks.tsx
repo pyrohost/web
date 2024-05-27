@@ -2,11 +2,11 @@
 
 import clsx from 'clsx';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
-const AuthedHeaderLinks = () => {
+const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
     const pathname = usePathname();
+    const router = useRouter();
 
     const getLinkClasses = (linkPath: string) =>
         clsx('flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition', {
@@ -15,17 +15,29 @@ const AuthedHeaderLinks = () => {
         });
 
     return (
+        <li>
+            <button
+                onMouseDown={() => router.push(href)}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        router.push(href);
+                    }
+                }}
+                role='link'
+                aria-current={pathname === href ? 'page' : undefined}
+                className={getLinkClasses(href)}
+            >
+                {children}
+            </button>
+        </li>
+    );
+};
+
+const AuthedHeaderLinks = () => {
+    return (
         <>
-            <li>
-                <Link href={'/account'} className={getLinkClasses('/account')}>
-                    Overview
-                </Link>
-            </li>
-            <li>
-                <Link href={'/for/all'} className={getLinkClasses('/for/all')}>
-                    Store
-                </Link>
-            </li>
+            <NavLink href='/account'>Overview</NavLink>
+            <NavLink href='/for/all'>Store</NavLink>
         </>
     );
 };
