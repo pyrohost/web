@@ -8,7 +8,7 @@ import { PyroButton } from "@/components/ui/PyroButton";
 
 const ResetPasswordNoCode = () => {
 	const [error, setError] = useState<string | undefined>("");
-	const [success, setSuccess] = useState<string | undefined>("");
+	const [success, setSuccess] = useState<string | boolean | undefined>("");
 	const [isPending, startTransition] = useTransition();
 
 	useEffect(() => {

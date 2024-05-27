@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const VerifyEmailForm = ({ user }: { user: User }) => {
 	const [error, setError] = useState<string | undefined>("");
-	const [success, setSuccess] = useState<string | undefined>("");
+	const [success, setSuccess] = useState<string | boolean | undefined>("");
 
 	const formAction = async (data: FormData) => {
 		const { success, error } = await verifyEmail(data, user);
