@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "next dev --turbo",
         "dev:live": "next dev --turbo -H 0.0.0.0",
-        "preinstall": "prisma generate && prisma db push --accept-data-loss",
+        "preinstall": "prisma generate && prisma db push",
         "build": "next build",
         "start": "next start",
         "lint": "next lint"
