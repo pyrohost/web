@@ -62,21 +62,23 @@ export const editAddress = async (formData: FormData, user: User) => {
 	return userAPI.setUserAddress(user, address);
 };
 
-export const editPhoneNumber = async (formData: FormData, user: User) => {
+export const editPhoneNumber = async (formData: FormData, user: User): Promise<ActionResult> => {
 	const phone = formData.get("phone") as string;
 
 	if (!phone) {
-		throw new Error("You must provide a phone number.");
+		return { error: "You must provide a phone number." };
 	}
 
 	const phone_number_regex = /^\+[1-9]\d{1,14}$/;
 	if (!phone_number_regex.test(phone)) {
-		throw new Error("You must provide a valid phone number. Example: +1234567890");
+		return { error: "You must provide a valid phone number. Example: +1234567890" };
 	}
 
 	user.phone = phone;
 
-	return userAPI.updateUser(user);
+	await userAPI.updateUser(user)
+
+	return { success: "Phone number updated" };
 };
 
 export const editPassword = async (formData: FormData, user: User) => {
