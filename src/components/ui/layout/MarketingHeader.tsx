@@ -138,8 +138,9 @@ const MarketingHeader = () => {
                                 </NavigationMenu.List>
                             </div>
                         </header>
-                        <NavigationMenu.Viewport className='navTransition h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn' />
                     </div>
+                    <NavigationMenu.Viewport className='navTransition h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn' />
+
                 </div>
             </NavigationMenu.Root>
         </>

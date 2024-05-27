@@ -8,9 +8,12 @@ const Omnibar = async () => {
     const user = await getUserBySession();
 
     return (
-        <div className='relative flex w-full flex-row items-center justify-between'>
+        <div
+            className='relative flex w-full flex-row
+        '
+        >
             {user ? <AuthedHeader /> : <MarketingHeader />}
-            <div className='pointer-events-none absolute left-0 -right-2 container flex h-12 items-center'>
+            <div className='container pointer-events-none absolute -right-2 left-0 flex h-[72px] items-center'>
                 <HeaderLoginButton />
             </div>
         </div>
