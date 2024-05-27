@@ -1,11 +1,8 @@
 "use client";
 
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 
-export function usePersistedState<S = undefined>(
-	key: string,
-	defaultValue: S,
-): [S | undefined, Dispatch<SetStateAction<S | undefined>>] {
+export function usePersistedState<S = undefined>(key: string, defaultValue: S): [S | undefined, Dispatch<SetStateAction<S | undefined>>] {
 	const [state, setState] = useState(() => {
 		try {
 			const item = localStorage.getItem(key);

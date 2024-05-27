@@ -11,40 +11,27 @@ export const GameSearch = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const itemsPerPage = 9;
 
-	const filteredGames = games.filter(
-		(game) =>
-			searchTerm === "" ||
-			game.name.toLowerCase().includes(searchTerm.toLowerCase()),
-	);
+	const filteredGames = games.filter((game) => searchTerm === "" || game.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
 	const totalPages = Math.ceil(filteredGames.length / itemsPerPage);
-	const currentGames = filteredGames.slice(
-		(currentPage - 1) * itemsPerPage,
-		currentPage * itemsPerPage,
-	);
+	const currentGames = filteredGames.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
 	useEffect(() => {
 		setCurrentPage(1);
-	}, [searchTerm]);
+	}, []);
 
 	return (
 		<>
 			<div className="relative rounded-xl bg-[#ffffff12]">
 				<svg
-					className="absolute left-4 top-1/2 -translate-y-1/2 opacity-50"
+					className="-translate-y-1/2 absolute top-1/2 left-4 opacity-50"
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
 					height="24"
 					viewBox="0 0 24 24"
 					fill="none"
 				>
-					<path
-						d="M17.5 17.5L22 22"
-						stroke="currentColor"
-						strokeWidth="1.5"
-						strokeLinecap="round"
-						strokeLinejoin="round"
-					/>
+					<path d="M17.5 17.5L22 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 					<path
 						d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
 						stroke="currentColor"
@@ -53,7 +40,6 @@ export const GameSearch = () => {
 					/>
 				</svg>
 				<input
-					autoFocus
 					className="w-full bg-transparent py-4 pl-14 outline-none"
 					type="text"
 					placeholder="Search for a game..."
@@ -67,11 +53,11 @@ export const GameSearch = () => {
 						// TODO: Finish per game pages and switch to the correct link
 						<Link
 							href={`/for/${game.slug}`}
-							className="group relative flex min-h-[124px] flex-col items-center justify-center gap-4 rounded-xl bg-[#ffffff14] p-6 transition hover:-translate-y-0.5"
+							className="group hover:-translate-y-0.5 relative flex min-h-[124px] flex-col items-center justify-center gap-4 rounded-xl bg-[#ffffff14] p-6 transition"
 							key={game.name}
 						>
 							<h2
-								className="relative z-10 text-2xl font-extrabold"
+								className="relative z-10 font-extrabold text-2xl"
 								style={{
 									textShadow: "0 0 10px black, 0 0 20px black, 0 0 30px black",
 								}}
@@ -80,7 +66,6 @@ export const GameSearch = () => {
 							</h2>
 							{game.images ? (
 								<>
-									{/* eslint-disable-next-line @next/next/no-img-element */}
 									<img
 										src={game.images.banner}
 										alt={`${game.name}'s banner`}
@@ -96,7 +81,7 @@ export const GameSearch = () => {
 						</Link>
 					))
 				) : (
-					<div className="col-span-full text-center text-xl font-bold">
+					<div className="col-span-full text-center font-bold text-xl">
 						No games found.{" "}
 						<Link className="text-brand" href="/discord">
 							Contact us if we&apos;re missing a game you want to play!
@@ -104,15 +89,15 @@ export const GameSearch = () => {
 					</div>
 				)}
 			</div>
-			<div className="mt-4 flex justify-center  gap-2">
+			<div className="mt-4 flex justify-center gap-2">
 				{Array.from({ length: totalPages }, (_, i) => (
 					<button
+						type="button"
+						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 						key={i}
 						aria-label={`Go to page ${i + 1}`}
-						className={`rounded-lg px-4 py-2 font-extrabold focus:outline-none focus:ring-2 focus:ring-brand focus:ring-opacity-50 ${
-							currentPage === i + 1
-								? "bg-brand text-white"
-								: "bg-[#ffffff14] text-white"
+						className={`rounded-lg px-4 py-2 font-extrabold focus:outline-none focus:ring-2 focus:ring-brand focus:ring-opacity-50${
+							currentPage === i + 1 ? "bg-brand text-white" : "bg-[#ffffff14] text-white"
 						}`}
 						onClick={() => setCurrentPage(i + 1)}
 					>

@@ -1,9 +1,9 @@
-import Email from "@/emails/Email";
+import type Email from "@/emails/Email";
 import { createTransport } from "nodemailer";
 
 const server = {
 	host: process.env.SMTP_HOST!,
-	port: parseInt(process.env.SMTP_PORT!),
+	port: Number.parseInt(process.env.SMTP_PORT!),
 	auth: {
 		user: process.env.SMTP_USER!,
 		pass: process.env.SMTP_PASS!,

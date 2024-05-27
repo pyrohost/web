@@ -7,14 +7,7 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import LogoColored from "@/components/icons/LogoColored";
 
 const ExternalLinkIcon = () => (
-	<svg
-		className="flex h-4 w-4"
-		xmlns="http://www.w3.org/2000/svg"
-		width="24"
-		height="24"
-		viewBox="0 0 24 24"
-		fill="none"
-	>
+	<svg className="flex h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
@@ -44,7 +37,7 @@ const NavLinkItem = ({
 			data-pyro-ui="pagenav-link"
 			target={external ? "_blank" : ""}
 			rel={external ? "noopener noreferrer" : ""}
-			className="flex h-fit w-full items-center gap-2 pb-4 text-3xl font-extrabold transition hover:opacity-60"
+			className="flex h-fit w-full items-center gap-2 pb-4 font-extrabold text-3xl transition hover:opacity-60"
 			href={href}
 		>
 			{children}
@@ -60,43 +53,38 @@ const MarketingHeader = () => {
 				<div className="w-full border-b-[1px] border-b-transparent">
 					<div className="container relative mx-auto flex w-full items-center">
 						<header className="relative flex min-h-[72px] w-full items-center justify-between">
-							<div className="flex w-full items-center gap-8 [&>div[style='position:relative']]:!w-full">
+							<div className="[&>div[style='position:relative']]:!w-full flex w-full items-center gap-8">
 								<Link aria-label="Pyro Home Page" className="shrink-0" href="/">
 									<LogoColored />
 								</Link>
 
-								<NavigationMenu.List
-									asChild
-									className="flex w-full items-center"
-								>
+								<NavigationMenu.List asChild className="flex w-full items-center">
 									<div className="flex w-full items-center">
 										<ul className="hidden w-full items-center md:flex">
 											<NavigationMenu.Item>
 												<NavigationMenu.Trigger
 													asChild
-													className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]"
+													className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 font-extrabold text-sm transition hover:bg-[#ffffff22]"
 												>
 													<Link href="/for">Games</Link>
 												</NavigationMenu.Trigger>
 											</NavigationMenu.Item>
 
 											<NavigationMenu.Item>
-												<NavigationMenu.Trigger className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]">
+												<NavigationMenu.Trigger className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 font-extrabold text-sm transition hover:bg-[#ffffff22]">
 													Products
 												</NavigationMenu.Trigger>
-												<NavigationMenu.Content className="navContent flex flex-col pb-12 pl-[200px] ">
-													<NavLinkItem href="/pyrodactyl">
-														Pyrodactyl Panel
-													</NavLinkItem>
+												<NavigationMenu.Content className="navContent flex flex-col pb-12 pl-[200px]">
+													<NavLinkItem href="/pyrodactyl">Pyrodactyl Panel</NavLinkItem>
 													<NavLinkItem href="/pay">Pyro Pay</NavLinkItem>
 													<NavLinkItem href="/alerion">Alerion</NavLinkItem>
 												</NavigationMenu.Content>
 											</NavigationMenu.Item>
 											<NavigationMenu.Item>
-												<NavigationMenu.Trigger className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]">
+												<NavigationMenu.Trigger className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 font-extrabold text-sm transition hover:bg-[#ffffff22]">
 													Resources
 												</NavigationMenu.Trigger>
-												<NavigationMenu.Content className="navContent flex flex-col pb-12 pl-[290px] ">
+												<NavigationMenu.Content className="navContent flex flex-col pb-12 pl-[290px]">
 													<NavLinkItem href="https://panel.pyro.host" external>
 														Game Panel
 													</NavLinkItem>
@@ -106,10 +94,7 @@ const MarketingHeader = () => {
 													<NavLinkItem href="https://pay.pyro.host" external>
 														Billing
 													</NavLinkItem>
-													<NavLinkItem
-														href="https://pyro.host/discord"
-														external
-													>
+													<NavLinkItem href="https://pyro.host/discord" external>
 														Support
 													</NavLinkItem>
 													<NavLinkItem href="https://status.pyro.host" external>
@@ -120,7 +105,7 @@ const MarketingHeader = () => {
 											<NavigationMenu.Item>
 												<NavigationMenu.Trigger
 													asChild
-													className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]"
+													className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 font-extrabold text-sm transition hover:bg-[#ffffff22]"
 												>
 													<Link href="/about">Company</Link>
 												</NavigationMenu.Trigger>
@@ -128,14 +113,9 @@ const MarketingHeader = () => {
 											<NavigationMenu.Item>
 												<NavigationMenu.Trigger
 													asChild
-													className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition hover:bg-[#ffffff22]"
+													className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 font-extrabold text-sm transition hover:bg-[#ffffff22]"
 												>
-													<Link
-														className="flex items-center gap-2"
-														rel="noopener noreferrer"
-														target="_blank"
-														href="/discord"
-													>
+													<Link className="flex items-center gap-2" rel="noopener noreferrer" target="_blank" href="/discord">
 														<span>Discord</span>
 														<ExternalLinkIcon />
 													</Link>

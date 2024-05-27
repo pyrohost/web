@@ -18,7 +18,7 @@ export async function POST(req: Request, res: Response) {
 			monthlyPrice: data.monthlyPrice,
 		});
 	} catch (error) {
-		return new Response("Error creating product" + error, { status: 500 });
+		return new Response(`Error creating product${error}`, { status: 500 });
 	}
 
 	return new Response("Product created", { status: 200 });

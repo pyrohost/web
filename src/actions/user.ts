@@ -1,8 +1,16 @@
 "use server";
 
-import { Address, User } from "@prisma/client";
+import { Address, type User } from "@prisma/client";
 
 import userAPI from "@/lib/api/user";
+import { hash, verify } from "@node-rs/argon2";
+import { HASHING_OPTIONS } from "@/lib/static/auth";
+import { redirect } from "next/navigation";
+
+interface ActionResult {
+	success?: string;
+	error?: string;
+}
 
 export const editName = (formData: FormData, user: User) => {
 	const firstName = formData.get("firstName") as string;
@@ -39,9 +47,7 @@ export const editAddress = async (formData: FormData, user: User) => {
 	const country = formData.get("country") as string;
 
 	if (!street1 || !city || !state || !postal || !country) {
-		throw new Error(
-			"You must provide a street address, city, state, postal code, and country.",
-		);
+		throw new Error("You must provide a street address, city, state, postal code, and country.");
 	}
 
 	const address = {
@@ -63,14 +69,61 @@ export const editPhoneNumber = async (formData: FormData, user: User) => {
 		throw new Error("You must provide a phone number.");
 	}
 
-	let phone_number_regex = /^\+[1-9]\d{1,14}$/;
+	const phone_number_regex = /^\+[1-9]\d{1,14}$/;
 	if (!phone_number_regex.test(phone)) {
-		throw new Error(
-			"You must provide a valid phone number. Example: +1234567890",
-		);
+		throw new Error("You must provide a valid phone number. Example: +1234567890");
 	}
 
 	user.phone = phone;
 
 	return userAPI.updateUser(user);
+};
+
+export const editPassword = async (formData: FormData, user: User) => {
+	const newPassword = formData.get("newPassword") as string;
+	const confirmPassword = formData.get("confirmPassword") as string;
+
+	if (!newPassword || !confirmPassword) {
+		throw new Error("You must provide a new password and confirm it.");
+	}
+
+	if (newPassword !== confirmPassword) {
+		throw new Error("Passwords do not match.");
+	}
+
+	const passwordHash = await hash(newPassword, HASHING_OPTIONS);
+	return userAPI.setUserPassword(user, passwordHash);
+};
+
+export const resetPassword = async (formData: FormData): Promise<ActionResult> => {
+	const code = formData.get("code") as string;
+	const existingEmail = formData.get("existingEmail") as string;
+	const newPassword = formData.get("newPassword") as string;
+	const confirmPassword = formData.get("confirmPassword") as string;
+
+	if (!code || !newPassword || !confirmPassword || !existingEmail) {
+		return { error: "Please fill out all fields" };
+	}
+
+	if (newPassword !== confirmPassword) {
+		return { error: "Passwords do not match" };
+	}
+
+	const user = await userAPI.getUserByEmail(existingEmail);
+	if (!user || existingEmail !== user.email) {
+		return { error: "Invalid email" };
+	}
+
+	if (!user.emailVerified) {
+		return { error: "Email must be verified" };
+	}
+
+	const passwordHash = await hash(newPassword, HASHING_OPTIONS);
+	try {
+		await userAPI.resetPassword(user, passwordHash, code);
+	} catch (error) {
+		return { error: "Something went wrong." };
+	}
+
+	return redirect("/login?c=password_reset");
 };

@@ -1,8 +1,6 @@
 "use client";
 
-import useEmblaCarousel, {
-	type UseEmblaCarouselType,
-} from "embla-carousel-react";
+import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
 import * as React from "react";
 
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
@@ -42,22 +40,8 @@ function useCarousel() {
 	return context;
 }
 
-const Carousel = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement> & CarouselProps
->(
-	(
-		{
-			orientation = "horizontal",
-			opts,
-			setApi,
-			plugins,
-			className,
-			children,
-			...props
-		},
-		ref,
-	) => {
+const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & CarouselProps>(
+	({ orientation = "horizontal", opts, setApi, plugins, className, children, ...props }, ref) => {
 		const [carouselRef, api] = useEmblaCarousel(
 			{
 				...opts,
@@ -126,22 +110,14 @@ const Carousel = React.forwardRef<
 					carouselRef,
 					api: api,
 					opts,
-					orientation:
-						orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
+					orientation: orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
 					scrollPrev,
 					scrollNext,
 					canScrollPrev,
 					canScrollNext,
 				}}
 			>
-				<div
-					ref={ref}
-					onKeyDownCapture={handleKeyDown}
-					className={cn("relative", className)}
-					role="region"
-					aria-roledescription="carousel"
-					{...props}
-				>
+				<div ref={ref} onKeyDownCapture={handleKeyDown} className={cn("relative", className)} role="region" aria-roledescription="carousel" {...props}>
 					{children}
 				</div>
 			</CarouselContext.Provider>
@@ -150,32 +126,18 @@ const Carousel = React.forwardRef<
 );
 Carousel.displayName = "Carousel";
 
-const CarouselContent = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => {
 	const { carouselRef, orientation } = useCarousel();
 
 	return (
 		<div ref={carouselRef} className="overflow-hidden">
-			<div
-				ref={ref}
-				className={cn(
-					"flex",
-					orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
-					className,
-				)}
-				{...props}
-			/>
+			<div ref={ref} className={cn("flex", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className)} {...props} />
 		</div>
 	);
 });
 CarouselContent.displayName = "CarouselContent";
 
-const CarouselItem = React.forwardRef<
-	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+const CarouselItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => {
 	const { orientation } = useCarousel();
 
 	return (
@@ -183,11 +145,7 @@ const CarouselItem = React.forwardRef<
 			ref={ref}
 			role="group"
 			aria-roledescription="slide"
-			className={cn(
-				"min-w-0 shrink-0 grow-0 basis-full",
-				orientation === "horizontal" ? "pl-4" : "pt-4",
-				className,
-			)}
+			className={cn("min-w-0 shrink-0 grow-0 basis-full", orientation === "horizontal" ? "pl-4" : "pt-4", className)}
 			{...props}
 		/>
 	);

@@ -1,5 +1,5 @@
 import { VerificationEmail } from "@/emails/VerificationEmail";
-import { Session, SessionUser } from "lucia";
+import { Session, type SessionUser } from "lucia";
 import { TimeSpan, createDate } from "oslo";
 import { alphabet, generateRandomString } from "oslo/crypto";
 
@@ -7,34 +7,28 @@ import { cookies } from "next/headers";
 
 import { cache } from "react";
 
-import { Address, User } from "@prisma/client";
+import type { Address, User } from "@prisma/client";
 
-import lucia from "@/lib/api/auth";
 import prisma from "@/lib/api/prisma";
 import pterodactyl from "@/lib/api/pterodactyl";
 import stripe from "@/lib/api/stripe";
 import { sendEmail } from "@/lib/utils/sendEmail";
+import Stripe from "stripe";
+
+import lucia from "@/lib/api/auth";
 
 export const getUserBySession = cache(async () => {
 	const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
 	if (!sessionId) return null;
 	const { user, session } = await lucia.validateSession(sessionId);
 	try {
-		if (session && session.fresh) {
+		if (session?.fresh) {
 			const sessionCookie = lucia.createSessionCookie(session.id);
-			cookies().set(
-				sessionCookie.name,
-				sessionCookie.value,
-				sessionCookie.attributes,
-			);
+			cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 		}
 		if (!session) {
 			const sessionCookie = lucia.createBlankSessionCookie();
-			cookies().set(
-				sessionCookie.name,
-				sessionCookie.value,
-				sessionCookie.attributes,
-			);
+			cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 		}
 	} catch {
 		// Next.js throws error when attempting to set cookies when rendering page
@@ -43,14 +37,27 @@ export const getUserBySession = cache(async () => {
 });
 
 class UserAPI {
-	async generateEmailVerificationCode(
-		userId: string,
-		email: string,
-	): Promise<string> {
+	async generateEmailVerificationCode(userId: string, email: string): Promise<string> {
 		await prisma.emailVerificationToken.deleteMany({ where: { userId } });
 
 		const code = generateRandomString(6, alphabet("0-9", "A-Z"));
 		await prisma.emailVerificationToken.create({
+			data: {
+				userId,
+				email,
+				code,
+				expiresAt: createDate(new TimeSpan(15, "m")),
+			},
+		});
+
+		return code;
+	}
+
+	async generatePasswordResetCode(userId: string, email: string): Promise<string> {
+		await prisma.passwordResetToken.deleteMany({ where: { userId } });
+
+		const code = generateRandomString(6, alphabet("0-9", "A-Z"));
+		await prisma.passwordResetToken.create({
 			data: {
 				userId,
 				email,
@@ -70,8 +77,8 @@ class UserAPI {
 		return prisma.user.findUnique({ where: { id } });
 	}
 
-	getUserByOAuthId(provider: string, id: string): Promise<User | null> {
-		return prisma.oAuthConnection
+	async getUserByOAuthId(provider: string, id: string): Promise<User | null> {
+		return await prisma.oAuthConnection
 			.findFirst({
 				where: { providerId: provider, providerUserId: id },
 			})
@@ -82,10 +89,7 @@ class UserAPI {
 		return prisma.user.findUnique({ where: { email } });
 	}
 
-	async getUserByProvider(
-		providerId: string,
-		providerUserId: string,
-	): Promise<User | null> {
+	async getUserByProvider(providerId: string, providerUserId: string): Promise<User | null> {
 		return prisma.oAuthConnection
 			.findFirst({
 				where: { providerId, providerUserId },
@@ -93,11 +97,7 @@ class UserAPI {
 			.user();
 	}
 
-	async linkOAuthAccount(
-		user: User,
-		providerId: string,
-		providerUserId: string,
-	): Promise<void> {
+	async linkOAuthAccount(user: User, providerId: string, providerUserId: string): Promise<void> {
 		await prisma.oAuthConnection.create({
 			data: {
 				providerId,
@@ -123,8 +123,7 @@ class UserAPI {
 		if (!customer || customer.deleted) return;
 
 		let fullName = null;
-		if (user.firstName && user.lastName)
-			fullName = `${user.firstName} ${user.lastName}`;
+		if (user.firstName && user.lastName) fullName = `${user.firstName} ${user.lastName}`;
 
 		if (fullName && fullName !== customer.name) {
 			await stripe.customers.update(customer.id, { name: fullName });
@@ -191,14 +190,11 @@ class UserAPI {
 	}
 
 	async handleStripeAccount(user: User): Promise<void> {
-		let stripeCustomer;
+		let stripeCustomer: any;
 
 		if (!user.stripeCustomerId) {
 			const customers = await stripe.customers.list({ email: user.email });
-			stripeCustomer =
-				customers.data.length === 1
-					? customers.data[0]
-					: await stripe.customers.create({ email: user.email });
+			stripeCustomer = customers.data.length === 1 ? customers.data[0] : await stripe.customers.create({ email: user.email });
 		} else {
 			try {
 				stripeCustomer = await stripe.customers.retrieve(user.stripeCustomerId);
@@ -268,6 +264,38 @@ class UserAPI {
 		});
 
 		return newAddress;
+	}
+
+	async setUserPassword(user: User, passwordHash: string): Promise<User> {
+		if (!user.emailVerified) throw new Error("Email must be verified");
+
+		return prisma.user.update({
+			where: { id: user.id },
+			data: { passwordHash },
+		});
+	}
+
+	async resetPassword(user: User, passwordHash: string, code: string): Promise<void> {
+		if (!user.emailVerified) throw new Error("Email must be verified");
+
+		const validCode = await prisma.passwordResetToken.findFirst({
+			where: {
+				userId: user.id,
+				code,
+				expiresAt: { gte: new Date() },
+			},
+		});
+
+		if (!validCode) throw new Error("Invalid code");
+
+		await prisma.emailVerificationToken.deleteMany({
+			where: { userId: user.id },
+		});
+
+		await prisma.user.update({
+			where: { id: user.id },
+			data: { passwordHash },
+		});
 	}
 }
 

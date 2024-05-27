@@ -1,28 +1,23 @@
 import currency from "currency.js";
 
-import { Category, Price, Product } from "@prisma/client";
+import type { Category, Price, Product } from "@prisma/client";
 
 import prisma from "@/lib/api/prisma";
 import stripe from "@/lib/api/stripe";
 import slugify from "@/lib/utils/slugify";
 
 class ProductAPI {
-	private async getOrCreateCategory(
-		rawCategoryName: string,
-	): Promise<Category> {
+	private async getOrCreateCategory(rawCategoryName: string): Promise<Category> {
 		const categoryName = slugify(rawCategoryName);
 		const existingCategory = await prisma.category.findFirst({
 			where: { name: categoryName },
 		});
-		return (
-			existingCategory ||
-			(await prisma.category.create({ data: { name: categoryName } }))
-		);
+		return existingCategory || (await prisma.category.create({ data: { name: categoryName } }));
 	}
 
 	calcPrice(basePrice: string, months: number): number {
 		let price = currency(basePrice).multiply(months).intValue;
-		let discount = Math.min(0.01 * months, 0.12);
+		const discount = Math.min(0.01 * months, 0.12);
 		if (months > 1) {
 			price = price - price * discount;
 		}
@@ -30,16 +25,13 @@ class ProductAPI {
 		return Math.ceil(price);
 	}
 
-	private async createPrices(
-		dbProductId: string,
-		baseMonthlyPrice: string,
-	): Promise<Price[]> {
+	private async createPrices(dbProductId: string, baseMonthlyPrice: string): Promise<Price[]> {
 		const dbProduct = await prisma.product.findUniqueOrThrow({
 			where: { id: dbProductId },
 		});
 
 		const intervals = [1, 3, 6, 12, 24];
-		let prices: Price[] = [];
+		const prices: Price[] = [];
 
 		for (const months of intervals) {
 			const amount = this.calcPrice(baseMonthlyPrice, months);
@@ -51,7 +43,7 @@ class ProductAPI {
 				recurring: { interval: "month", interval_count: months },
 			});
 
-			let price = await prisma.price.create({
+			const price = await prisma.price.create({
 				data: {
 					productId: dbProductId,
 					stripeId: stripePrice.id,
@@ -72,10 +64,7 @@ class ProductAPI {
 		return prisma.price.findMany({ where: { productId } });
 	}
 
-	async getPricesByProductIdAndMonths(
-		productId: string,
-		every_months: number,
-	): Promise<Price[]> {
+	async getPricesByProductIdAndMonths(productId: string, every_months: number): Promise<Price[]> {
 		return prisma.price.findMany({ where: { productId, every_months } });
 	}
 

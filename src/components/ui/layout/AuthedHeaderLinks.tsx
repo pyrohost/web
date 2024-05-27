@@ -4,21 +4,15 @@ import clsx from "clsx";
 
 import { usePathname, useRouter } from "next/navigation";
 
-const NavLink = ({
-	href,
-	children,
-}: { href: string; children: React.ReactNode }) => {
+const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
 	const pathname = usePathname();
 	const router = useRouter();
 
 	const getLinkClasses = (linkPath: string) =>
-		clsx(
-			"flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition",
-			{
-				"hover:bg-[#ffffff22]": pathname !== linkPath,
-				"bg-white text-black": pathname === linkPath,
-			},
-		);
+		clsx("flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-extrabold transition", {
+			"hover:bg-[#ffffff22]": pathname !== linkPath,
+			"bg-white text-black": pathname === linkPath,
+		});
 
 	return (
 		<li>

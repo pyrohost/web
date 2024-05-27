@@ -1,10 +1,9 @@
-export let games = [
+export const games = [
 	{
 		name: "Minecraft",
 		slug: "minecraft",
 		images: {
-			banner:
-				"https://cdn.modrinth.com/data/Q1vvjJYV/images/593042203d2297676eed851f22c8e2ee3eaab5d6.jpeg",
+			banner: "https://cdn.modrinth.com/data/Q1vvjJYV/images/593042203d2297676eed851f22c8e2ee3eaab5d6.jpeg",
 		},
 	},
 	{
@@ -25,8 +24,7 @@ export let games = [
 		name: "Palworld",
 		slug: "palworld",
 		images: {
-			banner:
-				"https://cdn.cloudflare.steamstatic.com/steam/apps/1623730/header.jpg",
+			banner: "https://cdn.cloudflare.steamstatic.com/steam/apps/1623730/header.jpg",
 		},
 	},
 	{
@@ -68,8 +66,7 @@ export let games = [
 		name: "Enshrouded",
 		slug: "enshrouded",
 		images: {
-			banner:
-				"https://cdn.akamai.steamstatic.com/steam/apps/1203620/header.jpg",
+			banner: "https://cdn.akamai.steamstatic.com/steam/apps/1203620/header.jpg",
 		},
 	},
 	{
@@ -158,7 +155,7 @@ export let games = [
 	},
 ];
 
-export let plans = [
+export const plans = [
 	{
 		name: "Solo",
 		slug: "solo",

@@ -34,13 +34,7 @@ const button = cva(
 				primary: ["bg-brand", "text-white", "hover:bg-brand/80"],
 				secondary: ["bg-white", "text-black", "hover:bg-white/80"],
 				tertiary: ["bg-[#ffffff33]", "text-white", "hover:bg-[#ffffff55]"],
-				quaternary: [
-					"bg-transparent",
-					"text-white",
-					"hover:bg-black/80",
-					"border-[#ffffff33]",
-					"hover:border-[#ffffff55]",
-				],
+				quaternary: ["bg-transparent", "text-white", "hover:bg-black/80", "border-[#ffffff33]", "hover:border-[#ffffff55]"],
 			},
 			size: {
 				ghost: [],
@@ -89,12 +83,7 @@ export const PyroButton = ({
 	return (
 		<>
 			{href ? (
-				<PyroLink
-					href={href}
-					external={external}
-					className={twMerge(cx(button(rest), className))}
-					{...rest}
-				>
+				<PyroLink href={href} external={external} className={twMerge(cx(button(rest), className))} {...rest}>
 					{leftChildren}
 					{children}
 					{rightChildren}

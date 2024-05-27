@@ -4,30 +4,15 @@ import { Lucia, TimeSpan } from "lucia";
 
 import prisma from "@/lib/api/prisma";
 
-export const github = new GitHub(
-	process.env.GITHUB_CLIENT_ID!,
-	process.env.GITHUB_CLIENT_SECRET!,
-);
+export const github = new GitHub(process.env.GITHUB_CLIENT_ID!, process.env.GITHUB_CLIENT_SECRET!);
 
-export const discord = new Discord(
-	process.env.DISCORD_CLIENT_ID!,
-	process.env.DISCORD_CLIENT_SECRET!,
-	process.env.OAUTH_BASE_URL! + "/discord/callback",
-);
+export const discord = new Discord(process.env.DISCORD_CLIENT_ID!, process.env.DISCORD_CLIENT_SECRET!, `${process.env.BASE_URL!}/oauth/discord/callback`);
 
-export const twitch = new Twitch(
-	process.env.TWITCH_CLIENT_ID!,
-	process.env.TWITCH_CLIENT_SECRET!,
-	process.env.OAUTH_REDIRECT_URI!,
-);
+export const twitch = new Twitch(process.env.TWITCH_CLIENT_ID!, process.env.TWITCH_CLIENT_SECRET!, `${process.env.BASE_URL!}/oauth/twitch/callback`);
 
-export const twitter = new Twitter(
-	process.env.TWITTER_CLIENT_ID!,
-	process.env.TWITTER_CLIENT_SECRET!,
-	process.env.OAUTH_REDIRECT_URI!,
-);
+export const twitter = new Twitter(process.env.TWITTER_CLIENT_ID!, process.env.TWITTER_CLIENT_SECRET!, `${process.env.BASE_URL!}/oauth/twitter/callback`);
 
-export const oauthProviders = ["github"];
+export const oauthProviders = ["github", "discord", "twitch", "twitter"];
 
 const adapter = new PrismaAdapter(prisma.session, prisma.user);
 
@@ -42,10 +27,7 @@ const lucia = new Lucia(adapter, {
 		return {
 			// info
 			id: attributes.id,
-			fullName:
-				attributes.firstName && attributes.lastName
-					? `${attributes.firstName} ${attributes.lastName}`
-					: null,
+			fullName: attributes.firstName && attributes.lastName ? `${attributes.firstName} ${attributes.lastName}` : null,
 			firstName: attributes.firstName,
 			lastName: attributes.lastName,
 

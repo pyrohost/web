@@ -17,24 +17,17 @@ const AuthedHeader = () => {
 	return (
 		<>
 			{AUTHENTICATED_ROUTES.some((route) => pathname.includes(route)) ? (
-				<header className="w-full border-b-[1px] border-b-[#ffffff16] bg-[#ffffff07]">
+				<header className="w-full border-b-[#ffffff16] border-b-[1px] bg-[#ffffff07]">
 					<nav className="container relative mx-auto flex w-full items-center">
 						<div className="relative flex min-h-[72px] w-full items-center justify-between">
-							<div className="flex w-full items-center gap-6 [&>div[style='position:relative']]:!w-full">
-								<Link
-									aria-label="Pyro Home Page"
-									className="shrink-0"
-									href="/account"
-								>
+							<div className="[&>div[style='position:relative']]:!w-full flex w-full items-center gap-6">
+								<Link aria-label="Pyro Home Page" className="shrink-0" href="/account">
 									<div className="flex h-6 w-6 shrink-0">
 										<Logomark />
 									</div>
 								</Link>
 
-								<ul
-									aria-label="Navigation menu"
-									className="hidden w-full items-center gap-2 md:flex"
-								>
+								<ul aria-label="Navigation menu" className="hidden w-full items-center gap-2 md:flex">
 									<AuthedHeaderLinks />
 								</ul>
 							</div>

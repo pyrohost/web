@@ -1,21 +1,17 @@
 "use client";
 
-import { User } from "@prisma/client";
+import type { User } from "@prisma/client";
 
 import { LockClosedIcon } from "@radix-ui/react-icons";
 
 import EditForm from "@/components/account/EditForm";
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipProvider,
-	TooltipTrigger,
-} from "@/components/ui/primitives/Tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/primitives/Tooltip";
 
 const AccountInformationRow = ({
 	label,
 	required,
 	locked,
+	hidden,
 	value,
 	error,
 	user,
@@ -23,6 +19,7 @@ const AccountInformationRow = ({
 	label: string;
 	required?: boolean;
 	locked?: boolean;
+	hidden?: boolean;
 	value: string | null;
 	error?: string;
 	user: User;
@@ -30,12 +27,7 @@ const AccountInformationRow = ({
 	return (
 		<TooltipProvider>
 			<div className="flex flex-col truncate text-wrap break-words">
-				<div
-					aria-level={1}
-					aria-label={label}
-					role="heading"
-					className="flex flex-row items-center gap-2 text-sm font-bold"
-				>
+				<div aria-level={1} aria-label={label} role="heading" className="flex flex-row items-center gap-2 font-bold text-sm">
 					<p>{label}</p>
 					{locked && (
 						<Tooltip delayDuration={0}>
@@ -44,10 +36,7 @@ const AccountInformationRow = ({
 							</TooltipTrigger>
 
 							<TooltipContent>
-								<p>
-									{label} is locked and cannot be edited. If you need to make
-									changes, please contact support.
-								</p>
+								<p>{label} is locked and cannot be edited. If you need to make changes, please contact support.</p>
 							</TooltipContent>
 						</Tooltip>
 					)}
@@ -55,13 +44,15 @@ const AccountInformationRow = ({
 					{required && null}
 				</div>
 				<div className="flex flex-row items-center gap-2">
-					{error && (
-						<div className="max-h-2 min-h-2 min-w-2 max-w-2 animate-pulse rounded-full bg-red-500"></div>
+					{error && <div className="max-h-2 min-h-2 min-w-2 max-w-2 animate-pulse rounded-full bg-red-500" />}
+					{hidden ? (
+						<>
+							<span className="font-bold text-neutral-400 text-sm">Hidden</span>
+						</>
+					) : (
+						<>{value} </>
 					)}
-					{value}{" "}
-					{error && (
-						<span className="text-sm font-bold text-red-500">{error}</span>
-					)}
+					{error && <span className="font-bold text-red-500 text-sm">{error}</span>}
 				</div>
 			</div>
 		</TooltipProvider>

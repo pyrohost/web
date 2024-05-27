@@ -6,9 +6,7 @@ import { getServerByExternalIdAction } from "@/actions/pterodactyl";
 
 import { DropdownMenuItem } from "@/components/ui/primitives/DropdownMenu";
 
-const GoToServerDropdownItem = ({
-	subscriptionId,
-}: { subscriptionId: string }) => {
+const GoToServerDropdownItem = ({ subscriptionId }: { subscriptionId: string }) => {
 	const router = useRouter();
 
 	const goToServer = async (subscriptionId: string) => {
@@ -21,11 +19,7 @@ const GoToServerDropdownItem = ({
 		}
 	};
 
-	return (
-		<DropdownMenuItem onSelect={() => goToServer(subscriptionId)}>
-			Manage Server
-		</DropdownMenuItem>
-	);
+	return <DropdownMenuItem onSelect={() => goToServer(subscriptionId)}>Manage Server</DropdownMenuItem>;
 };
 
 export default GoToServerDropdownItem;

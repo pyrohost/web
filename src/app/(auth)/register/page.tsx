@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -21,11 +21,11 @@ export default async function Page() {
 	}
 
 	return (
-		<div className="relative m-auto flex w-full max-w-[400px] flex-col gap-4 rounded-xl border-[1px] border-[#ffffff15] bg-[#ffffff14] p-8 shadow-sm">
+		<div className="relative m-auto flex w-full max-w-[400px] flex-col gap-4 rounded-xl border-[#ffffff15] border-[1px] bg-[#ffffff14] p-8 shadow-sm">
 			<div className="">
 				<LogoColored />
 			</div>
-			<h2 className="text-xl font-extrabold">Sign Up</h2>
+			<h2 className="font-extrabold text-xl">Sign Up</h2>
 			<div className="mb-4 text-sm">
 				Already have an account?{" "}
 				<Link className="text-brand" href="/login">

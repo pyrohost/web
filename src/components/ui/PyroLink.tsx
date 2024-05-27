@@ -15,14 +15,7 @@ export const PyroLink = ({
 	const { ...rest } = props;
 
 	return (
-		<Link
-			data-pyro-ui="link"
-			target={external ? "_blank" : ""}
-			rel={external ? "noopener noreferrer" : ""}
-			href={href}
-			className={className}
-			{...rest}
-		>
+		<Link data-pyro-ui="link" target={external ? "_blank" : ""} rel={external ? "noopener noreferrer" : ""} href={href} className={className} {...rest}>
 			{children}
 		</Link>
 	);

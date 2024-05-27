@@ -1,18 +1,13 @@
 "use client";
 
-import {
-	cancelSubscription,
-	cancelSubscriptionAtPeriodEnd,
-} from "@/actions/stripe";
+import { cancelSubscription, cancelSubscriptionAtPeriodEnd } from "@/actions/stripe";
 import { useState } from "react";
 
 import { useRouter } from "next/navigation";
 
 import LoadingIcon from "@/components/ui/LoadingIcon";
 
-const StripeCancelSubscriptionImmediately = ({
-	subscriptionId,
-}: { subscriptionId: string }) => {
+const StripeCancelSubscriptionImmediately = ({ subscriptionId }: { subscriptionId: string }) => {
 	const router = useRouter();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -31,7 +26,7 @@ const StripeCancelSubscriptionImmediately = ({
 		<form action={formAction}>
 			<button
 				onClick={() => setIsLoading(true)}
-				className="flex items-center justify-center gap-2 rounded-full bg-[#ffffff33] px-3 py-1.5 text-sm font-bold text-white"
+				className="flex items-center justify-center gap-2 rounded-full bg-[#ffffff33] px-3 py-1.5 font-bold text-sm text-white"
 				type="submit"
 			>
 				{isLoading ? (

@@ -1,59 +1,25 @@
 "use client";
 
-import { User } from "@prisma/client";
+import type { User } from "@prisma/client";
 import clsx from "clsx";
 
 import { useRouter } from "next/navigation";
 
 import { useEffect, useState, useTransition } from "react";
 
-import { editAddress, editName, editPhoneNumber } from "@/actions/user";
+import { editAddress, editName, editPhoneNumber, editPassword } from "@/actions/user";
 
 import { PencilIcon } from "@/components/ui/Icons";
 import LoadingIcon from "@/components/ui/LoadingIcon";
-import {
-	Popover,
-	PopoverContent,
-	PopoverTrigger,
-} from "@/components/ui/primitives/Popover";
-
-const SubmitButton = ({ isPending }: { isPending: boolean }) => {
-	const buttonClasses = clsx(
-		"relative mt-2 w-full rounded-full border-0 bg-brand py-2 text-sm font-bold capitalize outline-none ring-0 flex flex-row items-center justify-center gap-4",
-		{
-			"opacity-40 pointer-events-none": isPending,
-		},
-	);
-
-	return (
-		<button
-			aria-label="Save"
-			className={buttonClasses}
-			type="submit"
-			disabled={isPending}
-		>
-			{isPending ? (
-				<>
-					<LoadingIcon />
-					<span>Saving</span>
-				</>
-			) : (
-				"Save"
-			)}
-		</button>
-	);
-};
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/primitives/Popover";
+import { PyroButton } from "@/components/ui/PyroButton";
 
 const EditForm = ({ label, user }: { label: string; user: User }) => {
 	const router = useRouter();
 	const [open, setOpen] = useState<boolean>(false);
 	const [isPending, startTransition] = useTransition();
-	const [firstNameState, setFirstNameState] = useState<string | null>(
-		user.firstName,
-	);
-	const [lastNameState, setLastNameState] = useState<string | null>(
-		user.lastName,
-	);
+	const [firstNameState, setFirstNameState] = useState<string | null>(user.firstName);
+	const [lastNameState, setLastNameState] = useState<string | null>(user.lastName);
 
 	const [street1State, setStreet1State] = useState<string | null>("");
 	const [street2State, setStreet2State] = useState<string | null>("");
@@ -104,6 +70,17 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 		}
 	};
 
+	const passwordAction = async (data: FormData): Promise<void> => {
+		try {
+			startTransition(async () => {
+				const password = await editPassword(data, user);
+			});
+		} catch (error) {
+			console.error(error);
+			router.refresh();
+		}
+	};
+
 	return (
 		<Popover open={open}>
 			<PopoverTrigger onClick={() => setOpen(!open)}>
@@ -112,12 +89,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 				</div>
 			</PopoverTrigger>
 
-			<PopoverContent
-				collisionPadding={24}
-				className="overflow-y-auto"
-				onEscapeKeyDown={() => setOpen(false)}
-				onInteractOutside={() => setOpen(false)}
-			>
+			<PopoverContent collisionPadding={24} className="overflow-y-auto" onEscapeKeyDown={() => setOpen(false)} onInteractOutside={() => setOpen(false)}>
 				<div
 					style={{
 						maxHeight: "calc(var(--radix-popper-available-height) - 6rem)",
@@ -127,11 +99,10 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 					{label === "Full Name" && (
 						<form className="flex flex-col gap-2" action={fullNameAction}>
 							<div className="contents">
-								<label className="text-sm text-[#ffffff77]" htmlFor="firstName">
+								<label className="text-[#ffffff77] text-sm" htmlFor="firstName">
 									First Name
 								</label>
 								<input
-									autoFocus
 									className="rounded-2xl bg-[#ffffff17] px-4 py-2 text-sm shadow-md outline-none"
 									type="text"
 									id="firstName"
@@ -145,10 +116,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 								/>
 							</div>
 							<div className="contents">
-								<label
-									className="mt-2 text-sm text-[#ffffff77]"
-									htmlFor="lastName"
-								>
+								<label className="mt-2 text-[#ffffff77] text-sm" htmlFor="lastName">
 									Last Name
 								</label>
 								<input
@@ -164,19 +132,20 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 									autoComplete="family-name"
 								/>
 							</div>
-							<SubmitButton isPending={isPending} />
+							<PyroButton type="submit" isPending={isPending}>
+								Save
+							</PyroButton>
 						</form>
 					)}
 
 					{label === "Phone Number" && (
 						<form className="flex flex-col gap-2" action={phoneAction}>
 							<div className="contents">
-								<label className="text-sm text-[#ffffff77]" htmlFor="phone">
+								<label className="text-[#ffffff77] text-sm" htmlFor="phone">
 									Phone Number
 								</label>
 								<p>Example: +1234567890</p>
 								<input
-									autoFocus
 									className="rounded-2xl bg-[#ffffff17] px-4 py-2 text-sm shadow-md outline-none"
 									type="tel"
 									id="phone"
@@ -189,18 +158,19 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 									autoComplete="tel"
 								/>
 							</div>
-							<SubmitButton isPending={isPending} />
+							<PyroButton type="submit" isPending={isPending}>
+								Save
+							</PyroButton>
 						</form>
 					)}
 
 					{label === "Address" && (
 						<form className="flex flex-col gap-2" action={addressAction}>
 							<div className="contents">
-								<label className="text-sm text-[#ffffff77]" htmlFor="street1">
+								<label className="text-[#ffffff77] text-sm" htmlFor="street1">
 									Street Address 1
 								</label>
 								<input
-									autoFocus
 									className="rounded-2xl bg-[#ffffff17] px-4 py-2 text-sm shadow-md outline-none"
 									type="text"
 									id="street1"
@@ -214,10 +184,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 								/>
 							</div>
 							<div className="contents">
-								<label
-									className="mt-2 text-sm text-[#ffffff77]"
-									htmlFor="street2"
-								>
+								<label className="mt-2 text-[#ffffff77] text-sm" htmlFor="street2">
 									Street Address 2
 								</label>
 								<input
@@ -233,7 +200,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 								/>
 							</div>
 							<div className="contents">
-								<label className="mt-2 text-sm text-[#ffffff77]" htmlFor="city">
+								<label className="mt-2 text-[#ffffff77] text-sm" htmlFor="city">
 									City
 								</label>
 								<input
@@ -250,10 +217,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 								/>
 							</div>
 							<div className="contents">
-								<label
-									className="mt-2 text-sm text-[#ffffff77]"
-									htmlFor="state"
-								>
+								<label className="mt-2 text-[#ffffff77] text-sm" htmlFor="state">
 									State
 								</label>
 								<input
@@ -270,10 +234,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 								/>
 							</div>
 							<div className="contents">
-								<label
-									className="mt-2 text-sm text-[#ffffff77]"
-									htmlFor="postal"
-								>
+								<label className="mt-2 text-[#ffffff77] text-sm" htmlFor="postal">
 									Zip Code
 								</label>
 								<input
@@ -290,10 +251,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 								/>
 							</div>
 							<div className="contents">
-								<label
-									className="mt-2 text-sm text-[#ffffff77]"
-									htmlFor="country"
-								>
+								<label className="mt-2 text-[#ffffff77] text-sm" htmlFor="country">
 									Country
 								</label>
 								<input
@@ -309,7 +267,45 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 									autoComplete="country-name"
 								/>
 							</div>
-							<SubmitButton isPending={isPending} />
+							<PyroButton type="submit" isPending={isPending}>
+								Save
+							</PyroButton>
+						</form>
+					)}
+
+					{label === "Password" && (
+						<form className="flex flex-col gap-2" action={passwordAction}>
+							<div className="contents">
+								<label className="text-[#ffffff77] text-sm" htmlFor="newPassword">
+									New Password
+								</label>
+								<input
+									className="rounded-2xl bg-[#ffffff17] px-4 py-2 text-sm shadow-md outline-none"
+									type="password"
+									id="newPassword"
+									name="newPassword"
+									placeholder="Password"
+									required
+									autoComplete="new-password"
+								/>
+							</div>
+							<div className="contents">
+								<label className="mt-2 text-[#ffffff77] text-sm" htmlFor="confirmPassword">
+									Confirm Password
+								</label>
+								<input
+									className="rounded-2xl bg-[#ffffff17] px-4 py-2 text-sm shadow-md outline-none"
+									type="password"
+									id="confirmPassword"
+									name="confirmPassword"
+									placeholder="Confirm Password"
+									required
+									autoComplete="new-password"
+								/>
+							</div>
+							<PyroButton type="submit" isPending={isPending}>
+								Save New Password
+							</PyroButton>
 						</form>
 					)}
 				</div>

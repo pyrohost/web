@@ -26,7 +26,7 @@ const StripePortalButton = ({ customerID }: { customerID: string }) => {
 	return (
 		<form className="flex flex-col items-end" action={formAction}>
 			<button
-				className="flex items-center justify-center gap-2 rounded-full bg-[#ffffff33] px-3 py-1.5 text-sm font-bold text-white transition hover:bg-[#ffffff44]"
+				className="flex items-center justify-center gap-2 rounded-full bg-[#ffffff33] px-3 py-1.5 font-bold text-sm text-white transition hover:bg-[#ffffff44]"
 				onClick={(e) => {
 					e.stopPropagation();
 				}}
@@ -34,9 +34,7 @@ const StripePortalButton = ({ customerID }: { customerID: string }) => {
 			>
 				<PencilIcon /> Edit
 			</button>
-			{formState ? (
-				<p className="mt-2 text-sm font-bold text-red-500">{formState}</p>
-			) : null}
+			{formState ? <p className="mt-2 font-bold text-red-500 text-sm">{formState}</p> : null}
 		</form>
 	);
 };

@@ -43,9 +43,7 @@ class BaseAPI {
 		throw err;
 	}
 
-	private async handleResponse<T>(
-		response: WretchResponseChain<unknown, unknown, undefined>,
-	): Promise<T> {
+	private async handleResponse<T>(response: WretchResponseChain<unknown, unknown, undefined>): Promise<T> {
 		try {
 			return (await response.json()) as T;
 		} catch (err) {
@@ -53,20 +51,12 @@ class BaseAPI {
 		}
 	}
 
-	protected async request<T>(
-		method: "get" | "post" | "put" | "patch" | "delete",
-		path: string,
-		body: any = undefined,
-	): Promise<ApiResponse<T>> {
-		return await this.handleResponse<ApiResponse<T>>(
-			this.api.url(path)[method](body),
-		);
+	protected async request<T>(method: "get" | "post" | "put" | "patch" | "delete", path: string, body: any = undefined): Promise<ApiResponse<T>> {
+		return await this.handleResponse<ApiResponse<T>>(this.api.url(path)[method](body));
 	}
 
 	protected async list<D, M>(path: string): Promise<ApiListResponse<D, M>> {
-		return await this.handleResponse<ApiListResponse<D, M>>(
-			this.api.url(path).get(),
-		);
+		return await this.handleResponse<ApiListResponse<D, M>>(this.api.url(path).get());
 	}
 }
 
@@ -139,17 +129,9 @@ export interface AllocationAttributes {
 }
 
 class PterodactylApi extends BaseAPI {
-	constructor(baseURL: string, apiKey: string) {
-		super(baseURL, apiKey);
-	}
-
 	async getUserById(id: string): Promise<UserObject | null> {
 		try {
-			debugger;
-			const response = await this.request<UserObject>(
-				"get",
-				`/api/application/users/${id}`,
-			);
+			const response = await this.request<UserObject>("get", `/api/application/users/${id}`);
 			return response.attributes;
 		} catch (error) {
 			return null;
@@ -158,70 +140,49 @@ class PterodactylApi extends BaseAPI {
 
 	async getUserByEmail(email: string): Promise<UserObject | null> {
 		try {
-			const response = await this.list<UserObject, any>(
-				`/api/application/users?filter[email]=${encodeURI(email)}&per_page=1`,
-			);
+			const response = await this.list<UserObject, any>(`/api/application/users?filter[email]=${encodeURI(email)}&per_page=1`);
 
 			if (response.data.length !== 1) {
 				return null;
 			}
 
-			return response.data[0]!.attributes;
+			return response.data[0]?.attributes;
 		} catch (error) {
 			return null;
 		}
 	}
 
-	async getServerByExternalId(
-		externalId: string,
-	): Promise<ServerObject | null> {
+	async getServerByExternalId(externalId: string): Promise<ServerObject | null> {
 		try {
-			const response = await this.request<ServerObject>(
-				"get",
-				`/api/application/servers/external/${externalId}`,
-			);
+			const response = await this.request<ServerObject>("get", `/api/application/servers/external/${externalId}`);
 			return response.attributes;
 		} catch (error) {
 			return null;
 		}
 	}
 
-	async createUser(
-		email: string,
-		username: string,
-		first_name: string,
-		last_name: string,
-		password: string,
-	): Promise<UserObject> {
-		const response = await this.request<UserObject>(
-			"post",
-			"/api/application/users",
-			{
-				email,
-				username,
-				first_name,
-				last_name,
-				password,
-			},
-		);
+	async createUser(email: string, username: string, first_name: string, last_name: string, password: string): Promise<UserObject> {
+		const response = await this.request<UserObject>("post", "/api/application/users", {
+			email,
+			username,
+			first_name,
+			last_name,
+			password,
+		});
 		return response.attributes;
 	}
 
 	// todo: use locations to get the node id and thus the allocation,
 	// VERY temporary solution
 
-	async getFirstAvailableAllocation(
-		nodeId: number,
-	): Promise<AllocationAttributes> {
-		const response = await this.list<AllocationAttributes, any>(
-			`/api/application/nodes/${nodeId}/allocations?filter[server_id]=false&per_page=1`,
-		);
+	async getFirstAvailableAllocation(nodeId: number): Promise<AllocationAttributes> {
+		const response = await this.list<AllocationAttributes, any>(`/api/application/nodes/${nodeId}/allocations?filter[server_id]=false&per_page=1`);
 
 		if (response.data.length !== 1) {
 			throw new Error("No available allocations");
 		}
 
-		return response.data[0]!.attributes;
+		return response.data[0]?.attributes;
 	}
 
 	// {
@@ -268,25 +229,21 @@ class PterodactylApi extends BaseAPI {
 		},
 		environment: { [key: string]: string } = {},
 	): Promise<ServerObject> {
-		const response = await this.request<ServerObject>(
-			"post",
-			"/api/application/servers",
-			{
-				name,
-				user: userId,
-				egg: 26,
-				docker_image: "ghcr.io/parkervcp/yolks:java_8",
-				startup: "java -Xms128M -Xmx{{SERVER_MEMORY}}M -jar {{SERVER_JARFILE}}",
-				environment: {
-					SERVER_JARFILE: "server.jar",
-				},
-				limits,
-				feature_limits,
-				allocation: {
-					default: allocationId,
-				},
+		const response = await this.request<ServerObject>("post", "/api/application/servers", {
+			name,
+			user: userId,
+			egg: 26,
+			docker_image: "ghcr.io/parkervcp/yolks:java_8",
+			startup: "java -Xms128M -Xmx{{SERVER_MEMORY}}M -jar {{SERVER_JARFILE}}",
+			environment: {
+				SERVER_JARFILE: "server.jar",
 			},
-		);
+			limits,
+			feature_limits,
+			allocation: {
+				default: allocationId,
+			},
+		});
 		return response.attributes;
 	}
 
@@ -299,11 +256,7 @@ class PterodactylApi extends BaseAPI {
 			description?: string;
 		},
 	): Promise<ServerObject> {
-		const response = await this.request<ServerObject>(
-			"patch",
-			`/api/application/servers/${serverId}/details`,
-			details,
-		);
+		const response = await this.request<ServerObject>("patch", `/api/application/servers/${serverId}/details`, details);
 		return response.attributes;
 	}
 
@@ -312,9 +265,6 @@ class PterodactylApi extends BaseAPI {
 	}
 }
 
-const pterodactyl = new PterodactylApi(
-	process.env.PTERODACTYL_API_URL!,
-	process.env.PTERODACTYL_API_KEY!,
-);
+const pterodactyl = new PterodactylApi(process.env.PTERODACTYL_API_URL!, process.env.PTERODACTYL_API_KEY!);
 
 export default pterodactyl;

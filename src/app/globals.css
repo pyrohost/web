@@ -224,6 +224,7 @@
 
 html {
     background-color: #000000;
+    color-scheme: dark;
 }
 
 /* html:has(body[data-scroll-locked]) {

@@ -35,6 +35,7 @@ model User {
   // email verification
   emailVerified          Boolean                 @default(false)
   emailVerificationToken EmailVerificationToken?
+  passwordResetToken     PasswordResetToken?
 
   // sessions
   sessions Session[]
@@ -45,7 +46,7 @@ model OAuthConnection {
   providerId     String
   providerUserId String
   userId         String
-  user           User   @relation(fields: [userId], references: [id])
+  user           User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   accessToken  String?
   refreshToken String?
@@ -70,7 +71,7 @@ model Price {
   id        String  @id @default(cuid())
   stripeId  String
   productId String
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   amount   Int
   currency String
@@ -100,7 +101,7 @@ model Product {
 model Address {
   id     String @id @default(cuid())
   userId String @unique
-  user   User   @relation(fields: [userId], references: [id])
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   street1 String
   street2 String?
@@ -114,6 +115,15 @@ model Address {
 }
 
 model EmailVerificationToken {
+  id        String   @id @default(cuid())
+  code      String
+  email     String
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+}
+
+model PasswordResetToken {
   id        String   @id @default(cuid())
   code      String
   email     String

@@ -1,13 +1,6 @@
 const LogoColored = () => {
 	return (
-		<svg
-			className="flex h-[28px] w-[72px] shrink-0"
-			xmlns="http://www.w3.org/2000/svg"
-			width="72"
-			height="27"
-			viewBox="0 0 72 27"
-			fill="none"
-		>
+		<svg className="flex h-[28px] w-[72px] shrink-0" xmlns="http://www.w3.org/2000/svg" width="72" height="27" viewBox="0 0 72 27" fill="none">
 			<path
 				d="M8.32562 23.8617C8.32562 23.2784 8.32562 22.9867 8.37411 22.7442C8.57322 21.7482 9.35573 20.9697 10.3567 20.7716C10.6005 20.7233 10.8936 20.7233 11.4799 20.7233C12.0662 20.7233 12.3593 20.7233 12.603 20.7716C13.6041 20.9697 14.3866 21.7482 14.5857 22.7442C14.6342 22.9867 14.6342 23.2784 14.6342 23.8617V24.9078C14.6342 25.6899 14.6342 26.081 14.4651 26.3723C14.3544 26.5632 14.1951 26.7216 14.0033 26.8318C13.7105 27 13.3175 27 12.5313 27H10.4285C9.64233 27 9.24926 27 8.95648 26.8318C8.76467 26.7216 8.6054 26.5632 8.49466 26.3723C8.32562 26.081 8.32562 25.6899 8.32562 24.9078V23.8617Z"
 				fill="url(#paint0_linear_1122_843)"
@@ -37,36 +30,15 @@ const LogoColored = () => {
 				fill="white"
 			/>
 			<defs>
-				<linearGradient
-					id="paint0_linear_1122_843"
-					x1="11.5"
-					y1="0"
-					x2="11.5"
-					y2="27"
-					gradientUnits="userSpaceOnUse"
-				>
+				<linearGradient id="paint0_linear_1122_843" x1="11.5" y1="0" x2="11.5" y2="27" gradientUnits="userSpaceOnUse">
 					<stop stopColor="#FF4438" />
 					<stop offset="1" stopColor="#FB543D" />
 				</linearGradient>
-				<linearGradient
-					id="paint1_linear_1122_843"
-					x1="11.5"
-					y1="0"
-					x2="11.5"
-					y2="27"
-					gradientUnits="userSpaceOnUse"
-				>
+				<linearGradient id="paint1_linear_1122_843" x1="11.5" y1="0" x2="11.5" y2="27" gradientUnits="userSpaceOnUse">
 					<stop stopColor="#FF4438" />
 					<stop offset="1" stopColor="#FB543D" />
 				</linearGradient>
-				<linearGradient
-					id="paint2_linear_1122_843"
-					x1="11.5"
-					y1="0"
-					x2="11.5"
-					y2="27"
-					gradientUnits="userSpaceOnUse"
-				>
+				<linearGradient id="paint2_linear_1122_843" x1="11.5" y1="0" x2="11.5" y2="27" gradientUnits="userSpaceOnUse">
 					<stop stopColor="#FF4438" />
 					<stop offset="1" stopColor="#FB543D" />
 				</linearGradient>

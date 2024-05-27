@@ -1,13 +1,8 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import ProductListing from "@/components/pay/ProductListing";
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger,
-} from "@/components/ui/primitives/Tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/primitives/Tabs";
 
 import prisma from "@/lib/api/prisma";
 import productAPI from "@/lib/api/product";
@@ -15,8 +10,7 @@ import userAPI, { getUserBySession } from "@/lib/api/user";
 
 export const metadata: Metadata = {
 	title: "Pyro - All Plans",
-	description:
-		"Pyro offers a variety of plans to suit your needs. Whether you want to play games with friends or host your own server, we have you covered.",
+	description: "Pyro offers a variety of plans to suit your needs. Whether you want to play games with friends or host your own server, we have you covered.",
 };
 
 const Page = async () => {
@@ -25,17 +19,12 @@ const Page = async () => {
 
 	const renderProductList = async (everyMonths: number) => (
 		<>
-			<ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			<ul className="grid grid-cols-1 gap-6 lg:grid-cols-3 sm:grid-cols-2">
 				{products.map(async (product) => (
 					<ProductListing
 						key={product?.id}
 						product={product}
-						prices={
-							await productAPI.getPricesByProductIdAndMonths(
-								product.id,
-								everyMonths,
-							)
-						}
+						prices={await productAPI.getPricesByProductIdAndMonths(product.id, everyMonths)}
 						user={sessionUser}
 						everyMonths={everyMonths}
 					/>
@@ -48,13 +37,9 @@ const Page = async () => {
 		<>
 			<section className="relative flex flex-col md:flex-row">
 				<div className="container mx-auto px-4 py-4">
-					<h1 className="text-center text-4xl font-bold md:text-left md:text-5xl">
-						All Plans
-					</h1>
+					<h1 className="text-center font-bold text-4xl md:text-left md:text-5xl">All Plans</h1>
 					<p className="mt-4 text-center text-white md:text-left">
-						Pyro offers a variety of plans to suit your needs. Whether you want
-						to play games with friends or host your own server, we have you
-						covered.
+						Pyro offers a variety of plans to suit your needs. Whether you want to play games with friends or host your own server, we have you covered.
 					</p>
 				</div>
 			</section>

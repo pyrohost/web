@@ -2,17 +2,16 @@ import { generateState } from "arctic";
 import { serializeCookie } from "oslo/cookie";
 
 import { discord, github, oauthProviders, twitch } from "@/lib/api/auth";
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
-async function createProviderAuthorizationURL(
-	provider: string,
-	state: string,
-): Promise<URL> {
+async function createProviderAuthorizationURL(provider: string, state: string): Promise<URL> {
 	switch (provider) {
 		case "github":
 			return github.createAuthorizationURL(state);
 		case "discord":
-			return discord.createAuthorizationURL(state);
+			return discord.createAuthorizationURL(state, {
+				scopes: ["identify", "email", "role_connections.write"],
+			});
 		case "twitch":
 			return twitch.createAuthorizationURL(state);
 		default:
@@ -20,10 +19,7 @@ async function createProviderAuthorizationURL(
 	}
 }
 
-export async function GET(
-	req: NextRequest,
-	{ params }: { params: { provider: string } },
-) {
+export async function GET(req: NextRequest, { params }: { params: { provider: string } }) {
 	const provider = params.provider;
 
 	if (!oauthProviders.includes(provider)) {
@@ -39,7 +35,7 @@ export async function GET(
 			Location: url.toString(),
 			"Set-Cookie": serializeCookie(`${provider}_oauth_state`, state, {
 				httpOnly: true,
-				sameSite: "strict",
+				sameSite: "lax",
 				maxAge: 60 * 5,
 				secure: process.env.NODE_ENV === "production",
 			}),

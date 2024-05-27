@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 import BetterHosting from "@/components/marketing/BetterHosting";
 import BetterVPS from "@/components/marketing/BetterVPS";

@@ -12,7 +12,7 @@ const Page = async () => {
 
 	return (
 		<>
-			<div className="relative m-auto flex w-full max-w-[400px] flex-col gap-4 p-8 rounded-xl border-[1px] border-[#ffffff15] bg-[#ffffff14] shadow-sm">
+			<div className="relative m-auto flex w-full max-w-[400px] flex-col gap-4 rounded-xl border-[#ffffff15] border-[1px] bg-[#ffffff14] p-8 shadow-sm">
 				<div className="">
 					<LogoColored />
 				</div>

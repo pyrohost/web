@@ -1,4 +1,4 @@
-import Email from "@/emails/Email";
+import type Email from "@/emails/Email";
 
 export const VerificationEmail = (code: string): Email => {
 	return {

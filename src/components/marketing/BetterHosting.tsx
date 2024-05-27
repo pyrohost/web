@@ -13,29 +13,22 @@ const BetterHosting = () => {
 				height={1080}
 				className="absolute inset-0 mx-auto w-full opacity-15 grayscale"
 				style={{
-					maskImage:
-						"radial-gradient(85% 100% at 50% 100%, transparent 55.5%, white)",
+					maskImage: "radial-gradient(85% 100% at 50% 100%, transparent 55.5%, white)",
 				}}
 			/>
 			<div
-				className="container relative grid gap-12 pb-20 pt-24 lg:gap-20 lg:py-40"
+				className="container relative grid gap-12 pt-24 pb-20 lg:gap-20 lg:py-40"
 				style={
 					{
 						"--circle-background": "#FF4438",
 					} as React.CSSProperties
 				}
 			>
-				<div className="pointer-events-none absolute bottom-0 left-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-[transparent] to-70% opacity-[12%] xl:left-auto xl:right-[50px]"></div>
+				<div className="pointer-events-none absolute bottom-0 left-0 z-[0] h-[676px] w-[676px] scale-[1.75] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[--circle-background] to-70% to-[transparent] opacity-[12%] xl:right-[50px] xl:left-auto" />
 				<div className="relative z-[14] flex max-w-[750px] flex-col items-start justify-start">
 					<PyroPill
 						leftChild={
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								fill="none"
-							>
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 								<path
 									fillRule="evenodd"
 									clipRule="evenodd"
@@ -47,7 +40,7 @@ const BetterHosting = () => {
 					>
 						Better Hosting
 					</PyroPill>
-					<h1 className="mb-6 max-w-4xl text-[max(48px,min(5vw,90px))] font-extrabold leading-[1.09] tracking-tighter">
+					<h1 className="mb-6 max-w-4xl font-extrabold text-[max(48px,min(5vw,90px))] leading-[1.09] tracking-tighter">
 						<div
 							className=""
 							style={{
@@ -58,67 +51,38 @@ const BetterHosting = () => {
 							<span className="text-brand">powered by Pyro</span>
 						</div>
 					</h1>
-					<p className="mb-6 text-xl font-medium leading-[190%] text-[#ffffff99]">
-						Never pay more to play a specific game. With Pyro, you get unlimited
-						storage, a powerful software suite, and efficient hardware. No
-						hidden fees, zero add-ons, it&apos;s just included.
+					<p className="mb-6 font-medium text-[#ffffff99] text-xl leading-[190%]">
+						Never pay more to play a specific game. With Pyro, you get unlimited storage, a powerful software suite, and efficient hardware. No hidden fees,
+						zero add-ons, it&apos;s just included.
 					</p>
 
-					<PyroButton
-						isArrow
-						variant="quaternary"
-						href="https://pay.pyro.host"
-						external
-					>
+					<PyroButton isArrow variant="quaternary" href="https://pay.pyro.host" external>
 						Host your server, risk-free
 					</PyroButton>
 				</div>
 				<div className="relative flex w-full flex-col gap-5 md:flex-row">
 					<div className="relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5">
-						<div className="xl:px-auto relative grid place-items-center overflow-hidden rounded-[32px] border-2 border-white/10 p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6">
+						<div className="relative grid place-items-center overflow-hidden rounded-[32px] border-2 border-white/10 p-4 lg:p-4 2xl:px-6 xl:px-auto 2xl:py-6 sm:py-6">
 							<div className="flex h-full flex-col items-center text-center">
-								<Image
-									src="/img/backups_dark.png"
-									width={576}
-									height={400}
-									alt=""
-									className="relative mb-8 w-full opacity-75 grayscale"
-								/>
-								<div className="mb-2 mt-auto text-2xl font-bold tracking-tight">
-									Free backups included. Never lose your worlds or data again
-								</div>
+								<Image src="/img/backups_dark.png" width={576} height={400} alt="" className="relative mb-8 w-full opacity-75 grayscale" />
+								<div className="mt-auto mb-2 font-bold text-2xl tracking-tight">Free backups included. Never lose your worlds or data again</div>
 							</div>
 						</div>
 					</div>
 					<div className="relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5">
-						<div className="xl:px-auto relative grid place-items-center overflow-hidden rounded-[32px] border-2 border-white/10 p-4 sm:py-6 lg:p-4 2xl:px-6 2xl:py-6">
+						<div className="relative grid place-items-center overflow-hidden rounded-[32px] border-2 border-white/10 p-4 lg:p-4 2xl:px-6 xl:px-auto 2xl:py-6 sm:py-6">
 							<div className="flex h-full flex-col items-center text-center">
-								<Image
-									src="/img/storage_dark.png"
-									width={576}
-									height={400}
-									alt=""
-									className="relative mb-8 w-full opacity-75"
-								/>
-								<div className="mb-2 mt-auto text-2xl font-bold tracking-tight">
-									Unlimited storage for all of your files, mods, and worlds
-								</div>
+								<Image src="/img/storage_dark.png" width={576} height={400} alt="" className="relative mb-8 w-full opacity-75" />
+								<div className="mt-auto mb-2 font-bold text-2xl tracking-tight">Unlimited storage for all of your files, mods, and worlds</div>
 							</div>
 						</div>
 					</div>
 					<div className="relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5">
-						<div className="xl:px-auto relative grid w-full place-items-center overflow-hidden rounded-[32px] bg-brand/10 p-4 text-center sm:py-6 lg:p-4 2xl:px-6 2xl:py-6">
+						<div className="relative grid w-full place-items-center overflow-hidden rounded-[32px] bg-brand/10 p-4 text-center lg:p-4 2xl:px-6 xl:px-auto 2xl:py-6 sm:py-6">
 							<div className="flex flex-col items-center">
-								<Image
-									src="/img/lock_color_fix.png"
-									width={576}
-									height={400}
-									alt=""
-									className="relative mb-8"
-								/>
-								<div className="mb-2 mt-auto text-2xl font-bold tracking-tight text-brand">
-									Secure and private. We don&apos;t sell advertisements or your
-									data
+								<Image src="/img/lock_color_fix.png" width={576} height={400} alt="" className="relative mb-8" />
+								<div className="mt-auto mb-2 font-bold text-2xl text-brand tracking-tight">
+									Secure and private. We don&apos;t sell advertisements or your data
 								</div>
 							</div>
 						</div>
@@ -127,68 +91,38 @@ const BetterHosting = () => {
 				<div className="grid grid-cols-1 gap-12 md:grid-cols-3">
 					<div className="col-span-1">
 						<div className="flex flex-col gap-1">
-							<span className="text-lg font-bold text-brand">
-								Overflow Memory
-							</span>
-							<span className="">
-								NVMe-based memory that kicks in when you need it most. No more
-								lag.
-							</span>
+							<span className="font-bold text-brand text-lg">Overflow Memory</span>
+							<span className="">NVMe-based memory that kicks in when you need it most. No more lag.</span>
 						</div>
 					</div>
 					<div className="col-span-1">
 						<div className="flex flex-col gap-1">
-							<span className="text-lg font-bold text-brand">
-								Incredibly low latency
-							</span>
-							<span className="">
-								Pyro provides the lowest latency possible for your game server,
-								no matter where you are.
-							</span>
+							<span className="font-bold text-brand text-lg">Incredibly low latency</span>
+							<span className="">Pyro provides the lowest latency possible for your game server, no matter where you are.</span>
 						</div>
 					</div>
 					<div className="col-span-1">
 						<div className="flex flex-col gap-1">
-							<span className="text-lg font-bold text-brand">
-								Zero player limits
-							</span>
-							<span className="">
-								Bring as many friends as you want to your server. Pyro has no
-								player limits.
-							</span>
+							<span className="font-bold text-brand text-lg">Zero player limits</span>
+							<span className="">Bring as many friends as you want to your server. Pyro has no player limits.</span>
 						</div>
 					</div>
 					<div className="col-span-1">
 						<div className="flex flex-col gap-1">
-							<span className="text-lg font-bold text-brand">
-								Free subdomain
-							</span>
-							<span className="">
-								Get a free pyro.host subdomain with every server you host with
-								Pyro.
-							</span>
+							<span className="font-bold text-brand text-lg">Free subdomain</span>
+							<span className="">Get a free pyro.host subdomain with every server you host with Pyro.</span>
 						</div>
 					</div>
 					<div className="col-span-1">
 						<div className="flex flex-col gap-1">
-							<span className="text-lg font-bold text-brand">
-								Mods, plugins, and more
-							</span>
-							<span className="">
-								Pyro supports all mods and plugins, no matter how complex they
-								are.
-							</span>
+							<span className="font-bold text-brand text-lg">Mods, plugins, and more</span>
+							<span className="">Pyro supports all mods and plugins, no matter how complex they are.</span>
 						</div>
 					</div>
 					<div className="col-span-1">
 						<div className="flex flex-col gap-1">
-							<span className="text-lg font-bold text-brand">
-								Phenomenal support
-							</span>
-							<span className="">
-								Direct access to our engineers and designers over Discord.
-								We&apos;re here to help.
-							</span>
+							<span className="font-bold text-brand text-lg">Phenomenal support</span>
+							<span className="">Direct access to our engineers and designers over Discord. We&apos;re here to help.</span>
 						</div>
 					</div>
 				</div>

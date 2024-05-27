@@ -36,10 +36,7 @@ class DiscordAPI {
 		const response = await fetch(`${this.baseURL}${path}`, options);
 		if (!response.ok) {
 			const body = await response.text();
-			throw new APIError(
-				response.status,
-				`Error fetching ${path}: [${response.status}] ${response.statusText}\n${body}`,
-			);
+			throw new APIError(response.status, `Error fetching ${path}: [${response.status}] ${response.statusText}\n${body}`);
 		}
 		return (await response.json()) as T;
 	}
@@ -53,16 +50,13 @@ class DiscordAPI {
 			redirect_uri: this.redirectUri,
 		});
 
-		const tokenResponse = await this.request<OAuthTokenResponse>(
-			"/oauth2/token",
-			{
-				body,
-				method: "POST",
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded",
-				},
+		const tokenResponse = await this.request<OAuthTokenResponse>("/oauth2/token", {
+			body,
+			method: "POST",
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded",
 			},
-		);
+		});
 
 		return {
 			access_token: tokenResponse.access_token,
@@ -108,28 +102,22 @@ class DiscordAPI {
 	}
 
 	async pushMetadata(tokens: TokenInfo, metadata: Record<string, any>) {
-		await this.request(
-			`/users/@me/applications/${this.clientId}/role-connection`,
-			{
-				method: "PUT",
-				body: JSON.stringify({ platform_name: "Pyro", metadata }),
-				headers: {
-					Authorization: `Bearer ${tokens.access_token}`,
-					"Content-Type": "application/json",
-				},
+		await this.request(`/users/@me/applications/${this.clientId}/role-connection`, {
+			method: "PUT",
+			body: JSON.stringify({ platform_name: "Pyro", metadata }),
+			headers: {
+				Authorization: `Bearer ${tokens.access_token}`,
+				"Content-Type": "application/json",
 			},
-		);
+		});
 	}
 
 	async getMetadata(tokens: TokenInfo) {
-		return await this.request(
-			`/users/@me/applications/${this.clientId}/role-connection`,
-			{
-				headers: {
-					Authorization: `Bearer ${tokens.access_token}`,
-				},
+		return await this.request(`/users/@me/applications/${this.clientId}/role-connection`, {
+			headers: {
+				Authorization: `Bearer ${tokens.access_token}`,
 			},
-		);
+		});
 	}
 }
 
