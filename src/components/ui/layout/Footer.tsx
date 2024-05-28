@@ -40,17 +40,20 @@ const Footer = () => {
 				<footer className="container sticky bottom-0 flex w-full flex-col justify-between gap-12 rounded-t-3xl px-8 py-7 sm:flex-row md:gap-x-12">
 					<div className="flex flex-col items-start gap-4 lg:w-fit md:w-full">
 						<LogoWhite />
-						<div className="flex flex-col gap-3">
+						<div className="flex flex-col gap-3 md:flex-row">
 							<p className="text-[#999] text-xs">© 2024 Pyro Host Inc.</p>
 							<div className="flex flex-row gap-4">
 								<Link href="/legal/tos" className="text-[#999] text-xs">
-									Terms of Service
+									Terms
 								</Link>
 								<Link href="/legal/privacy" className="text-[#999] text-xs">
-									Privacy Policy
+									Privacy
 								</Link>
 								<Link href="/legal/cookies" className="text-[#999] text-xs">
 									Cookies
+								</Link>
+								<Link className="text-[#999] text-xs" href="https://github.com/pyrohost/web">
+									Source Code
 								</Link>
 							</div>
 						</div>
