@@ -21,8 +21,8 @@ const Page = () => {
 			<div className="z-10 mx-auto flex w-full max-w-[65ch] flex-col px-6 py-16 lg:px-12 lg:py-32">
 				<h1 className="mt-4 font-extrabold text-[max(36px,min(5vw,48px))] leading-[98%] tracking-[-0.22rem]">Pyro's Privacy Policy</h1>
 				<div className="mt-8 flex flex-col text-xl">
-					<strong>Last Updated: February 8, 2024</strong>
-					<strong>Effective: February 15, 2024</strong>
+					<strong>Last Updated: May 28, 2024</strong>
+					<strong>Effective: May 28, 2024</strong>
 				</div>
 				<article className="mt-8 flex flex-col gap-4 leading-[155%]">
 					<div>
@@ -117,7 +117,7 @@ const Page = () => {
 						</ul>
 						<br />
 						<strong>C. Marketing and Advertising our Services.</strong>
-						We may use your information to market and advertise our Services directly to you if you have signed up for our Services.
+						We may use your information to market and advertise our Services directly to you.
 						<br />
 						<br />
 						<strong>D. Other Purposes.</strong> <br />
