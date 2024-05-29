@@ -91,9 +91,7 @@ const MarketingHeader = () => {
 													<NavLinkItem href="https://vps.pyro.host" external>
 														VPS Panel
 													</NavLinkItem>
-													<NavLinkItem href="/account">
-														Billing
-													</NavLinkItem>
+													<NavLinkItem href="/account">Billing</NavLinkItem>
 													<NavLinkItem href="https://pyro.host/discord" external>
 														Support
 													</NavLinkItem>
@@ -127,7 +125,7 @@ const MarketingHeader = () => {
 							</div>
 						</header>
 					</div>
-					<NavigationMenu.Viewport className="navTransition container mx-auto h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden data-[state=closed]:animate-heightOut data-[state=open]:animate-heightIn" />
+					<NavigationMenu.Viewport className="navTransition container mx-auto h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden data-[state=closed]:animate-height-out data-[state=open]:animate-height-in" />
 				</div>
 			</NavigationMenu.Root>
 		</>
