@@ -50,23 +50,27 @@ function isValidInput(email: string, password: string): boolean {
 	return true;
 }
 
-export const register = async (formData: FormData): Promise<ActionResult> => {
-	const email = formData.get("email") as string;
-	const password = formData.get("password") as string;
-
+async function validateCaptcha(formData: FormData, headers: Headers) {
 	const token = formData.get("cf-turnstile-response") as string;
 
 	const captchaForm = new FormData();
 	captchaForm.append("secret", process.env.TURNSTILE_SECRET_KEY!);
 	captchaForm.append("response", token);
-	captchaForm.append("remoteip", headers().get("cf-connecting-ip") || "");
+	captchaForm.append("remoteip", headers.get("cf-connecting-ip") || "");
 
 	const captchaValidation = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
 		method: "POST",
 		body: captchaForm,
 	});
 
-	const captchaResponse = await captchaValidation.json();
+	return await captchaValidation.json();
+}
+
+export const register = async (formData: FormData): Promise<ActionResult> => {
+	const email = formData.get("email") as string;
+	const password = formData.get("password") as string;
+
+	const captchaResponse = await validateCaptcha(formData, headers());
 
 	if (!captchaResponse.success) {
 		return { error: "Invalid captcha" };
@@ -91,19 +95,7 @@ export const login = async (formData: FormData): Promise<ActionResult> => {
 	const email = formData.get("email") as string;
 	const password = formData.get("password") as string;
 
-	const token = formData.get("cf-turnstile-response") as string;
-
-	const captchaForm = new FormData();
-	captchaForm.append("secret", process.env.TURNSTILE_SECRET_KEY!);
-	captchaForm.append("response", token);
-	captchaForm.append("remoteip", headers().get("cf-connecting-ip") || "");
-
-	const captchaValidation = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-		method: "POST",
-		body: captchaForm,
-	});
-
-	const captchaResponse = await captchaValidation.json();
+	const captchaResponse = await validateCaptcha(formData, headers());
 
 	if (!captchaResponse.success) {
 		return { error: "Invalid captcha" };
@@ -152,19 +144,7 @@ export const verifyEmail = async (formData: FormData, user: User): Promise<Actio
 };
 
 export const sendResetPasswordEmail = async (formData: FormData): Promise<ActionResult> => {
-	const token = formData.get("cf-turnstile-response") as string;
-
-	const captchaForm = new FormData();
-	captchaForm.append("secret", process.env.TURNSTILE_SECRET_KEY!);
-	captchaForm.append("response", token);
-	captchaForm.append("remoteip", headers().get("cf-connecting-ip") || "");
-
-	const captchaValidation = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-		method: "POST",
-		body: captchaForm,
-	});
-
-	const captchaResponse = await captchaValidation.json();
+	const captchaResponse = await validateCaptcha(formData, headers());
 
 	if (!captchaResponse.success) {
 		return { error: "Invalid captcha" };
