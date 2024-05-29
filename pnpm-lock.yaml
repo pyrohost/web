@@ -68,9 +68,6 @@ importers:
       '@stripe/stripe-js':
         specifier: ^3.4.1
         version: 3.4.1
-      '@trivago/prettier-plugin-sort-imports':
-        specifier: ^4.3.0
-        version: 4.3.0(prettier@3.2.5)
       arctic:
         specifier: ^1.9.0
         version: 1.9.0
@@ -2369,6 +2366,7 @@ snapshots:
     dependencies:
       '@babel/highlight': 7.24.5
       picocolors: 1.0.1
+    optional: true
 
   '@babel/code-frame@7.24.6':
     dependencies:
@@ -2402,6 +2400,7 @@ snapshots:
       '@babel/types': 7.17.0
       jsesc: 2.5.2
       source-map: 0.5.7
+    optional: true
 
   '@babel/generator@7.24.5':
     dependencies:
@@ -2409,6 +2408,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
       jsesc: 2.5.2
+    optional: true
 
   '@babel/generator@7.24.6':
     dependencies:
@@ -2425,7 +2425,8 @@ snapshots:
       lru-cache: 5.1.1
       semver: 6.3.1
 
-  '@babel/helper-environment-visitor@7.22.20': {}
+  '@babel/helper-environment-visitor@7.22.20':
+    optional: true
 
   '@babel/helper-environment-visitor@7.24.6': {}
 
@@ -2433,6 +2434,7 @@ snapshots:
     dependencies:
       '@babel/template': 7.24.0
       '@babel/types': 7.24.5
+    optional: true
 
   '@babel/helper-function-name@7.24.6':
     dependencies:
@@ -2442,6 +2444,7 @@ snapshots:
   '@babel/helper-hoist-variables@7.22.5':
     dependencies:
       '@babel/types': 7.24.5
+    optional: true
 
   '@babel/helper-hoist-variables@7.24.6':
     dependencies:
@@ -2467,16 +2470,19 @@ snapshots:
   '@babel/helper-split-export-declaration@7.24.5':
     dependencies:
       '@babel/types': 7.24.5
+    optional: true
 
   '@babel/helper-split-export-declaration@7.24.6':
     dependencies:
       '@babel/types': 7.24.6
 
-  '@babel/helper-string-parser@7.24.1': {}
+  '@babel/helper-string-parser@7.24.1':
+    optional: true
 
   '@babel/helper-string-parser@7.24.6': {}
 
-  '@babel/helper-validator-identifier@7.24.5': {}
+  '@babel/helper-validator-identifier@7.24.5':
+    optional: true
 
   '@babel/helper-validator-identifier@7.24.6': {}
 
@@ -2493,6 +2499,7 @@ snapshots:
       chalk: 2.4.2
       js-tokens: 4.0.0
       picocolors: 1.0.1
+    optional: true
 
   '@babel/highlight@7.24.6':
     dependencies:
@@ -2504,6 +2511,7 @@ snapshots:
   '@babel/parser@7.24.5':
     dependencies:
       '@babel/types': 7.17.0
+    optional: true
 
   '@babel/parser@7.24.6':
     dependencies:
@@ -2518,6 +2526,7 @@ snapshots:
       '@babel/code-frame': 7.24.2
       '@babel/parser': 7.24.5
       '@babel/types': 7.24.5
+    optional: true
 
   '@babel/template@7.24.6':
     dependencies:
@@ -2539,6 +2548,7 @@ snapshots:
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   '@babel/traverse@7.24.6':
     dependencies:
@@ -2559,12 +2569,14 @@ snapshots:
     dependencies:
       '@babel/helper-validator-identifier': 7.24.5
       to-fast-properties: 2.0.0
+    optional: true
 
   '@babel/types@7.24.5':
     dependencies:
       '@babel/helper-string-parser': 7.24.1
       '@babel/helper-validator-identifier': 7.24.5
       to-fast-properties: 2.0.0
+    optional: true
 
   '@babel/types@7.24.6':
     dependencies:
@@ -3504,6 +3516,7 @@ snapshots:
       prettier: 3.2.5
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   '@tybys/wasm-util@0.8.3':
     dependencies:
@@ -3886,7 +3899,8 @@ snapshots:
     optionalDependencies:
       '@pkgjs/parseargs': 0.11.0
 
-  javascript-natural-sort@0.7.1: {}
+  javascript-natural-sort@0.7.1:
+    optional: true
 
   jiti@1.21.0: {}
 
@@ -3904,7 +3918,8 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
-  lodash@4.17.21: {}
+  lodash@4.17.21:
+    optional: true
 
   loose-envify@1.4.0:
     dependencies:
@@ -4257,7 +4272,8 @@ snapshots:
 
   source-map-js@1.2.0: {}
 
-  source-map@0.5.7: {}
+  source-map@0.5.7:
+    optional: true
 
   streamsearch@1.1.0: {}
 
