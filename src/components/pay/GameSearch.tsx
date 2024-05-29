@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import Link from "next/link";
 
-import { games } from "@/lib/static/static";
+import { games } from "@/lib/static/games";
 
 export const GameSearch = () => {
 	const [searchTerm, setSearchTerm] = useState("");

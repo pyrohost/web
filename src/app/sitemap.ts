@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 
-import { games } from "@/lib/static/static";
+import { games } from "@/lib/static/games";
 
 function generateGameMap(games: { name: string; slug: string; images: { banner: string } }[]): MetadataRoute.Sitemap {
-	return games.map(game => {
+	return games.map((game) => {
 		return {
 			url: `https://pyro.host/for/${game.slug}`,
 			lastModified: new Date(),

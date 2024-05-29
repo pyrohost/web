@@ -10,7 +10,7 @@ import PyroPill from "@/components/ui/PyroPill";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/primitives/Accordion";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/primitives/Carousel";
 
-import { getGameBySlug, plans } from "@/lib/static/static";
+import { getGameBySlug, plans } from "@/lib/static/games";
 
 export const metadata: Metadata = {
 	title: "Pyro - Minecraft Hosting",
