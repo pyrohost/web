@@ -24,7 +24,7 @@ const OneApp = () => {
 				<div className="relative flex w-full flex-col gap-5 xl:flex-row">
 					<div className="relative z-[14] grid w-full grid-flow-row gap-3 xl:gap-5">
 						<div className="relative grid aspect-video w-full place-items-center overflow-hidden">
-							<Image src="/img/panel/home.png" fill alt="" className="object-cover" />
+							<Image src="/img/panel/home.png" fill sizes="66vw" alt="" className="object-cover" />
 						</div>
 					</div>
 					<div className="relative z-[14] grid w-full grid-flow-row gap-3 xl:w-[45%] xl:gap-5">
