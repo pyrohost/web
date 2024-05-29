@@ -113,10 +113,10 @@ const MarketingHeader = () => {
 													asChild
 													className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 font-extrabold text-sm transition hover:bg-[#ffffff22]"
 												>
-													<Link className="flex items-center gap-2" rel="noopener noreferrer" target="_blank" href="/discord">
+													<a className="flex items-center gap-2" rel="noopener noreferrer" target="_blank" href="/discord">
 														<span>Discord</span>
 														<ExternalLinkIcon />
-													</Link>
+													</a>
 												</NavigationMenu.Trigger>
 											</NavigationMenu.Item>
 										</ul>
