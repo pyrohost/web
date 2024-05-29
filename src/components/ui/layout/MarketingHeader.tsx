@@ -91,7 +91,7 @@ const MarketingHeader = () => {
 													<NavLinkItem href="https://vps.pyro.host" external>
 														VPS Panel
 													</NavLinkItem>
-													<NavLinkItem href="https://pay.pyro.host" external>
+													<NavLinkItem href="/account">
 														Billing
 													</NavLinkItem>
 													<NavLinkItem href="https://pyro.host/discord" external>

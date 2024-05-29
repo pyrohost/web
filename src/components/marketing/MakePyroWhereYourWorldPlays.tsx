@@ -55,7 +55,7 @@ const MakePyroWhereYourWorldPlays = () => {
 			</p>
 			<div className="inline-flex items-center gap-5 rounded-full border border-brand/50 border-dashed p-2">
 				<Link
-					href="https://pay.pyro.host"
+					href="/for"
 					className="flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad px-12 py-5 font-bold text-sm shadow-lg"
 				>
 					<p>Start a game server in minutes</p>

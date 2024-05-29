@@ -56,7 +56,7 @@ const BetterHosting = () => {
 						zero add-ons, it&apos;s just included.
 					</p>
 
-					<PyroButton isArrow variant="quaternary" href="https://pay.pyro.host" external>
+					<PyroButton isArrow variant="quaternary" href="/for">
 						Host your server, risk-free
 					</PyroButton>
 				</div>
