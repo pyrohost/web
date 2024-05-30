@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
 import React, { Suspense } from "react";
-
-import { Cross1Icon } from "@radix-ui/react-icons";
 
 import AccountInformation from "@/components/account/AccountInformation";
 import AccountConnections from "@/components/account/AccountConnections";
