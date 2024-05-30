@@ -39,6 +39,10 @@ model User {
 
   // sessions
   sessions Session[]
+
+  // timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model OAuthConnection {
