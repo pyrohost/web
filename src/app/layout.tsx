@@ -14,7 +14,7 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://pyro.host/"),
-	title: "pyro.host",
+	title: "Pyro",
 	description: "Pyro is where your world plays. Instantly available, lag-free servers with unmatched value.",
 	openGraph: {
 		title: "Pyro",
