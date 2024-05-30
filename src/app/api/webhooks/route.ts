@@ -40,12 +40,12 @@ export async function POST(req: Request) {
 	const permittedEvents: string[] = [
 		"customer.subscription.deleted",
 		"checkout.session.completed",
-		"payment_intent.succeeded",
 		"payment_intent.payment_failed",
+		"invoice.payment_succeeded",
 	];
 
 	if (permittedEvents.includes(event.type)) {
-		let data: Stripe.Checkout.Session | Stripe.PaymentIntent;
+		let data: Stripe.Checkout.Session | Stripe.PaymentIntent | Stripe.InvoicePaymentSucceededEvent | undefined;
 
 		try {
 			switch (event.type) {
@@ -81,10 +81,10 @@ export async function POST(req: Request) {
 					}
 					break;
 				}
-				case "payment_intent.succeeded": {
-					data = event.data.object as Stripe.PaymentIntent;
+				case "invoice.payment_succeeded": {
+					data = event.data.object as unknown as Stripe.InvoicePaymentSucceededEvent;
 
-					const invoice = await stripe.invoices.retrieve(data.invoice as string);
+					const invoice = await stripe.invoices.retrieve(data.id);
 					const subscription = await stripe.subscriptions.retrieve(invoice.subscription as string);
 					const metadata = (await stripe.products.retrieve(invoice.lines.data[0].plan?.product as string)).metadata;
 
@@ -94,7 +94,7 @@ export async function POST(req: Request) {
 						return NextResponse.json({ message: "Server already exists" }, { status: 400 });
 					}
 
-					const stripeCustomer = await stripe.customers.retrieve(data.customer as string);
+					const stripeCustomer = await stripe.customers.retrieve(subscription.customer as string);
 					if (!stripeCustomer) return NextResponse.json({ message: "Customer not found" }, { status: 404 });
 					if (stripeCustomer.deleted) return NextResponse.json({ message: "Customer is deleted" }, { status: 404 });
 
@@ -155,7 +155,7 @@ export async function POST(req: Request) {
 						external_id: subscription.id,
 					});
 
-					console.log(`💰 PaymentIntent status: ${data.status}`);
+					console.log(`🚀 Created server ${serverName} for user ${pyrodactylUser.id}`);
 					break;
 				}
 				default:
