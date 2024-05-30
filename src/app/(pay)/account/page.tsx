@@ -7,7 +7,7 @@ import React, { Suspense } from "react";
 import { Cross1Icon } from "@radix-ui/react-icons";
 
 import AccountInformation from "@/components/account/AccountInformation";
-import AccountConnections from "@/components/pay/AccountConnections";
+import AccountConnections from "@/components/account/AccountConnections";
 import DashboardSkeletonSection from "@/components/pay/DashboardSkeletonSection";
 import StripeSubscriptions from "@/components/pay/StripeSubscriptions";
 
@@ -51,21 +51,21 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
 				</div>
 			)}
 
-			<Suspense fallback={<DashboardSkeletonSection title={"Account Information"} />}>
+			<Suspense fallback={<DashboardSkeletonSection title={"Payment Information"} />}>
 				<AccountInformation user={dbUser} />
 			</Suspense>
 
-			{/* <AccountInformation sessionUser={user} /> */}
-			{/* <Suspense fallback={<DashboardSkeletonSection title={'Account Connections'} />}>
-                <AccountConnections user={user} />
-            </Suspense> */}
-			<Suspense fallback={<DashboardSkeletonSection title={"Active Subscriptions"} />}>
+			<Suspense fallback={<DashboardSkeletonSection title={"Connections"} />}>
+				<AccountConnections user={dbUser} />
+			</Suspense>
+
+			<Suspense fallback={<DashboardSkeletonSection title={"Subscriptions"} />}>
 				<StripeSubscriptions customerId={dbUser.stripeCustomerId ?? ""} />
 			</Suspense>
 
 			<div className="flex flex-col rounded-xl border-[#ffffff15] border-[1px] bg-[#ffffff14] shadow-sm">
-				<div className="group flex w-full cursor-pointer select-none items-center justify-between p-6 text-left">
-					<div className="w-full flex flex-row items-center justify-between">
+				<div className="group flex w-full select-none items-center justify-between p-6 text-left">
+					<div className="flex w-full flex-row items-center justify-between">
 						<h2 className="font-extrabold text-2xl">Log Out</h2>
 						<LogoutForm />
 					</div>

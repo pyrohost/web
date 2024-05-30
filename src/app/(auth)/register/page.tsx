@@ -9,7 +9,7 @@ import RegisterForm from "@/components/auth/RegisterForm";
 import LogoColored from "@/components/icons/LogoColored";
 
 import { getUserBySession } from "@/lib/api/user";
-import Script from 'next/script';
+import Script from "next/script";
 
 export const metadata: Metadata = {
 	title: "Pyro - Sign Up",

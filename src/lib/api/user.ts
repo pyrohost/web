@@ -7,7 +7,7 @@ import { cookies } from "next/headers";
 
 import { cache } from "react";
 
-import type { Address, User } from "@prisma/client";
+import type { Address, OAuthConnection, User } from "@prisma/client";
 
 import prisma from "@/lib/api/prisma";
 import pterodactyl from "@/lib/api/pterodactyl";
@@ -97,12 +97,59 @@ class UserAPI {
 			.user();
 	}
 
-	async linkOAuthAccount(user: User, providerId: string, providerUserId: string): Promise<void> {
-		await prisma.oAuthConnection.create({
+	// TODO: may make an account inaccessible
+	// if an account is already linked to an account
+	async linkOAuthAccount(
+		user: User,
+		providerId: string,
+		providerUserId: string,
+		tokens: { accessToken?: string; refreshToken?: string; expiry?: Date },
+	): Promise<void> {
+		const connection = await prisma.oAuthConnection.findFirst({
+			where: { providerId, providerUserId },
+		});
+
+		if (connection) {
+			await prisma.oAuthConnection.update({
+				where: { id: connection.id },
+				data: {
+					userId: user.id,
+					accessToken: tokens.accessToken,
+					refreshToken: tokens.refreshToken,
+					expiresAt: tokens.expiry,
+				},
+			});
+		} else {
+			await prisma.oAuthConnection.create({
+				data: {
+					providerId,
+					providerUserId,
+					userId: user.id,
+					accessToken: tokens.accessToken,
+					refreshToken: tokens.refreshToken,
+					expiresAt: tokens.expiry,
+				},
+			});
+		}
+	}
+
+	async getUserOAuthConnections(user: User): Promise<OAuthConnection[]> {
+		return prisma.oAuthConnection.findMany({ where: { userId: user.id } });
+	}
+
+	async updateOAuthAccount(user: User, providerId: string, tokens: { accessToken?: string; refreshToken?: string; expiry?: Date }): Promise<void> {
+		const connection = await prisma.oAuthConnection.findFirst({
+			where: { providerId, userId: user.id },
+		});
+
+		if (!connection) return;
+
+		await prisma.oAuthConnection.update({
+			where: { id: connection.id },
 			data: {
-				providerId,
-				providerUserId,
-				userId: user.id,
+				accessToken: tokens.accessToken,
+				refreshToken: tokens.refreshToken,
+				expiresAt: tokens.expiry,
 			},
 		});
 	}
@@ -162,17 +209,10 @@ class UserAPI {
 		});
 
 		if (oauth) {
-			await prisma.oAuthConnection.create({
-				data: {
-					userId: user.id,
-					providerId: oauth.providerId,
-					providerUserId: oauth.providerUserId,
-
-					// optional
-					accessToken: oauth.accessToken,
-					refreshToken: oauth.refreshToken,
-					expiresAt: oauth.expiry,
-				},
+			await this.linkOAuthAccount(user, oauth.providerId, oauth.providerUserId, {
+				accessToken: oauth.accessToken,
+				refreshToken: oauth.refreshToken,
+				expiry: oauth.expiry,
 			});
 		}
 

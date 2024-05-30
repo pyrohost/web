@@ -54,10 +54,7 @@ const MakePyroWhereYourWorldPlays = () => {
 				You&apos;ve never played on a server like this before. Try a Pyro server risk-free with a 24-hour money-back guarantee. No questions asked.
 			</p>
 			<div className="inline-flex items-center gap-5 rounded-full border border-brand/50 border-dashed p-2">
-				<Link
-					href="/for"
-					className="flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad px-12 py-5 font-bold text-sm shadow-lg"
-				>
+				<Link href="/for" className="flex w-full items-center justify-center gap-4 rounded-full bg-brandGrad px-12 py-5 font-bold text-sm shadow-lg">
 					<p>Start a game server in minutes</p>
 					<ArrowRightIcon />
 				</Link>

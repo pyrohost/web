@@ -76,7 +76,7 @@ export const editPhoneNumber = async (formData: FormData, user: User): Promise<A
 
 	user.phone = phone;
 
-	await userAPI.updateUser(user)
+	await userAPI.updateUser(user);
 
 	return { success: "Phone number updated" };
 };

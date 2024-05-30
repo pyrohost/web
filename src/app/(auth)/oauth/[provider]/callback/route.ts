@@ -1,71 +1,8 @@
-import { discord, github, modrinth } from "@/lib/api/auth";
+import { getProviderOAuthResponse } from "@/lib/api/oauth";
 import sessionAPI from "@/lib/api/session";
-import userAPI from "@/lib/api/user";
+import userAPI, { getUserBySession } from "@/lib/api/user";
+import type { User } from "@prisma/client";
 import { cookies } from "next/headers";
-import { OAuth2Client } from "oslo/oauth2";
-
-interface AuthResponse {
-	id: string;
-	email: string;
-	accessToken?: string;
-	refreshToken?: string;
-	expiry?: Date;
-}
-
-async function authenticateWithGitHub(code: string): Promise<AuthResponse> {
-	const { accessToken } = await github.validateAuthorizationCode(code);
-
-	const userRequest = await fetch("https://api.github.com/user", {
-		headers: { Authorization: `token ${accessToken}` },
-	});
-	const userData = await userRequest.json();
-
-	const emailRequest = await fetch("https://api.github.com/user/emails", {
-		headers: { Authorization: `token ${accessToken}` },
-	});
-	const userEmails = await emailRequest.json();
-
-	const primaryEmail = userEmails.find((email: any) => email.primary && email.verified)?.email;
-
-	return {
-		id: userData.id,
-		email: primaryEmail,
-		accessToken,
-	};
-}
-
-async function authenticateWithDiscord(code: string): Promise<AuthResponse> {
-	const { accessToken, refreshToken, accessTokenExpiresAt } = await discord.validateAuthorizationCode(code);
-
-	const userRequest = await fetch("https://discord.com/api/v10/users/@me", {
-		headers: { Authorization: `Bearer ${accessToken}` },
-	});
-	const userData = await userRequest.json();
-
-	return {
-		id: userData.id,
-		email: userData.email,
-		accessToken,
-		refreshToken,
-		expiry: accessTokenExpiresAt,
-	};
-}
-
-async function authenticateWithModrinth(code: string): Promise<AuthResponse> {
-	const { access_token } = await modrinth.validateAuthorizationCode(code, {
-		credentials: process.env.MODRINTH_CLIENT_SECRET!,
-	});
-
-	const userRequest = await fetch("https://api.modrinth.com/v2/user", {
-		headers: { Authorization: `Bearer ${access_token}` },
-	});
-	const userData = await userRequest.json();
-
-	return {
-		id: userData.id,
-		email: userData.email,
-	};
-}
 
 export async function GET(request: Request, { params }: { params: { provider: string } }) {
 	const provider = params.provider;
@@ -78,44 +15,28 @@ export async function GET(request: Request, { params }: { params: { provider: st
 	}
 
 	const storedState = cookies().get(`${provider}_oauth_state`);
-	if (!storedState || storedState.value !== stateParam) {
+	const codeVerifier = cookies().get(`${provider}_oauth_code_verifier`);
+	if (!storedState || storedState.value !== stateParam || !codeVerifier) {
 		return new Response("Invalid state", { status: 400 });
 	}
-
 	cookies().delete(`${provider}_oauth_state`);
 
-	let authResponse = null;
-	try {
-		switch (provider) {
-			case "github":
-				authResponse = await authenticateWithGitHub(authorizationCode);
-				break;
-			case "discord":
-				authResponse = await authenticateWithDiscord(authorizationCode);
-				break;
-			case "modrinth":
-				authResponse = await authenticateWithModrinth(authorizationCode);
-				break;
-			default:
-				return new Response("Unsupported OAuth provider", { status: 400 });
+	const oauthResponse = await getProviderOAuthResponse(provider, authorizationCode, codeVerifier.value);
+	let user: User | null;
+
+	const sessionUser = await getUserBySession();
+	if (sessionUser) {
+		user = await userAPI.getUserById(sessionUser.id);
+		if (!user) {
+			return new Response("Invalid session. Try logging out and logging in again.", { status: 400 });
 		}
-	} catch (error) {
-		console.log(error);
-		return new Response("Authentication failed (1000)", { status: 500 });
-	}
 
-	if (!authResponse) {
-		return new Response("Authentication failed (1001)", { status: 500 });
-	}
+		await userAPI.linkOAuthAccount(user, provider, oauthResponse.id.toString(), {
+			accessToken: oauthResponse.accessToken,
+			refreshToken: oauthResponse.refreshToken,
+			expiry: oauthResponse.expiry,
+		});
 
-	if (!authResponse.email) {
-		return new Response(`No email found for ${provider} account`, { status: 400 });
-	}
-
-	let user = await userAPI.getUserByOAuthId(provider, authResponse.id.toString());
-
-	if (user) {
-		await sessionAPI.createAndSetSession(user.id);
 		return new Response(null, {
 			status: 302,
 			headers: {
@@ -124,18 +45,42 @@ export async function GET(request: Request, { params }: { params: { provider: st
 		});
 	}
 
-	user = await userAPI.getUserByEmail(authResponse.email);
+	user = await userAPI.getUserByOAuthId(provider, oauthResponse.id.toString());
+	if (user) {
+		await sessionAPI.createAndSetSession(user.id);
+		await userAPI.updateOAuthAccount(user, provider, {
+			accessToken: oauthResponse.accessToken,
+			refreshToken: oauthResponse.refreshToken,
+			expiry: oauthResponse.expiry,
+		});
+
+		return new Response(null, {
+			status: 302,
+			headers: {
+				Location: "/account",
+			},
+		});
+	}
+
+	user = await userAPI.getUserByEmail(oauthResponse.email);
 
 	if (!user) {
 		user = await userAPI.createUser({
-			email: authResponse.email,
+			email: oauthResponse.email,
 			oauth: {
 				providerId: provider,
-				providerUserId: authResponse.id.toString(),
+				providerUserId: oauthResponse.id.toString(),
+				accessToken: oauthResponse.accessToken,
+				refreshToken: oauthResponse.refreshToken,
+				expiry: oauthResponse.expiry,
 			},
 		});
 	} else {
-		await userAPI.linkOAuthAccount(user, provider, authResponse.id.toString());
+		await userAPI.linkOAuthAccount(user, provider, oauthResponse.id.toString(), {
+			accessToken: oauthResponse.accessToken,
+			refreshToken: oauthResponse.refreshToken,
+			expiry: oauthResponse.expiry,
+		});
 	}
 
 	await sessionAPI.createAndSetSession(user.id);

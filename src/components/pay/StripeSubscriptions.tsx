@@ -25,7 +25,7 @@ const StripeSubscriptions = async ({ customerId }: { customerId: string }) => {
 		return <p>No customer ID provided</p>;
 	}
 
-	let listUserSubscriptions;
+	let listUserSubscriptions: any;
 
 	try {
 		listUserSubscriptions = await stripe.subscriptions.list({
@@ -80,9 +80,9 @@ const StripeSubscriptions = async ({ customerId }: { customerId: string }) => {
 							<div className="flex items-center gap-1 font-bold text-neutral-500 text-sm">
 								<p>
 									You have{" "}
-									{listUserSubscriptions.data.filter((subscription) => !subscription.cancel_at_period_end).length === 1
+									{listUserSubscriptions.data.filter((subscription: any) => !subscription.cancel_at_period_end).length === 1
 										? "1 active subscription"
-										: `${listUserSubscriptions.data.filter((subscription) => !subscription.cancel_at_period_end).length} active subscriptions`}
+										: `${listUserSubscriptions.data.filter((subscription: any) => !subscription.cancel_at_period_end).length} active subscriptions`}
 								</p>
 							</div>
 						</div>
@@ -141,7 +141,10 @@ const StripeSubscriptions = async ({ customerId }: { customerId: string }) => {
 											)}
 											<DropdownMenu>
 												<DropdownMenuTrigger asChild>
-													<button className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-md p-1 text-white hover:bg-[#ffffff11]">
+													<button
+														type="button"
+														className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-md p-1 text-white hover:bg-[#ffffff11]"
+													>
 														<MoreIcon />
 													</button>
 												</DropdownMenuTrigger>

@@ -1,5 +1,5 @@
 import { PrismaAdapter } from "@lucia-auth/adapter-prisma";
-import { Discord, GitHub, Twitch, Twitter } from "arctic";
+import { Discord, GitHub, Twitch } from "arctic";
 import { Lucia, TimeSpan } from "lucia";
 
 import prisma from "@/lib/api/prisma";
@@ -14,18 +14,14 @@ export const modrinth = new OAuth2Client(
 	},
 );
 
-export const github = new GitHub(process.env.GITHUB_CLIENT_ID!, process.env.GITHUB_CLIENT_SECRET!);
-
+export const oauthProviders = ["github", "discord", "twitch", "modrinth"];
+export const github = new GitHub(process.env.GITHUB_CLIENT_ID!, process.env.GITHUB_CLIENT_SECRET!, {
+	redirectURI: `${process.env.BASE_URL!}/oauth/github/callback`,
+});
 export const discord = new Discord(process.env.DISCORD_CLIENT_ID!, process.env.DISCORD_CLIENT_SECRET!, `${process.env.BASE_URL!}/oauth/discord/callback`);
-
 export const twitch = new Twitch(process.env.TWITCH_CLIENT_ID!, process.env.TWITCH_CLIENT_SECRET!, `${process.env.BASE_URL!}/oauth/twitch/callback`);
 
-export const twitter = new Twitter(process.env.TWITTER_CLIENT_ID!, process.env.TWITTER_CLIENT_SECRET!, `${process.env.BASE_URL!}/oauth/twitter/callback`);
-
-export const oauthProviders = ["github", "discord", "twitch", "twitter", "modrinth"];
-
 const adapter = new PrismaAdapter(prisma.session, prisma.user);
-
 const lucia = new Lucia(adapter, {
 	sessionCookie: {
 		expires: true,

@@ -22,6 +22,9 @@ const Footer = () => {
 							</div>
 							<p className="text-[#999] text-xs">© 2024 Pyro Host Inc.</p>
 						</div>
+						<Link href="/" className="text-[#999] text-xs transition hover:text-[#fff]">
+							Home
+						</Link>
 						<Link href="/legal/tos" className="text-[#999] text-xs transition hover:text-[#fff]">
 							Terms
 						</Link>

@@ -16,8 +16,8 @@ const AccountInformation = async ({ user }: { user: User }) => {
 			<div className="flex flex-col rounded-xl border-[#ffffff15] border-[1px] bg-[#ffffff14] shadow-sm">
 				<div className="group flex w-full cursor-pointer select-none items-center justify-between p-6 text-left">
 					<div className="flex flex-col gap-2">
-						<h2 className="font-extrabold text-2xl">Account Information</h2>
-						<p>We couldn&apos;t get your information. Try refreshing the page!</p>
+						<h2 className="font-extrabold text-2xl">Payment Information</h2>
+						<p>A user was not passed via props.</p>
 					</div>
 				</div>
 			</div>
@@ -33,7 +33,7 @@ const AccountInformation = async ({ user }: { user: User }) => {
 				<CollapsibleTrigger asChild>
 					<div className="group flex w-full cursor-pointer select-none items-center justify-between p-6 text-left">
 						<div className="flex flex-col gap-2">
-							<h2 className="font-extrabold text-2xl">Account Information</h2>
+							<h2 className="font-extrabold text-2xl">Payment Information</h2>
 							{!fullName || !user.phone || !userAddress ? (
 								<div className="flex items-center gap-1 font-bold text-red-500 text-sm">
 									<CrossCircledIcon className="h-5 w-5" />

@@ -7,7 +7,10 @@
         "dev:live": "next dev --turbo -H 0.0.0.0",
         "preinstall": "prisma generate && prisma db push",
         "build": "next build",
-        "start": "next start"
+        "start": "next start",
+        "format": "biome format ./src --write",
+        "autolint": "biome lint ./src --apply",
+        "autolint:unsafe": "biome lint ./src --apply-unsafe"
     },
     "dependencies": {
         "@lucia-auth/adapter-prisma": "^4.0.1",

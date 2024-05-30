@@ -11,7 +11,7 @@ import { editAddress, editName, editPhoneNumber, editPassword } from "@/actions/
 import { PencilIcon } from "@/components/ui/Icons";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/primitives/Popover";
 import { PyroButton } from "@/components/ui/PyroButton";
-import { toast } from 'sonner';
+import { toast } from "sonner";
 
 const EditForm = ({ label, user }: { label: string; user: User }) => {
 	const router = useRouter();

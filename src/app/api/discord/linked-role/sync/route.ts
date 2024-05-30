@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 import prisma from "@/lib/api/prisma";
 import stripe from "@/lib/api/stripe";
 import userAPI from "@/lib/api/user";
+import { discord } from "@/lib/api/auth";
 
 export async function GET(request: NextRequest) {
 	const authHeader = request.headers.get("authorization");
@@ -19,26 +20,15 @@ export async function GET(request: NextRequest) {
 	for (const connection of discordConnections) {
 		try {
 			if (connection.expiresAt! < new Date()) {
-				const tokens = await fetch(`https://discord.com/api/v10/oauth2/token`, {
-					method: "POST",
-					headers: {
-						"Authorization": `Basic ${Buffer.from(`${process.env.DISCORD_CLIENT_ID}:${process.env.DISCORD_CLIENT_SECRET}`).toString("base64")}`,
-						"Content-Type": "application/x-www-form-urlencoded",
-					},
-					body: new URLSearchParams({
-						grant_type: "refresh_token",
-						refresh_token: connection.refreshToken!,
-					}),
-				}).then(response => response.json());
+				const { accessToken, accessTokenExpiresAt } = await discord.refreshAccessToken(connection.refreshToken!);
 
 				await prisma.oAuthConnection.update({
 					where: {
 						id: connection.id,
 					},
 					data: {
-						accessToken: tokens.access_token,
-						refreshToken: tokens.refresh_token,
-						expiresAt: new Date(Date.now() + (tokens.expires_in * 1000)),
+						accessToken: accessToken,
+						expiresAt: accessTokenExpiresAt,
 					},
 				});
 			}
@@ -53,10 +43,10 @@ export async function GET(request: NextRequest) {
 				customer: user.stripeCustomerId,
 			});
 
-			await fetch(`https://discord.com/api/v9/users/@me/applications/${process.env.DISCORD_APPLICATION_ID}/role-connection`, {
+			await fetch(`https://discord.com/api/v10/users/@me/applications/${process.env.DISCORD_APPLICATION_ID}/role-connection`, {
 				method: "PUT",
 				headers: {
-					"Authorization": `Bearer ${connection.accessToken}`,
+					Authorization: `Bearer ${connection.accessToken}`,
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
@@ -68,9 +58,14 @@ export async function GET(request: NextRequest) {
 				}),
 			});
 
-			console.log(`Synced metadata for user ${connection.providerUserId}`)
+			console.log(`Synced metadata for user ${connection.providerUserId}`);
 		} catch (error) {
-			console.error(`Failed to sync metadata for user ${connection.providerUserId}: ${error}`)
+			console.error(`Failed to sync metadata for user ${connection.providerUserId}: ${error}`);
+			await prisma.oAuthConnection.delete({
+				where: {
+					id: connection.id,
+				},
+			});
 		}
 	}
 

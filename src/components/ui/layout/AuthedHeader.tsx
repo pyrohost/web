@@ -27,7 +27,7 @@ const AuthedHeader = () => {
 									</div>
 								</Link>
 
-								<ul aria-label="Navigation menu" className="hidden w-full items-center gap-2 md:flex">
+								<ul aria-label="Navigation menu" className="flex w-full items-center">
 									<AuthedHeaderLinks />
 								</ul>
 							</div>

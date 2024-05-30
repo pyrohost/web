@@ -10,7 +10,7 @@ const HeaderLoginButton = async () => {
 	const sessionUser = await getUserBySession();
 
 	return (
-		<div className="pointer-events-auto ml-auto">
+		<div className="pointer-events-auto ml-auto select-none">
 			{sessionUser ? (
 				<div className="flex items-center gap-4">
 					{sessionUser.admin && (
