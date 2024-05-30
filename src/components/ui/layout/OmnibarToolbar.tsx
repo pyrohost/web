@@ -5,7 +5,7 @@ import { MixIcon } from "@radix-ui/react-icons";
 import { PyroButton } from "@/components/ui/PyroButton";
 
 import { getUserBySession } from "@/lib/api/user";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../primitives/Tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/primitives/Tooltip";
 
 const HeaderLoginButton = async () => {
 	const sessionUser = await getUserBySession();
