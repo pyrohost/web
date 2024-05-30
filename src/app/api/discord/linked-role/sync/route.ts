@@ -69,5 +69,7 @@ export async function GET(request: NextRequest) {
 			active_services: stripeSubscription.data.length,
 			customer_since: new Date(stripeCustomer.created).toISOString(),
 		});
+
+		return new Response("OK", { status: 200 });
 	}
 }
