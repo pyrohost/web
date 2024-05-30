@@ -31,18 +31,14 @@ export async function GET(request: NextRequest) {
 					}),
 				}).then(response => response.json());
 
-				connection.accessToken = tokens.access_token;
-				connection.refreshToken = tokens.refresh_token;
-				connection.expiresAt = new Date(Date.now() + tokens.expires_in * 1000);
-
 				await prisma.oAuthConnection.update({
 					where: {
 						id: connection.id,
 					},
 					data: {
-						accessToken: connection.accessToken,
-						refreshToken: connection.refreshToken,
-						expiresAt: connection.expiresAt,
+						accessToken: tokens.access_token,
+						refreshToken: tokens.refresh_token,
+						expiresAt: new Date(Date.now() + (tokens.expires_in * 1000)),
 					},
 				});
 			}
