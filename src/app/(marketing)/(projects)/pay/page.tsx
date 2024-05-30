@@ -30,7 +30,7 @@ const Page = () => {
 				</div>
 			</div>
 			<div className="relative mt-8 min-h-[750px] w-full scale-[1.08]">
-				<Image src="/img/payhero.png" width={1172} height={696} className="w-full" alt="" quality={100} />
+				<Image src="/img/payhero_new.png" width={1172} height={696} className="w-full" alt="" quality={100} />
 			</div>
 		</>
 	);
