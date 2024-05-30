@@ -18,46 +18,52 @@ export async function GET(request: NextRequest) {
 	});
 
 	for (const connection of discordConnections) {
-		if (connection.expiresAt! < new Date()) {
-			const { accessToken, accessTokenExpiresAt } = await discord.refreshAccessToken(connection.refreshToken!)
-			connection.accessToken = accessToken;
-			connection.expiresAt = accessTokenExpiresAt;
+		try {
+			if (connection.expiresAt! < new Date()) {
+				const { accessToken, accessTokenExpiresAt } = await discord.refreshAccessToken(connection.refreshToken!)
+				connection.accessToken = accessToken;
+				connection.expiresAt = accessTokenExpiresAt;
 
-			await prisma.oAuthConnection.update({
-				where: {
-					id: connection.id,
-				},
-				data: {
-					accessToken,
-					expiresAt: accessTokenExpiresAt,
-				},
+				await prisma.oAuthConnection.update({
+					where: {
+						id: connection.id,
+					},
+					data: {
+						accessToken,
+						expiresAt: accessTokenExpiresAt,
+					},
+				});
+			}
+
+			const user = await userAPI.getUserByProvider("discord", connection.providerUserId);
+			if (!user || !user.stripeCustomerId) {
+				continue;
+			}
+
+			const activeSubscriptions = await stripe.subscriptions.list({
+				status: "active",
+				customer: user.stripeCustomerId,
 			});
-		}
 
-		const user = await userAPI.getUserByProvider("discord", connection.providerUserId);
-		if (!user || !user.stripeCustomerId) {
-			continue;
-		}
-
-		const activeSubscriptions = await stripe.subscriptions.list({
-			status: "active",
-			customer: user.stripeCustomerId,
-		});
-
-		await fetch(`https://discord.com/api/v9/users/@me/applications/${process.env.DISCORD_APPLICATION_ID}/role-connection`, {
-			method: "PUT",
-			headers: {
-				"Authorization": `Bearer ${connection.accessToken}`,
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				metadata: {
-					is_active_customer: !!activeSubscriptions.data.length,
-					active_services: activeSubscriptions.data.length,
-					customer_since: new Date(user.createdAt).toISOString(),
+			await fetch(`https://discord.com/api/v9/users/@me/applications/${process.env.DISCORD_APPLICATION_ID}/role-connection`, {
+				method: "PUT",
+				headers: {
+					"Authorization": `Bearer ${connection.accessToken}`,
+					"Content-Type": "application/json",
 				},
-			}),
-		});
+				body: JSON.stringify({
+					metadata: {
+						is_active_customer: !!activeSubscriptions.data.length,
+						active_services: activeSubscriptions.data.length,
+						customer_since: new Date(user.createdAt).toISOString(),
+					},
+				}),
+			});
+
+			console.log(`Synced metadata for user ${connection.providerUserId}`)
+		} catch (error) {
+			console.error(`Failed to sync metadata for user ${connection.providerUserId}: ${error}`)
+		}
 	}
 
 	return new Response("OK");
