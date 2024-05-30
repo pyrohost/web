@@ -1,5 +1,5 @@
 import AuthedHeader from "@/components/ui/layout/AuthedHeader";
-import HeaderLoginButton from "@/components/ui/layout/HeaderLoginButton";
+import HeaderLoginButton from "@/components/ui/layout/OmnibarToolbar";
 import MarketingHeader from "@/components/ui/layout/MarketingHeader";
 
 import { getUserBySession } from "@/lib/api/user";
