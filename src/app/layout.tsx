@@ -9,6 +9,7 @@ import Omnibar from "@/components/ui/layout/Omnibar";
 import { Toaster } from "sonner";
 
 import "./globals.css";
+import { TooltipProvider } from "@/components/ui/primitives/Tooltip";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -43,11 +44,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				// biome-ignore lint/nursery/useSortedClasses: I fucking hate Biome and I love Prettier and I think we should bring it back also Prettier is also Rust based just like Biome
 				className={`${jakarta.className} no-scrollbar flex min-h-screen w-full flex-col overflow-x-hidden bg-black text-white`}
 			>
-				<div data-pyro-index="" className="relative flex h-fit min-h-screen w-full flex-1 shrink-0 flex-col">
-					<Omnibar />
-					<main className="relative z-10 flex min-h-[calc(100vh-72px)] w-full flex-1 flex-col overflow-clip rounded-3xl">{children}</main>
-					<Footer />
-				</div>
+				<TooltipProvider>
+					<div data-pyro-index="" className="relative flex h-fit min-h-screen w-full flex-1 shrink-0 flex-col">
+						<Omnibar />
+						<main className="relative z-10 flex min-h-[calc(100vh-72px)] w-full flex-1 flex-col overflow-clip rounded-3xl">{children}</main>
+						<Footer />
+					</div>
+				</TooltipProvider>
 				<Toaster
 					theme="dark"
 					toastOptions={{
