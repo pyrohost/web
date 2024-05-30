@@ -2,7 +2,6 @@ import type { NextRequest } from "next/server";
 
 import prisma from "@/lib/api/prisma";
 import stripe from "@/lib/api/stripe";
-import { discord } from "@/lib/api/auth";
 import userAPI from "@/lib/api/user";
 
 export async function GET(request: NextRequest) {
@@ -20,17 +19,30 @@ export async function GET(request: NextRequest) {
 	for (const connection of discordConnections) {
 		try {
 			if (connection.expiresAt! < new Date()) {
-				const { accessToken, accessTokenExpiresAt } = await discord.refreshAccessToken(connection.refreshToken!)
-				connection.accessToken = accessToken;
-				connection.expiresAt = accessTokenExpiresAt;
+				const tokens = await fetch(`https://discord.com/api/v10/oauth2/token`, {
+					method: "POST",
+					headers: {
+						"Authorization": `Basic ${Buffer.from(`${process.env.DISCORD_CLIENT_ID}:${process.env.DISCORD_CLIENT_SECRET}`).toString("base64")}`,
+						"Content-Type": "application/x-www-form-urlencoded",
+					},
+					body: new URLSearchParams({
+						grant_type: "refresh_token",
+						refresh_token: connection.refreshToken!,
+					}),
+				}).then(response => response.json());
+
+				connection.accessToken = tokens.access_token;
+				connection.refreshToken = tokens.refresh_token;
+				connection.expiresAt = new Date(Date.now() + tokens.expires_in * 1000);
 
 				await prisma.oAuthConnection.update({
 					where: {
 						id: connection.id,
 					},
 					data: {
-						accessToken,
-						expiresAt: accessTokenExpiresAt,
+						accessToken: connection.accessToken,
+						refreshToken: connection.refreshToken,
+						expiresAt: connection.expiresAt,
 					},
 				});
 			}
