@@ -92,7 +92,7 @@ export async function POST(req: Request) {
 					credentials.last_name,
 					credentials.password,
 				);
-				
+
 				if ("error" in pyrodactylUser) {
 					console.log(`Failed to create user: ${pyrodactylUser.error}`);
 					return NextResponse.json({ error: pyrodactylUser.error }, { status: 400 });

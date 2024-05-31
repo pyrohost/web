@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/primit
 import prisma from "@/lib/api/prisma";
 import productAPI from "@/lib/api/product";
 import userAPI, { getUserBySession } from "@/lib/api/user";
-import { isUserAbleToSubscribe } from '@/lib/utils/isUserAbleToSubscribe';
+import { isUserAbleToSubscribe } from "@/lib/utils/isUserAbleToSubscribe";
 import { User } from "@prisma/client";
 
 export const metadata: Metadata = {
@@ -27,9 +27,9 @@ const Page = async () => {
 	}
 
 	if (dbUser) {
-		 isAbleToSubscribe = await isUserAbleToSubscribe(dbUser)
+		isAbleToSubscribe = await isUserAbleToSubscribe(dbUser);
 	}
-	
+
 	const products = await productAPI.getProducts();
 
 	const renderProductList = async (everyMonths: number) => (
