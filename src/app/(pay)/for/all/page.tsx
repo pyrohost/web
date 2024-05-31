@@ -8,6 +8,7 @@ import prisma from "@/lib/api/prisma";
 import productAPI from "@/lib/api/product";
 import userAPI, { getUserBySession } from "@/lib/api/user";
 import { isUserAbleToSubscribe } from '@/lib/utils/isUserAbleToSubscribe';
+import { User } from "@prisma/client";
 
 export const metadata: Metadata = {
 	title: "Pyro - All Plans",
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 const Page = async () => {
 	let dbUser: any;
 	let userAddress: any;
+	let isAbleToSubscribe = false;
 
 	const sessionUser = await getUserBySession();
 
@@ -24,8 +26,10 @@ const Page = async () => {
 		dbUser = await userAPI.getUserById(sessionUser?.id);
 	}
 
-	const isAbleToSubscribe = await isUserAbleToSubscribe(dbUser);
-
+	if (dbUser) {
+		 isAbleToSubscribe = await isUserAbleToSubscribe(dbUser)
+	}
+	
 	const products = await productAPI.getProducts();
 
 	const renderProductList = async (everyMonths: number) => (
