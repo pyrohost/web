@@ -34,7 +34,7 @@ class BaseAPI {
 		}
 	}
 
-	async request<T>(method: "get" | "post" | "put" | "patch" | "delete", path: string, body: any = undefined): Promise<ApiResponse<T>> {
+	async request<T>(method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE", path: string, body: any = undefined): Promise<ApiResponse<T>> {
 		return await this.handleResponse<ApiResponse<T>>(
 			await fetch(`${this.baseURL}${path}`, {
 				method,
@@ -48,7 +48,7 @@ class BaseAPI {
 		);
 	}
 
-	async listRequest<D, M>(method: "get" | "post" | "put" | "patch" | "delete", path: string, body: any = undefined): Promise<ApiListResponse<D, M>> {
+	async listRequest<D, M>(method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE", path: string, body: any = undefined): Promise<ApiListResponse<D, M>> {
 		return await this.handleResponse<ApiListResponse<D, M>>(
 			await fetch(`${this.baseURL}${path}`, {
 				method,
@@ -117,18 +117,18 @@ class ServerAPI {
 		};
 
 		const allocations = await this.api.listRequest<{ id: string; ip: string; port: number; assigned: boolean }, any>(
-			"get",
+			"GET",
 			"/api/application/nodes/2/allocations?filter[server_id]=false&per_page=1",
 		);
 		console.log(allocations);
 		const allocation = allocations.data[0];
 
-		const egg = await this.api.request<{ id: string; docker_image: string; startup: string }>("get", "/api/application/nests/1/eggs/3/");
+		const egg = await this.api.request<{ id: string; docker_image: string; startup: string }>("GET", "/api/application/nests/1/eggs/3/");
 		console.log(egg);
 
 		const server = await this.api.request<{
 			id: number;
-		}>("post", "/api/application/servers", {
+		}>("POST", "/api/application/servers", {
 			name: product.name,
 			user: user.pyrodactylUserId,
 			egg: egg.attributes.id,
@@ -170,7 +170,7 @@ class UserAPI {
 	}
 
 	async getUserByUserId(id: string): Promise<{ id: number } | null> {
-		const user = await this.api.request<{ id: number }>("get", `/api/application/users/${id}`);
+		const user = await this.api.request<{ id: number }>("GET", `/api/application/users/${id}`);
 		if (user.object !== "user") {
 			return null;
 		}
@@ -179,16 +179,14 @@ class UserAPI {
 	}
 
 	async getUserByEmail(email: string): Promise<{ id: number } | null> {
-		const user = await this.api.request<{ id: number }>("get", `/api/application/users?filter[email]=${encodeURI(email)}&per_page=1`);
-		if (user.object !== "user") {
-			return null;
-		}
+		const users = await this.api.listRequest<{ id: number }, any>("GET", `/api/application/users?filter[email]=${encodeURI(email)}&per_page=1`);
+		const user = users.data[0];
 
 		return user.attributes;
 	}
 
 	async createUser(email: string, username: string, first_name: string, last_name: string, password: string): Promise<{ id: number } | { error: string }> {
-		const user = await this.api.request<{ id: number }>("post", "/api/application/users", {
+		const user = await this.api.request<{ id: number }>("POST", "/api/application/users", {
 			email,
 			username,
 			first_name,
@@ -199,15 +197,15 @@ class UserAPI {
 			return { error: `Failed to create user: ${JSON.stringify(user)}` };
 		}
 
-		await this.api.request("patch", `/api/application/users/${user.attributes.id}`, {
+		await this.api.request("PATCH", `/api/application/users/${user.attributes.id}`, {
 			password,
 		});
 
 		return user.attributes;
 	}
 
-	// getuserbyemail
-	// getuserbyid
+	// GETuserbyemail
+	// GETuserbyid
 	// suspendserver
 }
 

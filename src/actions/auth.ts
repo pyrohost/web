@@ -87,6 +87,7 @@ export const register = async (formData: FormData): Promise<ActionResult> => {
 	const code = await userAPI.generateEmailVerificationCode(user.id, email);
 	await sendEmail(email, VerificationEmail(code));
 
+	await userAPI.linkOrCreateExternalAccounts(user);
 	await sessionAPI.createAndSetSession(user.id);
 	return redirect("/account");
 };
@@ -112,8 +113,8 @@ export const login = async (formData: FormData): Promise<ActionResult> => {
 	const validPassword = await verify(user.passwordHash, password, HASHING_OPTIONS);
 	if (!validPassword) return { error: "Invalid email or password" };
 
+	await userAPI.linkOrCreateExternalAccounts(user);
 	await sessionAPI.createAndSetSession(user.id);
-
 	return redirect("/account");
 };
 
@@ -133,10 +134,12 @@ export const verifyEmail = async (formData: FormData, user: User): Promise<Actio
 	await prisma.emailVerificationToken.deleteMany({
 		where: { userId: user.id },
 	});
+
 	await prisma.user.update({
 		where: { id: user.id },
 		data: { emailVerified: true },
 	});
+
 	await lucia.invalidateUserSessions(user.id);
 	await sessionAPI.createAndSetSession(user.id);
 

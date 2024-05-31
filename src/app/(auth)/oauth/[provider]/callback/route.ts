@@ -54,6 +54,7 @@ export async function GET(request: Request, { params }: { params: { provider: st
 			expiry: oauthResponse.expiry,
 		});
 
+		await userAPI.linkOrCreateExternalAccounts(user);
 		return new Response(null, {
 			status: 302,
 			headers: {
@@ -82,7 +83,8 @@ export async function GET(request: Request, { params }: { params: { provider: st
 			expiry: oauthResponse.expiry,
 		});
 	}
-
+	
+	await userAPI.linkOrCreateExternalAccounts(user);
 	await sessionAPI.createAndSetSession(user.id);
 	return new Response(null, {
 		status: 302,

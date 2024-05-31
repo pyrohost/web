@@ -254,7 +254,7 @@ class UserAPI {
 		if (!user.pyrodactylUserId) {
 			const pyrodactylUser = await pyrodactylUserAPI.getUserByEmail(user.email);
 			if (!pyrodactylUser) {
-				return console.error(`Pyrodactyl user not found for ${user.email}`);
+				return console.warn(`Pyrodactyl user not found for ${user.email}`);
 			}
 
 			if (pyrodactylUser) {
