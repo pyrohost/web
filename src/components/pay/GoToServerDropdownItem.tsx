@@ -15,7 +15,7 @@ const GoToServerDropdownItem = ({ subscriptionId }: { subscriptionId: string }) 
 	// };
 
 	// return <DropdownMenuItem onSelect={() => goToServer(subscriptionId)}>Manage Server</DropdownMenuItem>;
-	return null
+	return null;
 };
 
 export default GoToServerDropdownItem;

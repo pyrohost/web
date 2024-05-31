@@ -27,7 +27,7 @@ const ProductListing = ({
 	product: Product;
 	prices: Price[];
 	everyMonths: number;
-	user: User
+	user: User;
 	displaySubscribe: boolean;
 }) => {
 	const [open, setOpen] = useState<boolean>(false);
@@ -56,9 +56,7 @@ const ProductListing = ({
 		setClientSecret(null);
 	};
 
-	if (
-		!displaySubscribe
-	)
+	if (!displaySubscribe)
 		return (
 			<li className="flex h-fit w-full">
 				<div className="relative flex w-full flex-col gap-4 rounded-xl border-[#ffffff11] border-[1px] bg-[#ffffff09] p-6 shadow-sm" key={product.id}>
