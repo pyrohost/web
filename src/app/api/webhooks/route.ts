@@ -1,22 +1,16 @@
-import { PyrodactylCredentialsEmail } from "@/emails/PyrodactylCredentialsEmail";
+import PyrodactylCredentialsEmail from "@/emails/PyrodactylCredentialsEmail";
 import { randomBytes } from "node:crypto";
 import type { Stripe } from "stripe";
 
 import { NextResponse } from "next/server";
 
 import prisma from "@/lib/api/prisma";
-import pterodactyl, { type UserObject } from "@/lib/api/pterodactyl";
 import stripe from "@/lib/api/stripe";
 import { sendEmail } from "@/lib/utils/sendEmail";
 
-function getNames(name: string): [string, string] {
-	const names = name.trim().split(" ");
-	if (names.length < 2) return ["Pyro", "Customer"];
-
-	const first_name = names[0];
-	const last_name = names.slice(1).join(" ");
-	return [first_name, last_name];
-}
+import { isUserAbleToSubscribe } from "@/lib/utils/isUserAbleToSubscribe";
+import { alphabet, generateRandomString } from "oslo/crypto";
+import { serverAPI, userAPI } from "@/lib/api/pyrodactyl";
 
 export async function POST(req: Request) {
 	let event: Stripe.Event;
@@ -38,134 +32,98 @@ export async function POST(req: Request) {
 	console.log("✅ Success:", event.id);
 
 	const permittedEvents: string[] = [
-		"customer.subscription.deleted",
-		"checkout.session.completed",
-		"payment_intent.payment_failed",
-		"invoice.payment_succeeded",
+		"invoice.paid",
+		// "invoice.payment_failed",
+		// "invoice.overdue", // suspend servers that are 3 days overdue
 	];
 
-	if (permittedEvents.includes(event.type)) {
-		let data: Stripe.Checkout.Session | Stripe.PaymentIntent | Stripe.InvoicePaymentSucceededEvent | undefined;
-
-		try {
-			switch (event.type) {
-				case "checkout.session.completed":
-					data = event.data.object as Stripe.Checkout.Session;
-					break;
-				case "customer.subscription.deleted": {
-					const deletedSubscription = event.data.object as Stripe.Subscription;
-
-					const deletedServer = await pterodactyl.getServerByExternalId(deletedSubscription.id);
-
-					if (deletedServer) {
-						await pterodactyl.suspendServer(deletedServer.id);
-					} else {
-						console.log(`No server found with external ID ${deletedSubscription.id}.`);
-					}
-					break;
-				}
-				case "payment_intent.payment_failed": {
-					data = event.data.object as Stripe.PaymentIntent;
-					console.log(`❌ Payment failed: ${data.last_payment_error?.message}`);
-
-					const failureInvoice = await stripe.invoices.retrieve(data.invoice as string);
-
-					const failureSubscription = await stripe.subscriptions.retrieve(failureInvoice.subscription as string);
-
-					const failureServer = await pterodactyl.getServerByExternalId(failureSubscription.id);
-
-					if (failureServer) {
-						await pterodactyl.suspendServer(failureServer.id);
-					} else {
-						console.log(`No server found with external ID ${failureSubscription.id}.`);
-					}
-					break;
-				}
-				case "invoice.payment_succeeded": {
-					data = event.data.object as unknown as Stripe.InvoicePaymentSucceededEvent;
-
-					const invoice = await stripe.invoices.retrieve(data.id);
-					const subscription = await stripe.subscriptions.retrieve(invoice.subscription as string);
-					const metadata = (await stripe.products.retrieve(invoice.lines.data[0].plan?.product as string)).metadata;
-
-					const existingServer = await pterodactyl.getServerByExternalId(subscription.id);
-
-					if (existingServer) {
-						return NextResponse.json({ message: "Server already exists" }, { status: 400 });
-					}
-
-					const stripeCustomer = await stripe.customers.retrieve(subscription.customer as string);
-					if (!stripeCustomer) return NextResponse.json({ message: "Customer not found" }, { status: 404 });
-					if (stripeCustomer.deleted) return NextResponse.json({ message: "Customer is deleted" }, { status: 404 });
-
-					const dbUser = await prisma.user.findFirst({
-						where: { stripeCustomerId: stripeCustomer.id },
-					});
-					if (!dbUser) return NextResponse.json({ message: "User not found" }, { status: 404 });
-
-					let pyrodactylUser: UserObject | null;
-
-					// NOTE: these are arrow operators on purpose as they
-					// perserve the context of the function.
-					const getUser = !dbUser.pyrodactylUserId
-						? (idOrEmail: string) => pterodactyl.getUserByEmail(idOrEmail)
-						: (idOrEmail: string) => pterodactyl.getUserById(idOrEmail);
-
-					const userSearchableAttr = !dbUser.pyrodactylUserId ? dbUser.email : dbUser.pyrodactylUserId;
-					pyrodactylUser = await getUser(userSearchableAttr as string);
-
-					if (!pyrodactylUser) {
-						const password = randomBytes(32).toString("hex");
-						const [first_name, last_name] = getNames(dbUser.preferredName || stripeCustomer.name!);
-
-						pyrodactylUser = await pterodactyl.createUser(dbUser.email!, dbUser.id, first_name, last_name, password);
-
-						await sendEmail(dbUser.email!, PyrodactylCredentialsEmail(dbUser.email!, password));
-
-						await prisma.user.update({
-							where: { id: dbUser.id },
-							data: { pyrodactylUserId: pyrodactylUser.id },
-						});
-					}
-
-					const allocation = await pterodactyl.getFirstAvailableAllocation(2);
-
-					const server = await pterodactyl.createBlankServer(
-						"Server",
-						pyrodactylUser.id,
-						allocation.id,
-						{
-							io: 500,
-							cpu: Number(metadata.vcores) * 100 || 0,
-							memory: Number(metadata.ram) * 1024 || 0,
-							swap: Number(metadata.overflow_memory) * 1024 || 0,
-							disk: 32 * 1024,
-						},
-						{
-							databases: 5,
-							backups: 5,
-							allocations: 5,
-						},
-					);
-
-					const serverName = `Server #${server.id}`;
-					await pterodactyl.updateServerDetails(server.id, {
-						name: serverName,
-						user: pyrodactylUser.id,
-						external_id: subscription.id,
-					});
-
-					console.log(`🚀 Created server ${serverName} for user ${pyrodactylUser.id}`);
-					break;
-				}
-				default:
-					throw new Error(`Unhandled event: ${event.type}`);
-			}
-		} catch (error) {
-			console.log(error);
-			return NextResponse.json({ message: "Webhook handler failed" }, { status: 500 });
-		}
+	if (!permittedEvents.includes(event.type)) {
+		return NextResponse.json({ message: "ACK" });
 	}
 
-	return NextResponse.json({ message: "Received" }, { status: 200 });
+	const invoice = event.data.object as Stripe.Invoice;
+	const customer = await stripe.customers.retrieve(invoice.customer as string);
+
+	if (!customer || customer.deleted) {
+		return NextResponse.json({ error: "Customer not found" }, { status: 404 });
+	}
+
+	let user = await prisma.user.findFirst({
+		where: {
+			stripeCustomerId: customer.id,
+		},
+	});
+
+	if (!user || !(await isUserAbleToSubscribe(user))) {
+		return NextResponse.json({ error: "User not found or not able to subscribe" }, { status: 404 });
+	}
+
+	switch (event.type) {
+		case "invoice.paid": {
+			const subscription = await stripe.subscriptions.retrieve(invoice.subscription as string);
+
+			if (!subscription) {
+				return NextResponse.json({ error: "Subscription not found" }, { status: 404 });
+			}
+
+			const product = await prisma.product.findFirst({
+				where: {
+					stripeId: subscription.items.data[0].price.product as string,
+				},
+			});
+
+			if (!product) {
+				return NextResponse.json({ error: "Product not found" }, { status: 404 });
+			}
+
+			if (!user.pyrodactylUserId) {
+				const credentials = {
+					email: user.email,
+					first_name: user.firstName!,
+					last_name: user.lastName!,
+					username: `user-${randomBytes(8).toString("hex")}`,
+					password: generateRandomString(16, alphabet("a-z", "A-Z", "0-9")),
+				};
+
+				const pyrodactylUser = await userAPI.createUser(
+					credentials.email,
+					credentials.username,
+					credentials.first_name,
+					credentials.last_name,
+					credentials.password,
+				);
+				
+				if ("error" in pyrodactylUser) {
+					console.log(`Failed to create user: ${pyrodactylUser.error}`);
+					return NextResponse.json({ error: pyrodactylUser.error }, { status: 400 });
+				}
+
+				const email = PyrodactylCredentialsEmail(credentials.username, credentials.password);
+				await sendEmail(user.email, email);
+
+				user = await prisma.user.update({
+					where: {
+						id: user.id,
+					},
+					data: {
+						pyrodactylUserId: pyrodactylUser.id,
+					},
+				});
+
+				console.log(`Created Pyrodactyl user for ${user.email}`);
+			}
+
+			const server = await serverAPI.createServer(user, product, "MANAGED");
+			if ("error" in server) {
+				console.log(`${server.error}`);
+				return NextResponse.json({ error: server.error }, { status: 400 });
+			}
+
+			break;
+		}
+
+		// todo: handle invoice.payment_failed and invoice.overdue
+	}
+
+	return NextResponse.json({ message: "OK" });
 }

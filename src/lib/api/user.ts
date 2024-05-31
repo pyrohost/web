@@ -10,11 +10,10 @@ import { cache } from "react";
 import type { Address, OAuthConnection, User } from "@prisma/client";
 
 import prisma from "@/lib/api/prisma";
-import pterodactyl from "@/lib/api/pterodactyl";
 import stripe from "@/lib/api/stripe";
 import { sendEmail } from "@/lib/utils/sendEmail";
 import Stripe from "stripe";
-
+import { userAPI as pyrodactylUserAPI } from "./pyrodactyl";
 import lucia from "@/lib/api/auth";
 
 export const getUserBySession = cache(async () => {
@@ -253,7 +252,11 @@ class UserAPI {
 
 	async handlePyrodactylAccount(user: User): Promise<void> {
 		if (!user.pyrodactylUserId) {
-			const pyrodactylUser = await pterodactyl.getUserByEmail(user.email);
+			const pyrodactylUser = await pyrodactylUserAPI.getUserByEmail(user.email);
+			if (!pyrodactylUser) {
+				return console.error(`Pyrodactyl user not found for ${user.email}`);
+			}
+
 			if (pyrodactylUser) {
 				await prisma.user.update({
 					where: { id: user.id },

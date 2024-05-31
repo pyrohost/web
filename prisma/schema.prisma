@@ -111,10 +111,10 @@ enum ServerType {
 }
 
 model Server {
-  id       String     @id @default(cuid())
-  userId   String
-  serverId String
-  type     ServerType
+  id             String     @id @default(cuid())
+  userId         String
+  serverId       String
+  type           ServerType
 
   stripeSubscriptionId String?
   stripePriceId        String?

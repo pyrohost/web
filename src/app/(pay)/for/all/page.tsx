@@ -22,10 +22,9 @@ const Page = async () => {
 
 	if (sessionUser) {
 		dbUser = await userAPI.getUserById(sessionUser?.id);
-		userAddress = await userAPI.getUserAddress(dbUser);
 	}
 
-	const isAbleToSubscribe = await isUserAbleToSubscribe(dbUser, userAddress);
+	const isAbleToSubscribe = await isUserAbleToSubscribe(dbUser);
 
 	const products = await productAPI.getProducts();
 
