@@ -98,10 +98,10 @@ class ServerAPI {
 
 		const metadata = JSON.parse(JSON.stringify(product.metadata));
 		const hardware_limits = {
-			cpu: metadata.cpu,
-			memory: metadata.memory,
-			disk: metadata.disk,
-			swap: metadata.overflow_memory,
+			cpu: metadata.cpu * 100,
+			memory: metadata.memory * 1024,
+			swap: metadata.overflow_memory * 1024,
+			disk: metadata.disk * 1024,
 			io: metadata.io,
 		};
 
