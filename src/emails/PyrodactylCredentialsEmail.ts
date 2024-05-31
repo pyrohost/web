@@ -1,6 +1,6 @@
 import type Email from "@/emails/Email";
 
-export const PyrodactylCredentialsEmail = (email: string, password: string): Email => {
+export default (email: string, password: string): Email => {
 	return {
 		subject: "Pyrodactyl Credentials",
 		html: undefined,

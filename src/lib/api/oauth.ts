@@ -1,6 +1,6 @@
 import type { Discord, GitHub, Twitch } from "arctic";
 import type { OAuth2Client } from "oslo/oauth2";
-import { discord, github, modrinth, twitch } from "./auth";
+import { discord, github, modrinth, twitch } from "@/lib/api/auth";
 
 export interface OAuthResponse {
 	id: string;

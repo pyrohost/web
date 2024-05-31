@@ -26,6 +26,12 @@ class ProductAPI {
 	}
 
 	async importProductsFromStripe(category: string): Promise<Product[]> {
+		console.log("deleting products from DB");
+		await prisma.price.deleteMany();
+		await prisma.product.deleteMany();
+		await prisma.category.deleteMany();
+		console.log("deleted products from DB. lets do this");
+
 		const stripeProducts = await stripe.products.list({
 			limit: 100,
 		});
@@ -53,6 +59,7 @@ class ProductAPI {
 					stripeId: product.id,
 					name: product.name,
 					description: product.description || "",
+					metadata: product.metadata,
 				},
 			});
 
