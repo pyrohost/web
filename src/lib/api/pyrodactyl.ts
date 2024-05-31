@@ -1,4 +1,5 @@
 import { type Product, type Server, ServerType, type User } from "@prisma/client";
+import type Stripe from "stripe";
 import prisma from "@/lib/api/prisma";
 
 interface ApiResponse<T> {
@@ -85,7 +86,8 @@ class ServerAPI {
 		});
 	}
 
-	async createServer(user: User, product: Product, server_type: ServerType): Promise<Server | { error: string }> {
+	// all these logs are for temporary prod debugging purposes
+	async createServer(user: User, product: Product, subscription: Stripe.Subscription, server_type: ServerType): Promise<Server | { error: string }> {
 		if (server_type !== ServerType.MANAGED) return { error: "Invalid server type." };
 
 		if (!user.pyrodactylUserId) {
@@ -96,7 +98,10 @@ class ServerAPI {
 			return { error: `Product metadata is invalid: ${product.metadata}` };
 		}
 
+		console.log(product.metadata);
 		const metadata = JSON.parse(JSON.stringify(product.metadata));
+		console.log(metadata);
+
 		const hardware_limits = {
 			cpu: metadata.cpu * 100,
 			memory: metadata.memory * 1024,
@@ -149,6 +154,7 @@ class ServerAPI {
 		return await prisma.server.create({
 			data: {
 				serverId: server.attributes.id.toString(),
+				stripeSubscriptionId: subscription.id,
 				userId: user.id,
 				type: server_type,
 			},

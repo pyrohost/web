@@ -111,14 +111,12 @@ enum ServerType {
 }
 
 model Server {
-  id             String     @id @default(cuid())
-  userId         String
-  serverId       String
-  type           ServerType
+  id                   String     @id @default(cuid())
+  stripeSubscriptionId String
+  serverId             String
+  type                 ServerType
 
-  stripeSubscriptionId String?
-  stripePriceId        String?
-
+  userId    String
   User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt

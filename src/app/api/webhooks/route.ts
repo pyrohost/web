@@ -58,6 +58,17 @@ export async function POST(req: Request) {
 		return NextResponse.json({ error: "User not found or not able to subscribe" }, { status: 404 });
 	}
 
+	const existingServer = await prisma.server.findFirst({
+		where: {
+			userId: user.id,
+			stripeSubscriptionId: invoice.subscription as string,
+		},
+	});
+
+	if (existingServer) {
+		return NextResponse.json({ message: "OK" });
+	}
+
 	switch (event.type) {
 		case "invoice.paid": {
 			const subscription = await stripe.subscriptions.retrieve(invoice.subscription as string);
@@ -113,12 +124,14 @@ export async function POST(req: Request) {
 				console.log(`Created Pyrodactyl user for ${user.email}`);
 			}
 
-			const server = await serverAPI.createServer(user, product, "MANAGED");
+			const server = await serverAPI.createServer(user, product, subscription, "MANAGED");
 			if ("error" in server) {
 				console.log(`${server.error}`);
 				return NextResponse.json({ error: server.error }, { status: 400 });
 			}
 
+			console.log(`Created server ${server.serverId} for ${user.email}`);
+			
 			break;
 		}
 
