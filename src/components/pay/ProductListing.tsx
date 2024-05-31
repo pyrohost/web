@@ -1,9 +1,7 @@
 "use client";
 
 import currency from "currency.js";
-import type { User } from "lucia";
-import type { User as dbUser } from "@prisma/client";
-
+import type { User } from "@prisma/client";
 import React, { useState } from "react";
 
 import type { Price, Product } from "@prisma/client";
@@ -22,17 +20,15 @@ import getStripe from "@/lib/utils/getStripe";
 const ProductListing = ({
 	product,
 	prices,
-	user,
-	dbUser,
-	userAddress,
 	everyMonths,
+	user,
+	displaySubscribe,
 }: {
 	product: Product;
 	prices: Price[];
-	user: User | null;
-	dbUser: dbUser | null;
-	userAddress: any;
 	everyMonths: number;
+	user: User
+	displaySubscribe: boolean;
 }) => {
 	const [open, setOpen] = useState<boolean>(false);
 	const [clientSecret, setClientSecret] = useState<string | null>(null);
@@ -47,7 +43,6 @@ const ProductListing = ({
 			return setOpen(false);
 		}
 
-		// no fucking idea how we're handling this but FUCK IT
 		data.append("price_id", price?.stripeId);
 		data.append("customer_id", user?.stripeCustomerId.toString() ?? "");
 
@@ -62,17 +57,7 @@ const ProductListing = ({
 	};
 
 	if (
-		!user ||
-		!user.stripeCustomerId ||
-		!dbUser?.emailVerified ||
-		!dbUser.firstName ||
-		!dbUser.lastName ||
-		!dbUser.phone ||
-		!userAddress
-		// !customer ||
-		// !customer.phone ||
-		// !customer.address ||
-		// Object.keys(customer.address || {}).length === 0
+		!displaySubscribe
 	)
 		return (
 			<li className="flex h-fit w-full">
@@ -95,14 +80,12 @@ const ProductListing = ({
 		<>
 			<Dialog.Root open={open}>
 				<li className="flex h-fit w-full">
-					{/* Don't mind the error in the DOM. That's default react behavior and is intended */}
 					<form action={formAction} className="contents">
 						<div
 							className="relative flex w-full flex-col gap-4 break-words rounded-xl border-[#ffffff11] border-[1px] bg-[#ffffff09] p-6 shadow-sm"
 							data-price-id={product.stripeId}
 							key={product.id}
 						>
-							{/* <img src={product.icon} alt={product.name} className='w-full h-48 object-cover rounded-lg' /> */}
 							<h1 className="flex items-center font-extrabold text-2xl">
 								{product.name}
 								<span className="mt-2 ml-4 font-mono text-sm tracking-tighter opacity-50">

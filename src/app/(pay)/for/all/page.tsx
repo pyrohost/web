@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/primit
 import prisma from "@/lib/api/prisma";
 import productAPI from "@/lib/api/product";
 import userAPI, { getUserBySession } from "@/lib/api/user";
+import { isUserAbleToSubscribe } from '@/lib/utils/isUserAbleToSubscribe';
 
 export const metadata: Metadata = {
 	title: "Pyro - All Plans",
@@ -24,6 +25,8 @@ const Page = async () => {
 		userAddress = await userAPI.getUserAddress(dbUser);
 	}
 
+	const isAbleToSubscribe = await isUserAbleToSubscribe(dbUser, userAddress);
+
 	const products = await productAPI.getProducts();
 
 	const renderProductList = async (everyMonths: number) => (
@@ -34,10 +37,9 @@ const Page = async () => {
 						key={product?.id}
 						product={product}
 						prices={await productAPI.getPricesByProductIdAndMonths(product.id, everyMonths)}
-						user={sessionUser}
-						dbUser={dbUser}
-						userAddress={userAddress}
 						everyMonths={everyMonths}
+						user={dbUser}
+						displaySubscribe={isAbleToSubscribe}
 					/>
 				))}
 			</ul>
