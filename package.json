@@ -7,8 +7,10 @@
         "dev:live": "next dev --turbo -H 0.0.0.0",
         "preinstall": "prisma generate && prisma db push",
         "build": "next build",
+        "build:turbo": "turbo build",
         "start": "next start",
         "format": "biome format ./src --write",
+        "format:turbo": "turbo format",
         "autolint": "biome lint ./src --apply",
         "autolint:unsafe": "biome lint ./src --apply-unsafe"
     },
