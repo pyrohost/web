@@ -2,6 +2,7 @@
     "name": "@pyrohost/web",
     "version": "2.3.1",
     "private": true,
+    "packageManager": "pnpm@9.1.1",
     "scripts": {
         "dev": "next dev --turbo",
         "dev:live": "next dev --turbo -H 0.0.0.0",
