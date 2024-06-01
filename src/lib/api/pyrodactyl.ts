@@ -182,6 +182,10 @@ class UserAPI {
 		const users = await this.api.listRequest<{ id: number }, any>("GET", `/api/application/users?filter[email]=${encodeURI(email)}&per_page=1`);
 		const user = users.data[0];
 
+		if (!user) {
+			return null;
+		}
+
 		return user.attributes;
 	}
 
