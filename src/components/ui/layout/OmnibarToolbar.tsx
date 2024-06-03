@@ -23,7 +23,7 @@ const HeaderLoginButton = async () => {
 						</Link>
 					)}
 					<Tooltip delayDuration={0}>
-						<TooltipTrigger>
+						<TooltipTrigger asChild>
 							<Link
 								href="/account"
 								aria-label="Account page"
