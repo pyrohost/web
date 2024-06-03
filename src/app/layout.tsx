@@ -1,17 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-
 import Script from "next/script";
+import { Suspense } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import Footer from "@/components/ui/layout/Footer";
 import Omnibar from "@/components/ui/layout/Omnibar";
-import { Toaster } from "sonner";
-
-import "./globals.css";
 import { TooltipProvider } from "@/components/ui/primitives/Tooltip";
-import { Suspense } from "react";
 import MarketingHeader from "@/components/ui/layout/MarketingHeader";
+
+import { Toaster } from "sonner";
+import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
