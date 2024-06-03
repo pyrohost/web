@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { redirect } from "next/navigation";
-
-import { register } from "@/actions/auth";
 
 import OauthLogIn from "@/components/auth/OauthLogInForm";
 import RegisterForm from "@/components/auth/RegisterForm";
