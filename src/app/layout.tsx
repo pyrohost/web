@@ -10,6 +10,8 @@ import { Toaster } from "sonner";
 
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/primitives/Tooltip";
+import { Suspense } from "react";
+import MarketingHeader from "@/components/ui/layout/MarketingHeader";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -46,9 +48,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			>
 				<TooltipProvider>
 					<div data-pyro-index="" className="relative flex h-fit min-h-screen w-full flex-1 shrink-0 flex-col">
-						<Omnibar />
+						<Suspense fallback={<MarketingHeader />}>
+							<Omnibar />
+						</Suspense>
 						<main className="relative z-10 flex min-h-[calc(100vh-72px)] w-full flex-1 flex-col overflow-clip rounded-3xl">{children}</main>
-						<Footer />
+						<Suspense fallback={null}>
+							<Footer />
+						</Suspense>
 					</div>
 				</TooltipProvider>
 				<Toaster
