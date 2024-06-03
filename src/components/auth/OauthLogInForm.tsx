@@ -5,7 +5,7 @@ const OauthLogIn = () => {
 		<div className="mb-2 grid grid-cols-2 gap-2">
 			<form action={"/oauth/modrinth/"} method="get">
 				<button
-					className="flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 font-bold text-sm outline-none transition hover:bg-[#ffffff24] hover:duration-0"
+					className="flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 font-bold text-sm outline-none transition hover:bg-[#ffffff24] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:duration-0"
 					type="submit"
 				>
 					<svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="512" height="514" viewBox="0 0 512 514">
@@ -25,7 +25,7 @@ const OauthLogIn = () => {
 
 			<form action={"/oauth/discord/"} method="get">
 				<button
-					className="flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 font-bold text-sm outline-none transition hover:bg-[#ffffff24] hover:duration-0"
+					className="flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 font-bold text-sm outline-none transition hover:bg-[#ffffff24] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:duration-0"
 					type="submit"
 				>
 					<svg viewBox="0 0 16 16" className="h-4 w-4">
@@ -39,7 +39,7 @@ const OauthLogIn = () => {
 
 			<form action={"/oauth/twitch/"} method="get">
 				<button
-					className="flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 font-bold text-sm outline-none transition hover:bg-[#ffffff24] hover:duration-0"
+					className="flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 font-bold text-sm outline-none transition hover:bg-[#ffffff24] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:duration-0"
 					type="submit"
 				>
 					<svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 2400 2800">
@@ -59,7 +59,7 @@ const OauthLogIn = () => {
 
 			<form action={"/oauth/github/"} method="get">
 				<button
-					className="flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 font-bold text-sm outline-none transition hover:bg-[#ffffff24] hover:duration-0"
+					className="flex max-h-[36px] min-h-[36px] w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#ffffff17] px-4 py-2 font-bold text-sm outline-none transition hover:bg-[#ffffff24] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:duration-0"
 					type="submit"
 				>
 					<svg height="16" viewBox="0 0 14 14" width="16">
