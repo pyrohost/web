@@ -21,14 +21,14 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
 
 	return (
 		<>
-			<Script id="cf-turnstile-callback">
+			<Script id="cf-turnstile-callback" strategy="lazyOnload">
 				{`window.onloadTurnstileCallback = function () {
           window.turnstile.render('#turnstile-widget', {
             sitekey: '${process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}',
           })
         }`}
 			</Script>
-			<Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async={true} defer={true} />
+			<Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async={true} defer={true} strategy="lazyOnload" />
 
 			<div className="relative m-auto flex w-full max-w-[400px] flex-col gap-4 rounded-xl border-[#ffffff15] border-[1px] bg-[#ffffff14] p-8 shadow-sm">
 				{searchParams.c === "password_reset" && (
@@ -41,9 +41,9 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
 				<h2 className="font-extrabold text-xl">Login</h2>
 				<div className="text-sm">
 					New to Pyro?{" "}
-					<Link className="text-brand" href="/register">
+					<a className="text-brand" href="/register">
 						Sign up
-					</Link>
+					</a>
 				</div>
 				<OauthLogIn />
 				<EmailLogIn />

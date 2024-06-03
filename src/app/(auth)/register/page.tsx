@@ -23,14 +23,14 @@ export default async function Page() {
 
 	return (
 		<>
-			<Script id="cf-turnstile-callback">
+			<Script id="cf-turnstile-callback" strategy="lazyOnload">
 				{`window.onloadTurnstileCallback = function () {
           window.turnstile.render('#turnstile-widget', {
             sitekey: '${process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}',
           })
         }`}
 			</Script>
-			<Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async={true} defer={true} />
+			<Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async={true} defer={true} strategy="lazyOnload" />
 			<div className="relative m-auto flex w-full max-w-[400px] flex-col gap-4 rounded-xl border-[#ffffff15] border-[1px] bg-[#ffffff14] p-8 shadow-sm">
 				<div className="">
 					<LogoColored />
@@ -38,9 +38,9 @@ export default async function Page() {
 				<h2 className="font-extrabold text-xl">Sign Up</h2>
 				<div className="text-sm">
 					Already have an account?{" "}
-					<Link className="text-brand" href="/login">
+					<a className="text-brand" href="/login">
 						Login
-					</Link>
+					</a>
 				</div>
 				<OauthLogIn />
 				<RegisterForm />
