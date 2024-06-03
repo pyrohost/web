@@ -3,10 +3,14 @@ import VerifyEmailForm from "@/components/auth/VerifyEmailForm";
 import { getUserBySession } from "@/lib/api/user";
 import { redirect } from "next/navigation";
 
-const Page = async () => {
+const Page = async ({
+	searchParams,
+}: {
+	searchParams: { code: string };
+}) => {
+	const verifyCode = searchParams.code;
 	const user = await getUserBySession();
 	if (!user) {
-		// if this happens something terrible has gone wrong enog sa
 		return redirect("/login");
 	}
 
@@ -17,7 +21,7 @@ const Page = async () => {
 					<LogoColored />
 				</div>
 
-				<VerifyEmailForm user={user} />
+				<VerifyEmailForm verifyCode={verifyCode} user={user} />
 			</div>
 		</>
 	);
