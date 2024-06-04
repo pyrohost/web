@@ -11,6 +11,7 @@ import { sendEmail } from "@/lib/utils/sendEmail";
 import { isUserAbleToSubscribe } from "@/lib/utils/isUserAbleToSubscribe";
 import { alphabet, generateRandomString } from "oslo/crypto";
 import { serverAPI, userAPI } from "@/lib/api/pyrodactyl";
+import { formatAmountForDisplay } from "@/lib/utils/stripeHelpers";
 
 export async function POST(req: Request) {
 	let event: Stripe.Event;
@@ -82,6 +83,44 @@ export async function POST(req: Request) {
 					stripeId: subscription.items.data[0].price.product as string,
 				},
 			});
+
+			try {
+				const postToDiscordWebhook = async () => {
+					const webhook = process.env.DISCORD_WEBHOOK_URL;
+
+					const data = {
+						embeds: [
+							{
+								title: "🎉 Invoice Paid",
+								description: `\`${user?.email}\` has paid an invoice.`,
+								fields: [
+									{ name: "Product", value: product?.name, inline: false },
+									{
+										name: "Amount",
+										value: `${formatAmountForDisplay(invoice.total, invoice.currency.toUpperCase())} ${invoice.currency.toUpperCase()}`,
+										inline: false,
+									},
+									{ name: "Renews", value: `<t:${subscription.current_period_end}:R>`, inline: false },
+								],
+								url: `https://dashboard.stripe.com/invoices/${invoice.id}`,
+								color: 0xff4438,
+							},
+						],
+					};
+
+					await fetch(webhook!, {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(data),
+					});
+				};
+
+				await postToDiscordWebhook();
+			} catch (err) {
+				console.log(`❌ Error message: ${err}`);
+			}
 
 			if (!product) {
 				return NextResponse.json({ error: "Product not found" }, { status: 404 });
