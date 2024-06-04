@@ -12,8 +12,8 @@
         "start": "next start",
         "format": "biome format ./src --write",
         "format:turbo": "turbo format",
-        "autolint": "biome lint ./src --apply",
-        "autolint:unsafe": "biome lint ./src --apply-unsafe"
+        "autolint": "biome lint ./src --write",
+        "autolint:unsafe": "biome lint ./src --write --unsafe"
     },
     "dependencies": {
         "@lucia-auth/adapter-prisma": "^4.0.1",
