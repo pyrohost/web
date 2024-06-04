@@ -7,6 +7,7 @@ import LogoWhite from "@/components/icons/LogoWhite";
 import { Logomark } from "@/components/icons/Logomark";
 
 import { AUTHENTICATED_ROUTES } from "@/lib/static/authenticatedRoutes";
+import { VERSION } from "@/lib/static/version";
 
 const Footer = () => {
 	const pathname = usePathname();
@@ -20,7 +21,7 @@ const Footer = () => {
 							<div className="flex h-5 w-5 shrink-0">
 								<Logomark />
 							</div>
-							<p className="text-[#999] text-xs">© 2024 Pyro Host Inc.</p>
+							<p className="text-[#999] text-xs">v{VERSION} © 2024 Pyro Host Inc.</p>
 						</div>
 						<Link href="/" className="text-[#999] text-xs transition hover:text-[#fff]">
 							Home
@@ -44,7 +45,7 @@ const Footer = () => {
 					<div className="flex flex-col items-start gap-4 lg:w-fit md:w-full">
 						<LogoWhite />
 						<div className="flex flex-col gap-3 md:flex-row">
-							<p className="text-[#999] text-xs">© 2024 Pyro Host Inc.</p>
+							<p className="text-[#999] text-xs">v{VERSION} © 2024 Pyro Host Inc.</p>
 							<div className="flex flex-row gap-4">
 								<Link href="/legal/tos" className="text-[#999] text-xs">
 									Terms
