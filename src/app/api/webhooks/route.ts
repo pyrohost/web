@@ -12,6 +12,68 @@ import { isUserAbleToSubscribe } from "@/lib/utils/isUserAbleToSubscribe";
 import { alphabet, generateRandomString } from "oslo/crypto";
 import { serverAPI, userAPI } from "@/lib/api/pyrodactyl";
 import { formatAmountForDisplay } from "@/lib/utils/stripeHelpers";
+import type { Product, User } from "@prisma/client";
+
+const webhook = process.env.DISCORD_WEBHOOK_URL;
+
+async function createEmbed(title: string, description: string, fields: any[], url: string) {
+	return {
+		title,
+		description,
+		fields,
+		url,
+		color: 0xff4438,
+	};
+}
+
+async function postToDiscordWebhook(embed: any) {
+	const data = { embeds: [embed] };
+
+	try {
+		await fetch(webhook!, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		});
+	} catch (err) {
+		console.log(`❌ Error posting to Discord webhook: ${err}`);
+	}
+}
+
+async function notifyInvoicePaid(user: User, product: Product, invoice: Stripe.Invoice, subscription: Stripe.Subscription) {
+	const embed = await createEmbed(
+		"🎉 Invoice Paid",
+		`\`${user?.email}\` has paid an invoice.`,
+		[
+			{ name: "Product", value: product?.name, inline: false },
+			{
+				name: "Amount",
+				value: `${formatAmountForDisplay(invoice.total, invoice.currency.toUpperCase())} ${invoice.currency.toUpperCase()}`,
+				inline: false,
+			},
+			{ name: "Renews", value: `<t:${subscription.current_period_end}:R>`, inline: false },
+		],
+		`https://dashboard.stripe.com/invoices/${invoice.id}`,
+	);
+
+	await postToDiscordWebhook(embed);
+}
+
+async function notifyDisputeCreated(dispute: Stripe.Dispute, charge: Stripe.Charge) {
+	const embed = await createEmbed(
+		"🚨 Dispute Created",
+		"A dispute has been created for an invoice.",
+		[
+			{ name: "Amount", value: `${formatAmountForDisplay(charge.amount, charge.currency.toUpperCase())} ${charge.currency.toUpperCase()}`, inline: false },
+			{ name: "Status", value: dispute.status, inline: false },
+		],
+		`https://dashboard.stripe.com/disputes/${dispute.id}`,
+	);
+
+	await postToDiscordWebhook(embed);
+}
 
 export async function POST(req: Request) {
 	let event: Stripe.Event;
@@ -32,46 +94,31 @@ export async function POST(req: Request) {
 
 	console.log("✅ Success:", event.id);
 
-	const permittedEvents: string[] = [
-		"invoice.paid",
-		// "invoice.payment_failed",
-		// "invoice.overdue", // suspend servers that are 3 days overdue
-	];
+	const permittedEvents: string[] = ["invoice.paid", "invoice.payment_failed", "charge.dispute.created"];
 
 	if (!permittedEvents.includes(event.type)) {
 		return NextResponse.json({ message: "ACK" });
 	}
 
-	const invoice = event.data.object as Stripe.Invoice;
-	const customer = await stripe.customers.retrieve(invoice.customer as string);
-
-	if (!customer || customer.deleted) {
-		return NextResponse.json({ error: "Customer not found" }, { status: 404 });
-	}
-
-	let user = await prisma.user.findFirst({
-		where: {
-			stripeCustomerId: customer.id,
-		},
-	});
-
-	if (!user || !(await isUserAbleToSubscribe(user))) {
-		return NextResponse.json({ error: "User not found or not able to subscribe" }, { status: 404 });
-	}
-
-	const existingServer = await prisma.server.findFirst({
-		where: {
-			userId: user.id,
-			stripeSubscriptionId: invoice.subscription as string,
-		},
-	});
-
-	if (existingServer) {
-		return NextResponse.json({ message: "OK" });
-	}
-
 	switch (event.type) {
 		case "invoice.paid": {
+			const invoice = event.data.object as Stripe.Invoice;
+			const customer = await stripe.customers.retrieve(invoice.customer as string);
+
+			if (!customer || customer.deleted) {
+				return NextResponse.json({ error: "Customer not found" }, { status: 404 });
+			}
+
+			let user = await prisma.user.findFirst({
+				where: {
+					stripeCustomerId: customer.id,
+				},
+			});
+
+			if (!user || !(await isUserAbleToSubscribe(user))) {
+				return NextResponse.json({ error: "User not found or not able to subscribe" }, { status: 404 });
+			}
+
 			const subscription = await stripe.subscriptions.retrieve(invoice.subscription as string);
 
 			if (!subscription) {
@@ -84,46 +131,21 @@ export async function POST(req: Request) {
 				},
 			});
 
-			try {
-				const postToDiscordWebhook = async () => {
-					const webhook = process.env.DISCORD_WEBHOOK_URL;
-
-					const data = {
-						embeds: [
-							{
-								title: "🎉 Invoice Paid",
-								description: `\`${user?.email}\` has paid an invoice.`,
-								fields: [
-									{ name: "Product", value: product?.name, inline: false },
-									{
-										name: "Amount",
-										value: `${formatAmountForDisplay(invoice.total, invoice.currency.toUpperCase())} ${invoice.currency.toUpperCase()}`,
-										inline: false,
-									},
-									{ name: "Renews", value: `<t:${subscription.current_period_end}:R>`, inline: false },
-								],
-								url: `https://dashboard.stripe.com/invoices/${invoice.id}`,
-								color: 0xff4438,
-							},
-						],
-					};
-
-					await fetch(webhook!, {
-						method: "POST",
-						headers: {
-							"Content-Type": "application/json",
-						},
-						body: JSON.stringify(data),
-					});
-				};
-
-				await postToDiscordWebhook();
-			} catch (err) {
-				console.log(`❌ Error message: ${err}`);
-			}
-
 			if (!product) {
 				return NextResponse.json({ error: "Product not found" }, { status: 404 });
+			}
+
+			await notifyInvoicePaid(user, product, invoice, subscription);
+
+			const existingServer = await prisma.server.findFirst({
+				where: {
+					userId: user.id,
+					stripeSubscriptionId: invoice.subscription as string,
+				},
+			});
+
+			if (existingServer) {
+				return NextResponse.json({ message: "OK" });
 			}
 
 			if (!user.pyrodactylUserId) {
@@ -174,7 +196,34 @@ export async function POST(req: Request) {
 			break;
 		}
 
-		// todo: handle invoice.payment_failed and invoice.overdue
+		case "invoice.payment_failed": {
+			const invoice = event.data.object as Stripe.Invoice;
+			const subscription = await stripe.subscriptions.retrieve(invoice.subscription as string);
+			const customer = await stripe.customers.retrieve(invoice.customer as string);
+
+			break;
+		}
+
+		case "charge.dispute.created":
+			{
+				const dispute = event.data.object as Stripe.Dispute;
+				const charge = await stripe.charges.retrieve(dispute.charge as string);
+				const invoice = await stripe.invoices.retrieve(charge.invoice as string);
+				await notifyDisputeCreated(dispute, charge);
+				const server = await prisma.server.findFirst({
+					where: {
+						stripeSubscriptionId: invoice.subscription as string,
+					},
+				});
+				if (server) {
+					await serverAPI.suspendServer(server.serverId);
+					console.log(`❌ Dispute created for server ${server.serverId}, suspending...`);
+				} else {
+					console.warn(`❌ Dispute created for an unknown server with subscription ${invoice.subscription}`);
+				}
+			}
+
+			break;
 	}
 
 	return NextResponse.json({ message: "OK" });

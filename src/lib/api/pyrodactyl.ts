@@ -98,9 +98,7 @@ class ServerAPI {
 			return { error: `Product metadata is invalid: ${product.metadata}` };
 		}
 
-		console.log(product.metadata);
 		const metadata = JSON.parse(JSON.stringify(product.metadata));
-		console.log(metadata);
 
 		const hardware_limits = {
 			cpu: metadata.cpu * 100,
@@ -120,11 +118,9 @@ class ServerAPI {
 			"GET",
 			"/api/application/nodes/2/allocations?filter[server_id]=false&per_page=1",
 		);
-		console.log(allocations);
 		const allocation = allocations.data[0];
 
 		const egg = await this.api.request<{ id: string; docker_image: string; startup: string }>("GET", "/api/application/nests/1/eggs/3/");
-		console.log(egg);
 
 		const server = await this.api.request<{
 			id: number;
@@ -145,8 +141,6 @@ class ServerAPI {
 			},
 		});
 
-		console.log(server);
-
 		if (server.object !== "server") {
 			return { error: `Failed to create server: ${JSON.stringify(server)}` };
 		}
@@ -159,6 +153,15 @@ class ServerAPI {
 				type: server_type,
 			},
 		});
+	}
+
+	async suspendServer(serverId: string) {
+		const server = await this.getServerByServerId(serverId);
+		if (!server) {
+			return { error: "Server not found." };
+		}
+
+		await this.api.request("POST", `/api/application/servers/${server.serverId}/suspend`);
 	}
 }
 
