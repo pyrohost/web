@@ -109,7 +109,7 @@ export async function POST(req: Request) {
 					return NextResponse.json({ error: pyrodactylUser.error }, { status: 400 });
 				}
 
-				const email = PyrodactylCredentialsEmail(credentials.username, credentials.password);
+				const email = PyrodactylCredentialsEmail(credentials.email, credentials.password);
 				await sendEmail(user.email, email);
 
 				user = await prisma.user.update({
@@ -131,7 +131,7 @@ export async function POST(req: Request) {
 			}
 
 			console.log(`Created server ${server.serverId} for ${user.email}`);
-			
+
 			break;
 		}
 
