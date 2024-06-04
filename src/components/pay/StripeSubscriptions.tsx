@@ -123,10 +123,7 @@ const StripeSubscriptions = async ({ customerId }: { customerId: string }) => {
 												{subscription.canceled_at ? (
 													<>.</>
 												) : (
-													<>
-														{" "}
-														for {subscription.items.data[0]?.plan?.amount ? formatAmountForDisplay(subscription.items.data[0].plan.amount, "usd") : "N/A"}
-													</>
+													<> for {subscription.items.data[0]?.plan?.amount ? formatAmountForDisplay(subscription.items.data[0].plan.amount, "usd") : "N/A"}</>
 												)}
 											</p>
 											{subscription.canceled_at ? (

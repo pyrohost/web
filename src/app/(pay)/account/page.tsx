@@ -30,7 +30,9 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
 	return (
 		<div className="container mx-auto flex flex-col gap-4 py-8">
 			{dbUser.emailVerified === false && (
-				<div className="w-full max-w-[400px] rounded-xl bg-red-600/10 p-4 text-sm">Check your email to verify your email address and unlock all Pyro features.</div>
+				<div className="w-full max-w-[400px] rounded-xl bg-red-600/10 p-4 text-sm">
+					Check your email to verify your email address and unlock all Pyro features.
+				</div>
 			)}
 
 			<Suspense fallback={<DashboardSkeletonSection title={"Payment Information"} />}>
