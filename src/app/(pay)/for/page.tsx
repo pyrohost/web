@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
 	return (
-		<div className="relative flex flex-col items-center gap-8 px-4 py-16 text-center xl:px-24">
+		<div className="relative flex flex-col items-center gap-8 py-16 text-center">
 			<div className="pointer-events-none absolute inset-0 flex h-full w-full select-none justify-between opacity-10 blur-sm contrast-200">
 				<div className="relative h-full w-[30%]">
 					<Image alt="" aria-hidden src="/img/chips2-nbg.png" fill className="pointer-events-none select-none object-cover brightness-125" />
