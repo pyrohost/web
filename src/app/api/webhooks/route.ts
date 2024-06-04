@@ -94,7 +94,7 @@ export async function POST(req: Request) {
 
 	console.log("✅ Success:", event.id);
 
-	const permittedEvents: string[] = ["invoice.paid", "invoice.payment_failed", "charge.dispute.created"];
+	const permittedEvents: string[] = ["invoice.paid", "invoice.payment_failed", "charge.dispute.created", "customer.subscription.deleted"];
 
 	if (!permittedEvents.includes(event.type)) {
 		return NextResponse.json({ message: "ACK" });
@@ -196,10 +196,38 @@ export async function POST(req: Request) {
 			break;
 		}
 
-		case "invoice.payment_failed": {
-			const invoice = event.data.object as Stripe.Invoice;
-			const subscription = await stripe.subscriptions.retrieve(invoice.subscription as string);
-			const customer = await stripe.customers.retrieve(invoice.customer as string);
+		// todo: cron job to delete old suspended servers
+		case "customer.subscription.deleted": {
+			const subscription = event.data.object as Stripe.Subscription;
+			const customer = await stripe.customers.retrieve(subscription.customer as string);
+
+			if (!customer || customer.deleted) {
+				return NextResponse.json({ error: "Customer not found" }, { status: 404 });
+			}
+
+			const user = await prisma.user.findFirst({
+				where: {
+					stripeCustomerId: customer.id,
+				},
+			});
+
+			if (!user || !(await isUserAbleToSubscribe(user))) {
+				return NextResponse.json({ error: "User not found or not able to subscribe" }, { status: 404 });
+			}
+
+			const server = await prisma.server.findFirst({
+				where: {
+					userId: user.id,
+					stripeSubscriptionId: subscription.id,
+				},
+			});
+
+			if (!server) {
+				return NextResponse.json({ error: "Server not found" }, { status: 404 });
+			}
+
+			await serverAPI.suspendServer(server.serverId);
+			console.log(`Suspended server ${server.serverId} for ${user.email}`);
 
 			break;
 		}
