@@ -21,8 +21,8 @@ importers:
         specifier: ^1.8.3
         version: 1.8.3
       '@paypal/sdk-client':
-        specifier: ^4.0.189
-        version: 4.0.189
+        specifier: ^4.0.191
+        version: 4.0.191
       '@prisma/adapter-neon':
         specifier: ^5.15.0
         version: 5.15.0(@neondatabase/serverless@0.9.3)
@@ -762,8 +762,8 @@ packages:
     resolution: {integrity: sha512-I/s6F7yKUDdtMsoBWXJe8Qz40Tui5vsuKCWJEWVL+5q9sSWRzzx6v2KeNsOBEwd94j0eWkpWCH4yB6rZg9Mf0w==}
     engines: {node: '>=8.0.0'}
 
-  '@paypal/sdk-client@4.0.189':
-    resolution: {integrity: sha512-EecqeeLPyVcxOJZS6erEdLFO9IlKVpTSz2LfzXL/Tfjpb9Tw7DQND9bt139N26PwZJhQuiGZbx4HELhFdSyCiw==}
+  '@paypal/sdk-client@4.0.191':
+    resolution: {integrity: sha512-Yp2LvWMgGHmNCiGGquu7anzQ6ulhvWd2muDbTcLy7qlK3RsnP5LJA+yKuQdcD+EuORO6l0ycXOze7XoyKa2QEA==}
 
   '@paypal/sdk-constants@1.0.148':
     resolution: {integrity: sha512-8Y3lQArNYoySa738bqR6B6b1D8OwwEz/Q8lTlkkPcSNVkIIEUi+9PRs/g7gpdVQbidEYN4P+YuzpOKJD9PfiPA==}
@@ -2766,7 +2766,7 @@ snapshots:
   '@opentelemetry/api@1.8.0':
     optional: true
 
-  '@paypal/sdk-client@4.0.189':
+  '@paypal/sdk-client@4.0.191':
     dependencies:
       '@krakenjs/beaver-logger': 5.7.0
       '@krakenjs/belter': 2.5.0
