@@ -12,9 +12,7 @@ import { PencilIcon } from "@/components/ui/Icons";
 import {
 	Credenza,
 	CredenzaBody,
-	CredenzaClose,
 	CredenzaContent,
-	CredenzaDescription,
 	CredenzaFooter,
 	CredenzaHeader,
 	CredenzaTitle,
@@ -103,7 +101,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 			</CredenzaTrigger>
 
 			<CredenzaContent>
-				<div className="flex flex-col p-4 text-sm md:p-0">
+				<CredenzaBody className="flex flex-col pb-4 text-sm md:pb-0">
 					<CredenzaHeader>
 						<CredenzaTitle className="mb-4 font-extrabold text-xl tracking-tight">Edit {label}</CredenzaTitle>
 					</CredenzaHeader>
@@ -319,7 +317,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 							</PyroButton>
 						</form>
 					)}
-				</div>
+				</CredenzaBody>
 			</CredenzaContent>
 		</Credenza>
 	);
