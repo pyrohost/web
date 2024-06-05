@@ -9,13 +9,23 @@ import { useEffect, useState, useTransition } from "react";
 import { editAddress, editName, editPhoneNumber, editPassword } from "@/actions/user";
 
 import { PencilIcon } from "@/components/ui/Icons";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/primitives/Popover";
+// import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/primitives/Popover";
+import {
+	Credenza,
+	CredenzaBody,
+	CredenzaClose,
+	CredenzaContent,
+	CredenzaDescription,
+	CredenzaFooter,
+	CredenzaHeader,
+	CredenzaTitle,
+	CredenzaTrigger,
+} from "@/components/ui/primitives/Credenza";
 import { PyroButton } from "@/components/ui/PyroButton";
 import { toast } from "sonner";
 
 const EditForm = ({ label, user }: { label: string; user: User }) => {
 	const router = useRouter();
-	const [open, setOpen] = useState<boolean>(false);
 	const [isPending, startTransition] = useTransition();
 	const [firstNameState, setFirstNameState] = useState<string | null>(user.firstName);
 	const [lastNameState, setLastNameState] = useState<string | null>(user.lastName);
@@ -33,7 +43,6 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 		if (isPending) return;
 
 		router.refresh();
-		setOpen(false);
 	}, [isPending, router]);
 
 	const fullNameAction = async (data: FormData): Promise<void> => {
@@ -87,20 +96,18 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 	};
 
 	return (
-		<Popover open={open}>
-			<PopoverTrigger onClick={() => setOpen(!open)}>
-				<div className="flex h-5 w-5">
+		<Credenza>
+			<CredenzaTrigger asChild>
+				<button type="button" className="flex h-5 w-5">
 					<PencilIcon />
-				</div>
-			</PopoverTrigger>
+				</button>
+			</CredenzaTrigger>
 
-			<PopoverContent collisionPadding={24} className="overflow-y-auto" onEscapeKeyDown={() => setOpen(false)} onInteractOutside={() => setOpen(false)}>
-				<div
-					style={{
-						maxHeight: "calc(var(--radix-popper-available-height) - 6rem)",
-					}}
-					className="flex flex-col text-sm"
-				>
+			<CredenzaContent>
+				<div className="flex flex-col p-4 text-sm md:p-0">
+					<CredenzaHeader>
+						<CredenzaTitle className="mb-4 font-extrabold text-xl tracking-tight">Edit {label}</CredenzaTitle>
+					</CredenzaHeader>
 					{label === "Full Name" && (
 						<form className="flex flex-col gap-2" action={fullNameAction}>
 							<div className="contents">
@@ -137,7 +144,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 									autoComplete="family-name"
 								/>
 							</div>
-							<PyroButton type="submit" isPending={isPending}>
+							<PyroButton className="mt-2" type="submit" isPending={isPending}>
 								Save
 							</PyroButton>
 						</form>
@@ -163,7 +170,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 									autoComplete="tel"
 								/>
 							</div>
-							<PyroButton type="submit" isPending={isPending}>
+							<PyroButton className="mt-2" type="submit" isPending={isPending}>
 								Save
 							</PyroButton>
 						</form>
@@ -272,7 +279,7 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 									autoComplete="country-name"
 								/>
 							</div>
-							<PyroButton type="submit" isPending={isPending}>
+							<PyroButton className="mt-2" type="submit" isPending={isPending}>
 								Save
 							</PyroButton>
 						</form>
@@ -308,14 +315,14 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 									autoComplete="new-password"
 								/>
 							</div>
-							<PyroButton type="submit" isPending={isPending}>
+							<PyroButton className="mt-2" type="submit" isPending={isPending}>
 								Save New Password
 							</PyroButton>
 						</form>
 					)}
 				</div>
-			</PopoverContent>
-		</Popover>
+			</CredenzaContent>
+		</Credenza>
 	);
 };
 

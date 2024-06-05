@@ -46,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				className={`${jakarta.className} no-scrollbar flex min-h-screen w-full flex-col overflow-x-hidden bg-black text-white`}
 			>
 				<TooltipProvider>
-					<div data-pyro-index="" className="relative flex h-fit min-h-screen w-full flex-1 shrink-0 flex-col">
+					<div data-pyro-index="" vaul-drawer-wrapper="" className="relative flex h-fit min-h-screen w-full flex-1 shrink-0 flex-col">
 						<Suspense fallback={<MarketingHeader />}>
 							<Omnibar />
 						</Suspense>
