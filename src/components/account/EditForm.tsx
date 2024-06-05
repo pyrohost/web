@@ -9,7 +9,6 @@ import { useEffect, useState, useTransition } from "react";
 import { editAddress, editName, editPhoneNumber, editPassword } from "@/actions/user";
 
 import { PencilIcon } from "@/components/ui/Icons";
-// import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/primitives/Popover";
 import {
 	Credenza,
 	CredenzaBody,
