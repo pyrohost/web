@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 
 import ProductListing from "@/components/pay/ProductListing";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/primitives/Tabs";
 
-import prisma from "@/lib/api/prisma";
 import productAPI from "@/lib/api/product";
 import userAPI, { getUserBySession } from "@/lib/api/user";
 import { isUserAbleToSubscribe } from "@/lib/utils/isUserAbleToSubscribe";
-import { User } from "@prisma/client";
+import type { User } from "@prisma/client";
+import { PyroButton } from "@/components/ui/PyroButton";
 
 export const metadata: Metadata = {
 	title: "Pyro - All Plans",
@@ -16,8 +15,7 @@ export const metadata: Metadata = {
 };
 
 const Page = async () => {
-	let dbUser: any;
-	let userAddress: any;
+	let dbUser: User | null = null;
 	let isAbleToSubscribe = false;
 
 	const sessionUser = await getUserBySession();
@@ -34,7 +32,7 @@ const Page = async () => {
 
 	const renderProductList = async (everyMonths: number) => (
 		<>
-			<ul className="grid grid-cols-1 gap-6 lg:grid-cols-3 sm:grid-cols-2">
+			<ul className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 				{products.map(async (product) => (
 					<ProductListing
 						key={product?.id}
@@ -51,14 +49,33 @@ const Page = async () => {
 
 	return (
 		<>
-			<section className="relative flex flex-col md:flex-row">
-				<div className="container mx-auto px-4 py-4">
+			<section className="relative flex flex-col md:flex-row text-white">
+				<div className="container mx-auto px-4 pt-8">
 					<h1 className="text-center font-bold text-4xl md:text-left md:text-5xl">All Plans</h1>
-					<p className="mt-4 text-center text-white md:text-left">
+					<p className="mt-4 text-center md:text-left">
 						Pyro offers a variety of plans to suit your needs. Whether you want to play games with friends or host your own server, we have you covered.
 					</p>
 				</div>
 			</section>
+
+			{!sessionUser && (
+				<div className="mt-8 mx-auto container">
+					<div className="bg-red-800 text-white text-center p-4 rounded-lg shadow-md font-bold">You must be logged in to subscribe to a plan.</div>
+				</div>
+			)}
+
+			{sessionUser && !dbUser?.emailVerified && (
+				<div className="mt-8 mx-auto container">
+					<div className="bg-red-800 text-white text-center p-4 rounded-lg shadow-md font-bold">You must verify your email before subscribing to a plan.</div>
+				</div>
+			)}
+			{sessionUser && dbUser?.emailVerified && !isAbleToSubscribe && (
+				<div className="mt-8 mx-auto container">
+					<div className="bg-red-800 text-white text-center p-4 rounded-lg shadow-md font-bold">
+						You must have a valid account information on file before subscribing to a plan.
+					</div>
+				</div>
+			)}
 
 			<div className="container mx-auto px-4 py-8">
 				<Tabs defaultValue="monthly">

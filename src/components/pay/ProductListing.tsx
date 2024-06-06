@@ -1,6 +1,5 @@
 "use client";
 
-import currency from "currency.js";
 import type { User } from "@prisma/client";
 import React, { useState } from "react";
 
@@ -27,7 +26,7 @@ const ProductListing = ({
 	product: Product;
 	prices: Price[];
 	everyMonths: number;
-	user: User;
+	user: User | null;
 	displaySubscribe: boolean;
 }) => {
 	const [open, setOpen] = useState<boolean>(false);
@@ -56,24 +55,6 @@ const ProductListing = ({
 		setClientSecret(null);
 	};
 
-	if (!displaySubscribe)
-		return (
-			<li className="flex h-fit w-full">
-				<div className="relative flex w-full flex-col gap-4 rounded-xl border-[#ffffff11] border-[1px] bg-[#ffffff09] p-6 shadow-sm" key={product.id}>
-					<h1 className="flex items-center font-extrabold text-2xl">
-						{product.name}
-						<span className="mt-2 ml-4 font-mono text-sm tracking-tighter opacity-50">
-							{currency(price?.amount ?? 0)
-								.divide(100)
-								.format()}{" "}
-							/ {TIME_TABLE[everyMonths as keyof typeof TIME_TABLE]}
-						</span>
-					</h1>
-					{product.description ? <p className="w-full break-words text-sm opacity-50">{product.description}</p> : null}
-				</div>
-			</li>
-		);
-
 	return (
 		<>
 			<Dialog.Root open={open}>
@@ -87,20 +68,23 @@ const ProductListing = ({
 							<h1 className="flex items-center font-extrabold text-2xl">
 								{product.name}
 								<span className="mt-2 ml-4 font-mono text-sm tracking-tighter opacity-50">
-									{currency(price?.amount ?? 0)
-										.divide(100)
-										.format()}{" "}
+									{Intl.NumberFormat("en-US", {
+										style: "currency",
+										currency: price.currency,
+									}).format(price.amount / 100)}{" "}
 									/ {TIME_TABLE[everyMonths as keyof typeof TIME_TABLE]}
 								</span>
 							</h1>
 							{product.description ? <p className="w-full break-words text-sm opacity-50">{product.description}</p> : null}
 							<Dialog.Trigger asChild>
-								<button
-									className="rounded-full border-[#ffffff12] border-[1px] bg-[#ffffff11] px-8 py-3 font-bold text-sm shadow-md transition-all hover:bg-[#ffffff22]"
-									type="submit"
-								>
-									Subscribe
-								</button>
+								{displaySubscribe ? (
+									<button
+										className="rounded-full border-[#ffffff12] border-[1px] bg-[#ffffff11] px-8 py-3 font-bold text-sm shadow-md transition-all hover:bg-[#ffffff22]"
+										type="submit"
+									>
+										Subscribe
+									</button>
+								) : null}
 							</Dialog.Trigger>
 						</div>
 					</form>
