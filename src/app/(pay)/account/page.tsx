@@ -10,6 +10,7 @@ import StripeSubscriptions from "@/components/pay/StripeSubscriptions";
 
 import userAPI, { getUserBySession } from "@/lib/api/user";
 import LogoutForm from "@/components/account/LogoutForm";
+import Profile from "@/components/account/Profile";
 
 export const metadata: Metadata = {
 	title: "Pyro - Account",
@@ -29,11 +30,15 @@ const Page = async ({ searchParams }: { searchParams: { [key: string]: string | 
 
 	return (
 		<div className="container mx-auto flex flex-col gap-4 py-8">
-			{dbUser.emailVerified === false && (
+			{!dbUser.emailVerified && (
 				<div className="w-full max-w-[400px] rounded-xl bg-red-600/10 p-4 text-sm">
 					Check your email to verify your email address and unlock all Pyro features.
 				</div>
 			)}
+
+			<Suspense fallback={<DashboardSkeletonSection title={"Profile"} />}>
+				<Profile user={dbUser} />
+			</Suspense>
 
 			<Suspense fallback={<DashboardSkeletonSection title={"Payment Information"} />}>
 				<AccountInformation user={dbUser} />

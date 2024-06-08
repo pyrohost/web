@@ -6,26 +6,19 @@ import { useRouter } from "next/navigation";
 
 import { useEffect, useState, useTransition } from "react";
 
-import { editAddress, editName, editPhoneNumber, editPassword } from "@/actions/user";
+import { editAddress, editName, editPhoneNumber, editPassword, editPreferredName } from "@/actions/user";
 
 import { PencilIcon } from "@/components/ui/Icons";
-import {
-	Credenza,
-	CredenzaBody,
-	CredenzaContent,
-	CredenzaFooter,
-	CredenzaHeader,
-	CredenzaTitle,
-	CredenzaTrigger,
-} from "@/components/ui/primitives/Credenza";
+import { Credenza, CredenzaBody, CredenzaContent, CredenzaFooter, CredenzaHeader, CredenzaTitle, CredenzaTrigger } from "@/components/ui/primitives/Credenza";
 import { PyroButton } from "@/components/ui/PyroButton";
 import { toast } from "sonner";
 
-const EditForm = ({ label, user }: { label: string; user: User }) => {
+const EditForm = ({ required, label, user }: { required?: boolean; label: string; user: User }) => {
 	const router = useRouter();
 	const [isPending, startTransition] = useTransition();
 	const [firstNameState, setFirstNameState] = useState<string | null>(user.firstName);
 	const [lastNameState, setLastNameState] = useState<string | null>(user.lastName);
+	const [preferredNameState, setPreferredBaneState] = useState<string | null>(user.preferredName);
 
 	const [street1State, setStreet1State] = useState<string | null>("");
 	const [street2State, setStreet2State] = useState<string | null>("");
@@ -52,6 +45,19 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 			console.error(error);
 			router.refresh();
 			toast.error("We couldn't update your name. Please try again.");
+		}
+	};
+
+	const preferredNameAction = async (data: FormData): Promise<void> => {
+		try {
+			startTransition(async () => {
+				const name = await editPreferredName(data, user);
+				toast.success("Successfully updated your preferred name!");
+			});
+		} catch (error) {
+			console.error(error);
+			router.refresh();
+			toast.error("We couldn't update your preferred name. Please try again.");
 		}
 	};
 
@@ -139,6 +145,31 @@ const EditForm = ({ label, user }: { label: string; user: User }) => {
 									enterKeyHint="next"
 									required
 									autoComplete="family-name"
+								/>
+							</div>
+							<PyroButton className="mt-2" type="submit" isPending={isPending}>
+								Save
+							</PyroButton>
+						</form>
+					)}
+
+					{label === "Preferred Name" && (
+						<form className="flex flex-col gap-2" action={preferredNameAction}>
+							<div className="contents">
+								<label className="text-[#ffffff77] text-sm" htmlFor="preferredName">
+									Preferred Name
+								</label>
+								<input
+									className="rounded-2xl bg-[#ffffff17] px-4 py-2 text-sm shadow-md outline-none"
+									type="text"
+									id="preferredName"
+									name="preferredName"
+									placeholder="Preferred Name"
+									value={preferredNameState || ""}
+									onChange={(e) => setPreferredBaneState(e.target.value)}
+									enterKeyHint="next"
+									required={required}
+									autoComplete="given-name"
 								/>
 							</div>
 							<PyroButton className="mt-2" type="submit" isPending={isPending}>

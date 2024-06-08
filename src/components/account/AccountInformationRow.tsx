@@ -2,12 +2,13 @@
 
 import type { User } from "@prisma/client";
 
-import { LockClosedIcon } from "@radix-ui/react-icons";
+import { LockClosedIcon, InfoCircledIcon } from "@radix-ui/react-icons";
 
 import EditForm from "@/components/account/EditForm";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/primitives/Tooltip";
 
 const AccountInformationRow = ({
+	tooltip,
 	label,
 	required,
 	locked,
@@ -16,6 +17,7 @@ const AccountInformationRow = ({
 	error,
 	user,
 }: {
+	tooltip?: string;
 	label: string;
 	required?: boolean;
 	locked?: boolean;
@@ -32,7 +34,7 @@ const AccountInformationRow = ({
 					{locked && (
 						<Tooltip delayDuration={0}>
 							<TooltipTrigger>
-								<LockClosedIcon />
+								<LockClosedIcon className="w-5 h-5" />
 							</TooltipTrigger>
 
 							<TooltipContent>
@@ -40,7 +42,19 @@ const AccountInformationRow = ({
 							</TooltipContent>
 						</Tooltip>
 					)}
-					{locked ? null : <EditForm label={label} user={user} />}
+					{tooltip && (
+						<Tooltip delayDuration={0}>
+							<TooltipTrigger>
+								<InfoCircledIcon className="w-5 h-5" />
+							</TooltipTrigger>
+
+							<TooltipContent className="max-w-[50ch]">
+								<p>{tooltip}</p>
+							</TooltipContent>
+						</Tooltip>
+					)}
+
+					{locked ? null : <EditForm label={label} user={user} required={required} />}
 					{required && null}
 				</div>
 				<div className="flex flex-row items-center gap-2">
@@ -50,7 +64,7 @@ const AccountInformationRow = ({
 							<span className="font-bold text-neutral-400 text-sm">Hidden</span>
 						</>
 					) : (
-						<>{value} </>
+						<>{value}</>
 					)}
 					{error && <span className="font-bold text-red-500 text-sm">{error}</span>}
 				</div>

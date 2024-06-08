@@ -26,6 +26,14 @@ export const editName = (formData: FormData, user: User) => {
 	return userAPI.updateUser(user);
 };
 
+export const editPreferredName = (formData: FormData, user: User) => {
+	const preferredName = formData.get("preferredName") as string;
+
+	user.preferredName = preferredName;
+
+	return userAPI.updateUser(user);
+};
+
 export const editEmail = async (formData: FormData, user: User) => {
 	const email = formData.get("email") as string;
 

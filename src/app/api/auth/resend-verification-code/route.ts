@@ -16,7 +16,7 @@ export async function GET() {
 	}
 
 	const code = await userAPI.generateEmailVerificationCode(user.id, user.email);
-	await sendEmail(user.email, VerificationEmail(code));
+	await sendEmail(user.email, "Verify your email", VerificationEmail({ code }));
 
 	return redirect("/verify-email");
 }

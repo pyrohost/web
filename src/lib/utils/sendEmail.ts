@@ -1,5 +1,5 @@
-import type Email from "@/emails/Email";
-import { createTransport } from "nodemailer";
+import { render } from "@react-email/components";
+import { createTransport, type SentMessageInfo } from "nodemailer";
 
 const server = {
 	host: process.env.SMTP_HOST!,
@@ -10,7 +10,7 @@ const server = {
 	},
 };
 
-export async function sendEmail(to: string, email: Email) {
+export async function sendEmail(to: string, subject: string, object: React.ReactElement): Promise<SentMessageInfo> {
 	const transporter = createTransport(server);
 
 	return transporter.sendMail({
@@ -24,8 +24,8 @@ export async function sendEmail(to: string, email: Email) {
 		},
 		to,
 		priority: "high",
-		subject: email.subject,
-		html: email.html,
-		text: email.fallback,
+		subject: `Pyro - ${subject}`,
+		html: render(object),
+		text: render(object, { plainText: true }),
 	});
 }

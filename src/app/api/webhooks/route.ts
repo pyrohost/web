@@ -1,4 +1,3 @@
-import PyrodactylCredentialsEmail from "@/emails/PyrodactylCredentialsEmail";
 import { randomBytes } from "node:crypto";
 import type { Stripe } from "stripe";
 
@@ -13,6 +12,7 @@ import { alphabet, generateRandomString } from "oslo/crypto";
 import { serverAPI, userAPI } from "@/lib/api/pyrodactyl";
 import { formatAmountForDisplay } from "@/lib/utils/stripeHelpers";
 import type { Product, User } from "@prisma/client";
+import CredentialsEmail from "@/emails/CredentialsEmail";
 
 const webhook = process.env.DISCORD_WEBHOOK_URL;
 
@@ -170,8 +170,7 @@ export async function POST(req: Request) {
 					return NextResponse.json({ error: pyrodactylUser.error }, { status: 400 });
 				}
 
-				const email = PyrodactylCredentialsEmail(credentials.email, credentials.password);
-				await sendEmail(user.email, email);
+				await sendEmail(user.email, "Login to Pyrodactyl", CredentialsEmail(credentials));
 
 				user = await prisma.user.update({
 					where: {

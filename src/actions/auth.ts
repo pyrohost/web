@@ -1,6 +1,5 @@
 "use server";
 
-import { VerificationEmail } from "@/emails/VerificationEmail";
 import { hash, verify } from "@node-rs/argon2";
 import type { User } from "lucia";
 
@@ -13,8 +12,10 @@ import { sendEmail } from "@/lib/utils/sendEmail";
 import sessionAPI from "@/lib/api/session";
 import { HASHING_OPTIONS } from "@/lib/static/auth";
 import { headers } from "next/headers";
-import { ResetPasswordEmail } from "@/emails/ResetPasswordEmail";
 import z from "zod";
+import VerificationEmail from "@/emails/VerificationEmail";
+import ResetPasswordEmail from "@/emails/ResetPasswordEmail";
+import WelcomeEmail from "@/emails/WelcomeEmail";
 
 interface ActionResult {
 	success?: string | boolean;
@@ -85,7 +86,8 @@ export const register = async (formData: FormData): Promise<ActionResult> => {
 
 	const user = await userAPI.createUser({ email, passwordHash });
 	const code = await userAPI.generateEmailVerificationCode(user.id, email);
-	await sendEmail(email, VerificationEmail(code));
+	await sendEmail(email, "Welcome to Pyro!", WelcomeEmail());
+	await sendEmail(email, "Verify your email", VerificationEmail({ code }));
 
 	await userAPI.linkOrCreateExternalAccounts(user);
 	await sessionAPI.createAndSetSession(user.id);
@@ -160,7 +162,7 @@ export const sendResetPasswordEmail = async (formData: FormData): Promise<Action
 	if (!user) return { error: "If an account with that email exists, a reset email has been sent" };
 
 	const code = await userAPI.generatePasswordResetCode(user.id, email);
-	await sendEmail(email, ResetPasswordEmail(code));
+	await sendEmail(email, "Reset your password", ResetPasswordEmail({ code }));
 
 	return {
 		success: "If an account with that email exists, a reset email has been sent",
