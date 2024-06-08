@@ -2,6 +2,8 @@ import { PyroButton } from "@/components/ui/PyroButton";
 import { PyroLink } from "@/components/ui/PyroLink";
 
 import stripe from "@/lib/api/stripe";
+import { sendGAEvent } from "@next/third-parties/google";
+import type Stripe from "stripe";
 
 export default async function ResultPage({
 	searchParams,
@@ -10,8 +12,9 @@ export default async function ResultPage({
 }): Promise<JSX.Element> {
 	if (!searchParams.session_id) throw new Error("Invalid session ID provided.");
 
+	let session: Stripe.Checkout.Session;
 	try {
-		await stripe.checkout.sessions.retrieve(searchParams.session_id, {
+		session = await stripe.checkout.sessions.retrieve(searchParams.session_id, {
 			expand: ["line_items", "payment_intent"],
 		});
 	} catch (error) {
@@ -53,6 +56,8 @@ export default async function ResultPage({
 					</PyroButton>
 				</div>
 			</div>
+
+			{session.amount_total && sendGAEvent({ event: "conversion_event_purchase", value: session.amount_total / 100 })}
 		</>
 	);
 }
