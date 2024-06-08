@@ -29,9 +29,12 @@ export const createCheckoutSession = async (data: FormData): Promise<{ client_se
 		mode: "subscription",
 		return_url: `${origin}/return?session_id={CHECKOUT_SESSION_ID}`,
 		consent_collection: {
+			promotions: "auto",
 			terms_of_service: "required",
 		},
-		billing_address_collection: "required",
+		allow_promotion_codes: true,
+		billing_address_collection: "auto",
+		payment_method_configuration: "pmc_1P5vuNCb13I9j7yAdbCu2BYY",
 		automatic_tax: {
 			enabled: false,
 		},
