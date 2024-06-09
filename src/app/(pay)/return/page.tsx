@@ -4,7 +4,7 @@ import { PyroLink } from "@/components/ui/PyroLink";
 import stripe from "@/lib/api/stripe";
 
 import type Stripe from "stripe";
-import SendGAEvent from "./SendGAEvent";
+import SendGAEvent from "@/app/(pay)/return/SendGAEvent";
 
 export default async function ResultPage({
 	searchParams,
@@ -58,7 +58,7 @@ export default async function ResultPage({
 				</div>
 			</div>
 
-			{/* <SendGAEvent session={session} /> */}
+			<SendGAEvent session={session} />
 		</>
 	);
 }
