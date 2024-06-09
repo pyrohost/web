@@ -2,8 +2,9 @@ import { PyroButton } from "@/components/ui/PyroButton";
 import { PyroLink } from "@/components/ui/PyroLink";
 
 import stripe from "@/lib/api/stripe";
-import { sendGAEvent } from "@next/third-parties/google";
+
 import type Stripe from "stripe";
+import SendGAEvent from "./SendGAEvent";
 
 export default async function ResultPage({
 	searchParams,
@@ -57,7 +58,7 @@ export default async function ResultPage({
 				</div>
 			</div>
 
-			{session.amount_total && sendGAEvent({ event: "conversion_event_purchase", value: session.amount_total / 100 })}
+			{/* <SendGAEvent session={session} /> */}
 		</>
 	);
 }
