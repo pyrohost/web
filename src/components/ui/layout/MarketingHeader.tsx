@@ -74,7 +74,7 @@ const MarketingHeader = () => {
 												<NavigationMenu.Trigger className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 font-extrabold text-sm transition hover:bg-[#ffffff22]">
 													Products
 												</NavigationMenu.Trigger>
-												<NavigationMenu.Content className="navContent flex flex-col pb-12 pl-[200px]">
+												<NavigationMenu.Content className="navContent flex flex-col pb-4 pl-[200px]">
 													<NavLinkItem href="/pyrodactyl">Pyrodactyl Panel</NavLinkItem>
 													<NavLinkItem href="/pay">Pyro Pay</NavLinkItem>
 													<NavLinkItem href="/alerion">Alerion</NavLinkItem>
@@ -84,7 +84,7 @@ const MarketingHeader = () => {
 												<NavigationMenu.Trigger className="flex h-fit w-fit items-center gap-2 rounded-full px-4 py-2 font-extrabold text-sm transition hover:bg-[#ffffff22]">
 													Resources
 												</NavigationMenu.Trigger>
-												<NavigationMenu.Content className="navContent flex flex-col pb-12 pl-[290px]">
+												<NavigationMenu.Content className="navContent flex flex-col pb-4 pl-[290px]">
 													<NavLinkItem href="https://panel.pyro.host" external>
 														Game Panel
 													</NavLinkItem>
