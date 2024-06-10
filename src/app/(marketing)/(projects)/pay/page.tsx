@@ -27,7 +27,7 @@ const Page = () => {
 						</h1>
 						<div className="flex w-full flex-col gap-8 lg:w-1/3 lg:gap-4">
 							<p className="text-[#ffffffbb] text-[20px] leading-[155%]">First-in-class for features and performance. Built with Next.js and TypeScript.</p>
-							<PyroButton variant="secondary" href="https://pay.pyro.host">
+							<PyroButton variant="secondary" href="https://pyro.host/register">
 								Try it out
 							</PyroButton>
 						</div>
