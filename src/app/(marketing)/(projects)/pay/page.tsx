@@ -25,8 +25,8 @@ const Page = () => {
 						<h1 className="w-full font-extrabold text-[max(30px,min(5vw,42px))] leading-[1.2] tracking-[-0.14rem] drop-shadow-xl lg:w-1/2">
 							Pay is Pyro&apos;s dead-simple billing platform that integrates with Stripe
 						</h1>
-						<div className="flex w-full flex-col gap-8 lg:w-1/4 lg:gap-4">
-							<p className="text-[#ffffffbb] text-[20px] leading-[155%]">It&apos;s the hosting industry&apos;s easiest billing management system.</p>
+						<div className="flex w-full flex-col gap-8 lg:w-1/3 lg:gap-4">
+							<p className="text-[#ffffffbb] text-[20px] leading-[155%]">First-in-class for features and performance. Built with Next.js and TypeScript.</p>
 							<PyroButton variant="secondary" href="https://pay.pyro.host">
 								Try it out
 							</PyroButton>

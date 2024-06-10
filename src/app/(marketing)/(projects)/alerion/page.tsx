@@ -28,8 +28,8 @@ const Page = () => {
 						<h1 className="w-full font-extrabold text-[max(30px,min(5vw,42px))] leading-[1.2] tracking-[-0.14rem] drop-shadow-xl lg:w-1/2">
 							Alerion is Pyro&apos;s Rust-powered, cross-platform Wings successor
 						</h1>
-						<div className="flex w-full flex-col gap-8 lg:w-1/4 lg:gap-4">
-							<p className="text-[#ffffffbb] text-[20px] leading-[155%]">Manage and run Dockerized game servers with Alerion. Super fast, super reliable.</p>
+						<div className="flex w-full flex-col gap-8 lg:w-1/3 lg:gap-4">
+							<p className="text-[#ffffffbb] text-[20px] leading-[155%]">Manage and run Dockerized game servers with Alerion.</p>
 							<PyroButton variant="secondary" href="https://github.com/pyrohost/alerion">
 								Star on GitHub
 							</PyroButton>

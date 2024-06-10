@@ -28,11 +28,11 @@ const Page = () => {
 					{" "}
 					<div className="z-10 mx-auto mt-12 flex h-full w-full flex-col items-center justify-between gap-8 lg:flex-row lg:gap-0">
 						<h1 className="w-full font-extrabold text-[max(30px,min(5vw,42px))] leading-[1.2] tracking-[-0.14rem] drop-shadow-xl lg:w-1/2">
-							Pyrodactyl is Pyro&apos;s open, secure, and scalable server management platform
+							Pyrodactyl is Pyro&apos;s open, secure, and scalable servers platform
 						</h1>
-						<div className="flex w-full flex-col gap-8 lg:w-1/4 lg:gap-4">
+						<div className="flex w-full flex-col gap-8 lg:w-1/3 lg:gap-4">
 							<p className="text-[#ffffffbb] text-[20px] leading-[155%]">
-								It&apos;s the world&apos;s best Pterodacyl panel. You&apos;ve never seen anything like it before.
+								It&apos;s the world&apos;s best Pterodacyl panel. Unmatched performance and features.
 							</p>
 							<PyroButton variant="secondary" href="https://github.com/pyrohost/panel">
 								Star on GitHub
