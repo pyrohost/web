@@ -198,15 +198,12 @@ class UserAPI {
 			username,
 			first_name,
 			last_name,
+			password
 		});
 
 		if (user.object !== "user") {
 			return { error: `Failed to create user: ${JSON.stringify(user)}` };
 		}
-
-		await this.api.request("PATCH", `/api/application/users/${user.attributes.id}`, {
-			password,
-		});
 
 		return user.attributes;
 	}
