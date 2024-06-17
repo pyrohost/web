@@ -42,7 +42,7 @@ const BetterVPS = () => {
 					</h1>
 					<p className="mb-6 font-medium text-[#ffffff99] text-xl leading-[190%]">
 						Power your next project with Pyro&apos;s VPS. With zero bandwidth limits, storage that scales, and incredible uptime, you&apos;ll never want to go
-						back.
+						back. Available soon.
 					</p>
 
 					<PyroButton
@@ -58,7 +58,7 @@ const BetterVPS = () => {
 						external
 						href="https://pyro.host/discord"
 					>
-						Contact Us
+						Join the waitlist
 					</PyroButton>
 				</div>
 				<div className="relative flex w-full flex-col gap-5 md:flex-row">
