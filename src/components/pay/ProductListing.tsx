@@ -59,7 +59,7 @@ const ProductListing = ({
 		<>
 			<Dialog.Root open={open}>
 				<li className="flex h-fit w-full">
-					<form action={formAction} className="contents">
+					<div className="contents">
 						<div
 							className="relative flex w-full flex-col gap-4 break-words rounded-xl border-[#ffffff11] border-[1px] bg-[#ffffff09] p-6 shadow-sm"
 							data-price-id={product.stripeId}
@@ -77,18 +77,18 @@ const ProductListing = ({
 							</h1>
 							{product.description ? <p className="w-full break-words text-sm opacity-50">{product.description}</p> : null}
 							<Dialog.Trigger asChild>
-								{displaySubscribe ? (
+								{/* {displaySubscribe ? (
 									<button
 										className="rounded-full border-[#ffffff12] border-[1px] bg-[#ffffff11] px-8 py-3 font-bold text-sm shadow-md transition-all hover:bg-[#ffffff22]"
 										type="submit"
 									>
 										Subscribe
 									</button>
-								) : null}
+								) : null} */}
 							</Dialog.Trigger>
 						</div>
-					</form>
-					{clientSecret ? (
+					</div>
+					{/* {clientSecret ? (
 						<EmbeddedCheckoutProvider stripe={getStripe()} options={{ clientSecret }}>
 							<Dialog.Portal>
 								<Dialog.Overlay className="stripe-bg-animate-in fixed inset-0 z-[9997] h-screen w-screen bg-[#ffffff11] backdrop-blur-xl" />
@@ -104,7 +104,7 @@ const ProductListing = ({
 								</div>
 							</Dialog.Portal>
 						</EmbeddedCheckoutProvider>
-					) : null}
+					) : null} */}
 				</li>
 			</Dialog.Root>
 		</>
